@@ -14,9 +14,9 @@ TripPlanner is not just another trip planning tool – it's an integrated travel
 - Itinerary dashboard
   - Users can add activities (events, dining, accomodations, etc) to the itineary by selecting them from a list of suggestiongs or from the map
   - Itinerary will generate activity suggestions based on the location of the latest activity of that day.
-- Invite tripmates; users will be able to create trip groups
 - Users can add expenses to keep track of trip budgets
 - Users can rate an activity with a thumbs up or thumbs down; rating will show percentage of users who like the activity
+- Invite tripmates; users will be able to create trip groups
 - Users can upload their photos of the associated activity
 
 ## Technologies and Technical Challenges
