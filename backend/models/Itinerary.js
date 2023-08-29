@@ -11,8 +11,16 @@ const itinerarySchema = new Schema(
         type: Number,
         required: true
     },
+    lng: {
+        type: Number,
+        required: true
+    },
+    lat: {
+        type: Number,
+        required: true
+    },
     author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    partOf: {type: Schema.Types.ObjectId, ref: 'Itinerary', required: false}
+    partOf: {type: Schema.Types.ObjectId, ref: 'Itinerary', required: false},
     }, { timestamps: true }
 );
 

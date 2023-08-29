@@ -18,6 +18,9 @@ require('./config/passport');
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 
+const itinerariesRouter = require('./routes/api/itineraries')
+
+
 const app = express();
 
 app.use(logger('dev')); 
@@ -43,6 +46,7 @@ if (!isProduction) {
 
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+app.use('/api/itineraries', itinerariesRouter);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

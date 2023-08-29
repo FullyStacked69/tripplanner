@@ -33,10 +33,8 @@ passport.use(new JwtStrategy(options, async (jwtPayload, done) => {
   try {
     const user = await User.findById(jwtPayload._id)
     if (user) {
-      // return the user to the frontend
-      return done(null, user);
+          return done(null, user);
     }
-    // return false since there is no user
     return done(null, false);
   }
   catch(err) {
@@ -51,9 +49,9 @@ exports.loginUser = async function(user) {
       email: user.email
     };
     const token = await jwt.sign(
-      userInfo, // payload
-      secretOrKey, // sign with secret key
-      { expiresIn: 3600 } // tell the key to expire in one hour
+      userInfo,
+      secretOrKey, 
+      { expiresIn: 3600 } 
     );
     return {
       user: userInfo,

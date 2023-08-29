@@ -4,15 +4,22 @@ const mongoose = require('mongoose');
 const Itinerary = mongoose.model('Itinerary');
 
 const validateItineraryInput = require('../../validations/itineraries');
-
+const { requireUser } = require('../../config/passport');
+const { isProduction } = require('../../config/keys');
 
 const router = express.Router();
 
 /* GET itineraries listing. */
-router.get('/', function(req, res, next) {
-    res.json({
-      message: "GET /api/itineraries"
-    });
+router.get('/', async (req, res) => {
+  try {
+    const itineraries = await Itinerary.find()
+                              .populate("author", "_id username")
+                              .sort({ createdAt: -1 });
+    return res.json(itineraries);
+  }
+  catch(err) {
+    return res.json([]);
+  }
 });
 
 router.get('/user/:userId', async (req, res, next) => {
@@ -56,7 +63,9 @@ router.get('/user/:userId', async (req, res, next) => {
         title: req.body.title,
         length: req.body.length,
         partOf: req.body.partOf,
-        author: req.user._id
+        author: req.user._id,
+        lng: req.body.lng,
+        lat: req.body.lat
       });
   
       let itinerary = await newItiniterary.save();
