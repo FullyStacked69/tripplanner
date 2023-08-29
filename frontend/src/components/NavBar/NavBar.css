@@ -1,4 +1,25 @@
+
 .nav-bar-container {
     display: flex;
-    height: 64px;
+    height: 60px;
+    border-bottom: 1px solid black; /*just to help me code layout*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 800px;
+}
+
+#signup {
+    border: 1px solid grey;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+#login {
+    margin: 0 16px;
+    font-size: 14px;
 }

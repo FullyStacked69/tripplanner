@@ -20,7 +20,7 @@ export default function App() {
   }, [dispatch]);
 
   return loaded && (
-    <>
+    <div className='page-container'>
       <NavBar />
       <Switch>
         <AuthRoute exact path="/" component={MainPage} />
@@ -28,6 +28,6 @@ export default function App() {
         <AuthRoute exact path="/signup" component={SignupForm} />
         <AuthRoute exact path="/itineraries/plan" component={ItinerariesEditPage} />
       </Switch>
-    </>
+    </div>
   );
 }
