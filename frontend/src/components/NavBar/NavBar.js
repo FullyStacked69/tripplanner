@@ -33,10 +33,10 @@ function NavBar () {
   }
 
   return (
-    <>
-      <h1>Chirper</h1>
+    <div className='nav-bar-container'>
+      <h1>TripPlanner</h1>
       { getLinks() }
-    </>
+    </div>
   );
 }
 
