@@ -2,10 +2,23 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
+import { useEffect, useState } from 'react';
+import { Modal } from '../../context/Modal';
+import LoginForm from '../SessionForms/LoginForm';
+import SignupForm from '../SessionForms/SignupForm';
 
 function NavBar () {
+  console.log("NavBar rendered!");
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
+  
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+
+  useEffect(() => {
+    console.log("showLoginModal changed to", showLoginModal);
+  }, [showLoginModal]);
+
   
   const logoutUser = e => {
       e.preventDefault();
@@ -24,10 +37,20 @@ function NavBar () {
       );
     } else {
       return (
-        <div className="links-auth">
-          <Link id="login" to={'/login'}>Login</Link>
-          <Link id="signup" to={'/signup'}>Sign up</Link>
-        </div>
+        <>
+          <div className="links-auth">
+            <button id="login" onClick={() => setShowLoginModal(true)}>Login</button>
+            <button id="signup" onClick={() => setShowSignupModal(true)}>Sign up</button>
+          </div>
+
+          {/* Modals */}
+          <Modal open={showLoginModal} onClose={() => setShowLoginModal(false)}>
+            <LoginForm />
+          </Modal>
+          <Modal open={showSignupModal} onClose={() => setShowSignupModal(false)}>
+            <SignupForm />
+          </Modal>
+        </>
       );
     }
   }
