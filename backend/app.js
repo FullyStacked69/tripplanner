@@ -9,10 +9,13 @@ const debug = require('debug');
 const { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./models/Itinerary');
+require('./models/Like');
+require('./models/View');
+
 require('./config/passport'); 
 
 const usersRouter = require('./routes/api/users');
-const tweetsRouter = require('./routes/api/tweets');
 const csrfRouter = require('./routes/api/csrf');
 
 const app = express();
@@ -39,7 +42,6 @@ if (!isProduction) {
 
 
 app.use('/api/users', usersRouter);
-app.use('/api/tweets', tweetsRouter);
 app.use('/api/csrf', csrfRouter);
 
 app.use((req, res, next) => {
