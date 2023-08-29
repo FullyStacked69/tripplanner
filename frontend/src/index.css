@@ -38,3 +38,19 @@ h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Inter', sans-serif;
     color: #353c4a;
 }
+
+button {
+    border: 1px solid grey;
+    border-radius: 25px;
+    font-size: 14px;
+    background: #E63946;
+    color: white;
+}
+
+button:hover {
+    box-shadow: 2px 2px 4px #2d333f33;
+}
+
+button:active {
+    box-shadow: inset 0 0px 10px #2d333f33;
+}

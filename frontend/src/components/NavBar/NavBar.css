@@ -13,25 +13,23 @@
 }
 
 #signup {
-    border: 1px solid grey;
     padding: 6px 16px;
-    border-radius: 25px;
-    font-size: 14px;
 }
 
 #login {
-    margin: 0 16px;
-    font-size: 14px;
     border: none;
+    margin: 0 16px;
     background-image: linear-gradient(
       to right,
-      #54b3d6,
-      #54b3d6 50%,
+      #E63946,
+      #E63946 50%,
       #000 50%
     );
     background-size: 200% 100%;
     background-position: -100%;
     -webkit-background-clip: text;
+    -moz-background-clip: text; /* Firefox */
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -40,7 +38,7 @@
 
 #login:before {
     content: '';
-    background: #54b3d6;
+    background: #E63946;
     display: block;
     position: absolute;
     bottom: -3px;
@@ -52,8 +50,10 @@
 
 #login:hover {
     background-position: 0;
+    box-shadow: none;
 }
+
 
 #login:hover::before {
     width: 100%;
-  }
+}
