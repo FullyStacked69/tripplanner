@@ -22,4 +22,38 @@
 #login {
     margin: 0 16px;
     font-size: 14px;
+    border: none;
+    background-image: linear-gradient(
+      to right,
+      #54b3d6,
+      #54b3d6 50%,
+      #000 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
 }
+
+#login:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: width 0.2s ease-in-out;
+  }
+
+#login:hover {
+    background-position: 0;
+}
+
+#login:hover::before {
+    width: 100%;
+  }
