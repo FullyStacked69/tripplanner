@@ -11,10 +11,20 @@ const router = express.Router();
 
 /* GET itineraries listing. */
 router.get('/', async (req, res) => {
+  const {location} = req.query
   try {
-    const itineraries = await Itinerary.find()
-                              .populate("author", "_id username")
-                              .sort({ createdAt: -1 });
+    let itineraries
+    if(location){
+      itineraries = await Itinerary.find({locationName: location})
+                                .populate("author", "_id username")
+                                .sort({ createdAt: -1 });
+    } 
+
+    if(!itineraries){
+      itineraries= await Itinerary.find()
+                                  .populate("author", "_id username")
+                                  .sort({ createdAt: -1 });
+    }
     return res.json(itineraries);
   }
   catch(err) {

@@ -5,7 +5,7 @@ const itinerarySchema = new Schema(
   {
     title: {
         type: String,
-        required: true
+        required: false
     },
     length: {
         type: Number,

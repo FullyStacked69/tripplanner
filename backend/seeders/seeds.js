@@ -18,16 +18,22 @@ users.push(u1)
 const itineraries = [];
 
 const i1 = new Itinerary({
-    title:'Iceland',
+    title:'Iceland: Not actually made of Ice',
     length: 5,
+    locationType: 'country',
+    countryCode: 'IS',
+    locationName: 'Iceland',
     lng:-19.02,
     lat: 64.96,
     author: u1._id
 })
 
 const i2 = new Itinerary({
-    title:'Paris',
+    title:'Paris: Boy it Stinks!',
     length: 3,
+    locationType: 'city',
+    countryCode: 'FR',
+    locationName: 'Paris',
     lng: 2.35,
     lat: 48.85,
     author: u1._id
