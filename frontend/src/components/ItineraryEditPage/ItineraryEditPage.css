@@ -1,0 +1,14 @@
+.page-content-container{
+    display: flex;
+}
+
+#itinerary-section-container {
+    border: 1px solid black; 
+    width: 60%;
+}
+
+#map-section-container {
+    border: 1px solid black;
+    width: 40%;
+    height: 100vh;
+}
