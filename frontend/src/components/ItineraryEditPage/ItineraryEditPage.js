@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItineraryEditPage.css';
+import Places from '../Maps/Maps';
 
 const ItineraryEditPage = () => {
     return (
@@ -10,6 +11,7 @@ const ItineraryEditPage = () => {
             </div>
             <div id='map-section-container'>
                 <p>Map section</p>
+                <Places />
 
             </div>
             
