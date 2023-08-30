@@ -41,6 +41,8 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 button {
     border-radius: 25px;
+    border: none;
+    padding: 6px 16px;
     font-size: 14px;
     background: #E63946;
     color: white;

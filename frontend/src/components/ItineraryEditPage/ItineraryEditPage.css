@@ -3,12 +3,20 @@
 }
 
 #itinerary-section-container {
-    border: 1px solid black; 
-    width: 60%;
+    border: 1px solid black;
+    width: calc(100% - 400px); 
+    max-width: 928px;
+    display: flex;
+}
+
+#sidebar {
+    border: 1px solid black;
+    width: 150px;
 }
 
 #map-section-container {
     border: 1px solid black;
-    width: 40%;
+    min-width: 400px;
+    flex: 1;
     height: 100vh;
 }
