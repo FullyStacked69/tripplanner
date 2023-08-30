@@ -36,8 +36,8 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-container'>
                         <h2>Itinerary</h2>
                         <div id='itineary-days-container'>
-                            {days.map((day) => (
-                                <DayContainer day={day} />
+                            {days.map((day, index) => (
+                                <DayContainer key={index} day={day} index={index} />
                             ))}
                         </div>
                     </div>
