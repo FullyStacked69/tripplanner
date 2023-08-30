@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import SignupForm from '../SessionForms/SignupForm';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom';
 
 function NavBar () {
-  console.log("NavBar rendered!");
+  const location = useLocation();
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
   
@@ -53,7 +54,7 @@ function NavBar () {
   }
 
   return (
-      <div className='nav-bar-container'>
+      <div className={`nav-bar-container ${location.pathname === '/' ? 'max-width' : ''}`}>
         <div className="logo-button">
           <Link to="/">
             <h2>TripPlanner</h2>
