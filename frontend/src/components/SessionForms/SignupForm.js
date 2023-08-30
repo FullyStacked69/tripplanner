@@ -52,47 +52,55 @@ function SignupForm () {
   }
 
   return (
-    <form className="session-form" onSubmit={handleSubmit}>
+    <form className="session-form" id="signup-form" onSubmit={handleSubmit}>
       <h2>Sign Up Form</h2>
-      <div className="errors">{errors?.email}</div>
-      <label>
-        <span>Email</span>
-        <input type="text"
-          value={email}
-          onChange={update('email')}
-          placeholder="Email"
-        />
-      </label>
-      <div className="errors">{errors?.username}</div>
-      <label>
-        <span>Username</span>
-        <input type="text"
-          value={username}
-          onChange={update('username')}
-          placeholder="Username"
-        />
-      </label>
-      <div className="errors">{errors?.password}</div>
-      <label>
-        <span>Password</span>
-        <input type="password"
-          value={password}
-          onChange={update('password')}
-          placeholder="Password"
-        />
-      </label>
-      <div className="errors">
-        {password !== password2 && 'Confirm Password field must match'}
+      <div className='error-container'>
+        <label className='input-container'>
+          <p>Email</p>
+          <input type="text"
+            value={email}
+            onChange={update('email')}
+            placeholder="Email"
+          />
+        </label>
+        <div className="errors">{errors?.email}</div>
       </div>
-      <label>
-        <span>Confirm Password</span>
-        <input type="password"
-          value={password2}
-          onChange={update('password2')}
-          placeholder="Confirm Password"
-        />
-      </label>
-      <input
+      <div className='error-container'>
+        <label className='input-container'>
+          <p>Username</p>
+          <input type="text"
+            value={username}
+            onChange={update('username')}
+            placeholder="Username"
+          />
+        </label>
+        <div className="errors">{errors?.username}</div>
+      </div>
+      <div className='error-container'>
+        <label className='input-container'>
+          <p>Password</p>
+          <input type="password"
+            value={password}
+            onChange={update('password')}
+            placeholder="Password"
+          />
+        </label>
+        <div className="errors">{errors?.password}</div>
+      </div>
+      <div className='error-container'>
+        <label className='input-container'>
+          <p>Confirm Password</p>
+          <input type="password"
+            value={password2}
+            onChange={update('password2')}
+            placeholder="Confirm Password"
+          />
+        </label>
+        <div className="errors">
+          {password !== password2 && 'Confirm Password field must match'}
+        </div>
+      </div>  
+      <input id="signup-form-bttn"
         type="submit"
         value="Sign Up"
         disabled={!email || !username || !password || password !== password2}
