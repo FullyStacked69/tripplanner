@@ -8,7 +8,12 @@ const countries = require('../../json-data/countries.json')
 const allLocations = [...cities, ...countries]
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    let arr = string.split(' ')
+    arr = arr.map((string)=>{
+        return string.toLowerCase().charAt(0).toUpperCase() + string.slice(1);
+    })
+    arr = arr.join(' ')
+    return arr
 }
 
 router.get('/', async (req, res) => {
