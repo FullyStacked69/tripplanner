@@ -15,9 +15,11 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+
   res.json({
     message: "GET /api/users"
   });
+
 });
 
 router.post('/register', validateRegisterInput, async (req, res, next) => {
