@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
+import Markers from '../Maps/Markers';
 
 function MainPage() {
 
@@ -29,7 +30,11 @@ function MainPage() {
                 </div>
                 <div onClick={()=>handleSearch()} className="myButton small-button">Start Planning</div>
             </div>
+
+            {/* <Markers /> */}
+
         </div>
+
         
     );
 }
