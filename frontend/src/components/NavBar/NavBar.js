@@ -57,7 +57,11 @@ function NavBar () {
 
   return (
       <div className='nav-bar-container'>
-        <h2>TripPlanner</h2>
+        <div className="logo-button">
+          <Link to="/">
+            <h2>TripPlanner</h2>
+          </Link>
+        </div>
         { getLinks() }
       </div> 
   );

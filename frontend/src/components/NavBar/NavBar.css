@@ -12,6 +12,11 @@
     min-width: 800px;
 }
 
+.nav-bar-container a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 #signup {
     padding: 6px 16px;
     border: none;
