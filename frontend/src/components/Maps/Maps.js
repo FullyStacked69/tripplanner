@@ -9,9 +9,6 @@ export default function Places() {
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
         libraries: ['places'],
     })
-
-
-
     
     const center = {lat: 37.4245, lng: -122.0782}
     const [map, setMap] = useState(null);
