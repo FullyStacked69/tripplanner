@@ -22,3 +22,22 @@ h5 {
 h6 {
     font-size: 12px;
 }
+
+/* Site wide buttons */
+
+.myButton{
+
+}
+
+.myButton:hover{
+    cursor: pointer;
+}
+
+.small-button{
+    /* Width fixed to content size */
+}
+
+.large-button{
+    /* Width fixed to parent container */
+    width: 100%;
+}
