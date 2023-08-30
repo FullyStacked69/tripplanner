@@ -24,7 +24,7 @@
     padding: 32px;
     border-radius: 10px;
     background: white;
-    margin-top: 64px;
+    margin-top: 32px;
 }
 
 #title-date-container {
@@ -62,17 +62,15 @@
 
 #itinerary-container {
     padding: 32px;
-    margin: 32px 0;
 }
 
 #itinerary-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
 }
 
-#itinerary-container h2 {
-    margin-bottom: 16px;
+#itinerary-header a {
+    margin-top: auto;
 }
 
 /* Day Container */

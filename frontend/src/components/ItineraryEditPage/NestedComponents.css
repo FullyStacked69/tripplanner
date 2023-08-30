@@ -1,0 +1,29 @@
+/* Top Activities Section*/
+/* #popular-activities-section {
+    border: 1px solid pink;
+} */
+
+#popular-activities-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popular-activity-container {
+    margin: 16px 23px 16px 0;
+    width: 31%;
+}
+
+.popular-activity-container:nth-child(3n) {
+    margin-right: 0;
+}
+
+#activity-list {
+    margin: 32px 32px 0;
+    /* border: 1px solid #E7E7E7; */
+}
+
+.activity-name {
+    margin: 8px 0;
+    text-align: center;
+}
+/* Top Activities Section Ends*/

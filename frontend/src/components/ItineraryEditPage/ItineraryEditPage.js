@@ -2,6 +2,8 @@ import React from 'react';
 import './ItineraryEditPage.css';
 import Places from '../Maps/Maps';
 import { DayContainer } from './DayContainer';
+import { ExploreActivitiesTile } from './ExploreActivitiesTile';
+import './NestedComponents.css'
 
 const ItineraryEditPage = () => {
     const days = [
@@ -33,10 +35,24 @@ const ItineraryEditPage = () => {
                             </div>
                         </div>
                     </div>
+                    <div id='popular-activities-section'>
+                        <div id='activity-list'>
+                            <h2>Top locations for [insert location value]</h2> 
+                            
+                            <div id='popular-activities-container'>
+                                <ExploreActivitiesTile />
+                                <ExploreActivitiesTile />
+                                <ExploreActivitiesTile />
+                                <ExploreActivitiesTile />
+                                <ExploreActivitiesTile />
+                                <ExploreActivitiesTile />
+                            </div>
+                        </div>
+                    </div>
                     <div id='itinerary-container'>
                         <div id='itinerary-header'>
                             <h2>Itinerary</h2>
-                            <a>Collapse All</a>
+                            {/* <a>Collapse All</a> */}
                         </div>
                         <div id='itineary-days-container'>
                             {days.map((day, index) => (
