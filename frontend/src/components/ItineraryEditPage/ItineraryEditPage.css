@@ -1,4 +1,4 @@
-.page-content-container{
+.page-content-container {
     display: flex;
 }
 
@@ -20,7 +20,6 @@
 }
 
 #itinerary-tld {
-    /* box-shadow: 0 4px 24px rgba(0,0,0,.2); */
     border: 1px solid #E7E7E7;
     padding: 32px;
     border-radius: 10px;
@@ -62,7 +61,6 @@
 }
 
 #itinerary-container {
-    /* border: 1px solid black; */
     padding: 32px;
     margin: 32px 0;
 }
@@ -71,13 +69,9 @@
     margin-bottom: 16px;
 }
 
-
 /* Day Container */
 .day-container {
-    /* border-left: 1px solid black;
-    border-right: 1px solid black; */
     margin: 16px 0;
-    /* border-bottom: 1px solid black; */
 }
 
 .day-container .day-detail-container {
@@ -87,8 +81,12 @@
 .day-container h3 {
     padding: 0 0 8px;
 }
+
 .content-container {
     width: 80%;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    margin: auto;
 }
 
 .content-container input {
@@ -111,84 +109,49 @@
 
 /* Map Section Container */
 #map-section-container {
-    /* border: 1px solid black; */
     min-width: 400px;
     flex: 1;
     height: 100vh;
 }
 
-/* Itinerary List Styling https://codepen.io/vii120/pen/bGqNVWw */
-.wrapper {
-    width: 7rem;
-    margin: auto;
-    font-family: 'Source Sans Pro', sans-serif;
-    @media (max-width: 768px) {
-      width: auto;
-      padding: 0 0.3rem;
-    }
-  }
-  input[type='radio'] {
-    display: none;
-    &:checked + .item {
-      .title {
-        color: #fff;
-        border-color:  #457B9D;
-        background-color:  #457B9D;
-        &:after {
-          transform: rotate(180deg);
-        }
-      }
-      .content {
-        /* for animation! can use padding or margin here */
-        margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
-        /* show content */
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-        transition: all 0.3s, opacity 0.7s; /*fade-in slow*/
-        display: flex;
-    justify-content: center; /* horizontally centers direct children */
-    align-items: center;
-      }
-    }
-  }
-  .item {
+/* Itinerary List Styling */
+.item {
     display: block;
     margin-bottom: 0.1rem;
-  }
+    cursor: pointer;
+}
 
-  .title {
-    border-radius: 20px;
-    color:  #457B9D;
+.title {
+    border-radius: 30px;
+    color: #457B9D;
     border: 1px solid;
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-    /* aligned arrow */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* arrow icon */
-    &:after {
-      content: '\25bc';
-      display: inline-block;
-      font-size: 12px;
-      margin-right: 16px;
-    }
-  }
-  .content {
-    width: 95%;
-    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.title:hover {
+    background-color: #457B9D;
+    color: white;
+}
+
+.arrow-icon {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 24px;
+    transition: transform 0.3s;
+}
+
+.content {
+    width: 90%;
+    margin: 16px auto;
     padding: 0 0.3rem;
     line-height: 1.6;
-    color:  #457B9D;
+    color: #457B9D;
     border: 1px solid;
     border-width: 0 1px;
-    /* default disappear */
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s; /*fade-out fast*/ 
-  }
-  /* Itinerary List Styling End*/
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
