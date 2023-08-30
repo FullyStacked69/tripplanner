@@ -2,3 +2,21 @@
     margin: auto;
     max-width: 1200px;
 }
+
+#loco-search-holder{
+    position: relative;
+}
+
+.loco-opt-holder{
+    position: absolute;
+}
+
+.loco-opt{
+    background-color: #E63946;
+}
+
+.loco-opt:hover{
+    cursor: pointer;
+    background-color: #ae1d29; 
+    border: 1px solid #550c12; 
+}
