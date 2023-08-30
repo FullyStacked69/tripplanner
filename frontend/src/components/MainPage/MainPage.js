@@ -7,6 +7,7 @@ function MainPage() {
 
     const [searchObj, setSearchObj] = useState({
         location: '',
+        country: '',
         startDate: new Date().toDateString(),
         endDate: new Date().toDateString()
     })
@@ -26,7 +27,17 @@ function MainPage() {
         if(e.target.value){
             const res = await fetch(`/api/locations?location=${e.target.value}`)
             let data = await res.json()
-            setFoundLocos(data.splice(0, 10))
+            setFoundLocos(data.sort((loco1, loco2)=>{
+                if(loco1.pop && loco2.pop){
+                    return loco2.pop - loco1.pop
+                } else if( loco1.pop ) {
+                    return -1
+                } else if (loco2.pop){
+                    return 1
+                } else {
+                    return 0
+                }
+            }).splice(0, 10))
         } else {
             setFoundLocos([])
         }
@@ -34,9 +45,10 @@ function MainPage() {
 
     function LocoOpt(loco){       
         return(
-            <div onMouseDown={() => setSearchObj({...searchObj, location: loco.name})} className='loco-opt'>
+            <div onMouseDown={() => setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)})} className='loco-opt'>
                 <h3>{loco.name}</h3>
                 {(loco.country && <h3>City</h3>) || <h3>Country</h3>}
+                <h3>{loco.country || loco.code}</h3>
             </div>
         )
     }
