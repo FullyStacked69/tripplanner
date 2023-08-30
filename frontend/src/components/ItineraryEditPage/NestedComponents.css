@@ -27,3 +27,42 @@
     text-align: center;
 }
 /* Top Activities Section Ends*/
+
+/* Day Component */
+.day-container {
+    margin: 16px 0;
+}
+
+.day-container .day-detail-container {
+    padding: 16px 25px;
+}
+
+.day-container h3 {
+    padding: 0 0 8px;
+}
+
+.content-container {
+    width: 80%;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    margin: auto;
+}
+
+.content-container input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #E7E7E7;
+    padding: 16px;
+    margin: 16px 0;
+    background: #F1FAEE;
+}
+
+.activity-container {
+    display: flex;
+}
+
+.activity-description {
+    margin-left: 16px;
+}
+/* Day Component End */
