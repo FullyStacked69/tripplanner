@@ -65,6 +65,12 @@
     margin: 32px 0;
 }
 
+#itinerary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 #itinerary-container h2 {
     margin-bottom: 16px;
 }

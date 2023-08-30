@@ -7,7 +7,12 @@ export function DayContainer({ day, index }) {
     return (
         <div className='day-container'>
             <div className='item' onClick={() => setIsOpen(!isOpen)}>
-                <div className='title'>
+                <div className='title' 
+                     style={{ 
+                         backgroundColor: isOpen ? '#457B9D' : 'transparent', 
+                         color: isOpen ? 'white' : '#457B9D'
+                     }}
+                >
                     <div className='day-detail-container'>
                         <h3>{day.date}</h3>                    
                         <h5>{day.places} places</h5>

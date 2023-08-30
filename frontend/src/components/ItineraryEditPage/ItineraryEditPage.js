@@ -34,7 +34,10 @@ const ItineraryEditPage = () => {
                         </div>
                     </div>
                     <div id='itinerary-container'>
-                        <h2>Itinerary</h2>
+                        <div id='itinerary-header'>
+                            <h2>Itinerary</h2>
+                            <a>Collapse All</a>
+                        </div>
                         <div id='itineary-days-container'>
                             {days.map((day, index) => (
                                 <DayContainer key={index} day={day} index={index} />
