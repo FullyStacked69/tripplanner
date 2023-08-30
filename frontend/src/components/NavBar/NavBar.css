@@ -63,3 +63,8 @@
 #login:hover::before {
     width: 100%;
 }
+
+.links-nav button {
+    padding: 6px 16px;
+    border: none;
+}
