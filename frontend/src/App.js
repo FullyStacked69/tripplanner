@@ -23,11 +23,9 @@ export default function App() {
     <div className='page-container'>
       <NavBar />
       <Switch>
-        <AuthRoute exact path="/" component={MainPage} />
-
+        <Route exact path="/" component={MainPage} />
         <AuthRoute exact path="/itineraries/plan" component={ItinerariesEditPage} />
         <Route path="/*" component={NotFound}/>
-
       </Switch>
     </div>
   );
