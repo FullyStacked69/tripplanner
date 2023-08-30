@@ -3,19 +3,70 @@
 }
 
 #itinerary-section-container {
-    border: 1px solid black;
+    box-shadow: 5px 0 10px -3px #00000030;
     width: calc(100% - 400px); 
     max-width: 928px;
     display: flex;
 }
 
+#itinerary-section-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
 #sidebar {
-    border: 1px solid black;
     width: 150px;
+    border-right: 1px solid #E7E7E7;
+}
+
+#itinerary-tld {
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    padding: 32px;
+    border-radius: 10px;
+    background: white;
+    margin-top: 16px;
+}
+
+#title-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#itinerary-tld-bttns {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+
+#members-container {
+    display: flex;
+}
+
+#members-container svg {
+    width: 25px;
+    height: 25px;
+}
+
+#member-icon {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 6px;
+    background: #457B9D;
+    color: white;
+}
+
+#itinerary-container {
+    border: 1px solid black;
+    padding: 32px;
 }
 
 #map-section-container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     min-width: 400px;
     flex: 1;
     height: 100vh;
