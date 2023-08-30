@@ -57,9 +57,9 @@ button:active {
 
 /* Secondary class for buttons to determine size. Useful for Similarly styled buttons for differnt contexts */
 
-.small-button{
-    /* Width fixed to content size */
-}
+/* .small-button{
+    Width fixed to content size
+} */
 
 .large-button{
     /* Width fixed to parent container */
