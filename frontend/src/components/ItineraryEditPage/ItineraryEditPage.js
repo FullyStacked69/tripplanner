@@ -1,8 +1,17 @@
 import React from 'react';
 import './ItineraryEditPage.css';
 import Places from '../Maps/Maps';
+import { DayContainer } from './DayContainer';
 
 const ItineraryEditPage = () => {
+    const days = [
+        { date: "Saturday, September 9th", places: 5 },
+        { date: "Sunday, September 10th", places: 3 },
+        { date: "Monday, September 11th", places: 2 },
+        { date: "Tuesday, September 12th", places: 4 },
+        { date: "Wednesday, September 12th", places: 4 },
+    ];
+
     return (
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
@@ -26,6 +35,11 @@ const ItineraryEditPage = () => {
                     </div>
                     <div id='itinerary-container'>
                         <h2>Itinerary</h2>
+                        <div id='itineary-days-container'>
+                            {days.map((day) => (
+                                <DayContainer day={day} />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
