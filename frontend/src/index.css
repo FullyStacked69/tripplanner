@@ -64,6 +64,7 @@ button:active {
 .large-button{
     /* Width fixed to parent container */
     width: 100%;
+}
 
 .errors {
     font-family: 'Inter', sans-serif;
