@@ -22,7 +22,7 @@
     /* border: 1px solid #E7E7E7; */
 }
 
-.activity-name {
+.popular-activity-name {
     margin: 8px 0;
     text-align: center;
 }
@@ -66,3 +66,49 @@
     margin-left: 16px;
 }
 /* Day Component End */
+
+/* Recommended Activity Tile */
+#recommendations-section {
+    margin-top: 16px;
+}
+
+#recommended-activities-container {
+    margin: 8px 0;
+}
+
+.recommended-activity-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the container */
+    border: 1px solid #E7E7E7;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 45%;
+}
+
+.recommended-activity-container img {
+    width: 52px;
+    height: 50px;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    background: #E7E7E7;
+}
+
+.activity-name {
+    margin: 0 16px; /* Adjust margin as needed */
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to two lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allow text to wrap within the lines */
+    flex: 1; /* Allow flex container to distribute space */
+}
+
+.add-bttn {
+    border: 1px solid #E7E7E7;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 12px;
+}
