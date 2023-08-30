@@ -29,6 +29,10 @@ h6 {
 
 }
 
+.myButton:hover{
+    cursor: pointer;
+}
+
 .small-button{
     /* Width fixed to content size */
 }
