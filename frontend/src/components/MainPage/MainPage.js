@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
+import './MainPage.css'
 
 function MainPage() {
 
@@ -15,7 +16,7 @@ function MainPage() {
     }
     
     return (
-        <div>
+        <div id='content-container'>
             <div id="splash-header">
                 <h1>Travel with confidence, not guesswork.</h1>
                 <h2>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h2>
