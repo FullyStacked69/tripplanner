@@ -8,17 +8,28 @@ function MainPage() {
     const [searchObj, setSearchObj] = useState({
         location: '',
         country: '',
-        startDate: new Date().toDateString(),
-        endDate: new Date().toDateString()
+        startDate: '',
+        endDate: ''
     })
 
     const [foundLocos, setFoundLocos] = useState([])
     const [searchBarFocus, setSearchBarFocus] = useState(false)
     const [searching, setSearching] = useState(false)
+
+    const [searchErrors, setSearchErrors] = useState({
+        year: '',
+        location: ''
+    })
     
     function handleSearch(){
         if(searchObj.location){
-            setSearching(true)
+            if(searchObj.startDate && searchObj.endDate){
+                setSearching(true)
+            } else if (searchObj.startDate){
+                setSearchErrors({...searchErrors, year: 'Please enter an end date'})
+            }
+        } else {
+            setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
         }
     }
 
@@ -71,6 +82,10 @@ function MainPage() {
                     <input type="date" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
                 </div>
                 <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
+                <div className='search-errors'>
+                    {searchErrors.location && <div>{searchErrors.location}</div>}
+                    {searchErrors.year && <div>{searchErrors.year}</div>}
+                </div>
             </div>
             {searching && <ItineraryList searchObj={searchObj}/>}
         </div>
