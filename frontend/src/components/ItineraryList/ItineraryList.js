@@ -114,7 +114,7 @@ export default function ItineraryList({location = 'Iceland', startDate, endDate}
                     <p>{`End date: ${endDate && endDate}`}</p>
                 </div>
                 <div id='itinerary-list-headers'>
-                    <h3>Browse itineraries from fellow travelers</h3>
+                    <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
                 <ul>
