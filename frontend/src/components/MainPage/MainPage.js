@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
+import Markers from '../Maps/Markers';
+
 
 function MainPage() {
+
 
     const [searchObj, setSearchObj] = useState({
         location: '',
@@ -29,7 +32,11 @@ function MainPage() {
                 </div>
                 <div onClick={()=>handleSearch()} className="myButton small-button">Start Planning</div>
             </div>
+
+            {/* <Search /> */}
+
         </div>
+
         
     );
 }
