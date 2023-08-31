@@ -12,28 +12,20 @@ const router = express.Router();
 
 /* GET itineraries listing. */
 router.get('/', async (req, res) => {
-  const { location } = req.query;
+  const { location, itineraryId } = req.query;
   try {
     let itineraries;
+    let itinerary;
     if (location) {
-      itineraries = await Itinerary.find({ locationName: capitalizeFirstLetter(location) })
-        .populate({
-          path: 'days',
-          populate: {
-            path: 'activities',
-            model: 'Activity'
-          }
-        })
+      itineraries = await Itinerary.find({ locationName: location })
+        .populate("author")
         .sort({ createdAt: -1 });
+    } else if (itineraryId) {
+      itinerary = await Itinerary.findById(itineraryId)
+      return res.json(itinerary)
     } else {
       itineraries = await Itinerary.find()
-        .populate({
-          path: 'days',
-          populate: {
-            path: 'activities',
-            model: 'Activity'
-          }
-        })
+        .populate("author")
         .sort({ createdAt: -1 });
     }
     return res.json(itineraries);
