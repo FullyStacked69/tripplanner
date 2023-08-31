@@ -1,0 +1,27 @@
+.itinerary-list-component {
+    border: 1px solid blue;
+    margin: auto;
+    width: 50%;
+    max-width: 1200px;
+}
+
+.selected-trip {
+    border: 1px solid pink;
+    display: flex;
+}
+
+#list-page-content-container {
+    border: 1px solid black;
+}
+
+#itinerary-list-headers {
+    margin: 16px 0;
+    text-align: center;
+}
+
+.itinerary-container {
+    border: 1px solid green;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
