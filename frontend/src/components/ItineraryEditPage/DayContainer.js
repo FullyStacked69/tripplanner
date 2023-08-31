@@ -22,21 +22,15 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
 
     //clear info -> setInfo
 
-    const handleClick = (e) => {
-        e.preventDefault();
-
-        console.log("event", e)
-
-        if (e.target.nodeName === "DIV") {
-            setIsOpen(!isOpen)
-        }
-        
-    }
-
     return (
         <div className='day-container'>
-            <div className='item' onClick={handleClick}>
-                <div className='title' style={{ backgroundColor: isOpen ? '#457B9D' : 'transparent', color: isOpen ? 'white' : '#457B9D'}}>
+            <div className='item'>
+                <div className='title' onClick={() => setIsOpen(!isOpen)}
+                        style={{ 
+                            backgroundColor: isOpen ? '#457B9D' : 'transparent', 
+                            color: isOpen ? 'white' : '#457B9D'
+                        }}
+                    >
                     <div className='day-detail-container'>
                         <h3>{day.date}</h3>                    
                         <h5>{day.places} places</h5>
