@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow, StandaloneSearchBox, useLoadScript, LoadScript} from '@react-google-maps/api';
+import { Autocomplete, } from '@react-google-maps/api';
 
 
 const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
