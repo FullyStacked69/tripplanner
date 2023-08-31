@@ -11,7 +11,8 @@
 }
 
 #list-page-content-container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    background: #F1FAEE;
 }
 
 .itinerary-list-component ul {
