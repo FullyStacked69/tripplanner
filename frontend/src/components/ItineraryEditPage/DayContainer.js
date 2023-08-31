@@ -17,12 +17,6 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
     ]
     const [info, setInfo] = useState(false);
 
-    console.log(info)
-
-
-
-    //clear info -> setInfo
-
     return (
         <div className='day-container'>
             <div className='item'>

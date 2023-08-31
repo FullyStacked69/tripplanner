@@ -1,12 +1,12 @@
-import './ItineraryList.css'
-import React, {useEffect } from 'react';
+import './ItineraryList.css';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchItineraries } from '../../store/itineraries';
-import {ItineraryTile} from './ItineraryTile'
+import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
 
-export default function ItineraryList({location = 'Iceland', startDate, endDate}){
-
+export default function ItineraryList({ searchObj }) {
+    const { startDate, endDate, location } = searchObj;
     const dispatch = useDispatch();
     // const itineraries = useSelector(state => state.itineraries);
     // const itineraries = useSelector(state => state.itineraries);
@@ -102,11 +102,13 @@ export default function ItineraryList({location = 'Iceland', startDate, endDate}
       
 
     useEffect(() => {
-        dispatch(fetchItineraries(location))
-    }, [dispatch, location])
+        dispatch(fetchItineraries(location));
+    }, [dispatch, location]);
+
 
     return(
         <div id='list-page-content-container'>
+            <ItinerarySearch/>
             <div className="itinerary-list-component">
                 <div className='selected-trip'>
                     <p>{`Location: ${location}`}</p>
