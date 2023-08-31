@@ -19,7 +19,7 @@ const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 
 const itinerariesRouter = require('./routes/api/itineraries')
-
+const locationsRouter = require('./routes/api/locations')
 
 const app = express();
 
@@ -43,10 +43,10 @@ if (!isProduction) {
     app.use(cors());
 }
 
-
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
 app.use('/api/itineraries', itinerariesRouter);
+app.use('/api/locations', locationsRouter);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

@@ -1,0 +1,799 @@
+[
+    {
+      "name": "Hong Kong",
+      "country": "CN",
+      "lat": "22.2793278",
+      "lng": "114.1628131",
+      "pop": 7496981
+    },
+    { 
+      "name": "Bangkok",
+      "country": "TH",
+      "lat": "13.7563309",
+      "lng": "100.5017651",
+      "pop": 8305218
+    },
+    {
+      "name": "London",
+      "country": "GB",
+      "lat": "51.5073219",
+      "lng": "-0.1276474",
+      "pop": 8982000
+    },
+    {
+      
+      "name": "Macau",
+      "country": "CN",
+      "lat": "22.198745",
+      "lng": "113.543873",
+      "pop": 667400
+    },
+    {
+      
+      "name": "Singapore",
+      "country": "SG",
+      "lat": "1.352083",
+      "lng": "103.819836",
+      "pop": 5638700
+    },
+    {
+      
+      "name": "Paris",
+      "country": "FR",
+      "lat": "48.856613",
+      "lng": "2.352222",
+      "pop": 2140526
+    },
+    {
+      
+      "name": "Dubai",
+      "country": "AE",
+      "lat": "25.276987",
+      "lng": "55.296249",
+      "pop": 3137000
+    },
+    {
+      
+      "name": "New York name",
+      "country": "US",
+      "lat": "40.712776",
+      "lng": "-74.005974",
+      "pop": 8336817
+    },
+    {
+      
+      "name": "Kuala Lumpur",
+      "country": "MY",
+      "lat": "3.139003",
+      "lng": "101.686855",
+      "pop": 1808922
+    },
+    {
+      
+      "name": "Istanbul",
+      "country": "TR",
+      "lat": "41.008238",
+      "lng": "28.978359",
+      "pop": 15029231
+    },
+    {
+      
+      "name": "Delhi",
+      "country": "IN",
+      "lat": "28.613939",
+      "lng": "77.209021",
+      "pop": 31420000
+    },
+    {
+      
+      "name": "Antalya",
+      "country": "TR",
+      "lat": "36.896890",
+      "lng": "30.713324",
+      "pop": 2360741
+    },
+    {
+      
+      "name": "Shenzhen",
+      "country": "CN",
+      "lat": "22.543096",
+      "lng": "114.057865",
+      "pop": 12304849
+    },
+    {
+      
+      "name": "Mumbai",
+      "country": "IN",
+      "lat": "19.076090",
+      "lng": "72.877426",
+      "pop": 22872557
+    },
+    {
+      
+      "name": "Phuket",
+      "country": "TH",
+      "lat": "7.880448",
+      "lng": "98.392250",
+      "pop": 416582
+    },
+    {
+      
+      "name": "Rome",
+      "country": "IT",
+      "lat": "41.902782",
+      "lng": "12.496366",
+      "pop": 2868848
+    },
+    {
+      
+      "name": "Tokyo",
+      "country": "JP",
+      "lat": "35.689487",
+      "lng": "139.691711",
+      "pop": 13942856
+    },
+    {
+      
+      "name": "Pattaya",
+      "country": "TH",
+      "lat": "12.923555",
+      "lng": "100.882224",
+      "pop": 107406
+    },
+    {
+      
+      "name": "Taipei",
+      "country": "TW",
+      "lat": "25.032969",
+      "lng": "121.565418",
+      "pop": 2605970
+    },
+    {
+      
+      "name": "Mecca",
+      "country": "SA",
+      "lat": "21.389082",
+      "lng": "39.857912",
+      "pop": 1675361
+    },
+    {
+      
+      "name": "Guangzhou",
+      "country": "CN",
+      "lat": "23.129110",
+      "lng": "113.264385",
+      "pop": 13926906
+    },
+    {
+      
+      "name": "Prague",
+      "country": "CZ",
+      "lat": "50.075538",
+      "lng": "14.437800",
+      "pop": 1295211
+    },
+    {
+      
+      "name": "Medina",
+      "country": "SA",
+      "lat": "24.524654",
+      "lng": "39.569180",
+      "pop": 1589221
+    },
+    {
+      
+      "name": "Seoul",
+      "country": "KR",
+      "lat": "37.566535",
+      "lng": "126.977969",
+      "pop": 9765623
+    },
+    {
+      
+      "name": "Amsterdam",
+      "country": "NL",
+      "lat": "52.367573",
+      "lng": "4.904138",
+      "pop": 872680
+    },
+    {
+      
+      "name": "Agra",
+      "country": "IN",
+      "lat": "27.176670",
+      "lng": "78.008074",
+      "pop": 1585704
+    },
+    {
+      
+      "name": "Miami",
+      "country": "US",
+      "lat": "25.761680",
+      "lng": "-80.191790",
+      "pop": 463347
+    },
+    {
+      
+      "name": "Osaka",
+      "country": "JP",
+      "lat": "34.693737",
+      "lng": "135.502165",
+      "pop": 2683381
+    },
+    {
+      
+      "name": "Los Angeles",
+      "country": "US",
+      "lat": "34.052235",
+      "lng": "-118.243683",
+      "pop": 3977683
+    },
+    {
+      
+      "name": "Shanghai",
+      "country": "CN",
+      "lat": "31.230416",
+      "lng": "121.473701",
+      "pop": 27367000
+    },
+    {
+      
+      "name": "Ho Chi Minh name",
+      "country": "VN",
+      "lat": "10.823099",
+      "lng": "106.629664",
+      "pop": 8900821
+    },
+    {
+      
+      "name": "Denpasar",
+      "country": "ID",
+      "lat": "-8.670458",
+      "lng": "115.212629",
+      "pop": 788589
+    },
+    {
+      
+      "name": "Barcelona",
+      "country": "ES",
+      "lat": "41.385064",
+      "lng": "2.173404",
+      "pop": 1621537
+    },
+    {
+      
+      "name": "Las Vegas",
+      "country": "US",
+      "lat": "36.169941",
+      "lng": "-115.139832",
+      "pop": 648224
+    },
+    {
+      
+      "name": "Milan",
+      "country": "IT",
+      "lat": "45.464204",
+      "lng": "9.189982",
+      "pop": 1351562
+    },
+    {
+      
+      "name": "Chennai",
+      "country": "IN",
+      "lat": "13.082680",
+      "lng": "80.270721",
+      "pop": 7088000
+    },
+    {
+      
+      "name": "Vienna",
+      "country": "AT",
+      "lat": "48.208176",
+      "lng": "16.373819",
+      "pop": 1921153
+    },
+    {
+      
+      "name": "Johor Bahru",
+      "country": "MY",
+      "lat": "1.492659",
+      "lng": "103.741359",
+      "pop": 497067
+    },
+    {
+      
+      "name": "Jaipur",
+      "country": "IN",
+      "lat": "26.912434",
+      "lng": "75.787271",
+      "pop": 3073350
+    },
+    {
+      
+      "name": "Cancun",
+      "country": "MX",
+      "lat": "21.161908",
+      "lng": "-86.851528",
+      "pop": 628306
+    },
+    {
+      
+      "name": "Berlin",
+      "country": "DE",
+      "lat": "52.520008",
+      "lng": "13.404954",
+      "pop": 3769495
+    },
+    {
+      
+      "name": "Cairo",
+      "country": "EG",
+      "lat": "30.044420",
+      "lng": "31.235712",
+      "pop": 10230350
+    },
+    {
+      
+      "name": "Athens",
+      "country": "GR",
+      "lat": "37.983810",
+      "lng": "23.727539",
+      "pop": 664046
+    },
+    {
+      
+      "name": "Orlando",
+      "country": "US",
+      "lat": "28.538336",
+      "lng": "-81.379236",
+      "pop": 2857135
+    },
+    {
+      
+      "name": "Moscow",
+      "country": "RU",
+      "lat": "55.755826",
+      "lng": "37.617300",
+      "pop": 12692466
+    },
+    {
+      
+      "name": "Venice",
+      "country": "IT",
+      "lat": "45.434336",
+      "lng": "12.338784",
+      "pop": 261905
+    },
+    {
+      
+      "name": "Madrid",
+      "country": "ES",
+      "lat": "40.416775",
+      "lng": "-3.703790",
+      "pop": 3266126
+    },
+    {
+      
+      "name": "Ha Long",
+      "country": "VN",
+      "lat": "20.950035",
+      "lng": "107.073312",
+      "pop": 210350
+    },
+    {
+      
+      "name": "Riyadh",
+      "country": "SA",
+      "lat": "24.713552",
+      "lng": "46.675296",
+      "pop": 7936366
+    },
+    {
+      
+      "name": "Dublin",
+      "country": "IE",
+      "lat": "53.349805",
+      "lng": "-6.260309",
+      "pop": 554554
+    },
+    {
+      
+      "name": "Florence",
+      "country": "IT",
+      "lat": "43.769560",
+      "lng": "11.255814",
+      "pop": 382258
+    },
+    {
+      
+      "name": "Ha Noi",
+      "country": "VN",
+      "lat": "21.028511",
+      "lng": "105.854444",
+      "pop": 7785000
+    },
+    {
+      
+      "name": "Toronto",
+      "country": "CA",
+      "lat": "43.653226",
+      "lng": "-79.383184",
+      "pop": 2930000
+    },
+    {
+      
+      "name": "Johannesburg",
+      "country": "ZA",
+      "lat": "-26.204103",
+      "lng": "28.047304",
+      "pop": 4434827
+    },
+    {
+      
+      "name": "Sydney",
+      "country": "AU",
+      "lat": "-33.868820",
+      "lng": "151.209296",
+      "pop": 5230330
+    },
+    {
+      
+      "name": "Munich",
+      "country": "DE",
+      "lat": "48.135125",
+      "lng": "11.581981",
+      "pop": 1471508
+    },
+    {
+      
+      "name": "Jakarta",
+      "country": "ID",
+      "lat": "-6.208763",
+      "lng": "106.845599",
+      "pop": 10770487
+    },
+    {
+      
+      "name": "Beijing",
+      "country": "CN",
+      "lat": "39.904202",
+      "lng": "116.407394",
+      "pop": 21540000
+    },
+    {
+      
+      "name": "St. Petersburg",
+      "country": "RU",
+      "lat": "59.934280",
+      "lng": "30.335098",
+      "pop": 5398064
+    },
+    {
+      
+      "name": "Brussels",
+      "country": "BE",
+      "lat": "50.850346",
+      "lng": "4.351721",
+      "pop": 1209000
+    },
+    {
+      
+      "name": "Jerusalem",
+      "country": "IL",
+      "lat": "31.768319",
+      "lng": "35.213710",
+      "pop": 93150
+    },
+    {
+      
+      "name": "Budapest",
+      "country": "HU",
+      "lat": "47.497912",
+      "lng": "19.040235",
+      "pop": 1757618
+    },
+    {
+      
+      "name": "Lisbon",
+      "country": "PT",
+      "lat": "38.722252",
+      "lng": "-9.139337",
+      "pop": 505526
+    },
+    {
+      
+      "name": "Dammam",
+      "country": "SA",
+      "lat": "26.392666",
+      "lng": "49.977714",
+      "pop": 768602
+    },
+    {
+      
+      "name": "Penang Island",
+      "country": "MY",
+      "lat": "5.416393",
+      "lng": "100.332679",
+      "pop": 738500
+    },
+    {
+      
+      "name": "Heraklion",
+      "country": "GR",
+      "lat": "35.338735",
+      "lng": "25.144213",
+      "pop": 140730
+    },
+    {
+      
+      "name": "Kyoto",
+      "country": "JP",
+      "lat": "35.011636",
+      "lng": "135.768029",
+      "pop": 1475290
+    },
+    {
+      
+      "name": "Zhuhai",
+      "country": "CN",
+      "lat": "22.270978",
+      "lng": "113.576677",
+      "pop": 1675313
+    },
+    {
+      
+      "name": "Vancouver",
+      "country": "CA",
+      "lat": "49.282730",
+      "lng": "-123.120735",
+      "pop": 631486
+    },
+    {
+      
+      "name": "Chiang Mai",
+      "country": "TH",
+      "lat": "18.788185",
+      "lng": "98.985834",
+      "pop": 1484773
+    },
+    {
+      
+      "name": "Copenhagen",
+      "country": "DK",
+      "lat": "55.676097",
+      "lng": "12.568337",
+      "pop": 1346482
+    },
+    {
+      
+      "name": "San Francisco",
+      "country": "US",
+      "lat": "37.774929",
+      "lng": "-122.419418",
+      "pop": 870887
+    },
+    {
+      
+      "name": "Melbourne",
+      "country": "AU",
+      "lat": "-37.813628",
+      "lng": "144.963058",
+      "pop": 5078193
+    },
+    {
+      
+      "name": "Krakow",
+      "country": "PL",
+      "lat": "50.064651",
+      "lng": "19.944981",
+      "pop": 769498
+    },
+    {
+      
+      "name": "Marrakech",
+      "country": "MA",
+      "lat": "31.629472",
+      "lng": "-7.981084",
+      "pop": 928850
+    },
+    {
+      
+      "name": "Kolkatta",
+      "country": "IN",
+      "lat": "22.572646",
+      "lng": "88.363895",
+      "pop": 4631392
+    },
+    {
+      
+      "name": "Cebu",
+      "country": "PH",
+      "lat": "10.315699",
+      "lng": "123.885437",
+      "pop": 922611
+    },
+    {
+      
+      "name": "Auckland",
+      "country": "NZ",
+      "lat": "-36.848459",
+      "lng": "174.763331",
+      "pop": 1494883
+    },
+    {
+      
+      "name": "Tel Aviv",
+      "country": "IL",
+      "lat": "32.085300",
+      "lng": "34.781768",
+      "pop": 451523
+    },
+    {
+      
+      "name": "Guilin",
+      "country": "CN",
+      "lat": "25.234479",
+      "lng": "110.179953",
+      "pop": 677425
+    },
+    {
+      
+      "name": "Honolulu",
+      "country": "US",
+      "lat": "21.306944",
+      "lng": "-157.858333",
+      "pop": 371657
+    },
+    {
+      
+      "name": "Hurgada",
+      "country": "EG",
+      "lat": "27.257895",
+      "lng": "33.811606",
+      "pop": 384336
+    },
+    {
+      
+      "name": "Warsaw",
+      "country": "PL",
+      "lat": "52.229676",
+      "lng": "21.012229",
+      "pop": 1790658
+    },
+    {
+      
+      "name": "Mugla",
+      "country": "TR",
+      "lat": "37.216668",
+      "lng": "28.363611",
+      "pop": 630101
+    },
+    {
+      
+      "name": "Buenos Aires",
+      "country": "AR",
+      "lat": "-34.603684",
+      "lng": "-58.381559",
+      "pop": 2890151
+    },
+    {
+      
+      "name": "Chiba",
+      "country": "JP",
+      "lat": "35.607267",
+      "lng": "140.106448",
+      "pop": 979768
+    },
+    {
+      
+      "name": "Frankfurt",
+      "country": "DE",
+      "lat": "50.110922",
+      "lng": "8.682127",
+      "pop": 746878
+    },
+    {
+      
+      "name": "Stockholm",
+      "country": "SE",
+      "lat": "59.329324",
+      "lng": "18.068581",
+      "pop": 1632798
+    },
+    {
+      
+      "name": "Lima",
+      "country": "PE",
+      "lat": "-12.046373",
+      "lng": "-77.042754",
+      "pop": 9127000
+    },
+    {
+      
+      "name": "Da Nang",
+      "country": "VN",
+      "lat": "16.054407",
+      "lng": "108.202167",
+      "pop": 1222997
+    },
+    {
+      
+      "name": "Batam",
+      "country": "ID",
+      "lat": "1.045626",
+      "lng": "104.030454",
+      "pop": 1867329
+    },
+    {
+      
+      "name": "Nice",
+      "country": "FR",
+      "lat": "43.710173",
+      "lng": "7.261953",
+      "pop": 341218
+    },
+    {
+      
+      "name": "Fukuoka",
+      "country": "JP",
+      "lat": "33.590355",
+      "lng": "130.401716",
+      "pop": 1559663
+    },
+    {
+      
+      "name": "Abu Dhabi",
+      "country": "AE",
+      "lat": "24.453884",
+      "lng": "54.377343",
+      "pop": 1250000
+    },
+    {
+      
+      "name": "Jeju",
+      "country": "KR",
+      "lat": "33.499621",
+      "lng": "126.531188",
+      "pop": 632094
+    },
+    {
+      
+      "name": "Porto",
+      "country": "PT",
+      "lat": "41.157944",
+      "lng": "-8.629105",
+      "pop": 237559
+    },
+    {
+      
+      "name": "Rhodes",
+      "country": "GR",
+      "lat": "36.434963",
+      "lng": "28.217483",
+      "pop": 56147
+    },
+    {
+      
+      "name": "Rio de Janeiro",
+      "country": "BR",
+      "lat": "-22.906847",
+      "lng": "-43.172896",
+      "pop": 6747815
+    },
+    {
+      
+      "name": "Krabi",
+      "country": "TH",
+      "lat": "8.086300",
+      "lng": "98.906283",
+      "pop": 32210
+    },
+    {
+      "name": "Bangalore",
+      "country": "IN",
+      "lat": "12.971599",
+      "lng": "77.594566",
+      "pop": 11376706
+    }
+  ]
+  
