@@ -7,23 +7,26 @@ import { RecommendedActivityTile } from './RecommendedActivityTile';
 
 export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter}) {
     const [isOpen, setIsOpen] = useState(false);
-    const sampleActivities = [
+    const [hovered, setHovered] = useState()
+;    const sampleActivities = [
         { image: "", name: "Test name 1" },
         { image: "", name: "Test name 2"  },
         { image: "", name: "Test name 3"  },
         { image: "", name: "Test name 4"  },
         { image: "", name: "Test name 5"  },
     ]
-    const [info, setInfo] = useState({});
+    const [info, setInfo] = useState(false);
 
     return (
         <div className='day-container'>
             <div className='item'>
                 <div className='title' onClick={() => setIsOpen(!isOpen)}
-                        style={{ 
-                            backgroundColor: isOpen ? '#457B9D' : 'transparent', 
-                            color: isOpen ? 'white' : '#457B9D'
-                        }}
+                        style={{
+                            backgroundColor: isOpen || hovered ? "#457B9D" : "transparent",
+                            color: isOpen || hovered ? "white" : "#457B9D",
+                          }}
+                          onMouseEnter={() => setHovered(true)}
+                          onMouseLeave={() => setHovered(false)}
                     >
                     <div className='day-detail-container'>
                         <h3>{day.date}</h3>                    

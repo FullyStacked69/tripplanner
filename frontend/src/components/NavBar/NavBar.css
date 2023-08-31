@@ -17,6 +17,7 @@
 .nav-bar-container a {
     cursor: pointer;
     text-decoration: none;
+    color: #353c4a;
 }
 
 #signup {
