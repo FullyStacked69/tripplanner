@@ -5,11 +5,12 @@ import { useState } from 'react';
 const MarkerInfoWindow = ({position,idx, place}) => {
 
     const [isOpen, setIsOpen] = useState(true);
+    console.log('idx', idx)
 
     return (
         <>
 
-            <Marker key={idx} position={position} onClick={() => setIsOpen(true)}/>
+            <Marker key={idx} position={position} label={idx} onClick={() => setIsOpen(true)}/>
             { isOpen &&  <InfoWindow  position={{lat:position.lat + 0.01, lng:position.lng }} onCloseClick={() => setIsOpen(false)}>
                 <div>
                     <h3>{place.name}</h3>

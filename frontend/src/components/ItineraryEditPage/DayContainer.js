@@ -16,16 +16,24 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
     ]
     const [info, setInfo] = useState({});
 
-    console.log(info)
+    // console.log("place",info?.photos?.[0] || "")
 
 
 
     //clear info -> setInfo
+    const clear = () => {
+        setInfo = []
+    }
+
+    const handleAdd = (e) => {
+        e.preventDefault();
+        
+    }
 
     const handleClick = (e) => {
         e.preventDefault();
 
-        console.log("event", e)
+        // console.log("event", e)
 
         if (e.target.nodeName === "DIV") {
             setIsOpen(!isOpen)
@@ -48,9 +56,10 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                 <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='content-container'>
                         <input placeholder='You dont have a place to stay yet!'></input>
-                        <ActivityContainer info={info} />
+                        <ActivityContainer info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions}/>
                         <input placeholder='Add activities for your trip here'></input>
                         <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo}/>
+                        {/* <button> + </button> */}
 
                         <div>
                             
