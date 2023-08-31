@@ -69,8 +69,23 @@
     width: 100%;
 }
 
-.title h3 {
+.itinerary h3 {
     padding: 0 0 16px;
+}
+
+.itinerary-content h3 {
+    margin-bottom: 8px;
+}
+.itinerary {
+    border-radius: 30px;
+    color: #457B9D;
+    /* border: 1px solid; */
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .content-container {
@@ -88,4 +103,8 @@
     padding: 16px;
     margin: 16px 0;
     background: #F1FAEE;
+}
+
+.itinerary-content {
+    color: #457B9D;
 }

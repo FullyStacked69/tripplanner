@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import thumbsIcon from './assets/thumbs-up.png'
 
 export function ItineraryTile({itinerary}) {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +11,10 @@ export function ItineraryTile({itinerary}) {
     return (
         <div className='main-itinerary-container'>
             <div className='item'>
-                <div className='title' onClick={() => setIsOpen(!isOpen)}
+                <div className='itinerary' onClick={() => setIsOpen(!isOpen)}
                         style={{
-                            backgroundColor: isOpen || hovered ? "#457B9D" : "transparent",
-                            color: isOpen || hovered ? "white" : "#457B9D",
+                            backgroundColor: isOpen || hovered ? "#457B9D" : "#A8DADC",
+                            color: isOpen || hovered ? "white" : "#1D3557",
                           }}
                           onMouseEnter={() => setHovered(true)}
                           onMouseLeave={() => setHovered(false)}
@@ -27,7 +28,7 @@ export function ItineraryTile({itinerary}) {
                                     <p>By: {itinerary.author}</p>
                                 </div>
                                 <div className='itinerary-detail-container'>
-                                    {/* <img src="./assets/thumbs-up.png" alt="Thumbs up icon" width="500" height="600" /> */}
+                                    <img src={thumbsIcon} alt="Thumbs up icon" width="13" height="15" />
                                     <p>{itinerary.likes}</p>
                                 </div>
                                 <div className='itinerary-detail-container'>
@@ -40,7 +41,7 @@ export function ItineraryTile({itinerary}) {
                     <span className='arrow-icon'>{isOpen ? '\u25b2' : '\u25bc'}</span>
                 </div>
 
-                <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
+                <div className='itinerary-content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='itinerary-content-container'>                  
                             {Object.keys(itinerary.days).map(dayNumber => (
                                 <div key={dayNumber}>
