@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchItineraries } from '../../store/itineraries';
 
-export default function ItineraryList({location, startDate, endDate}){
+export default function ItineraryList({location = 'Iceland', startDate, endDate}){
+
     const dispatch = useDispatch();
     const itineraries = useSelector(state => state.itineraries);
 
@@ -16,8 +17,8 @@ export default function ItineraryList({location, startDate, endDate}){
         <div className="itinerary-list-component">
             <div className='selected-trip'>
                 <p>{`Location: ${location}`}</p>
-                <p>{`Start date: ${startDate}`}</p>
-                <p>{`End date: ${endDate}`}</p>
+                <p>{`Start date: ${startDate && startDate}`}</p>
+                <p>{`End date: ${endDate && endDate}`}</p>
             </div>
             <div>
                 <p>Browse itineraries from fellow travelers</p>
@@ -27,7 +28,7 @@ export default function ItineraryList({location, startDate, endDate}){
                 {itineraries.map(itinerary => (
                     <li key={itinerary._id}>
                         <p>{itinerary.title}</p>
-                        {/* ... other itinerary details */}
+                        {console.log(itinerary)}
                     </li>
                 ))}
             </ul>
