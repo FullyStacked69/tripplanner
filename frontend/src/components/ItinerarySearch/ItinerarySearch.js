@@ -17,6 +17,7 @@ export default function ItinerarySearch(){
         endDate: '',
         searching: false
     })
+
     useEffect(()=>{
         
     },[searchObj])
@@ -33,12 +34,12 @@ export default function ItinerarySearch(){
     function handleSearch(){
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
-                setSearchObj({...searchObj, searching: true})
+                setSearchObj(prev => ({...prev, searching: true}))
                 dispatch(setSearchObjRedux(searchObj))
             } else if (searchObj.startDate){
                 setSearchErrors({...searchErrors, year: 'Please enter an end date'})
             } else if (!searchObj.startDate && !searchObj.endDate){
-                setSearchObj({...searchObj, searching: true})
+                setSearchObj(prev => ({...prev, searching: true}))
                 dispatch(setSearchObjRedux(searchObj))
             }
         } else {
@@ -47,7 +48,7 @@ export default function ItinerarySearch(){
     }
 
     const handleInputChange = async e => {
-        await setSearchObj({...searchObj, location: e.target.value})
+        await setSearchObj(prev => ({...prev, location: e.target.value}))
         if(e.target.value){
             const res = await fetch(`/api/locations?location=${e.target.value}`)
             let data = await res.json()
@@ -101,8 +102,8 @@ export default function ItinerarySearch(){
             },
             setup(picker) {
                 picker.on('select', e => {
-                    setSearchObj({...searchObj, startDate: e.detail.start, endDate: e.detail.end})
-                    // console.log(e)
+                    setSearchObj(prev => ({...prev, startDate: e.detail.start, endDate: e.detail.end}))
+                    
                 })
             },
             format: "DD MMM YYYY",
