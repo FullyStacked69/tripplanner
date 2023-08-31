@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import thumbsIcon from './assets/thumbs-up.png'
 
-export function ItineraryTile({itinerary}) {
+export default function ItineraryTile({itinerary}) {
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState()
 
@@ -44,12 +43,13 @@ export function ItineraryTile({itinerary}) {
 
                 <div className='itinerary-content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='itinerary-content-container'>                  
-                            {Object.keys(itinerary.days).map(dayNumber => (
-                                <div key={dayNumber}>
-                                    <h3>Day {dayNumber}</h3>
-                                    <p>{itinerary.days[dayNumber].join(', ')}</p>
+                            {Object.keys(itinerary.days).map(day => (
+                                <div key={day._id}>
+                                    <h3>Day {day}</h3>
+                                    <p>{itinerary.days[day].join(', ')}</p>
                                 </div>
                             ))}
+                            {/* <p>Accommodation: {day.accommodation}</p> */}
                     </div>
                 </div>
             </div>

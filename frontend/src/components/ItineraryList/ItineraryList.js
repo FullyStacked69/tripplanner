@@ -3,7 +3,7 @@ import React, {useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchItineraries } from '../../store/itineraries';
-import {ItineraryTile} from './ItineraryTile'
+import ItineraryTile from './ItineraryTile';
 
 export default function ItineraryList({location = 'Iceland', startDate, endDate}){
 
