@@ -2,6 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 const Itinerary = mongoose.model('Itinerary');
+const Day = mongoose.model('Day');
 
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
@@ -10,37 +11,48 @@ const { capitalizeFirstLetter } = require('./locations');
 
 const router = express.Router();
 
-/* GET itineraries listing. */
+// router.get('/', async (req, res) => {
+//   try {
+//     const itineraries = await Itinerary.find()
+//       .populate("author", "_id username")
+//       .sort({ createdAt: -1 });
+//     return res.json(itineraries);
+//   }
+//   catch (err) {
+//     return res.json([]);
+//   }
+// });
+
+
 router.get('/', async (req, res) => {
   const { location } = req.query;
   try {
     let itineraries;
     if (location) {
-      itineraries = await Itinerary.find({ locationName: capitalizeFirstLetter(location) })
-        .populate({
-          path: 'days',
-          populate: {
-            path: 'activities',
-            model: 'Activity'
-          }
-        })
+      itineraries = await Itinerary.find({ locationName: location })
+        .populate('days')
+        .populate('author', '_id username')
+        // .populate('days')
+        
+        // Populate author and select only the username
         .sort({ createdAt: -1 });
     } else {
       itineraries = await Itinerary.find()
-        .populate({
-          path: 'days',
-          populate: {
-            path: 'activities',
-            model: 'Activity'
-          }
-        })
+        .populate('days')
+        .populate('author', '_id username')
+      
         .sort({ createdAt: -1 });
     }
+    
+    
+
     return res.json(itineraries);
   } catch (err) {
-    return res.json([]);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 router.get('/user/:userId', async (req, res, next) => {
     let user;
