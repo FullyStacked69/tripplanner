@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow, StandaloneSearchBox, useLoadScript, LoadScript} from '@react-google-maps/api';
 
 
-const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}) => {
+const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
     // console.log(map)
 
     
@@ -29,8 +29,9 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}
             // console.log("CHECK",place)
             setMarkersPositions([...markersPositions, place]);
             setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
-            setInfo(place)
-            setInputValue("")
+            setInfo(place);
+            setInputValue("");
+            // setActivities(place)
 
         }
     };
@@ -92,7 +93,7 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}
 
     return (
         <>  
-            <DirectionsRenderer directions={directionRes}  />
+            {/* <DirectionsRenderer directions={directionRes}  /> */}
             <div>
                 <Autocomplete 
                     onLoad={(ref) => originAutocompleteRef.current = ref}

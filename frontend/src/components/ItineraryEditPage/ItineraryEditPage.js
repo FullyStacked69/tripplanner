@@ -107,7 +107,7 @@ const ItineraryEditPage = () => {
                 >
                     {/* <Marker position={center} /> */}
                     {/* <Marker position={{lat:37.96, lng:-122.0296}} /> */}
-                    {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
+                    {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} idx={idx} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
                     {/* <InfoWindow /> */}
                 </GoogleMap>
         </div>

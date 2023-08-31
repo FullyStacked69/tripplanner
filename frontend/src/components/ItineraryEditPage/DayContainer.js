@@ -15,8 +15,13 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 5"  },
     ]
     const [info, setInfo] = useState({});
+    const [activities, setActivities] = useState([]);
+
+
+
 
     // console.log("place",info?.photos?.[0] || "")
+    console.log('activities',activities)
 
 
 
@@ -42,9 +47,9 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                 <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='content-container'>
                         <input placeholder='You dont have a place to stay yet!'></input>
-                        <ActivityContainer info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions}/>
-                        <input placeholder='Add activities for your trip here'></input>
-                        <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo}/>
+                        <ActivityContainer info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
+                        {/* <input placeholder='Add activities for your trip here'></input> */}
+                        <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
                         {/* <button> + </button> */}
 
                         <div>
