@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
+import { RecommendedActivityTile } from './RecommendedActivityTile';
 
 export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter}) {
     const [isOpen, setIsOpen] = useState(false);
+    const sampleActivities = [
+        { image: "", name: "Test name 1" },
+        { image: "", name: "Test name 2"  },
+        { image: "", name: "Test name 3"  },
+        { image: "", name: "Test name 4"  },
+        { image: "", name: "Test name 5"  },
+    ]
     const [info, setInfo] = useState({});
 
     console.log(info)
@@ -54,6 +64,14 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
 
                         <div>
                             
+                        <div id='recommendations-section'>
+                            <h5>Recommended places close to your hotel or latest activity</h5>
+                            <div id='recommended-activities-container'>
+                                {/* Should iterate through recommended activities and run the info through the RecommendedActivityTile component */}
+                                {sampleActivities.map((sampleActivity, index) => (
+                                    <RecommendedActivityTile  key={index} sampleActivity={sampleActivity} index={index} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

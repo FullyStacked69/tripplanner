@@ -24,7 +24,7 @@
     padding: 32px;
     border-radius: 10px;
     background: white;
-    margin-top: 64px;
+    margin-top: 32px;
 }
 
 #title-date-container {
@@ -62,69 +62,21 @@
 
 #itinerary-container {
     padding: 32px;
-    margin: 32px 0;
 }
 
 #itinerary-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
 }
 
-#itinerary-container h2 {
-    margin-bottom: 16px;
-}
-
-/* Day Container */
-.day-container {
-    margin: 16px 0;
-}
-
-.day-container .day-detail-container {
-    padding: 16px 25px;
-}
-
-.day-container h3 {
-    padding: 0 0 8px;
-}
-
-.content-container {
-    width: 80%;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-    margin: auto;
-}
-
-.content-container input {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #E7E7E7;
-    padding: 16px;
-    margin: 16px 0;
-    background: #F1FAEE;
-}
-
-.activity-container {
-    display: flex;
-}
-
-.activity-description {
-    margin-left: 16px;
-}
-
-/* Map Section Container */
-#map-section-container {
-    min-width: 400px;
-    flex: 1;
-    height: 100vh;
+#itinerary-header a {
+    margin-top: auto;
 }
 
 /* Itinerary List Styling */
 .item {
     display: block;
     margin-bottom: 0.1rem;
-    cursor: pointer;
 }
 
 .title {
@@ -136,6 +88,7 @@
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .title:hover {
@@ -160,4 +113,11 @@
     border-width: 0 1px;
     transition: max-height 0.3s ease;
     overflow: hidden;
+}
+
+/* Map Section Container */
+#map-section-container {
+    min-width: 400px;
+    flex: 1;
+    height: 100vh;
 }
