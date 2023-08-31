@@ -13,7 +13,7 @@ export default function ItineraryList({location = 'Iceland', startDate, endDate}
 
     const itineraries = [
         {
-          "title": "Adventure seekers Iceland RoadTrip",
+          "title": "Adventure seekers Iceland Roadtrip",
           "length": 7,
           "author": "Bilbo Baggins",
           "likes": 21,

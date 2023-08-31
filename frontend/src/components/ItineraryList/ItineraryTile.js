@@ -18,11 +18,18 @@ export function ItineraryTile({itinerary}) {
                 <div className='intinerary-detail-container'>
                     <h3>{itinerary.title}</h3>
                     <div className='itinerary-info'>
-                        <h5>{itinerary.length} days</h5>
+                        <h4>{itinerary.length} days</h4>
                         <div className='itinerary-details'>
-                            <p>{itinerary.author}</p>
-                            <p>{itinerary.likes}</p>
-                            <p>{itinerary.views}</p>
+                            <div className='itinerary-detail-container'>
+                                <p>By: {itinerary.author}</p>
+                            </div>
+                            <div className='itinerary-detail-container'>
+                                {/* <img src="./assets/thumbs-up.png" alt="Thumbs up icon" width="500" height="600" /> */}
+                                <p>{itinerary.likes}</p>
+                            </div>
+                            <div className='itinerary-detail-container'>
+                                <p>{itinerary.views}</p>
+                            </div>
                         </div>
                     </div>          
                 </div>

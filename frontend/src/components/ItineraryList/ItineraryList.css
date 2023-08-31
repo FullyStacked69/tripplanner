@@ -41,12 +41,20 @@
 
 .itinerary-details p {
     margin: 0 8px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .itinerary-info {
     display: flex;
     justify-content: space-between;
+}
+
+.itinerary-info h4 {
+    font-weight: 500;
+}
+
+.itinerary-detail-container {
+    display: flex;
 }
 
 
