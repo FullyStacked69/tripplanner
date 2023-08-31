@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
-
+import './ItinerarySearch'
 
 export default function ItinerarySearch(){
     const dispatch = useDispatch()
