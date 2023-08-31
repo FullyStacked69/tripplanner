@@ -107,5 +107,17 @@
 }
 
 .itinerary-content {
+    width: 90%;
+    margin: 16px auto;
+    padding: 0 0.3rem;
+    line-height: 1.6;
+    color: #457B9D;
+    border: 1px solid;
+    border-width: 0 1px;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.itinerary-content {
     color: #457B9D;
 }
