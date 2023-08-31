@@ -69,25 +69,29 @@ function MainPage() {
     
     return (
         <div id='content-container'>
-            <div id="splash-header">
-                <h1>Travel with confidence, not guesswork.</h1>
-                <h2>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h2>
-            </div>
-            <div id="splash-search">
-                <div id='loco-search-holder'>
-                    <input onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
-                    <div className='loco-opt-holder'>
-                        {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+            <div id='splash-section'>
+                <div id='splash-content'>
+                    <div id="splash-header">
+                        <h1>Travel with confidence, not guesswork.</h1>
+                        <h3>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h3>
                     </div>
-                </div>
-                <div id="splash-search-date-range">
-                    <input type="date" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})}/>
-                    <input type="date" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
-                </div>
-                <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
-                <div className='search-errors'>
-                    {searchErrors.location && <div>{searchErrors.location}</div>}
-                    {searchErrors.year && <div>{searchErrors.year}</div>}
+                    <div id="splash-search">
+                        <div id='loco-search-holder'>
+                            <input className="custom-input" placeholder="Where to?" onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
+                            <div className='loco-opt-holder'>
+                                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                            </div>
+                        </div>
+                        <div id="splash-search-date-range">
+                            <input type="date" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})}/>
+                            <input type="date" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
+                        </div>
+                        <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
+                        <div className='search-errors'>
+                            {searchErrors.location && <div>{searchErrors.location}</div>}
+                            {searchErrors.year && <div>{searchErrors.year}</div>}
+                        </div>
+                    </div>
                 </div>
             </div>
 
