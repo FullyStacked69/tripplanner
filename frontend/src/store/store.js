@@ -4,10 +4,12 @@ import thunk from 'redux-thunk';
 
 import session from './session';
 import errors from './errors'
+import itinerariesReducer from './itineraries';
 
 const rootReducer = combineReducers({
   session,
-  errors
+  errors,
+  itineraries: itinerariesReducer
 });
 
 let enhancer;
