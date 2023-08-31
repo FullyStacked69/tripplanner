@@ -24,7 +24,7 @@ export default function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={MainPage} />
-        <AuthRoute exact path="/itineraries/plan" component={ItinerariesEditPage} />
+        <Route exact path="/itineraries/plan" component={ItinerariesEditPage} />
         <Route path="/*" component={NotFound}/>
       </Switch>
     </div>
