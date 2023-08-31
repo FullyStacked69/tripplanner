@@ -6,6 +6,7 @@ const Itinerary = mongoose.model('Itinerary');
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
+const { capitalizeFirstLetter } = require('./locations');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
   try {
     let itineraries
     if(location){
-      itineraries = await Itinerary.find({locationName: location})
+      itineraries = await Itinerary.find({locationName: capitalizeFirstLetter(location)})
                                 .populate("author", "_id username")
                                 .sort({ createdAt: -1 });
     } 
