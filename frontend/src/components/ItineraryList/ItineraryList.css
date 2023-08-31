@@ -28,13 +28,6 @@
     text-align: center;
 }
 
-.itinerary-container {
-    border: 1px solid green;
-    width: 50%;
-    margin: auto;
-    border-radius: 10px;
-}
-
 .itinerary-details {
     display: flex;
 }
@@ -59,7 +52,7 @@
 
 
 /* Day Component */
-.day-container {
+.main-itinerary-container {
     margin: 16px 0;
 }
 
@@ -68,7 +61,7 @@
     width: 100%;
 }
 
-.day-container h3 {
+.main-itinerary-container h3 {
     padding: 0 0 8px;
 }
 
@@ -89,11 +82,4 @@
     background: #F1FAEE;
 }
 
-.activity-container {
-    display: flex;
-}
-
-.activity-description {
-    margin-left: 16px;
-}
 /* Day Component End */
