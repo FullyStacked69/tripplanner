@@ -4,10 +4,7 @@ import { useState } from 'react';
 
 const MarkerInfoWindow = ({position,idx, place}) => {
 
-    const [isOpen, setIsOpen] = useState(false);
-
-
-
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
         <>
@@ -23,7 +20,7 @@ const MarkerInfoWindow = ({position,idx, place}) => {
                     {/* <p>Review: {place.reviews[0].text}</p> */}
                     {/* <img src={place.photos[0].getUrl()}   /> */}
 
-                    <p> name, address, rating, opening</p>
+                    {/* <p> name, address, rating, opening</p> */}
                 </div>
 
             </InfoWindow>}

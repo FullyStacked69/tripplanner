@@ -1,19 +1,47 @@
 import React from 'react';
+import { useState, useRef, useEffect } from "react";
 import './ItineraryEditPage.css';
-import Places from '../Maps/Maps';
+import Search from '../Search/Search';
 import { DayContainer } from './DayContainer';
+import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
+import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
+import './Maps.css'
+
+
 
 const ItineraryEditPage = () => {
     const days = [
-        { date: "Saturday, September 9th", places: 5 },
-        { date: "Sunday, September 10th", places: 3 },
-        { date: "Monday, September 11th", places: 2 },
-        { date: "Tuesday, September 12th", places: 4 },
-        { date: "Wednesday, September 12th", places: 4 },
-    ];
+            { date: "Saturday, September 9th", places: 5 },
+            { date: "Sunday, September 10th", places: 3 },
+            { date: "Monday, September 11th", places: 2 },
+            { date: "Tuesday, September 12th", places: 4 },
+            { date: "Wednesday, September 12th", places: 4 },
+        ];
 
-    return (
-        <div className='page-content-container'>
+        // console.log('HIIIIIII')
+
+    const [markersPositions, setMarkersPositions] = useState([]);
+    const [center, setCenter] = useState({lat: 37.4245, lng: -122.0782})
+
+        
+        const {isLoaded} = useJsApiLoader({
+            googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
+            libraries: ['places'],
+        })
+        
+        const init = {lat: 37.4245, lng: -122.0782}
+        const [map, setMap] = useState(null);
+        
+        if (!isLoaded) {return (<div>Loading...</div>)}
+
+        const onLoad = (location) => {
+            setMap(location)
+        }
+
+
+
+        return ( 
+            <div className='page-content-container'>
             <div id='itinerary-section-container'>
                 <div id='sidebar'>Sidebar</div>
                 <div id='itinerary-section-content'>
@@ -36,25 +64,37 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-container'>
                         <div id='itinerary-header'>
                             <h2>Itinerary</h2>
+
+                            {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter}/> */}
+                            
                             <a>Collapse All</a>
                         </div>
                         <div id='itineary-days-container'>
                             {days.map((day, index) => (
-                                <DayContainer key={index} day={day} index={index} />
-                            ))}
+                                <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                                ))}
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div id='map-section-container'>
-                <p>Map section</p>
-                <Places />
-
-            </div>
             
+                {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter}/> */}
+                {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions}/> */}
+                <GoogleMap 
+                onLoad={onLoad}
+                // ref={mapRef}
+                center={center}
+                zoom={10}
+                mapContainerClassName="map-container"
+                >
+                    {/* <Marker position={center} /> */}
+                    {/* <Marker position={{lat:37.96, lng:-122.0296}} /> */}
+                    {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
+                    {/* <InfoWindow /> */}
+                </GoogleMap>
         </div>
-    );
-};
+      )
+}    
 
-export default ItineraryEditPage;
+    export default ItineraryEditPage;

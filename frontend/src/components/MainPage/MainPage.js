@@ -4,7 +4,9 @@ import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
 import Markers from '../Maps/Markers';
 
+
 function MainPage() {
+
 
     const [searchObj, setSearchObj] = useState({
         location: '',
@@ -31,7 +33,7 @@ function MainPage() {
                 <div onClick={()=>handleSearch()} className="myButton small-button">Start Planning</div>
             </div>
 
-            {/* <Markers /> */}
+            {/* <Search /> */}
 
         </div>
 
