@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
 import Markers from '../Maps/Markers';
 import { easepick } from '@easepick/bundle';
 import { RangePlugin } from '@easepick/range-plugin';
 import { LockPlugin } from '@easepick/lock-plugin';
+import { setSearchObjRedux } from '../../store/searchObj';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 function MainPage() {
 
-
+    const dispatch = useDispatch()
+    
+    const searchObjRedux = useSelector(state => state.searchObj)
+    
     const [searchObj, setSearchObj] = useState({
         location: '',
         country: '',
@@ -30,9 +35,13 @@ function MainPage() {
     function handleSearch(){
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
+                dispatch(setSearchObjRedux(searchObj))
                 setSearching(true)
             } else if (searchObj.startDate){
                 setSearchErrors({...searchErrors, year: 'Please enter an end date'})
+            } else if (!searchObj.startDate && !searchObj.endDate){
+                dispatch(setSearchObjRedux(searchObj))
+                setSearching(true)
             }
         } else {
             setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
@@ -104,40 +113,38 @@ function MainPage() {
 
     
     return (
-        <div id='content-container'>
-            <div id='splash-section'>
-                <div id='splash-content'>
-                    <div id="splash-header">
-                        <h1>Travel with confidence, not guesswork.</h1>
-                        <h3>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h3>
-                    </div>
-                    <div id="splash-search">
-                        <div id='loco-search-holder'>
-                            <input className="custom-input" placeholder="Where to?" onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
-                            <div className='loco-opt-holder'>
-                                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+        <>
+            {searching && <Redirect to='/itineraries'/> /* <ItineraryList searchObj={searchObj}/> */}
+            <div id='content-container'>
+                <div id='splash-section'>
+                    <div id='splash-content'>
+                        <div id="splash-header">
+                            <h1>Travel with confidence, not guesswork.</h1>
+                            <h3>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h3>
+                        </div>
+                        <div id="splash-search">
+                            <div id='loco-search-holder'>
+                                <input className="custom-input" placeholder="Where to?" onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
+                                <div className='loco-opt-holder'>
+                                    {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                                </div>
                             </div>
-                        </div>
-                        {/* <input id="datepicker"/> */}
-                        <div id="splash-search-date-range">
-                            <input placeholder="Start date" id="trip-start" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})} />
-                            <input placeholder="End date" id="trip-end" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
+                            {/* <input id="datepicker"/> */}
+                            <div id="splash-search-date-range">
+                                <input placeholder="Start date" id="trip-start" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})} />
+                                <input placeholder="End date" id="trip-end" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
 
+                            </div>
+                            <div className='search-errors'>
+                                {searchErrors.location && <div>{searchErrors.location}</div>}
+                                {searchErrors.year && <div>{searchErrors.year}</div>}
+                            </div>
+                            <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
                         </div>
-                        <div className='search-errors'>
-                            {searchErrors.location && <div>{searchErrors.location}</div>}
-                            {searchErrors.year && <div>{searchErrors.year}</div>}
-                        </div>
-                        <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
                     </div>
                 </div>
             </div>
-
-            {searching && <ItineraryList searchObj={searchObj}/>}
-
-        </div>
-
-        
+        </>
     );
 }
 
