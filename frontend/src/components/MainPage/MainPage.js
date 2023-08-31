@@ -124,11 +124,11 @@ function MainPage() {
                             <input placeholder="End date" id="trip-end" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
 
                         </div>
-                        <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
                         <div className='search-errors'>
                             {searchErrors.location && <div>{searchErrors.location}</div>}
                             {searchErrors.year && <div>{searchErrors.year}</div>}
                         </div>
+                        <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
                     </div>
                 </div>
             </div>

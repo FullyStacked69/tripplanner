@@ -12,7 +12,7 @@
 }
 
 .loco-opt{
-    background-color: #E63946;
+    background-color: white;
 }
 
 .loco-opt:hover{
@@ -91,4 +91,9 @@
     padding-left: 8px; 
     position: relative;
     box-sizing: border-box;
+}
+
+.search-errors {
+    margin-top: 16px;
+    color:  #E63946;
 }
