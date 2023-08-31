@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
 import Markers from '../Maps/Markers';
+import { easepick } from '@easepick/bundle';
+import { RangePlugin } from '@easepick/range-plugin';
+import { LockPlugin } from '@easepick/lock-plugin';
 
 
 function MainPage() {
@@ -66,28 +69,67 @@ function MainPage() {
             </div>
         )
     }
+
+    function getCurrentISODate() {
+        const today = new Date();
+        return today.toISOString();  // Returns the date in the format "YYYY-MM-DDTHH:MM:SS.sssZ"
+    }
+
+    useEffect(() => {
+        const minDateToday = getCurrentISODate();
+        const picker = new easepick.create({
+            element: "#trip-start",
+            css: [
+                "https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.css"
+            ],
+            LockPlugin: {
+                minDate: "2023-08-31T00:00:00.000Z"
+            },
+            RangePlugin: {
+                tooltip: true,
+                elementEnd: "#trip-end"
+            },
+            LockPlugin: {
+                minDate: minDateToday
+            },
+            format: "DD MMM YYYY",
+            plugins: [RangePlugin, LockPlugin],
+        });
+
+        // Clean up the picker instance on component unmount
+        return () => {
+            picker.destroy();
+        };
+    }, []);
+
     
     return (
         <div id='content-container'>
-            <div id="splash-header">
-                <h1>Travel with confidence, not guesswork.</h1>
-                <h2>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h2>
-            </div>
-            <div id="splash-search">
-                <div id='loco-search-holder'>
-                    <input onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
-                    <div className='loco-opt-holder'>
-                        {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+            <div id='splash-section'>
+                <div id='splash-content'>
+                    <div id="splash-header">
+                        <h1>Travel with confidence, not guesswork.</h1>
+                        <h3>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h3>
                     </div>
-                </div>
-                <div id="splash-search-date-range">
-                    <input type="date" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})}/>
-                    <input type="date" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
-                </div>
-                <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
-                <div className='search-errors'>
-                    {searchErrors.location && <div>{searchErrors.location}</div>}
-                    {searchErrors.year && <div>{searchErrors.year}</div>}
+                    <div id="splash-search">
+                        <div id='loco-search-holder'>
+                            <input className="custom-input" placeholder="Where to?" onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
+                            <div className='loco-opt-holder'>
+                                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                            </div>
+                        </div>
+                        {/* <input id="datepicker"/> */}
+                        <div id="splash-search-date-range">
+                            <input placeholder="Start date" id="trip-start" value={searchObj.startDate} onChange={e=>setSearchObj({...searchObj, startDate: e.target.value})} />
+                            <input placeholder="End date" id="trip-end" value={searchObj.endDate} onChange={e=> {if(e.target.value > searchObj.startDate)setSearchObj({...searchObj, endDate: e.target.value})}} />
+
+                        </div>
+                        <div className='search-errors'>
+                            {searchErrors.location && <div>{searchErrors.location}</div>}
+                            {searchErrors.year && <div>{searchErrors.year}</div>}
+                        </div>
+                        <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
+                    </div>
                 </div>
             </div>
 
