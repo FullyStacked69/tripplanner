@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
+import Markers from '../Maps/Markers';
+
 
 function MainPage() {
+
 
     const [searchObj, setSearchObj] = useState({
         location: '',
@@ -87,8 +90,11 @@ function MainPage() {
                     {searchErrors.year && <div>{searchErrors.year}</div>}
                 </div>
             </div>
+
             {searching && <ItineraryList searchObj={searchObj}/>}
+
         </div>
+
         
     );
 }

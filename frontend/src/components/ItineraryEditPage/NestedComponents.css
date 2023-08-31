@@ -1,0 +1,114 @@
+/* Top Activities Section*/
+/* #popular-activities-section {
+    border: 1px solid pink;
+} */
+
+#popular-activities-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popular-activity-container {
+    margin: 16px 23px 16px 0;
+    width: 31%;
+}
+
+.popular-activity-container:nth-child(3n) {
+    margin-right: 0;
+}
+
+#activity-list {
+    margin: 32px 32px 0;
+    /* border: 1px solid #E7E7E7; */
+}
+
+.popular-activity-name {
+    margin: 8px 0;
+    text-align: center;
+}
+/* Top Activities Section Ends*/
+
+/* Day Component */
+.day-container {
+    margin: 16px 0;
+}
+
+.day-container .day-detail-container {
+    padding: 16px 25px;
+}
+
+.day-container h3 {
+    padding: 0 0 8px;
+}
+
+.content-container {
+    width: 80%;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    margin: auto;
+}
+
+.content-container input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #E7E7E7;
+    padding: 16px;
+    margin: 16px 0;
+    background: #F1FAEE;
+}
+
+.activity-container {
+    display: flex;
+}
+
+.activity-description {
+    margin-left: 16px;
+}
+/* Day Component End */
+
+/* Recommended Activity Tile */
+#recommendations-section {
+    margin-top: 16px;
+}
+
+#recommended-activities-container {
+    margin: 8px 0;
+}
+
+.recommended-activity-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the container */
+    border: 1px solid #E7E7E7;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 45%;
+}
+
+.recommended-activity-container img {
+    width: 52px;
+    height: 50px;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    background: #E7E7E7;
+}
+
+.activity-name {
+    margin: 0 16px; /* Adjust margin as needed */
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to two lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allow text to wrap within the lines */
+    flex: 1; /* Allow flex container to distribute space */
+}
+
+.add-bttn {
+    border: 1px solid #E7E7E7;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 12px;
+}
