@@ -71,6 +71,8 @@
     border-radius: 10px 0 0 10px;
     border: 1px solid #E7E7E7;
     border-right:none;
+    padding-left: 8px;
+    box-sizing: border-box;
 }
 
 #splash-search-date-range input:last-child {
@@ -81,6 +83,8 @@
     border-radius: 0 10px 10px 0;
     border: 1px solid #E7E7E7;
     border-left:none;
+    padding-left: 8px;
+    box-sizing: border-box;
 }
 
 .custom-input {
