@@ -5,11 +5,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import errors from './errors'
 import itinerariesReducer from './itineraries';
+import searchObj from './searchObj';
 
 const rootReducer = combineReducers({
   session,
   errors,
-  itineraries: itinerariesReducer
+  itineraries: itinerariesReducer,
+  searchObj
 });
 
 let enhancer;
