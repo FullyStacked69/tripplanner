@@ -7,10 +7,17 @@ const cities = require('../../json-data/cities.json')
 const countries = require('../../json-data/countries.json')
 const allLocations = [...cities, ...countries]
 
-function capitalizeFirstLetter(string) {
-    let arr = string.split(' ')
+function capitalizeFirstLetter(stringIn) {
+
+    const small = ['of', 'on', 'upon', 'in', 'and']
+    
+    let arr = stringIn.split(' ')
     arr = arr.map((string)=>{
-        return string.toLowerCase().charAt(0).toUpperCase() + string.slice(1);
+        if(!small.includes(string.toLowerCase())){
+            return string.toLowerCase().charAt(0).toUpperCase() + string.slice(1);
+        } else {
+            return string.toLowerCase()
+        }
     })
     arr = arr.join(' ')
     return arr
