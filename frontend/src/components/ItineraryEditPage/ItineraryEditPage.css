@@ -77,7 +77,6 @@
 .item {
     display: block;
     margin-bottom: 0.1rem;
-    cursor: pointer;
 }
 
 .title {
@@ -89,6 +88,7 @@
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .title:hover {

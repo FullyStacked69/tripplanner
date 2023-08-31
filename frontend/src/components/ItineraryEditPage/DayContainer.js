@@ -16,8 +16,8 @@ export function DayContainer({ day, index }) {
 
     return (
         <div className='day-container'>
-            <div className='item' onClick={() => setIsOpen(!isOpen)}>
-                <div className='title' 
+            <div className='item' >
+                <div className='title' onClick={() => setIsOpen(!isOpen)}
                      style={{ 
                          backgroundColor: isOpen ? '#457B9D' : 'transparent', 
                          color: isOpen ? 'white' : '#457B9D'
