@@ -36,9 +36,11 @@ const ItineraryEditPage = () => {
         let it = async () => {
             const res = await dispatch(fetchItinerary(itineraryId))
             setItObj(() => res)
+            if(itObj){
+                console.log(itObj)
+            }
         }
         it()
-        console.log(itObj)
         }
     },[itineraryId])
 

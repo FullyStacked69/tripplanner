@@ -29,6 +29,11 @@ router.get('/', async (req, res) => {
         .sort({ createdAt: -1 });
     } else if (itineraryId) {
       itinerary = await Itinerary.findById(itineraryId)
+                                  .populate({
+                                      path: 'days', 
+                                      populate: {path: 'activities'}
+                                    })
+                                    .populate('author', '_id username')
       return res.json(itinerary)
     } else {
       itineraries = await Itinerary.find()
