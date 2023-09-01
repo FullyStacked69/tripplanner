@@ -9,19 +9,30 @@
 
 .loco-opt-holder{
     position: absolute;
-    width: 100%;
+    width: 98%;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-sizing: border-box;
 }
+
+.loco-opt-holder-no-border {
+    border: none;
+}
+
 
 .loco-opt{
     background-color: white;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
+    margin: 8px 0;
+    padding: 6px 24px;
 }
 
 .loco-opt h3{
     display: flex;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .loco-opt:hover{
@@ -47,7 +58,7 @@
     text-align: center;
     width: 40%;
     border-radius: 10px;
-    box-shadow: 2px 2px 4px #2d333f33;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     box-sizing: border-box;
     padding: 16px 32px;
 }
@@ -75,7 +86,10 @@
     max-height: 40px;
     border-radius: 10px;
     border: 1px solid #E7E7E7;
-    margin: 0 0 16px;
+}
+
+#splash-search-date-range {
+    margin-top: 16px;
 }
 
 #splash-search-date-range input:first-child {

@@ -71,9 +71,8 @@ export default function ItinerarySearch(){
     function LocoOpt(loco){       
         return(
             <div onMouseDown={() => setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)})} className='loco-opt'>
-                <h3>{loco.name}</h3>
+                <h3>{loco.name}, {loco.country || loco.code}</h3>
                 {(loco.country && <h3>City</h3>) || <h3>Country</h3>}
-                <h3>{loco.country || loco.code}</h3>
             </div>
         )
     }
@@ -119,10 +118,17 @@ export default function ItinerarySearch(){
     return(
         <div id="splash-search">
             <div id='loco-search-holder'>
-                <input className="custom-input" placeholder="Where to?" onFocus={e => setSearchBarFocus(true)} onBlur={e => setSearchBarFocus(false)} value={searchObj.location} onChange={e=> handleInputChange(e)} type="text"/>
-                <div className='loco-opt-holder'>
-                    {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
-                </div>
+                <input 
+                    className="custom-input" 
+                    placeholder="Where to?" 
+                    onFocus={e => setSearchBarFocus(true)} 
+                    onBlur={e => setSearchBarFocus(false)} 
+                    value={searchObj.location} 
+                    onChange={e=> handleInputChange(e)} 
+                    type="text"/>
+            <div className={searchBarFocus ? 'loco-opt-holder' : 'loco-opt-holder loco-opt-holder-no-border'}>
+                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+            </div>
             </div>
             {/* <input id="datepicker"/> */}
             <div id="splash-search-date-range">
