@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow, StandaloneSearchBox, useLoadScript, LoadScript} from '@react-google-maps/api';
+import { Autocomplete, } from '@react-google-maps/api';
 
 
-const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}) => {
+const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
     // console.log(map)
 
     
@@ -10,6 +10,8 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}
     // const [map, setMap] = useState(null);
     const [locations, setLocations] = useState([{value: ''}]);
     const [directionRes, setDirectionRes] = useState(null);
+    const [inputValue, setInputValue] = useState("");
+
     // const [distance, setDistance] = useState('');
     // const [duration, setDuration] = useState('');
     const originRef = useRef();
@@ -27,7 +29,10 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}
             // console.log("CHECK",place)
             setMarkersPositions([...markersPositions, place]);
             setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
-            setInfo(place)
+            setInfo(place);
+            setInputValue("");
+            // setActivities(place)
+
         }
     };
 
@@ -88,13 +93,13 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo}
 
     return (
         <>  
-            <DirectionsRenderer directions={directionRes}  />
+            {/* <DirectionsRenderer directions={directionRes}  /> */}
             <div>
                 <Autocomplete 
                     onLoad={(ref) => originAutocompleteRef.current = ref}
                     onPlaceChanged={onOriginPlaceChanged}
                  >
-                <input type="text" placeholder="Add a place" ref={originRef} />
+                <input type="text" placeholder="Add a place" ref={originRef} value={inputValue} onChange={e => setInputValue(e.target.value)} />
                 </Autocomplete>
                 
                 {/* <Autocomplete 

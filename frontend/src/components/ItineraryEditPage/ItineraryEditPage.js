@@ -14,9 +14,10 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
 
+
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-    
+  
     const days = [
             { date: "Saturday, September 9th", places: 5 },
             { date: "Sunday, September 10th", places: 3 },
@@ -30,7 +31,6 @@ const ItineraryEditPage = () => {
 
     const [itObj, setItObj] = useState(null)
     const {itineraryId} = useParams()
-
     useEffect(() =>{
         if(itineraryId){
         let it = async () => {
@@ -41,6 +41,12 @@ const ItineraryEditPage = () => {
         console.log(itObj)
         }
     },[itineraryId])
+
+    // const itLocation = {itObj.lat, itObj.lng}
+    // console.log(itObj.lat)
+    // console.log(itObj.lng)
+    
+
         
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,

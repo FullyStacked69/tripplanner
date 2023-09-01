@@ -15,7 +15,18 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 4"  },
         { image: "", name: "Test name 5"  },
     ]
-    const [info, setInfo] = useState(false);
+    const [info, setInfo] = useState({});
+    const [activities, setActivities] = useState([]);
+
+
+
+
+    // console.log("place",info?.photos?.[0] || "")
+    // console.log('activities',activities)
+
+
+
+    //clear info -> setInfo
 
     return (
         <div className='day-container'>
@@ -30,7 +41,7 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                     >
                     <div className='day-detail-container'>
                         <h3>{day.date}</h3>                    
-                        <h5>{day.places} places</h5>
+                        <h5>{activities.length} places</h5>
                     </div>
 
                     <span className='arrow-icon'>{isOpen ? '\u25b2' : '\u25bc'}</span>
@@ -39,9 +50,12 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                 <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='content-container'>
                         <input placeholder='You dont have a place to stay yet!'></input>
-                        <ActivityContainer info={info} />
-                        <input placeholder='Add activities for your trip here'></input>
-                        <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo}/>
+                        {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/> */}
+
+                        <ActivityContainer info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
+                        {/* <input placeholder='Add activities for your trip here'></input> */}
+                        <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
+                        {/* <button> + </button> */}
 
                         <div>
                             
