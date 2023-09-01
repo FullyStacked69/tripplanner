@@ -22,13 +22,8 @@ export default function ItineraryList({ searchObj }) {
 
     return(
         <div id='list-page-content-container'>
-            <ItinerarySearch/>
             <div className="itinerary-list-component">
-                <div className='selected-trip'>
-                    <p>{`Location: ${location}`}</p>
-                    <p>{`Start date: ${startDate && startDate}`}</p>
-                    <p>{`End date: ${endDate && endDate}`}</p>
-                </div>
+                <ItinerarySearch location={location} startDate={startDate} endDate={endDate}/>
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/{:id}/plan'>create an itinerary from scratch here</Link></h4>

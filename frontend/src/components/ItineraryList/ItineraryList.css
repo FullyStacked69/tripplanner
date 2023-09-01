@@ -128,3 +128,20 @@
 .itinerary-content {
     color: #457B9D;
 }
+
+.itinerary-list-component #splash-search {
+    display: flex;
+}
+
+.itinerary-list-component #splash-search-date-range {
+    display: flex;
+    margin: 0 16px 0;
+}
+
+.itinerary-list-component #splash-search button {
+    display: flex;
+    margin: 0;
+    padding: 8px 12px 6px;
+}
+
+
