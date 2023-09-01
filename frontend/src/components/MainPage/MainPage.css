@@ -9,16 +9,25 @@
 
 .loco-opt-holder{
     position: absolute;
+    width: 100%;
 }
 
 .loco-opt{
     background-color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loco-opt h3{
+    display: flex;
+    font-weight: 400;
 }
 
 .loco-opt:hover{
     cursor: pointer;
-    background-color: #ae1d29; 
-    border: 1px solid #550c12; 
+    background-color: #A8DADC; 
+    border: 1px solid #A8DADC; 
 }
 
 #splash-section {

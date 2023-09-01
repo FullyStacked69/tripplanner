@@ -12,6 +12,8 @@ require('./models/User');
 require('./models/Itinerary');
 require('./models/Like');
 require('./models/View');
+require('./models/Day');
+require('./models/Activity');
 
 require('./config/passport'); 
 

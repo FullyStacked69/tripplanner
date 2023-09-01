@@ -2,6 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 const Itinerary = mongoose.model('Itinerary');
+const Day = mongoose.model('Day');
 
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
@@ -10,7 +11,7 @@ const { capitalizeFirstLetter } = require('./locations');
 
 const router = express.Router();
 
-/* GET itineraries listing. */
+
 router.get('/', async (req, res) => {
   const { location, itineraryId } = req.query;
   try {
@@ -18,21 +19,39 @@ router.get('/', async (req, res) => {
     let itinerary;
     if (location) {
       itineraries = await Itinerary.find({ locationName: location })
-        .populate("author")
+
+        .populate({
+          path: 'days', 
+          populate: {path: 'activities'}
+        })
+        .populate('author', '_id username')
+
         .sort({ createdAt: -1 });
     } else if (itineraryId) {
       itinerary = await Itinerary.findById(itineraryId)
       return res.json(itinerary)
     } else {
       itineraries = await Itinerary.find()
-        .populate("author")
+
+        .populate({
+          path: 'days',
+          populate: { path: 'activities' }
+        })
+        .populate('author', '_id username')
+      
+
         .sort({ createdAt: -1 });
     }
+    
+    
+
     return res.json(itineraries);
   } catch (err) {
-    return res.json([]);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 router.get('/user/:userId', async (req, res, next) => {
     let user;
