@@ -43,12 +43,6 @@ const ItineraryEditPage = () => {
         it()
         }
     },[itineraryId])
-
-    // const itLocation = {itObj.lat, itObj.lng}
-    // console.log(itObj.lat)
-    // console.log(itObj.lng)
-    
-
         
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
