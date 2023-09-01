@@ -39,21 +39,21 @@ const insertSeeds = async () => {
     users.push(u1);
 
     const u2 = new User({
-      username: 'willyFog',
+      username: 'Bilbo Baggins',
       email: 'willy@mail.com',
       hashedPassword: bcrypt.hashSync('password', 10)
     });
     users.push(u2);
 
     const u3 = new User({
-      username: 'kimJongun',
+      username: 'Eowyn Snow',
       email: 'kim@mail.com',
       hashedPassword: bcrypt.hashSync('password', 10)
     });
     users.push(u3);
 
     const u4 = new User({
-      username: 'jackieChan',
+      username: 'Legolas Rivers',
       email: 'jackie@mail.com',
       hashedPassword: bcrypt.hashSync('password', 10)
     });
@@ -433,13 +433,15 @@ const insertSeeds = async () => {
     // Itinerary 1: Iceland: Nature's Wonders (5 days)
     const itinerary1Days = [d1.id, d2.id, d3.id, d4.id, d5.id];
     const it1 = new Itinerary({
-      title: "Iceland: Nature's Wonders",
+      title: "Exploring the Land of Fire and Ice",
       locationName: 'Iceland',
       locationType: 'Country',
       countryCode: 'IS',
       lng: -19.02,
       lat: 64.96,
       length: 5,
+      fakeLikes: 106,
+      fakeViews: 1240,
       author: u2.id,
       days: itinerary1Days
     });
@@ -448,13 +450,15 @@ const insertSeeds = async () => {
     // Itinerary 2: Iceland Adventure (6 days)
     const itinerary2Days = [d6.id, d7.id, d8.id, d9.id, d10.id, d11.id];
     const it2 = new Itinerary({
-      title: 'Iceland Adventure',
+      title: 'Icelandic Wonders: From Reykjavik to the Glaciers',
       locationName: 'Iceland',
       locationType: 'Country',
       countryCode: 'IS',
       lng: -19.02,
       lat: 64.96,
       length: 6,
+      fakeLikes: 95,
+      fakeViews: 862,
       author: u3.id,
       days: itinerary2Days
     });
@@ -463,13 +467,15 @@ const insertSeeds = async () => {
     // Itinerary 3: Iceland Explorer (7 days)
     const itinerary3Days = [d12.id, d13.id, d14.id, d15.id, d16.id, d17.id, d18.id];
     const it3 = new Itinerary({
-      title: 'Iceland Explorer',
+      title: 'Northern Lights Quest: Chasing Aurora Borealis in Iceland',
       locationName: 'Iceland',
       locationType: 'Country',
       countryCode: 'IS',
       lng: -19.02,
       lat: 64.96,
       length: 7,
+      fakeLikes: 25,
+      fakeViews: 451,
       author: u4.id,
       days: itinerary3Days
     });
