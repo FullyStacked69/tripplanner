@@ -13,10 +13,14 @@ import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
 
 function MainPage() {
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
     const {searching} = searchObjRedux
+
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({searching: false}))
+    },[])
 
     return (
         <>

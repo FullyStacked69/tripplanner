@@ -8,8 +8,12 @@ export default function ItinerarySearch(){
     const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
+    const {searching} = searchObjRedux
 
-    
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({searching: false}))
+    },[])
+
     const [searchObj, setSearchObj] = useState({
         location: '',
         country: '',
@@ -18,14 +22,9 @@ export default function ItinerarySearch(){
         searching: false
     })
 
-    useEffect(()=>{
-        
-    },[searchObj])
-
     const [foundLocos, setFoundLocos] = useState([])
     const [searchBarFocus, setSearchBarFocus] = useState(false)
-    const {searching} = searchObj
-
+    
     const [searchErrors, setSearchErrors] = useState({
         year: '',
         location: ''
