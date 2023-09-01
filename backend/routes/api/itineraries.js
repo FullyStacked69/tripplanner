@@ -96,7 +96,9 @@ router.get('/user/:userId', async (req, res, next) => {
         partOf: req.body.partOf,
         author: req.user._id,
         lng: req.body.lng,
-        lat: req.body.lat
+        lat: req.body.lat,
+        startDate: req.body.startDate,
+        length: (Math.floor((req.body.endDate - req.body.startDate) * 86400000))
       });
   
       let itinerary = await newItiniterary.save();

@@ -1,17 +1,20 @@
 import './ItineraryList.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchItineraries } from '../../store/itineraries';
+import { createItinerary, fetchItineraries } from '../../store/itineraries';
 import ItineraryTile from './ItineraryTile';
 import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
-
 
 export default function ItineraryList({ searchObj }) {
     const { startDate, endDate, location } = searchObj;
     const dispatch = useDispatch();
     // const itineraries = useSelector(state => state.itineraries);
     // const itineraries = useSelector(state => state.itineraries);
+
+    const {user} = useSelector(state => state.session)
+    
+    const [created, setCreated] = useState(false)
 
     const itineraries = [
         {
@@ -107,6 +110,14 @@ export default function ItineraryList({ searchObj }) {
         dispatch(fetchItineraries(location));
     }, [dispatch, location]);
 
+    const handleNew = async () => {
+      const res = await dispatch(createItinerary({
+        ...searchObj,
+        author: user._id
+      }))
+      console.log(res)
+    }
+
 
     return(
         <div id='list-page-content-container'>
@@ -118,8 +129,10 @@ export default function ItineraryList({ searchObj }) {
                     <p>{`End date: ${endDate && endDate}`}</p>
                 </div>
                 <div id='itinerary-list-headers'>
-                    <h2>Browse itineraries from fellow travelers</h2>
-                    <h4> or <Link to='/itineraries/plan'>create an itinerary from scratch here</Link></h4>
+                    <h2 onClick={handleNew}>Browse itineraries from fellow travelers</h2>
+                    <h4> or 
+                      <Link to='/itineraries/plan'>create an itinerary from scratch here</Link>
+                    </h4>
                 </div>
                 <ul>
                     {itineraries.map(itinerary => (

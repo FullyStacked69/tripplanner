@@ -28,6 +28,18 @@ export const fetchItinerary = itineraryId => async dispatch => {
     }
 }
 
+export const createItinerary = itinerary => async dispatch => {
+    try{
+        const res = await jwtFetch("/api/itineraries", {
+            method: "POST",
+            body: JSON.stringify(itinerary)
+        })
+        return res
+    }catch (err){
+        console.error('Error creating itinerary')
+    }
+}
+
 const itinerariesReducer = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_ITINERARIES:
