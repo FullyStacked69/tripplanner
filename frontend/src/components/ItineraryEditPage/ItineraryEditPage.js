@@ -122,7 +122,6 @@ const ItineraryEditPage = () => {
             center={center}
             zoom={10}
             mapContainerClassName="map-container"
-            mapContainerStyle={containerStyle}
             >
                 {/* <Marker position={center} /> */}
                 {/* <Marker position={{lat:37.96, lng:-122.0296}} /> */}
