@@ -4,12 +4,14 @@
 
 .session-form h2 {
     padding: 16px 0;
+    color: #1D3557;
 }
 
 .session-form p {
     padding: 16px 0 4px;
     font-size: 14px;
     font-weight: 500;
+    color: #1D3557;
 }
 
 .session-form input {

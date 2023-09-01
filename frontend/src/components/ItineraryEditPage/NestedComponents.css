@@ -18,7 +18,7 @@
 }
 
 #activity-list {
-    margin: 32px 32px 0;
+    margin: 32px;
     /* border: 1px solid #E7E7E7; */
 }
 
@@ -73,16 +73,23 @@
 }
 
 #recommended-activities-container {
-    margin: 8px 0;
+    margin: 16px 0 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
 }
 
 .recommended-activity-container {
     display: flex;
-    align-items: center; /* Align items vertically in the container */
+    align-items: center;
     border: 1px solid #E7E7E7;
     border-radius: 10px;
     overflow: hidden;
     width: 45%;
+    display: inline-block;
+    margin-right: 16px;
+    white-space: normal;
 }
 
 .recommended-activity-container img {
@@ -92,8 +99,12 @@
     background: #E7E7E7;
 }
 
+#recommended-details {
+    display: flex;
+}
+
 .activity-name {
-    margin: 0 16px; /* Adjust margin as needed */
+    margin: auto 16px; /* Adjust margin as needed */
     font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Limit to two lines */
