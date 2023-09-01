@@ -11,18 +11,6 @@ const { capitalizeFirstLetter } = require('./locations');
 
 const router = express.Router();
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const itineraries = await Itinerary.find()
-//       .populate("author", "_id username")
-//       .sort({ createdAt: -1 });
-//     return res.json(itineraries);
-//   }
-//   catch (err) {
-//     return res.json([]);
-//   }
-// });
-
 
 router.get('/', async (req, res) => {
   const { location, itineraryId } = req.query;
@@ -32,7 +20,10 @@ router.get('/', async (req, res) => {
     if (location) {
       itineraries = await Itinerary.find({ locationName: location })
 
-        .populate('days')
+        .populate({
+          path: 'days', 
+          populate: {path: 'activities'}
+        })
         .populate('author', '_id username')
 
         .sort({ createdAt: -1 });
@@ -42,7 +33,10 @@ router.get('/', async (req, res) => {
     } else {
       itineraries = await Itinerary.find()
 
-        .populate('days')
+        .populate({
+          path: 'days',
+          populate: { path: 'activities' }
+        })
         .populate('author', '_id username')
       
 
