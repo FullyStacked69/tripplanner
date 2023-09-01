@@ -119,7 +119,7 @@ export default function ItineraryList({ searchObj }) {
                 </div>
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
-                    <h4> or <Link to='/itineraries/plan'>create an itinerary from scratch here</Link></h4>
+                    <h4> or <Link to='/itineraries/{:id}/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
                 <ul>
                     {itineraries.map(itinerary => (
