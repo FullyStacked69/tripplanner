@@ -4,19 +4,19 @@ import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
 import './ItinerarySearch'
 
-export default function ItinerarySearch(){
+export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate }) {
     const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
 
     
     const [searchObj, setSearchObj] = useState({
-        location: '',
+        location: propLocation || '',
         country: '',
-        startDate: '',
-        endDate: '',
+        startDate: propStartDate || '',
+        endDate: propEndDate || '',
         searching: false
-    })
+    });    
 
     useEffect(()=>{
         
@@ -120,7 +120,7 @@ export default function ItinerarySearch(){
             <div id='loco-search-holder'>
                 <input 
                     className="custom-input" 
-                    placeholder="Where to?" 
+                    placeholder={propLocation || "Where to?"}
                     onFocus={e => setSearchBarFocus(true)} 
                     onBlur={e => setSearchBarFocus(false)} 
                     value={searchObj.location} 
@@ -132,9 +132,14 @@ export default function ItinerarySearch(){
             </div>
             {/* <input id="datepicker"/> */}
             <div id="splash-search-date-range">
-                <input placeholder="Start date" id="trip-start" />
-                <input placeholder="End date" id="trip-end" />
-
+                <input 
+                    placeholder={propStartDate || "Start date"}
+                    id="trip-start" 
+                />
+                <input 
+                    placeholder={propEndDate || "End date"}
+                    id="trip-end" 
+                />
             </div>
             <div className='search-errors'>
                 {searchErrors.location && <div>{searchErrors.location}</div>}
