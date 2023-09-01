@@ -21,7 +21,7 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
 
 
     // console.log("place",info?.photos?.[0] || "")
-    console.log('activities',activities)
+    // console.log('activities',activities)
 
 
 
