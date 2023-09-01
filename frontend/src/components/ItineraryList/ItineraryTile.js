@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ItineraryTile({itinerary}) {
     const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +53,7 @@ export default function ItineraryTile({itinerary}) {
                                     <p>Accommodation: {day.accommodation}</p>
                                 </div>
                             ))}
+                        <Link to={`/itineraries/${itinerary._id}/plan`}>Use this itinetrary</Link>
                     </div>
                 </div>
             </div>
