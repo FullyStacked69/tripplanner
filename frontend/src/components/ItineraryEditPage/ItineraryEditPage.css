@@ -122,3 +122,8 @@
     min-width: 400px;
     width: 50%;
 }
+
+.activity-container {
+    display: flex;
+    flex-direction: column;
+}

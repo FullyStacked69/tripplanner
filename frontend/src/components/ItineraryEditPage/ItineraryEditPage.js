@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import './ItineraryEditPage.css';
 import Search from '../Search/Search';
 import { DayContainer } from './DayContainer';
-import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
+import {useJsApiLoader, GoogleMap, Marker, Autocomplete, setZoom, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
 import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
 import './Maps.css'
 
@@ -13,6 +13,13 @@ import './NestedComponents.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
+
+import northernLightsImg from './assets/northern-lights.jpeg';
+import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
+import diamondBeachImg from './assets/diamond_beach.webp'
+import blueLagoonImg from './assets/blue-lagoon.jpeg';
+import iceClimbingImg from './assets/ice-climbing.avif';
+import fjadrargljufurImg from './assets/fjad.webp'
 
 
 const ItineraryEditPage = () => {
@@ -26,38 +33,99 @@ const ItineraryEditPage = () => {
             { date: "Wednesday, September 13th", places: 4 },
         ];
 
-    const [markersPositions, setMarkersPositions] = useState([]);
-    const [center, setCenter] = useState({lat: 37.4245, lng: -122.0782})
+    const pop_activities = [
+        {name: "Northern Lights", url: northernLightsImg},
+        {name: "Seljalandsfoss", url: seljalandsfossImg},
+        {name: "Ice Climbing", url: iceClimbingImg},
+        {name: "Diamond Beach", url: diamondBeachImg},
+        {name: "Blue Lagoon", url: blueLagoonImg},
+        {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
+    ]
+    
 
+    const [markersPositions, setMarkersPositions] = useState([]);
+    
     const [itObj, setItObj] = useState(null)
     const {itineraryId} = useParams()
     useEffect(() =>{
         if(itineraryId){
-        let it = async () => {
-            const res = await dispatch(fetchItinerary(itineraryId))
-            setItObj(() => res)
-            if(itObj){
-                console.log(itObj)
+
+            let it = async () => {
+                const res = await dispatch(fetchItinerary(itineraryId))
+                setItObj(() => res)
             }
-        }
-        it()
+            it()
+            console.log(itObj)
         }
     },[itineraryId])
+    
+    const splashLat = itObj?.lat
+    const splashLng = itObj?.lng
+    const splashPos = {
+        lat: splashLat ?? 37.4245,
+        lng: splashLng ?? -122.0782
+    };
+    // const init = splashPos ?  splashPos : {lat: 37.4245, lng: -122.0782}
+
+    const [center, setCenter] = useState(splashPos)
+
+
+
+
+
         
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
         libraries: ['places'],
     })
     
-    const init = {lat: 37.4245, lng: -122.0782}
+
     const [map, setMap] = useState(null);
     
-    if (!isLoaded) {return (<div>Loading...</div>)}
-
+    
     const onLoad = (location) => {
         setMap(location)
     }
+    
+    useEffect(() => {
+        // If there are no markers, geocode the location
+        if (map && !markersPositions.length && itObj?.locationName) {
+            let geocoder = new window.google.maps.Geocoder();
+            geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
+                if (status === window.google.maps.GeocoderStatus.OK) {
+                    map.fitBounds(results[0].geometry.viewport);
+                }
+            });
+        } 
+        // else {map?.setZoom(10)}
+    }, [itObj?.locationName, map, markersPositions.length]);
+    
+    useEffect(() => {
+        if (map && markersPositions.length > 0) {
+            let bounds = new window.google.maps.LatLngBounds();
+            markersPositions.forEach(place => {
+                bounds.extend(new window.google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
+            });
+            map.fitBounds(bounds);
 
+            let latSum = 0;
+            let lngSum = 0;
+            markersPositions.forEach(place => {
+                latSum += place.geometry.location.lat();
+                lngSum += place.geometry.location.lng();
+            });
+            setCenter({
+                lat: latSum / markersPositions.length,
+                lng: lngSum / markersPositions.length
+            });
+
+        }
+    }, [markersPositions, map]);
+    
+    
+    
+    
+    if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
     
     return ( 
@@ -86,12 +154,9 @@ const ItineraryEditPage = () => {
                         <h2>Top locations for {itObj.locationName}</h2> 
                         
                         <div id='popular-activities-container'>
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
+                            {pop_activities.map((activity, idx) => (
+                                <ExploreActivitiesTile key={idx} activity={activity} />
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -122,7 +187,7 @@ const ItineraryEditPage = () => {
             onLoad={onLoad}
             // ref={mapRef}
             center={center}
-            zoom={10}
+            // zoom={7}
             mapContainerClassName="map-container"
             >
                 {/* <Marker position={center} /> */}

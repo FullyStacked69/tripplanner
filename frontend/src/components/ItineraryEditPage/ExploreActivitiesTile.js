@@ -1,12 +1,12 @@
 import React from 'react';
 
-export function ExploreActivitiesTile() {
+export function ExploreActivitiesTile({activity}) {
 
 
     return (
         <div className='popular-activity-container'>
-            <img style={{ width: '100%', height: '150px', borderRadius: '10px', background: '#E7E7E7' }} />
-            <div className='popular-activity-name'>[Activity name]</div>
+            <img src={activity.url} style={{ width: '100%', height: '150px', borderRadius: '10px'}} />
+            <div className='popular-activity-name'>{activity.name}</div>
         </div>
     );
 }
