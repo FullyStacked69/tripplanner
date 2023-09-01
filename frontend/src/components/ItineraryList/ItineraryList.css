@@ -36,6 +36,12 @@
 
 #itinerary-list-headers h2 {
     margin: 16px;
+    color: #1D3557;
+}
+
+#itinerary-list-headers a {
+    margin: 16px;
+    color: #1D3557;
 }
 
 .itinerary-details {
