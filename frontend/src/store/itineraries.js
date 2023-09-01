@@ -19,6 +19,15 @@ export const fetchItineraries = location => async dispatch => {
     }
 };
 
+export const fetchItinerary = itineraryId => async dispatch => {
+    try{
+        const res = await fetch(`/api/itineraries?itineraryId=${itineraryId}`)
+        return await res.json()
+    } catch (err){
+        console.error('Error fetching itinerary', err)
+    }
+}
+
 const itinerariesReducer = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_ITINERARIES:

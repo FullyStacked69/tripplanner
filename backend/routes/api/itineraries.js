@@ -25,22 +25,27 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-  const { location } = req.query;
+  const { location, itineraryId } = req.query;
   try {
     let itineraries;
+    let itinerary;
     if (location) {
       itineraries = await Itinerary.find({ locationName: location })
+
         .populate('days')
         .populate('author', '_id username')
-        // .populate('days')
-        
-        // Populate author and select only the username
+
         .sort({ createdAt: -1 });
+    } else if (itineraryId) {
+      itinerary = await Itinerary.findById(itineraryId)
+      return res.json(itinerary)
     } else {
       itineraries = await Itinerary.find()
+
         .populate('days')
         .populate('author', '_id username')
       
+
         .sort({ createdAt: -1 });
     }
     
