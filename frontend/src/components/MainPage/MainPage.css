@@ -33,6 +33,7 @@
 .loco-opt h3{
     display: flex;
     font-weight: 300;
+    font-size: 16px;
 }
 
 .loco-opt:hover{
