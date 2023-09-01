@@ -25,8 +25,6 @@ const ItineraryEditPage = () => {
             { date: "Wednesday, September 13th", places: 4 },
         ];
 
-        // console.log('HIIIIIII')
-
     const [markersPositions, setMarkersPositions] = useState([]);
     const [center, setCenter] = useState({lat: 37.4245, lng: -122.0782})
 
@@ -58,7 +56,6 @@ const ItineraryEditPage = () => {
         setMap(location)
     }
 
-
     if(!itObj) return null
     
     return ( 
@@ -84,7 +81,7 @@ const ItineraryEditPage = () => {
                 </div>
                 <div id='popular-activities-section'>
                     <div id='activity-list'>
-                        <h2>Top locations for [insert location value]</h2> 
+                        <h2>Top locations for {itObj.locationName}</h2> 
                         
                         <div id='popular-activities-container'>
                             <ExploreActivitiesTile />
