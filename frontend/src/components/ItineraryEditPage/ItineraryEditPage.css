@@ -24,7 +24,7 @@
     padding: 32px;
     border-radius: 10px;
     background: white;
-    margin-top: 32px;
+    margin: 48px 32px;
 }
 
 #title-date-container {
@@ -113,4 +113,12 @@
     border-width: 0 1px;
     transition: max-height 0.3s ease;
     overflow: hidden;
+}
+
+#sticky {
+    position: sticky;
+    top:0px;
+    height: 100vh ;
+    min-width: 400px;
+    width: 50%;
 }

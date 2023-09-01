@@ -22,7 +22,8 @@
 }
 
 .itinerary-content-container {
-    margin: 16px 32px;
+    background: white;
+    padding: 16px 32px;
 }
 
 .itinerary-content-container p{
@@ -36,6 +37,12 @@
 
 #itinerary-list-headers h2 {
     margin: 16px;
+    color: #1D3557;
+}
+
+#itinerary-list-headers a {
+    margin: 16px;
+    color: #1D3557;
 }
 
 .itinerary-details {
@@ -110,7 +117,6 @@
 .itinerary-content {
     width: 90%;
     margin: 16px auto;
-    padding: 0 0.3rem;
     line-height: 1.6;
     color: #457B9D;
     border: 1px solid;
