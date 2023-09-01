@@ -387,6 +387,77 @@ const insertSeeds = async () => {
     });
     activities.push(act54);
 
+    // Activity 55
+    const act55 = new Activity({
+      title: 'Visit the British Museum',
+      length: 3
+    });
+    activities.push(act55);
+
+    // Activity 56
+    const act56 = new Activity({
+      title: 'Explore the Tower of London',
+      length: 2
+    });
+    activities.push(act56);
+
+    // Activity 57
+    const act57 = new Activity({
+      title: 'Take a ride on the London Eye',
+      length: 1
+    });
+    activities.push(act57);
+
+    // Activity 58
+    const act58 = new Activity({
+      title: 'Visit Buckingham Palace',
+      length: 2
+    });
+    activities.push(act58);
+
+    // Activity 59
+    const act59 = new Activity({
+      title: 'Stroll through Hyde Park',
+      length: 1
+    });
+    activities.push(act59);
+
+    // Activity 60
+    const act60 = new Activity({
+      title: 'Explore the Natural History Museum',
+      length: 3
+    });
+    activities.push(act60);
+
+    // Activity 61
+    const act61 = new Activity({
+      title: 'Visit the Tate Modern',
+      length: 2
+    });
+    activities.push(act61);
+
+    // Activity 62
+    const act62 = new Activity({
+      title: 'Take a Thames River Cruise',
+      length: 1
+    });
+    activities.push(act62);
+
+    // Activity 63
+    const act63 = new Activity({
+      title: 'Enjoy a West End Theatre Show',
+      length: 3
+    });
+    activities.push(act63);
+
+    // Activity 64
+    const act64 = new Activity({
+      title: 'Visit the Royal Observatory in Greenwich',
+      length: 2
+    });
+    activities.push(act64);
+
+
 
 
     const createdActivities = await Activity.insertMany(activities);
@@ -600,6 +671,39 @@ const insertSeeds = async () => {
     });
     days.push(d26);
 
+    // Day 27
+    const day27Activities = [act55.id, act56.id, act57.id];
+    const d27 = new Day({
+      accommodation: 'Bulgari Hotel London',
+      activities: day27Activities
+    });
+    days.push(d27);
+
+    // Day 28
+    const day28Activities = [act58.id, act59.id];
+    const d28 = new Day({
+      accommodation: 'Bulgari Hotel London',
+      activities: day28Activities
+    });
+    days.push(d28);
+
+    // Day 29
+    const day29Activities = [act60.id, act61.id];
+    const d29 = new Day({
+      accommodation: 'Bulgari Hotel London',
+      activities: day29Activities
+    });
+    days.push(d29);
+
+    // Day 30
+    const day30Activities = [act62.id, act63.id, act64.id];
+    const d30 = new Day({
+      accommodation: 'Bulgari Hotel London',
+      activities: day30Activities
+    });
+    days.push(d30);
+
+
 
 
     const createdDays = await Day.insertMany(days);
@@ -673,7 +777,7 @@ const insertSeeds = async () => {
     });
     itineraries.push(it4);
 
-    const itinerary5Days = [d20.id, d21.id, d22.id];
+    const itinerary5Days = [d24.id, d25.id, d26.id];
     const it5 = new Itinerary({
       title: 'Alicante Beach Vacation',
       locationName: 'Alicante',
@@ -688,6 +792,23 @@ const insertSeeds = async () => {
       days: itinerary5Days
     });
     itineraries.push(it5);
+
+    const itineraryLondonDays = [d27.id, d28.id, d29.id, d30.id];
+    const itinerary6 = new Itinerary({
+      title: 'Exploring London: A 4-Day Adventure',
+      locationName: 'London',
+      locationType: 'City',
+      countryCode: 'GB',
+      lng: -0.1276,
+      lat: 51.5072,
+      length: 4,
+      fakeLikes: 497, 
+      fakeViews: 1305, 
+      author: u4.id,
+      days: itineraryLondonDays
+    });
+    itineraries.push(itinerary6);
+
 
 
 
