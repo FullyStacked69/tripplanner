@@ -14,6 +14,13 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
 
+import northernLightsImg from './assets/northern-lights.jpeg';
+import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
+import diamondBeachImg from './assets/diamond_beach.webp'
+import blueLagoonImg from './assets/blue-lagoon.jpeg';
+import iceClimbingImg from './assets/ice-climbing.avif';
+import fjadrargljufurImg from './assets/fjad.webp'
+
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
@@ -25,6 +32,16 @@ const ItineraryEditPage = () => {
             { date: "Tuesday, September 12th", places: 4 },
             { date: "Wednesday, September 13th", places: 4 },
         ];
+
+    const pop_activities = [
+        {name: "Northern Lights", url: northernLightsImg},
+        {name: "Seljalandsfoss", url: seljalandsfossImg},
+        {name: "Ice Climbing", url: iceClimbingImg},
+        {name: "Diamond Beach", url: diamondBeachImg},
+        {name: "Blue Lagoon", url: blueLagoonImg},
+        {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
+    ]
+    
 
     const [markersPositions, setMarkersPositions] = useState([]);
     const [center, setCenter] = useState({lat: 37.4245, lng: -122.0782})
@@ -90,12 +107,9 @@ const ItineraryEditPage = () => {
                         <h2>Top locations for {itObj.locationName}</h2> 
                         
                         <div id='popular-activities-container'>
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
-                            <ExploreActivitiesTile />
+                            {pop_activities.map((activity, idx) => (
+                                <ExploreActivitiesTile key={idx} activity={activity} />
+                            ))}
                         </div>
                     </div>
                 </div>
