@@ -7,6 +7,7 @@ const daySchema = new Schema(
             type: String,
             required: true,
         },
+        activities: [{ type: Schema.Types.ObjectId, ref: 'Activity' }], 
     },
     { timestamps: true }
 );
