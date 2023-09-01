@@ -45,6 +45,7 @@ const ItineraryEditPage = () => {
     // const itLocation = {itObj.lat, itObj.lng}
     // console.log(itObj.lat)
     // console.log(itObj.lng)
+    
 
         
     const {isLoaded} = useJsApiLoader({
