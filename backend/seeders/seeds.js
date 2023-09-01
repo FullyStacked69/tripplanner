@@ -279,6 +279,116 @@ const insertSeeds = async () => {
     });
     activities.push(act36);
 
+    const act37 = new Activity({
+      title: 'Tokyo Tower Visit',
+      length: 1
+    });
+    activities.push(act37);
+
+    const act38 = new Activity({
+      title: 'Shibuya Crossing Experience',
+      length: 1
+    });
+    activities.push(act38);
+
+    const act39 = new Activity({
+      title: 'Asakusa Temple Tour',
+      length: 1
+    });
+    activities.push(act39);
+
+    const act40 = new Activity({
+      title: 'Tsukiji Fish Market Visit',
+      length: 1
+    });
+    activities.push(act40);
+
+    const act41 = new Activity({
+      title: 'Harajuku Shopping Spree',
+      length: 1
+    });
+    activities.push(act41);
+
+    const act42 = new Activity({
+      title: 'Sumo Wrestling Match',
+      length: 1
+    });
+    activities.push(act42);
+
+    const act43 = new Activity({
+      title: 'Akihabara Electronics Hunt',
+      length: 1
+    });
+    activities.push(act43);
+
+    const act44 = new Activity({
+      title: 'Ginza Luxury Shopping',
+      length: 1
+    });
+    activities.push(act44);
+
+    const act45 = new Activity({
+      title: 'Meiji Shrine Visit',
+      length: 1
+    });
+    activities.push(act45);
+
+    const act46 = new Activity({
+      title: 'Ueno Park Exploration',
+      length: 1
+    });
+    activities.push(act46);
+
+    const act47 = new Activity({
+      title: 'Santa Barbara Castle Visit',
+      length: 1
+    });
+    activities.push(act47);
+
+    const act48 = new Activity({
+      title: 'Explanada de España Walk',
+      length: 1
+    });
+    activities.push(act48);
+
+    const act49 = new Activity({
+      title: 'Alicante Beach Relaxation',
+      length: 1
+    });
+    activities.push(act49);
+
+    const act50 = new Activity({
+      title: 'Alicante Old Town Tour',
+      length: 1
+    });
+    activities.push(act50);
+
+    const act51 = new Activity({
+      title: 'San Nicolas Cathedral Visit',
+      length: 1
+    });
+    activities.push(act51);
+
+    const act52 = new Activity({
+      title: 'Alicante Marina Scenic Views',
+      length: 1
+    });
+    activities.push(act52);
+
+    const act53 = new Activity({
+      title: 'Mercado Central Shopping',
+      length: 1
+    });
+    activities.push(act53);
+
+    const act54 = new Activity({
+      title: 'Museo Volvo Ocean Race',
+      length: 1
+    });
+    activities.push(act54);
+
+
+
     const createdActivities = await Activity.insertMany(activities);
 
     const days = [];
@@ -426,6 +536,72 @@ const insertSeeds = async () => {
     });
     days.push(d18);
 
+    // Day 19
+    const day19Activities = [act37.id];
+    const d19 = new Day({
+      accommodation: 'Tokyo Hotel',
+      activities: day19Activities
+    });
+    days.push(d19);
+
+    // Day 20
+    const day20Activities = [act38.id, act39.id];
+    const d20 = new Day({
+      accommodation: 'Tokyo Hotel',
+      activities: day20Activities
+    });
+    days.push(d20);
+
+    // Day 21
+    const day21Activities = [act40.id, act41.id, act42.id];
+    const d21 = new Day({
+      accommodation: 'Tokyo Hotel',
+      activities: day21Activities
+    });
+    days.push(d21);
+
+    // Day 22
+    const day22Activities = [act43.id, act44.id];
+    const d22 = new Day({
+      accommodation: 'Tokyo Hotel',
+      activities: day22Activities
+    });
+    days.push(d22);
+
+    // Day 23
+    const day23Activities = [act45.id, act46.id];
+    const d23 = new Day({
+      accommodation: 'Tokyo Hotel',
+      activities: day23Activities
+    });
+    days.push(d23);
+
+    // Day 24
+    const day24Activities = [act47.id, act48.id];
+    const d24 = new Day({
+      accommodation: 'Alicante Beachfront Hotel',
+      activities: day24Activities
+    });
+    days.push(d24);
+
+    // Day 25
+    const day25Activities = [act49.id, act50.id, act51.id];
+    const d25 = new Day({
+      accommodation: 'Alicante Beachfront Hotel',
+      activities: day25Activities
+    });
+    days.push(d25);
+
+    // Day 26
+    const day26Activities = [act52.id, act53.id, act54.id];
+    const d26 = new Day({
+      accommodation: 'Alicante Beachfront Hotel',
+      activities: day26Activities
+    });
+    days.push(d26);
+
+
+
     const createdDays = await Day.insertMany(days);
 
     const itineraries = [];
@@ -480,6 +656,40 @@ const insertSeeds = async () => {
       days: itinerary3Days
     });
     itineraries.push(it3);
+
+    const itinerary4Days = [d19.id, d20.id, d21.id, d22.id, d23.id];
+    const it4 = new Itinerary({
+      title: 'Sushi and Sake tour',
+      locationName: 'Tokyo',
+      locationType: 'City',
+      countryCode: 'JP',
+      lng: 139.83,
+      lat: 35.65,
+      length: 5,
+      fakeLikes: 497,
+      fakeViews: 1305,
+      author: u4.id,
+      days: itinerary4Days
+    });
+    itineraries.push(it4);
+
+    const itinerary5Days = [d20.id, d21.id, d22.id];
+    const it5 = new Itinerary({
+      title: 'Alicante Beach Vacation',
+      locationName: 'Alicante',
+      locationType: 'City',
+      countryCode: 'ES',
+      lng: -0.4813, 
+      lat: 38.3452,
+      length: 3,
+      fakeLikes: 49, 
+      fakeViews: 130, 
+      author: u2.id, 
+      days: itinerary5Days
+    });
+    itineraries.push(it5);
+
+
 
     const createdItineraries = await Itinerary.insertMany(itineraries);
 
