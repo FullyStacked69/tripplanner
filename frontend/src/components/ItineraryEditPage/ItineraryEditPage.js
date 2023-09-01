@@ -114,18 +114,22 @@ const ItineraryEditPage = () => {
         
             {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter}/> */}
             {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions}/> */}
+            <div id='sticky'>
+
             <GoogleMap 
             onLoad={onLoad}
             // ref={mapRef}
             center={center}
             zoom={10}
             mapContainerClassName="map-container"
+            mapContainerStyle={containerStyle}
             >
                 {/* <Marker position={center} /> */}
                 {/* <Marker position={{lat:37.96, lng:-122.0296}} /> */}
                 {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
                 {/* <InfoWindow /> */}
             </GoogleMap>
+            </div>
     </div>
     )
 }    

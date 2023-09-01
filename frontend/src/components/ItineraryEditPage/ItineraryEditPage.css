@@ -114,3 +114,11 @@
     transition: max-height 0.3s ease;
     overflow: hidden;
 }
+
+#sticky {
+    position: sticky;
+    top:0px;
+    height: 100vh ;
+    min-width: 400px;
+    width: 50%;
+}
