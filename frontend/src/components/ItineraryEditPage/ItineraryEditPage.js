@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import './ItineraryEditPage.css';
 import Search from '../Search/Search';
 import { DayContainer } from './DayContainer';
-import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
+import {useJsApiLoader, GoogleMap, Marker, Autocomplete, setZoom, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
 import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
 import './Maps.css'
 
@@ -27,25 +27,37 @@ const ItineraryEditPage = () => {
         ];
 
     const [markersPositions, setMarkersPositions] = useState([]);
-    const [center, setCenter] = useState({lat: 37.4245, lng: -122.0782})
-
+    
     const [itObj, setItObj] = useState(null)
     const {itineraryId} = useParams()
     useEffect(() =>{
         if(itineraryId){
-        let it = async () => {
-            const res = await dispatch(fetchItinerary(itineraryId))
-            setItObj(() => res)
-        }
-        it()
-        console.log(itObj)
+            let it = async () => {
+                const res = await dispatch(fetchItinerary(itineraryId))
+                setItObj(() => res)
+            }
+            it()
+            console.log(itObj)
         }
     },[itineraryId])
-
-    // const itLocation = {itObj.lat, itObj.lng}
-    // console.log(itObj.lat)
-    // console.log(itObj.lng)
     
+    const splashLat = itObj?.lat
+    const splashLng = itObj?.lng
+    const splashPos = {
+        lat: splashLat ?? 37.4245,
+        lng: splashLng ?? -122.0782
+    };
+    // const init = splashPos ?  splashPos : {lat: 37.4245, lng: -122.0782}
+
+    console.log(splashPos)
+
+
+    const [center, setCenter] = useState(splashPos)
+
+
+    console.log(itObj?.locationName)
+    // console.log(typeof itObj.lng)
+
 
         
     const {isLoaded} = useJsApiLoader({
@@ -53,15 +65,53 @@ const ItineraryEditPage = () => {
         libraries: ['places'],
     })
     
-    const init = {lat: 37.4245, lng: -122.0782}
+
     const [map, setMap] = useState(null);
     
-    if (!isLoaded) {return (<div>Loading...</div>)}
-
+    
     const onLoad = (location) => {
         setMap(location)
     }
+    
+    useEffect(() => {
+        // If there are no markers, geocode the location
+        if (map && !markersPositions.length && itObj?.locationName) {
+            let geocoder = new window.google.maps.Geocoder();
+            geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
+                if (status === window.google.maps.GeocoderStatus.OK) {
+                    map.fitBounds(results[0].geometry.viewport);
+                }
+            });
+        } 
+        // else {map?.setZoom(10)}
+    }, [itObj?.locationName, map, markersPositions.length]);
+    
+    useEffect(() => {
+        if (map && markersPositions.length > 0) {
+            let bounds = new window.google.maps.LatLngBounds();
+            markersPositions.forEach(place => {
+                bounds.extend(new window.google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
+            });
+            map.fitBounds(bounds);
 
+            let latSum = 0;
+            let lngSum = 0;
+            markersPositions.forEach(place => {
+                latSum += place.geometry.location.lat();
+                lngSum += place.geometry.location.lng();
+            });
+            setCenter({
+                lat: latSum / markersPositions.length,
+                lng: lngSum / markersPositions.length
+            });
+
+        }
+    }, [markersPositions, map]);
+    
+    
+    
+    
+    if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
     
     return ( 
@@ -126,7 +176,7 @@ const ItineraryEditPage = () => {
             onLoad={onLoad}
             // ref={mapRef}
             center={center}
-            zoom={10}
+            // zoom={7}
             mapContainerClassName="map-container"
             >
                 {/* <Marker position={center} /> */}

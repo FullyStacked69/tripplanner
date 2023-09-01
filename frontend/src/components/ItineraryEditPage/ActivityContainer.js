@@ -37,7 +37,7 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
         <div className='activity-container'>
             {activities.map((activity, idx) => (
                 <div key={idx}>
-                {<h2>{idx+1}</h2>}
+                {<h4>{idx+1}</h4>}
                 { activity.name && <img src={activity?.photos?.[0].getUrl()}  style={{ width: '200px', height: '125px' }} />}
                     <div className='activity-description'>{activity.name ?  "" : "Activity Info"}</div>
                     {/* <img src={activity?.photos?.[0].getUrl({maxWidth:140, maxHeight:80})}   /> */}
