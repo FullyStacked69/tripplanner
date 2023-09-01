@@ -49,6 +49,7 @@ const ItineraryEditPage = () => {
     const {itineraryId} = useParams()
     useEffect(() =>{
         if(itineraryId){
+
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
                 setItObj(() => res)
@@ -66,14 +67,10 @@ const ItineraryEditPage = () => {
     };
     // const init = splashPos ?  splashPos : {lat: 37.4245, lng: -122.0782}
 
-    console.log(splashPos)
-
-
     const [center, setCenter] = useState(splashPos)
 
 
-    console.log(itObj?.locationName)
-    // console.log(typeof itObj.lng)
+
 
 
         
