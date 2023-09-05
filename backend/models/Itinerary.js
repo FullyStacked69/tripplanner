@@ -37,6 +37,11 @@ const itinerarySchema = new Schema(
         fakeViews: {
             type: Number,
         },
+
+        startDate: {
+            type: Date, 
+            required: true,
+        },
         author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 
         days: [{type: Schema.Types.ObjectId, ref: 'Day'}]

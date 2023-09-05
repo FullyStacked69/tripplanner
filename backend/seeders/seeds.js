@@ -723,7 +723,8 @@ const insertSeeds = async () => {
       fakeLikes: 106,
       fakeViews: 1240,
       author: u2.id,
-      days: itinerary1Days
+      days: itinerary1Days,
+      startDate: new Date('2022-01-15'), 
     });
     itineraries.push(it1);
 
@@ -740,7 +741,8 @@ const insertSeeds = async () => {
       fakeLikes: 95,
       fakeViews: 862,
       author: u3.id,
-      days: itinerary2Days
+      days: itinerary2Days,
+      startDate: new Date('2022-02-20'), 
     });
     itineraries.push(it2);
 
@@ -757,10 +759,12 @@ const insertSeeds = async () => {
       fakeLikes: 25,
       fakeViews: 451,
       author: u4.id,
-      days: itinerary3Days
+      days: itinerary3Days,
+      startDate: new Date('2022-03-10'), 
     });
     itineraries.push(it3);
 
+    // Itinerary 4: Sushi and Sake tour (5 days)
     const itinerary4Days = [d19.id, d20.id, d21.id, d22.id, d23.id];
     const it4 = new Itinerary({
       title: 'Sushi and Sake tour',
@@ -773,26 +777,30 @@ const insertSeeds = async () => {
       fakeLikes: 497,
       fakeViews: 1305,
       author: u4.id,
-      days: itinerary4Days
+      days: itinerary4Days,
+      startDate: new Date('2022-04-05'), 
     });
     itineraries.push(it4);
 
+    // Itinerary 5: Alicante Beach Vacation (3 days)
     const itinerary5Days = [d24.id, d25.id, d26.id];
     const it5 = new Itinerary({
       title: 'Alicante Beach Vacation',
       locationName: 'Alicante',
       locationType: 'City',
       countryCode: 'ES',
-      lng: -0.4813, 
+      lng: -0.4813,
       lat: 38.3452,
       length: 3,
-      fakeLikes: 49, 
-      fakeViews: 130, 
-      author: u2.id, 
-      days: itinerary5Days
+      fakeLikes: 49,
+      fakeViews: 130,
+      author: u2.id,
+      days: itinerary5Days,
+      startDate: new Date('2022-05-15'), 
     });
     itineraries.push(it5);
 
+    // Itinerary 6: Exploring London (4 days)
     const itineraryLondonDays = [d27.id, d28.id, d29.id, d30.id];
     const itinerary6 = new Itinerary({
       title: 'Exploring London: A 4-Day Adventure',
@@ -802,15 +810,13 @@ const insertSeeds = async () => {
       lng: -0.1276,
       lat: 51.5072,
       length: 4,
-      fakeLikes: 497, 
-      fakeViews: 1305, 
+      fakeLikes: 497,
+      fakeViews: 1305,
       author: u4.id,
-      days: itineraryLondonDays
+      days: itineraryLondonDays,
+      startDate: new Date('2022-06-20'), 
     });
     itineraries.push(itinerary6);
-
-
-
 
     const createdItineraries = await Itinerary.insertMany(itineraries);
 
