@@ -33,22 +33,25 @@ export default function ItineraryList({ searchObj }) {
                     <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/{:id}/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
-                {itineraries.length > 0 && (
-                    <div className="sort-container">
-                        <select onChange={(e) => handleSort(e.target.value)}>
-                            <option value="likes">Likes</option>
-                            <option value="views">Views</option>
-                            <option value="author">Author</option>
-                            <option value="tripLength">Trip Length</option>
-                        </select>
-                    </div>
+                {itineraries.length > 0 ? (
+                    <>
+                        <div className="sort-container">
+                            <select onChange={(e) => handleSort(e.target.value)}>
+                                <option value="likes">Likes</option>
+                                <option value="views">Views</option>
+                                <option value="author">Author</option>
+                                <option value="tripLength">Trip Length</option>
+                            </select>
+                        </div>
+                        <ul>
+                            {itineraries.map(itinerary => (
+                                <ItineraryTile key={itinerary._id} itinerary={itinerary} />
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <p>No itineraries for this location found! You can be the first one to add an itinerary for {location}!</p>
                 )}
-                <ul>
-                    {itineraries.map(itinerary => (
-                      <ItineraryTile key={itinerary._id} itinerary={itinerary} />
-                    ))}
-                </ul>
-
             </div>
         </div>   
     )

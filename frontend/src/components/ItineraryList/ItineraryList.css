@@ -21,6 +21,11 @@
     margin: auto;
 }
 
+.itinerary-list-component p {
+    text-align: center;
+    color: #1D3557;
+}
+
 .itinerary-content-container {
     background: white;
     padding: 16px 32px;
