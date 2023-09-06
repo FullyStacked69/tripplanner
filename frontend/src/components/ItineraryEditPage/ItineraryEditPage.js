@@ -55,7 +55,6 @@ const ItineraryEditPage = () => {
                 setItObj(() => res)
             }
             it()
-            console.log(itObj)
         }
     },[itineraryId])
     
@@ -65,13 +64,8 @@ const ItineraryEditPage = () => {
         lat: splashLat ?? 37.4245,
         lng: splashLng ?? -122.0782
     };
-    // const init = splashPos ?  splashPos : {lat: 37.4245, lng: -122.0782}
 
     const [center, setCenter] = useState(splashPos)
-
-
-
-
 
         
     const {isLoaded} = useJsApiLoader({
@@ -162,12 +156,8 @@ const ItineraryEditPage = () => {
                 </div>
                 <div id='itinerary-container'>
                     <div id='itinerary-header'>
-                        <h2>Itinerary</h2>
-
-                        {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter}/> */}
-                        
+                        <h2>Itinerary</h2>   
                         <a>Collapse All</a>
-                        {/* <a>Collapse All</a> */}
                     </div>
                     <div id='itineary-days-container'>
                         {days.map((day, index) => (
@@ -179,21 +169,18 @@ const ItineraryEditPage = () => {
 
         </div>
         
-            {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter}/> */}
-            {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions}/> */}
             <div id='sticky'>
 
             <GoogleMap 
             onLoad={onLoad}
-            // ref={mapRef}
+
             center={center}
-            // zoom={7}
+
             mapContainerClassName="map-container"
             >
-                {/* <Marker position={center} /> */}
-                {/* <Marker position={{lat:37.96, lng:-122.0296}} /> */}
+
                 {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
-                {/* <InfoWindow /> */}
+
             </GoogleMap>
             </div>
     </div>

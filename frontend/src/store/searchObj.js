@@ -7,7 +7,6 @@ export const setSearchObjRedux = searchObj => ({
 
 export default function searchObj(state = {}, action){
     const {searchObj} = action
-    console.log(searchObj)
 
     switch(action.type){
         case SET_SEARCH_OBJ:

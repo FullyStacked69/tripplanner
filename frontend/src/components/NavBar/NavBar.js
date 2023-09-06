@@ -17,11 +17,6 @@ function NavBar () {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-
-  useEffect(() => {
-    console.log("showLoginModal changed to", showLoginModal);
-  }, [showLoginModal]);
-
   
   const logoutUser = e => {
       e.preventDefault();

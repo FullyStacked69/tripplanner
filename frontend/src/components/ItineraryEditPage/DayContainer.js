@@ -18,14 +18,6 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
 
-
-
-
-    // console.log("place",info?.photos?.[0] || "")
-    // console.log('activities',activities)
-
-
-
     //clear info -> setInfo
 
     return (

@@ -3,8 +3,6 @@ import React, { useEffect } from 'react';
 // import { useState } from 'react';
 export function ActivityContainer({info, setInfo, setMarkersPositions, markersPositions,activities, setActivities}) {
 
-    // console.log('activity', info?.photos?.[0] || "")
-
     const clear = (idx,e) => {
         e.preventDefault();
         const dupAct = [...activities];
@@ -15,7 +13,6 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
 
         // setInfo({})
         setMarkersPositions(slicedMarker);
-        console.log("delete",slicedAcc)
         setActivities(slicedAcc)
     }
 
