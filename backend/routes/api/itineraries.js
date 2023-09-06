@@ -115,8 +115,8 @@ router.get('/user/:userId', async (req, res, next) => {
 
   router.delete('/:itineraryId', async (req, res, next) => {
     try{
-      const it = await Itinerary.findOneAndDelete(req.params.itineraryId)
-      await res.json(it)
+      const it = await Itinerary.findByIdAndDelete(req.params.itineraryId)
+      return res.json(it)
     }catch(err){
       next(err)
     }
