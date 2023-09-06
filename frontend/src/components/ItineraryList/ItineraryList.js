@@ -1,5 +1,5 @@
 import './ItineraryList.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchItineraries } from '../../store/itineraries';
@@ -11,9 +11,14 @@ export default function ItineraryList({ searchObj }) {
     const { startDate, endDate, location } = searchObj;
     const dispatch = useDispatch();
     const itineraries = useSelector(state => state.itineraries);
-    
 
-    
+    const handleSort = (criteria) => {
+        // When seed data gets added, sort itineraries based on sortCriteria here.
+        // Simple example sorting by 'likes':
+        if (criteria === "likes") {
+            itineraries.sort((a, b) => b.likes - a.likes);
+        }
+    };
     
     useEffect(() => {
         dispatch(fetchItineraries(location));
@@ -28,6 +33,16 @@ export default function ItineraryList({ searchObj }) {
                     <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/{:id}/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
+                {itineraries.length > 0 && (
+                    <div className="sort-container">
+                        <select onChange={(e) => handleSort(e.target.value)}>
+                            <option value="likes">Likes</option>
+                            <option value="views">Views</option>
+                            <option value="author">Author</option>
+                            <option value="tripLength">Trip Length</option>
+                        </select>
+                    </div>
+                )}
                 <ul>
                     {itineraries.map(itinerary => (
                       <ItineraryTile key={itinerary._id} itinerary={itinerary} />

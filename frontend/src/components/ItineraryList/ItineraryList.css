@@ -144,4 +144,17 @@
     padding: 8px 12px 6px;
 }
 
+.sort-container {
+    width: 80%;
+    margin: auto;
+    text-align:right;
+}
+
+.sort-container select {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    color: #1D3557;
+    padding: 4px;
+    cursor: pointer;
+}
 
