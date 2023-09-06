@@ -113,4 +113,13 @@ router.get('/user/:userId', async (req, res, next) => {
     }
   });
 
+  router.delete('/:itineraryId', async (req, res, next) => {
+    try{
+      const it = await Itinerary.findOneAndDelete(req.params.itineraryId)
+      await res.json(it)
+    }catch(err){
+      next(err)
+    }
+  } )
+
 module.exports = router;
