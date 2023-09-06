@@ -68,7 +68,36 @@
     width: 100%;
 }
 
+.links-nav {
+    position: relative;
+}
+
 .links-nav button {
     padding: 6px 16px;
     border: none;
 }
+
+
+.dropdown-menu {
+    border: 1px solid #E7E7E7;
+    background: white;
+    position: absolute; 
+    top: 120%;                   
+    z-index: 1;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 8px 0;
+    /* left: -50px; */
+}
+
+.dropdown-menu a {
+    padding: 8px 0;
+}
+
+.dropdown-menu a:hover {
+    background: #A8DADC;
+}
+

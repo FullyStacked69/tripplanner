@@ -14,6 +14,7 @@ import { Route, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import ItineraryList from './components/ItineraryList/ItineraryList';
 import { fetchItineraries, fetchItinerary } from './store/itineraries';
 import Footer from './components/Footer/Footer';
+import UserPage from './components/UserPage/UserPage';
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
         </Route>
         <Route exact path="/itineraries/plan" component={ItinerariesEditPage} />
         <Route exact path="/itineraries/:itineraryId/plan" component={ItinerariesEditPage} />
+        <Route exact path="/users/:userId" component={UserPage} />
         <Route path="/*" component={NotFound}/>
       </Switch>
       <Footer />
