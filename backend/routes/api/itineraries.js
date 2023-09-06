@@ -113,6 +113,15 @@ router.get('/user/:userId', async (req, res, next) => {
     }
   });
 
+  router.patch('/:itineraryId', async (req, res, next) => {
+    try{
+      const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, req.body.update)
+      return res.json(it)
+    } catch(err){
+      next(err)
+    }
+  })
+
   router.delete('/:itineraryId', async (req, res, next) => {
     try{
       const it = await Itinerary.findByIdAndDelete(req.params.itineraryId)
