@@ -7,7 +7,7 @@
 #footer-content-container{
     /* border: 1px solid pink; */
     margin: 40px auto;
-    /* display: flex; */
+    color: #1D3557;
 }
 
 #footer-content-container > h5 {
@@ -35,7 +35,6 @@
     font-size: 12px;
     margin: 8px 0;
     text-decoration: none;
-    /* cursor: pointer; */
 }
 
 .team-member-container a:hover {
