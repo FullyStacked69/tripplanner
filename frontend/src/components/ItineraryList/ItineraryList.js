@@ -50,7 +50,7 @@ export default function ItineraryList({ searchObj }) {
                         </ul>
                     </>
                 ) : (
-                    <p>No itineraries for this location found! You can be the first one to add an itinerary for {location}!</p>
+                    <p>{`No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
                 )}
             </div>
         </div>   
