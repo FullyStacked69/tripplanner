@@ -5,8 +5,9 @@
     /*border-bottom: 1px solid black; just to help me code layout*/
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
-    margin: 0 auto;
+    padding: 0 15%;
+    background: #A8DADC;
+    /* margin: 0 auto; */
 }
 
 .nav-bar-container.max-width {
