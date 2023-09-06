@@ -1,0 +1,35 @@
+#user-page-container{
+    display: flex;
+    background: #F1FAEE;
+    color: #1D3557;
+}
+
+#user-page-content-container {
+    margin: 64px auto;
+    width: 70%;
+}
+
+#user-page-headers h2{
+   margin-bottom: 16px;
+}
+
+#user-page-content-container h3 {
+    margin: 64px 0 16px;
+}
+
+#past-trips-section-container p, #upcoming-trips-section-container p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+#past-trips-section-container h4, #upcoming-trips-section-container h4 {
+    margin: 8px 0;
+}
+
+.trips-container {
+    display: flex;
+}
+
+.trip-container {
+    margin-right: 16px;
+}
