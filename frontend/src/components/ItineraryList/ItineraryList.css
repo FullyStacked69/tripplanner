@@ -180,3 +180,26 @@
     background: #E63946;
     border: 1px solid #E63946;
 }
+
+.last-buttons{
+    display: flex;
+    height: 70px;
+
+}
+
+.like-button {
+    background-color: #fff;
+    /* Set the default background color */
+    color: #000;
+    /* Set the default text color */
+    /* Add other styles as needed */
+}
+
+/* Styles for the like button when it's liked */
+.like-button.liked {
+    background-color: lightgreen;
+    /* Change the background color when liked */
+    color: #fff;
+    /* Change the text color when liked */
+    /* Add other styles as needed */
+}
