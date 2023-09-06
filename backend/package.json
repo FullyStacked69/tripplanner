@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "dotenv ./bin/www --inspect",
-    "seed":"dotenv node ./seeders/seeds.js"
+    "seed":"dotenv node ./seeders/seeds.js",
+    "build": "BUILD_PATH='../public' react-scripts build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
