@@ -54,7 +54,7 @@ function NavBar () {
   }
 
   return (
-      <div className={`nav-bar-container ${location.pathname === '/' ? 'max-width' : ''}`}>
+      <div className={`nav-bar-container`}>
         <div className="logo-button">
           <Link to="/">
             <h2>TripPlanner</h2>

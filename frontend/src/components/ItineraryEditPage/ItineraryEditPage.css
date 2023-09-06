@@ -120,7 +120,7 @@
     top:0px;
     height: 100vh ;
     min-width: 400px;
-    width: 50%;
+    flex: 1;
 }
 
 .activity-container {
