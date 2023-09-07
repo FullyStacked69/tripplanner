@@ -115,8 +115,8 @@ ActivityContainer.js:
 
 this code allows us to change the classname of the button every time the user clicks on it and allow us to control its style on CSS depending on it.
 
-´´´JavaScript
+````JavaScript
 <button  className={`like-button ${isLiked ? 'liked' : ''}`}  onClick={handleLikeClick}>
-´´´
+````
 
 
