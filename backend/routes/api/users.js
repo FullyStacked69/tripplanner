@@ -14,13 +14,23 @@ const User = mongoose.model('User');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-
-  res.json({
-    message: "GET /api/users"
-  });
-
+router.get('/', async (req, res, next) => {
+  try{
+    const users = await User.find()
+    return res.json(users)
+  }catch(err){
+    next(err)
+  }
 });
+
+router.get('/:userId', async (req, res, next) => {
+  try{
+    const user = await User.findById(req.params.userId)
+    res.json(user)
+  }catch(err){
+    next(err)
+  }
+})
 
 router.post('/register', validateRegisterInput, async (req, res, next) => {
   const user = await User.findOne({

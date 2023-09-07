@@ -820,7 +820,7 @@ const insertSeeds = async () => {
 
     const createdItineraries = await Itinerary.insertMany(itineraries);
 
-
+    createdUsers[3].updateOne({authoredItineraries:[createdItineraries[2], createdItineraries[3], createdItineraries[5]]})
 
 
 

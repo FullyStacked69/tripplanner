@@ -14,7 +14,8 @@ const userSchema = new Schema(
     hashedPassword: {
         type: String,
         required: true
-    }
+    },
+    authoredItineraries: [{ type: Schema.Types.ObjectId, ref: "Itinerary" }]
     }, { timestamps: true }
 );
 
