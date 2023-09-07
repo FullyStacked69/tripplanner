@@ -14,9 +14,19 @@
     margin: 0 auto;
 }
 
-#sidebar {
+#sidebar-container {
     width: 150px;
     border-right: 1px solid #E7E7E7;
+    background: #F1FAEE;
+}
+
+#sidebar {
+    margin: 128px 0;
+}
+
+#sidebar h4 {
+    margin: 64px 16px;
+    color: #1D3557;
 }
 
 #itinerary-tld {
