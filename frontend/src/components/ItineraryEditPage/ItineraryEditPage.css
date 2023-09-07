@@ -26,10 +26,12 @@
     top:0px;
 }
 
-#sidebar h4 {
+.sidebar-item {
     margin: 64px 16px 16px;
     color: #1D3557;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
 .days-dropdown {
@@ -40,6 +42,11 @@
     margin: 16px 0;
     color: #1D3557;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.days-dropdown li:hover {
+    text-decoration: underline;
 }
 
 #itinerary-tld {
