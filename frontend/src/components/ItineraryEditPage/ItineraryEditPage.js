@@ -9,7 +9,7 @@ import './Maps.css'
 import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
 import northernLightsImg from './assets/northern-lights.jpeg';
 import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
@@ -34,16 +34,20 @@ const ItineraryEditPage = () => {
     const [itObj, setItObj] = useState(null)
     const [days, setDays] = useState([])
 
+    const searchObj = useSelector(state => state)
+
     const {itineraryId} = useParams()
     useEffect(() =>{
-        if(itineraryId){
-
+        if(itineraryId !== 'new'){
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
                 setItObj(() => res)
                 setDays(() => res.days)
             }
             it()
+        } else if (itineraryId === 'new'){
+            let days = []
+            setItObj(()=> ({...searchObj, days: days}))
         }
     },[itineraryId])
     
