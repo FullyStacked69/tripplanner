@@ -6,25 +6,20 @@ import { DayContainer } from './DayContainer';
 import {useJsApiLoader, GoogleMap, Marker, Autocomplete, setZoom, DirectionsRenderer, InfoWindow} from '@react-google-maps/api';
 import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
 import './Maps.css'
-
-
 import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
-
 import northernLightsImg from './assets/northern-lights.jpeg';
 import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
 import diamondBeachImg from './assets/diamond_beach.webp'
 import blueLagoonImg from './assets/blue-lagoon.jpeg';
 import iceClimbingImg from './assets/ice-climbing.avif';
 import fjadrargljufurImg from './assets/fjad.webp'
-
-
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-
+      
     const pop_activities = [
         {name: "Northern Lights", url: northernLightsImg},
         {name: "Seljalandsfoss", url: seljalandsfossImg},
@@ -46,6 +41,7 @@ const ItineraryEditPage = () => {
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
                 setItObj(() => res)
+                setDays(() => res.days)
             }
             it()
         }
@@ -75,6 +71,7 @@ const ItineraryEditPage = () => {
     }
     
     useEffect(() => {
+        // If there are no markers, geocode the location
         if (map && !markersPositions.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
@@ -83,6 +80,7 @@ const ItineraryEditPage = () => {
                 }
             });
         } 
+        // else {map?.setZoom(10)}
     }, [itObj?.locationName, map, markersPositions.length]);
     
     useEffect(() => {
@@ -151,31 +149,24 @@ const ItineraryEditPage = () => {
                         <a>Collapse All</a>
                     </div>
                     <div id='itineary-days-container'>
-                        {days.map((day, index) => (
+                        {itObj && itObj.days.map((day, index) => (
                             <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
                             ))}
                     </div>
                 </div>
             </div>
-
         </div>
         
             <div id='sticky'>
-
             <GoogleMap 
             onLoad={onLoad}
-
             center={center}
-
             mapContainerClassName="map-container"
             >
-
                 {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
-
             </GoogleMap>
             </div>
     </div>
     )
 }    
-
     export default ItineraryEditPage;
