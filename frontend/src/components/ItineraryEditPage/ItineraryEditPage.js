@@ -72,8 +72,19 @@ const ItineraryEditPage = () => {
             }
             it()
         } else if (itineraryId === 'new'){
-            let days = []
-            setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
+            if(searchObj){
+                let days = []
+                if(searchObj.startDate && searchObj.endDate){
+                    const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
+
+                    days = dateRange.map(date => ({
+                        date,
+                        activities: [],
+                    }));
+
+                } 
+                setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
+            }
         }
     },[itineraryId])
     
@@ -146,9 +157,17 @@ const ItineraryEditPage = () => {
         return `${year}/${month}/${day}`;
         }
     }
-    
-    
-    
+
+    const datesBetween = (startDate, endDate) => {
+        const datesArray = [];
+        let currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            datesArray.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        return datesArray
+    }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
