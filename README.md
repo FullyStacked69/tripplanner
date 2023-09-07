@@ -61,7 +61,62 @@ In conclusion, these two features exemplify our technical prowess in seamlessly 
 
 ## Snippets
 
-    <button  className={`like-button ${isLiked ? 'liked' : ''}`}  onClick={handleLikeClick}>
+The work was divided between the team members so everybody could work simultaneously.
+ItineraryEditPage.js:
+
+````JavaScript
+<div id='itinerary-container'>
+   <div id='itinerary-header'>
+       <h2>Itinerary</h2>   
+       <a>Collapse All</a>
+   </div>
+   <div id='itineary-days-container'>
+      {itObj && itObj.days.map((day, index) => (
+         <DayContainer id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+         ))}
+   </div>
+</div>
+````
+
+DayContainer.js:
+
+````JavaScript
+<div id='recommended-activities-container'>
+   {sampleActivities.map((sampleActivity, index) => (
+      <RecommendedActivityTile  key={index} sampleActivity={sampleActivity} index={index} />
+   ))}
+</div>
+````
+
+ActivityContainer.js:
+
+````JavaScript
+<div className='activity-container'>
+            {activities.map((activity, idx) => (
+                <div key={idx}>
+                {<h4>{idx+1}</h4>}
+                { activity.name && <img src={activity?.photos?.[0].getUrl()}  style={{ width: '200px', height: '125px' }} />}
+                    <div className='activity-description'>{activity.name ?  "" : "Activity Info"}</div>
+                    {/* <img src={activity?.photos?.[0].getUrl({maxWidth:140, maxHeight:80})}   /> */}
+                        <form>
+                            <h3>{activity.name}</h3>
+                            <p>{activity.formatted_address}</p>
+                            <p>{activity.formatted_phone_number}</p>
+                            {activity.rating && <p>Rating: {activity.rating}({activity.user_ratings_total})</p>}
+                            {activity.name && <button onClick={(e) => clear(idx, e)}> Delete </button>}
+                            {/* {activity.name && <button onClick={addActivityInfo()}> Add </button>} */}
+                        </form>
+                </div>
+
+            ))}
+            
+        </div>
+````
+
 this code allows us to change the classname of the button every time the user clicks on it and allow us to control its style on CSS depending on it.
+
+´´´JavaScript
+<button  className={`like-button ${isLiked ? 'liked' : ''}`}  onClick={handleLikeClick}>
+´´´
 
 
