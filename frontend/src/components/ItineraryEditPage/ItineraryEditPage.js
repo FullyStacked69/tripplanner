@@ -24,14 +24,6 @@ import fjadrargljufurImg from './assets/fjad.webp'
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-  
-    const days = [
-            { date: "Saturday, September 9th", places: 5 },
-            { date: "Sunday, September 10th", places: 3 },
-            { date: "Monday, September 11th", places: 2 },
-            { date: "Tuesday, September 12th", places: 4 },
-            { date: "Wednesday, September 13th", places: 4 },
-        ];
 
     const pop_activities = [
         {name: "Northern Lights", url: northernLightsImg},
@@ -42,10 +34,11 @@ const ItineraryEditPage = () => {
         {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
     ]
     
-
     const [markersPositions, setMarkersPositions] = useState([]);
     
     const [itObj, setItObj] = useState(null)
+    const [days, setDays] = useState([])
+
     const {itineraryId} = useParams()
     useEffect(() =>{
         if(itineraryId){
