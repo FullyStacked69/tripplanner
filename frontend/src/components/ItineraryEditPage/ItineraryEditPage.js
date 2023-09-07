@@ -25,12 +25,11 @@ import fjadrargljufurImg from './assets/fjad.webp'
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
   
-    const days = [
+    const dates = [
             { date: "Saturday, September 9th", places: 5 },
             { date: "Sunday, September 10th", places: 3 },
             { date: "Monday, September 11th", places: 2 },
-            { date: "Tuesday, September 12th", places: 4 },
-            { date: "Wednesday, September 13th", places: 4 },
+
         ];
 
     const pop_activities = [
@@ -42,17 +41,61 @@ const ItineraryEditPage = () => {
         {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
     ]
     
+    const dateLength = dates.length
 
     const [markersPositions, setMarkersPositions] = useState([]);
     const [activities, setActivities] = useState([]);
+
+    const initialDays = Array.from({length: dateLength}, (v, idx) => {
+        return {date: `Day ${idx + 1}`, activities: [...activities]}
+    })
+   
+    const [days, setDays] = useState (initialDays)
+    console.log("edit page", days.activities)
+    console.log("edit page", activities)
+
     const [saveFunc, setSaveFunc] = useState(null)
 
     const handleSaveButton = () => {
-        console.log('saveFunc', saveFunc)
         if (saveFunc) {
             saveFunc();
         }
     }
+
+      const saveData = () => {
+        return {
+            date: days.date,
+            activities: activities
+        }
+    }
+
+
+
+
+    const sendDataToBackend = async () => {
+        const data = saveData();
+
+        try {
+            const res = await fetch('/its /api/itineraries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }); 
+
+            if(res.ok) {
+                console.log('Itinerary has been saved');
+            } else {
+                console.error('Cannot save Itinerary', res.statusText);
+            }
+
+        } catch(error) {
+            console.error('Error', error);
+        }
+    };
+    
+    
     
     const [itObj, setItObj] = useState(null)
     const {itineraryId} = useParams()

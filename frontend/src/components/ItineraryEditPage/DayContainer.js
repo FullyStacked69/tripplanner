@@ -14,50 +14,12 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 3"  },
         { image: "", name: "Test name 4"  },
         { image: "", name: "Test name 5"  },
+
     ]
     const [info, setInfo] = useState({});
   
 
-    const saveData = () => {
-        return {
-            date: day.date,
-            activities: activities
-        }
-    }
-
-    const sendDataToBackend = async () => {
-        const data = saveData();
-
-        try {
-            const res = await fetch('/its /api/itineraries', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }); 
-
-            if(res.ok) {
-                console.log('Itinerary has been saved');
-            } else {
-                console.error('Cannot save Itinerary', res.statusText);
-            }
-
-        } catch(error) {
-            console.error('Error', error);
-        }
-    };
-    
-    
-  useEffect(() => {
-    if(onSave) {
-        onSave(sendDataToBackend);
-    }
-  },[onSave])
-
-
-
-
+  
     // console.log("place",info?.photos?.[0] || "")
     // console.log(day.date)
     // console.log('activities',activities)

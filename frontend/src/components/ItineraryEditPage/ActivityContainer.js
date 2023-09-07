@@ -12,10 +12,9 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
         const slicedAcc = dupAct.slice(0, idx).concat(dupAct.slice(idx+1))
         const slicedMarker = dupMarker.slice(0, idx).concat(dupMarker.slice(idx+1))
 
-
         // setInfo({})
         setMarkersPositions(slicedMarker);
-        console.log("delete",slicedAcc)
+        // console.log("delete",slicedAcc)
         setActivities(slicedAcc)
     }
 
@@ -28,8 +27,6 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
     useEffect(() => {
         addActivityInfo();
     },[info])
-
-
 
 
 
