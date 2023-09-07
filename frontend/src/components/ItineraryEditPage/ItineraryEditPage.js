@@ -11,12 +11,14 @@ import './NestedComponents.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
+
 import northernLightsImg from './assets/northern-lights.jpeg';
 import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
 import diamondBeachImg from './assets/diamond_beach.webp'
 import blueLagoonImg from './assets/blue-lagoon.jpeg';
 import iceClimbingImg from './assets/ice-climbing.avif';
 import fjadrargljufurImg from './assets/fjad.webp'
+
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
       
@@ -175,4 +177,5 @@ const ItineraryEditPage = () => {
     </div>
     )
 }    
-    export default ItineraryEditPage;
+
+export default ItineraryEditPage;
