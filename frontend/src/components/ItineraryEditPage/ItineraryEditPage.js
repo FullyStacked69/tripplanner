@@ -48,8 +48,9 @@ const ItineraryEditPage = () => {
     const [saveFunc, setSaveFunc] = useState(null)
 
     const handleSaveButton = () => {
+        console.log('saveFunc', saveFunc)
         if (saveFunc) {
-            saveFunc()
+            saveFunc();
         }
     }
     
