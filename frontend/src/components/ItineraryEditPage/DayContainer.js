@@ -23,6 +23,8 @@ export function DayContainer({ id, day, index, map, setMarkersPositions, markers
         if(day) setActivities(day.activities)
     },[])
 
+    console.log(activities)
+
     return (
         <div className='day-container' id={id}>
             <div className='item'>

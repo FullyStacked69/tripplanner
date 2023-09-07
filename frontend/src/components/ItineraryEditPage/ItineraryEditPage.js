@@ -8,7 +8,7 @@ import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
 import './Maps.css'
 import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
 
@@ -171,6 +171,7 @@ const ItineraryEditPage = () => {
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
+    if(!searchObj.location) return <Redirect to="/"/>
     
     return ( 
         <div className='page-content-container'>
@@ -217,7 +218,7 @@ const ItineraryEditPage = () => {
                             <div id='popular-activities-container'>
                                 {pop_activities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={activity} />
-                                ))}
+                                    ))}
                             </div>
                         </div>
                     </div>
@@ -231,6 +232,7 @@ const ItineraryEditPage = () => {
                                 <DayContainer id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
                                 ))}
                         </div>
+                            <button>Save</button>
                     </div>
                 </div>
             </div>

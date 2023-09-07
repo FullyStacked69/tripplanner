@@ -3,14 +3,24 @@ const Schema = mongoose.Schema;
 
 const activitySchema = new Schema(
     {
-        title: {
+        name: {
             type: String,
             required: true,
         },
-        length: {
-            type: Number,
-            required: true,
+        formatted_address: {
+            type: String,
         },
+        formatted_phone_number:{
+            type: String
+        },
+        rating:{
+            type: String
+        },
+        user_ratings_total:{
+            type: Number
+        },
+        place_id: { type: String, required: true},
+        imageUrl: { type: String },
     },
     { timestamps: true }
 );

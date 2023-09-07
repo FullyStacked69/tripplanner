@@ -18,24 +18,29 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
 
     const addActivityInfo = () => {
         if(info.name) {
-            setActivities([...activities, info])
+            setActivities([...activities, {
+                name: info.name,
+                formatted_address: info.formatted_address,
+                formatted_phone_number: info.formatted_phone_number,
+                place_id: info.place_id,
+                rating: info.rating,
+                user_ratings_total: info.user_ratings_total,
+                imageUrl: info?.photos?.[0].getUrl()
+            }])
         }
+        console.log(info)
     }
 
     useEffect(() => {
         addActivityInfo();
     },[info])
 
-
-
-
-
     return (
         <div className='activity-container'>
             {activities.map((activity, idx) => (
                 <div key={idx}>
                 {<h4>{idx+1}</h4>}
-                { activity.name && <img src={activity?.photos?.[0].getUrl()}  style={{ width: '200px', height: '125px' }} />}
+                { activity.name && <img src={activity.imageUrl} style={{ width: '200px', height: '125px' }} />}
                     <div className='activity-description'>{activity.name ?  "" : "Activity Info"}</div>
                     {/* <img src={activity?.photos?.[0].getUrl({maxWidth:140, maxHeight:80})}   /> */}
                         <form>
