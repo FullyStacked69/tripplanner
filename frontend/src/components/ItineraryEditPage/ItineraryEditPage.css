@@ -22,6 +22,8 @@
 
 #sidebar {
     margin: 128px 0;
+    position: fixed;
+    top:0px;
 }
 
 #sidebar h4 {
