@@ -24,7 +24,7 @@ import fjadrargljufurImg from './assets/fjad.webp'
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-        
+
     const pop_activities = [
         {name: "Northern Lights", url: northernLightsImg},
         {name: "Seljalandsfoss", url: seljalandsfossImg},
@@ -46,7 +46,6 @@ const ItineraryEditPage = () => {
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
                 setItObj(() => res)
-                setDays(() => res.days)
             }
             it()
         }
@@ -154,7 +153,7 @@ const ItineraryEditPage = () => {
                         <a>Collapse All</a>
                     </div>
                     <div id='itineary-days-container'>
-                        {itObj && itObj.days.map((day, index) => (
+                        {days.map((day, index) => (
                             <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
                             ))}
                     </div>

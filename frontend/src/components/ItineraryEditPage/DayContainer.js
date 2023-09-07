@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { ActivityContainer } from './ActivityContainer';
@@ -15,13 +15,8 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 4"  },
         { image: "", name: "Test name 5"  },
     ]
-    
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
-
-    useEffect(()=>{
-        if(day) setActivities(day.activities)
-    },[])
 
     //clear info -> setInfo
 
@@ -37,7 +32,7 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                           onMouseLeave={() => setHovered(false)}
                     >
                     <div className='day-detail-container'>
-                        <h3>Day {index + 1}</h3>         
+                        <h3>{day.date}</h3>                    
                         <h5>{activities.length} places</h5>
                     </div>
 
