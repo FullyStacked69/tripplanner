@@ -58,10 +58,6 @@ Our project incorporates advanced Google API integration, allowing us to tailor 
 2.  **Seamless Integration:** We developed a robust integration strategy that seamlessly combined the Google API's ability to showcase activity locations with the capability to add those activities directly to the user's itinerary. This solution ensures that users can effortlessly plan their trips with pinpoint precision.
 
 In conclusion, these two features exemplify our technical prowess in seamlessly integrating the MERN stack and the Google Maps API. Despite the challenges posed by real-time location tracking and location-based search and filtering, our innovative solutions ensured the smooth and efficient operation of these critical functionalities, enhancing the overall user experience of our application.
-## Background and Overview
-In today's digital age, the urge to explore new places and share travel experiences with loved ones has never been stronger. With a plethora of information available, planning the perfect trip has become both a blessing and a challenge. Recognizing the need for a streamlined planning experience, we were inspired by platforms like ... and decided to take it a step further.
-
-TripPlanner is not just another trip planning tool – it's an integrated travel platform designed with modern travelers in mind. We emphasize community insights over curated images and sponsored reviews. With TripPlanner, users craft their journeys based on genuine experiences and effortlessly share those moments with others.
 
 ## Snippets
 
