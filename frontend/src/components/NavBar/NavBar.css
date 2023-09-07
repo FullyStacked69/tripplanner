@@ -1,13 +1,18 @@
 
 .nav-bar-container {
+    position: fixed;   /* This ensures the navbar remains fixed at the top */
+    top: 0;            /* Aligns the navbar to the top edge of the screen */
+    left: 0;           /* Aligns the navbar to the left edge of the screen */
+    width: 100%;       /* Makes sure the navbar stretches the entire width of the window */
+    z-index: 1000;  
+
     display: flex;
     height: 60px;
-    /*border-bottom: 1px solid black; just to help me code layout*/
     justify-content: space-between;
     align-items: center;
     padding: 0 15%;
+    box-sizing: border-box;
     background: #A8DADC;
-    /* margin: 0 auto; */
 }
 
 .nav-bar-container.max-width {
