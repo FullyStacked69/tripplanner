@@ -50,7 +50,12 @@ const ItineraryEditPage = () => {
             top: 0,
             behavior: "smooth"
         });
-    }; 
+    };
+
+    const handleDayClick = (index) => {
+        const element = document.getElementById(`day-${index}`);
+        element.scrollIntoView({ behavior: 'smooth' });
+    };    
 
     useEffect(() =>{
         if(itineraryId !== 'new'){
@@ -145,7 +150,7 @@ const ItineraryEditPage = () => {
                         {isDropdownOpen && (
                             <ul className="days-dropdown">
                                 {days.map((day, index) => (
-                                    <li key={index}>Day {index + 1}</li>
+                                    <li key={index} onClick={() => handleDayClick(index)}>Day {index + 1}</li>
                                 ))}
                             </ul>
                         )}
@@ -186,7 +191,7 @@ const ItineraryEditPage = () => {
                         </div>
                         <div id='itineary-days-container'>
                             {itObj && itObj.days.map((day, index) => (
-                                <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                                <DayContainer id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
                                 ))}
                         </div>
                     </div>
