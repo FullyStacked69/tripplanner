@@ -35,10 +35,16 @@ const ItineraryEditPage = () => {
     
     const [itObj, setItObj] = useState(null)
     const [days, setDays] = useState([])
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const {searchObj} = useSelector(state => state)
 
     const {itineraryId} = useParams()
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(prev => !prev);
+    };    
+
     useEffect(() =>{
         if(itineraryId !== 'new'){
             let it = async () => {
@@ -123,7 +129,14 @@ const ItineraryEditPage = () => {
                 <div id='sidebar-container'>
                     <div id='sidebar'>
                         <h4>Top Locations</h4>
-                        <h4>Itinerary</h4>
+                        <h4 onClick={toggleDropdown}>Itinerary</h4>
+                        {isDropdownOpen && (
+                            <ul className="days-dropdown">
+                                {days.map((day, index) => (
+                                    <li key={index}>Day {index + 1}</li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
                 <div id='itinerary-section-content'>
