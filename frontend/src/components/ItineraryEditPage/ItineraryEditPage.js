@@ -34,7 +34,7 @@ const ItineraryEditPage = () => {
     const [itObj, setItObj] = useState(null)
     const [days, setDays] = useState([])
 
-    const searchObj = useSelector(state => state)
+    const {searchObj} = useSelector(state => state)
 
     const {itineraryId} = useParams()
     useEffect(() =>{
@@ -47,7 +47,7 @@ const ItineraryEditPage = () => {
             it()
         } else if (itineraryId === 'new'){
             let days = []
-            setItObj(()=> ({...searchObj, days: days}))
+            setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
         }
     },[itineraryId])
     
@@ -114,6 +114,8 @@ const ItineraryEditPage = () => {
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
+
+    console.log(itObj)
     
     return ( 
         <div className='page-content-container'>
