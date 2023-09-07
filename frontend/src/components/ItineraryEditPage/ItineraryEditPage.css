@@ -14,9 +14,39 @@
     margin: 0 auto;
 }
 
-#sidebar {
+#sidebar-container {
     width: 150px;
     border-right: 1px solid #E7E7E7;
+    background: #F1FAEE;
+}
+
+#sidebar {
+    margin: 128px 0;
+    position: fixed;
+    top:0px;
+}
+
+.sidebar-item {
+    margin: 64px 16px 16px;
+    color: #1D3557;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.days-dropdown {
+    margin: 16px;
+}
+
+.days-dropdown li {
+    margin: 16px 0;
+    color: #1D3557;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.days-dropdown li:hover {
+    text-decoration: underline;
 }
 
 #itinerary-tld {

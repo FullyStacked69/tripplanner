@@ -5,7 +5,7 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter}) {
+export function DayContainer({ id, day, index, map, setMarkersPositions, markersPositions, setCenter}) {
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState()
 ;    const sampleActivities = [
@@ -23,10 +23,8 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         if(day) setActivities(day.activities)
     },[])
 
-    //clear info -> setInfo
-
     return (
-        <div className='day-container'>
+        <div className='day-container' id={id}>
             <div className='item'>
                 <div className='title' onClick={() => setIsOpen(!isOpen)}
                         style={{
