@@ -81,6 +81,14 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         return today.toISOString();  // Returns the date in the format "YYYY-MM-DDTHH:MM:SS.sssZ"
     }
 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'short' });
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
+    
     useEffect(() => {
         const minDateToday = getCurrentISODate();
         const picker = new easepick.create({
@@ -131,14 +139,14 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
             </div>
             {/* <input id="datepicker"/> */}
             <div id="splash-search-date-range">
-                <input 
-                    placeholder={propStartDate || "Start date"}
-                    id="trip-start" 
-                />
-                <input 
-                    placeholder={propEndDate || "End date"}
-                    id="trip-end" 
-                />
+            <input 
+                placeholder={propStartDate ? formatDate(propStartDate) : "Start date"}
+                id="trip-start" 
+            />
+            <input 
+                placeholder={propEndDate ? formatDate(propEndDate) : "End date"}
+                id="trip-end" 
+            />
             </div>
             <div className='search-errors'>
                 {searchErrors.location && <div>{searchErrors.location}</div>}
