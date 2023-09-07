@@ -31,7 +31,7 @@ export default function ItineraryList({ searchObj }) {
                 <ItinerarySearch location={location} startDate={startDate} endDate={endDate}/>
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
-                    <h4> or <Link to='/itineraries/{:id}/plan'>create an itinerary from scratch here</Link></h4>
+                    <h4> or <Link to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
                 {itineraries.length > 0 ? (
                     <>
@@ -50,7 +50,7 @@ export default function ItineraryList({ searchObj }) {
                         </ul>
                     </>
                 ) : (
-                    <p>No itineraries for this location found! You can be the first one to add an itinerary for {location}!</p>
+                    <p>{`No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
                 )}
             </div>
         </div>   

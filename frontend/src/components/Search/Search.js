@@ -3,7 +3,6 @@ import { Autocomplete, } from '@react-google-maps/api';
 
 
 const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
-    // console.log(map)
 
     
     // const [position, setPosition] = useState(/** @type google.maps.Map */(null))
@@ -26,7 +25,6 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo,
             map.panTo(place.geometry.location);
             map.setZoom(10);
             // const newPosition = { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() };
-            // console.log("CHECK",place)
             setMarkersPositions([...markersPositions, place]);
             setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
             setInfo(place);

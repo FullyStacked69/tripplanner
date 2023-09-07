@@ -5,7 +5,7 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter, activities, setActivities, onSave}) {
+export function DayContainer({ id, day, index, map, setMarkersPositions, markersPositions, setCenter}) {
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState()
 ;    const sampleActivities = [
@@ -16,7 +16,13 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 5"  },
 
     ]
+    
     const [info, setInfo] = useState({});
+    const [activities, setActivities] = useState([]);
+
+    useEffect(()=>{
+        if(day) setActivities(day.activities)
+    },[])
   
 
   
@@ -29,7 +35,7 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
     //clear info -> setInfo
 
     return (
-        <div className='day-container'>
+        <div className='day-container' id={id}>
             <div className='item'>
                 <div className='title' onClick={() => setIsOpen(!isOpen)}
                         style={{
@@ -40,7 +46,7 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
                           onMouseLeave={() => setHovered(false)}
                     >
                     <div className='day-detail-container'>
-                        <h3>{day.date}</h3>                    
+                        <h3>Day {index + 1}</h3>         
                         <h5>{activities.length} places</h5>
                     </div>
 

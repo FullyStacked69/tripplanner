@@ -11,15 +11,12 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom';
 function NavBar () {
   const location = useLocation();
   const loggedIn = useSelector(state => !!state.session.user);
+  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
-
-  useEffect(() => {
-    console.log("showLoginModal changed to", showLoginModal);
-  }, [showLoginModal]);
-
+  const [showDropdown, setShowDropdown] = useState(false);
   
   const logoutUser = e => {
       e.preventDefault();
@@ -30,7 +27,18 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <button onClick={logoutUser}>Logout</button>
+          <button 
+            style={{ background: "#457B9D" }} 
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            {user.username}
+          </button>
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to={`/users/${user._id}`}>User Profile</Link>
+              <a onClick={logoutUser}>Logout</a>
+            </div>
+          )}
         </div>
       );
     } else {

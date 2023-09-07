@@ -1,13 +1,18 @@
 
 .nav-bar-container {
+    position: fixed;   /* This ensures the navbar remains fixed at the top */
+    top: 0;            /* Aligns the navbar to the top edge of the screen */
+    left: 0;           /* Aligns the navbar to the left edge of the screen */
+    width: 100%;       /* Makes sure the navbar stretches the entire width of the window */
+    z-index: 1000;  
+
     display: flex;
     height: 60px;
-    /*border-bottom: 1px solid black; just to help me code layout*/
     justify-content: space-between;
     align-items: center;
     padding: 0 15%;
+    box-sizing: border-box;
     background: #A8DADC;
-    /* margin: 0 auto; */
 }
 
 .nav-bar-container.max-width {
@@ -68,7 +73,36 @@
     width: 100%;
 }
 
+.links-nav {
+    position: relative;
+}
+
 .links-nav button {
     padding: 6px 16px;
     border: none;
 }
+
+
+.dropdown-menu {
+    border: 1px solid #E7E7E7;
+    background: white;
+    position: absolute; 
+    top: 120%;                   
+    z-index: 1;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 8px 0;
+    /* left: -50px; */
+}
+
+.dropdown-menu a {
+    padding: 8px 0;
+}
+
+.dropdown-menu a:hover {
+    background: #A8DADC;
+}
+

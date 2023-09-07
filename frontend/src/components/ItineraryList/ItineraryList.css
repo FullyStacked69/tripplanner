@@ -1,9 +1,10 @@
 .itinerary-list-component {
     /* border: 1px solid blue; */
-    margin: auto;
+    margin: 60px auto 0;
     padding: 62px 0;
     width: 50%;
     max-width: 1200px;
+    margin-top: 60px;
 }
 
 .selected-trip {
@@ -179,4 +180,27 @@
     color: white;
     background: #E63946;
     border: 1px solid #E63946;
+}
+
+.last-buttons{
+    display: flex;
+    height: 70px;
+
+}
+
+.like-button {
+    background-color: #fff;
+    /* Set the default background color */
+    color: #000;
+    /* Set the default text color */
+    /* Add other styles as needed */
+}
+
+/* Styles for the like button when it's liked */
+.like-button.liked {
+    background-color: lightgreen;
+    /* Change the background color when liked */
+    color: #fff;
+    /* Change the text color when liked */
+    /* Add other styles as needed */
 }

@@ -17,7 +17,6 @@ async function jwtFetch(url, options = {}) {
 
 function getCookie(cookieName) {
     const cookies = document.cookie.split(';');
-    console.log(cookies)
     
     for (let cookie of cookies) {
         const [name, value] = cookie.split('=');

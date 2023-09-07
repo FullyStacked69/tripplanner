@@ -5,7 +5,6 @@ import { useState } from 'react';
 const MarkerInfoWindow = ({position,idx, place}) => {
 
     const [isOpen, setIsOpen] = useState(true);
-    console.log('idx', idx)
 
     return (
         <>
