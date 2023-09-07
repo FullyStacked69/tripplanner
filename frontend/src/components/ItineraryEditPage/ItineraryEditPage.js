@@ -44,6 +44,14 @@ const ItineraryEditPage = () => {
     
 
     const [markersPositions, setMarkersPositions] = useState([]);
+    const [activities, setActivities] = useState([]);
+    const [saveFunc, setSaveFunc] = useState(null)
+
+    const handleSaveButton = () => {
+        if (saveFunc) {
+            saveFunc()
+        }
+    }
     
     const [itObj, setItObj] = useState(null)
     const {itineraryId} = useParams()
@@ -67,13 +75,13 @@ const ItineraryEditPage = () => {
     };
     // const init = splashPos ?  splashPos : {lat: 37.4245, lng: -122.0782}
 
+    // console.log(itObj)
+
     const [center, setCenter] = useState(splashPos)
 
 
 
-
-
-        
+       
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
         libraries: ['places'],
@@ -171,8 +179,9 @@ const ItineraryEditPage = () => {
                     </div>
                     <div id='itineary-days-container'>
                         {days.map((day, index) => (
-                            <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                            <DayContainer key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} activities={activities} setActivities = {setActivities} onSave={setSaveFunc} />
                             ))}
+                        <button onClick={handleSaveButton}>Save</button>
                     </div>
                 </div>
             </div>

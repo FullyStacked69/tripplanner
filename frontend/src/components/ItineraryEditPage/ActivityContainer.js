@@ -28,6 +28,7 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
     useEffect(() => {
         addActivityInfo();
     },[info])
+    
 
 
 

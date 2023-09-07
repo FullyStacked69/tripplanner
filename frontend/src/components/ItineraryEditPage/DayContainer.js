@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter}) {
+export function DayContainer({ day, index, map, setMarkersPositions, markersPositions, setCenter, activities, setActivities, onSave}) {
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState()
 ;    const sampleActivities = [
@@ -16,12 +16,50 @@ export function DayContainer({ day, index, map, setMarkersPositions, markersPosi
         { image: "", name: "Test name 5"  },
     ]
     const [info, setInfo] = useState({});
-    const [activities, setActivities] = useState([]);
+  
+
+    const saveData = () => {
+        return {
+            date: day.date,
+            activities: activities
+        }
+    }
+
+    const sendDataToBackend = async () => {
+        const data = saveData();
+
+        try {
+            const res = await fetch('/its /api/itineraries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }); 
+
+            if(res.ok) {
+                console.log('Itinerary has been saved');
+            } else {
+                console.error('Cannot save Itinerary', res.statusText);
+            }
+
+        } catch(error) {
+            console.error('Error', error);
+        }
+    };
+    
+    
+  useEffect(() => {
+    if(onSave) {
+        onSave(sendDataToBackend);
+    }
+  },[onSave])
 
 
 
 
     // console.log("place",info?.photos?.[0] || "")
+    // console.log(day.date)
     // console.log('activities',activities)
 
 
