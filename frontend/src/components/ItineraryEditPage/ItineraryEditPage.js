@@ -54,8 +54,14 @@ const ItineraryEditPage = () => {
 
     const handleDayClick = (index) => {
         const element = document.getElementById(`day-${index}`);
-        element.scrollIntoView({ behavior: 'smooth' });
-    };    
+        const navbarHeight = 60; 
+        const positionToScrollTo = element.offsetTop - navbarHeight;
+        
+        window.scrollTo({
+            top: positionToScrollTo,
+            behavior: "smooth"
+        });
+    };
 
     useEffect(() =>{
         if(itineraryId !== 'new'){
