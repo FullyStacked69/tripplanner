@@ -75,7 +75,6 @@ const ItineraryEditPage = () => {
     }
     
     useEffect(() => {
-        // If there are no markers, geocode the location
         if (map && !markersPositions.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
@@ -84,7 +83,6 @@ const ItineraryEditPage = () => {
                 }
             });
         } 
-        // else {map?.setZoom(10)}
     }, [itObj?.locationName, map, markersPositions.length]);
     
     useEffect(() => {
