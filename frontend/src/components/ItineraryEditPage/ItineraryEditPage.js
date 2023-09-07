@@ -134,6 +134,18 @@ const ItineraryEditPage = () => {
 
         }
     }, [markersPositions, map]);
+
+    console.log(searchObj.startDate)
+
+    const formateDate = (date) => {
+        if(date){
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');  // Months are 0-based in JS
+        const day = String(date.getDate()).padStart(2, '0');
+    
+        return `${year}/${month}/${day}`;
+        }
+    }
     
     
     
@@ -166,7 +178,7 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
                             <h1>{itObj.title}</h1>
-                            <div>9/9 - 9/16</div>
+                            <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
                         </div>
                         <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
