@@ -43,7 +43,7 @@
     background-size: 200% 100%;
     background-position: -100%;
     -webkit-background-clip: text;
-    -moz-background-clip: text; /* Firefox */
+    -moz-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;

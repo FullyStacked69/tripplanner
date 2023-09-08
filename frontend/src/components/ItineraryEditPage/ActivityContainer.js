@@ -26,10 +26,6 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
         addActivityInfo();
     },[info])
 
-
-
-
-
     return (
         <div className='activity-container'>
             {activities.map((activity, idx) => (
