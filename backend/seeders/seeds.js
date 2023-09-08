@@ -64,395 +64,395 @@ const insertSeeds = async () => {
     const activities = []
 
     const act1 = new Activity({
-      title: 'Golden Circle Tour',
+      name: 'Golden Circle Tour',
       length: 1
     });
     activities.push(act1);
 
     const act2 = new Activity({
-      title: 'Blue Lagoon',
+      name: 'Blue Lagoon',
       length: 1
     });
     activities.push(act2);
 
     const act3 = new Activity({
-      title: 'Reykjavik City Tour',
+      name: 'Reykjavik City Tour',
       length: 1
     });
     activities.push(act3);
 
     const act4 = new Activity({
-      title: 'Glacier Hike',
+      name: 'Glacier Hike',
       length: 1
     });
     activities.push(act4);
 
     const act5 = new Activity({
-      title: 'Waterfall Expedition',
+      name: 'Waterfall Expedition',
       length: 1
     });
     activities.push(act5);
 
     const act6 = new Activity({
-      title: 'Whale Watching',
+      name: 'Whale Watching',
       length: 1
     });
     activities.push(act6);
 
     const act7 = new Activity({
-      title: 'Hot Springs Relaxation',
+      name: 'Hot Springs Relaxation',
       length: 1
     });
     activities.push(act7);
 
     const act8 = new Activity({
-      title: 'Volcano Trek',
+      name: 'Volcano Trek',
       length: 1
     });
     activities.push(act8);
 
     const act9 = new Activity({
-      title: 'Ice Cave Tour',
+      name: 'Ice Cave Tour',
       length: 1
     });
     activities.push(act9);
 
     const act10 = new Activity({
-      title: 'Snorkeling Adventure',
+      name: 'Snorkeling Adventure',
       length: 1
     });
     activities.push(act10);
 
     const act11 = new Activity({
-      title: 'Northern Lights Hunt',
+      name: 'Northern Lights Hunt',
       length: 1
     });
     activities.push(act11);
 
     const act12 = new Activity({
-      title: 'Black Sand Beach Visit',
+      name: 'Black Sand Beach Visit',
       length: 1
     });
     activities.push(act12);
 
     const act13 = new Activity({
-      title: 'Fjord Exploration',
+      name: 'Fjord Exploration',
       length: 1
     });
     activities.push(act13);
 
     const act14 = new Activity({
-      title: 'Local Cuisine Tasting',
+      name: 'Local Cuisine Tasting',
       length: 1
     });
     activities.push(act14);
 
     const act15 = new Activity({
-      title: 'Reykjavik Art Galleries',
+      name: 'Reykjavik Art Galleries',
       length: 1
     });
     activities.push(act15);
 
     const act16 = new Activity({
-      title: 'Cultural Experience',
+      name: 'Cultural Experience',
       length: 1
     });
     activities.push(act16);
 
     const act17 = new Activity({
-      title: 'Reykjavik Exploration',
+      name: 'Reykjavik Exploration',
       length: 1
     });
     activities.push(act17);
 
     const act18 = new Activity({
-      title: 'Volcano Exploration',
+      name: 'Volcano Exploration',
       length: 1
     });
     activities.push(act18);
 
     const act19 = new Activity({
-      title: 'Nature Photography',
+      name: 'Nature Photography',
       length: 1
     });
     activities.push(act19);
 
     const act20 = new Activity({
-      title: 'Mountain Trek',
+      name: 'Mountain Trek',
       length: 1
     });
     activities.push(act20);
 
     const act21 = new Activity({
-      title: 'Wildlife Safari',
+      name: 'Wildlife Safari',
       length: 1
     });
     activities.push(act21);
 
     const act22 = new Activity({
-      title: 'Bird Watching',
+      name: 'Bird Watching',
       length: 1
     });
     activities.push(act22);
 
     const act23 = new Activity({
-      title: 'Historical Tour',
+      name: 'Historical Tour',
       length: 1
     });
     activities.push(act23);
 
     const act24 = new Activity({
-      title: 'Museum Visits',
+      name: 'Museum Visits',
       length: 1
     });
     activities.push(act24);
 
     const act25 = new Activity({
-      title: 'Local Markets Visit',
+      name: 'Local Markets Visit',
       length: 1
     });
     activities.push(act25);
 
     const act26 = new Activity({
-      title: 'Boat Excursion',
+      name: 'Boat Excursion',
       length: 1
     });
     activities.push(act26);
 
     const act27 = new Activity({
-      title: 'Mountain Biking',
+      name: 'Mountain Biking',
       length: 1
     });
     activities.push(act27);
 
     const act28 = new Activity({
-      title: 'Horseback Riding',
+      name: 'Horseback Riding',
       length: 1
     });
     activities.push(act28);
 
     const act29 = new Activity({
-      title: 'Kayaking Adventure',
+      name: 'Kayaking Adventure',
       length: 1
     });
     activities.push(act29);
 
     const act30 = new Activity({
-      title: 'Nature Walk',
+      name: 'Nature Walk',
       length: 1
     });
     activities.push(act30);
 
     const act31 = new Activity({
-      title: 'Forest Exploration',
+      name: 'Forest Exploration',
       length: 1
     });
     activities.push(act31);
 
     const act32 = new Activity({
-      title: 'Scenic Drive',
+      name: 'Scenic Drive',
       length: 1
     });
     activities.push(act32);
 
     const act33 = new Activity({
-      title: 'Local Art Workshop',
+      name: 'Local Art Workshop',
       length: 1
     });
     activities.push(act33);
 
     const act34 = new Activity({
-      title: 'Adventure Photography',
+      name: 'Adventure Photography',
       length: 1
     });
     activities.push(act34);
 
     const act35 = new Activity({
-      title: 'Sailing Excursion',
+      name: 'Sailing Excursion',
       length: 1
     });
     activities.push(act35);
 
     const act36 = new Activity({
-      title: 'Nature Meditation',
+      name: 'Nature Meditation',
       length: 1
     });
     activities.push(act36);
 
     const act37 = new Activity({
-      title: 'Tokyo Tower Visit',
+      name: 'Tokyo Tower Visit',
       length: 1
     });
     activities.push(act37);
 
     const act38 = new Activity({
-      title: 'Shibuya Crossing Experience',
+      name: 'Shibuya Crossing Experience',
       length: 1
     });
     activities.push(act38);
 
     const act39 = new Activity({
-      title: 'Asakusa Temple Tour',
+      name: 'Asakusa Temple Tour',
       length: 1
     });
     activities.push(act39);
 
     const act40 = new Activity({
-      title: 'Tsukiji Fish Market Visit',
+      name: 'Tsukiji Fish Market Visit',
       length: 1
     });
     activities.push(act40);
 
     const act41 = new Activity({
-      title: 'Harajuku Shopping Spree',
+      name: 'Harajuku Shopping Spree',
       length: 1
     });
     activities.push(act41);
 
     const act42 = new Activity({
-      title: 'Sumo Wrestling Match',
+      name: 'Sumo Wrestling Match',
       length: 1
     });
     activities.push(act42);
 
     const act43 = new Activity({
-      title: 'Akihabara Electronics Hunt',
+      name: 'Akihabara Electronics Hunt',
       length: 1
     });
     activities.push(act43);
 
     const act44 = new Activity({
-      title: 'Ginza Luxury Shopping',
+      name: 'Ginza Luxury Shopping',
       length: 1
     });
     activities.push(act44);
 
     const act45 = new Activity({
-      title: 'Meiji Shrine Visit',
+      name: 'Meiji Shrine Visit',
       length: 1
     });
     activities.push(act45);
 
     const act46 = new Activity({
-      title: 'Ueno Park Exploration',
+      name: 'Ueno Park Exploration',
       length: 1
     });
     activities.push(act46);
 
     const act47 = new Activity({
-      title: 'Santa Barbara Castle Visit',
+      name: 'Santa Barbara Castle Visit',
       length: 1
     });
     activities.push(act47);
 
     const act48 = new Activity({
-      title: 'Explanada de España Walk',
+      name: 'Explanada de España Walk',
       length: 1
     });
     activities.push(act48);
 
     const act49 = new Activity({
-      title: 'Alicante Beach Relaxation',
+      name: 'Alicante Beach Relaxation',
       length: 1
     });
     activities.push(act49);
 
     const act50 = new Activity({
-      title: 'Alicante Old Town Tour',
+      name: 'Alicante Old Town Tour',
       length: 1
     });
     activities.push(act50);
 
     const act51 = new Activity({
-      title: 'San Nicolas Cathedral Visit',
+      name: 'San Nicolas Cathedral Visit',
       length: 1
     });
     activities.push(act51);
 
     const act52 = new Activity({
-      title: 'Alicante Marina Scenic Views',
+      name: 'Alicante Marina Scenic Views',
       length: 1
     });
     activities.push(act52);
 
     const act53 = new Activity({
-      title: 'Mercado Central Shopping',
+      name: 'Mercado Central Shopping',
       length: 1
     });
     activities.push(act53);
 
     const act54 = new Activity({
-      title: 'Museo Volvo Ocean Race',
+      name: 'Museo Volvo Ocean Race',
       length: 1
     });
     activities.push(act54);
 
     // Activity 55
     const act55 = new Activity({
-      title: 'Visit the British Museum',
+      name: 'Visit the British Museum',
       length: 3
     });
     activities.push(act55);
 
     // Activity 56
     const act56 = new Activity({
-      title: 'Explore the Tower of London',
+      name: 'Explore the Tower of London',
       length: 2
     });
     activities.push(act56);
 
     // Activity 57
     const act57 = new Activity({
-      title: 'Take a ride on the London Eye',
+      name: 'Take a ride on the London Eye',
       length: 1
     });
     activities.push(act57);
 
     // Activity 58
     const act58 = new Activity({
-      title: 'Visit Buckingham Palace',
+      name: 'Visit Buckingham Palace',
       length: 2
     });
     activities.push(act58);
 
     // Activity 59
     const act59 = new Activity({
-      title: 'Stroll through Hyde Park',
+      name: 'Stroll through Hyde Park',
       length: 1
     });
     activities.push(act59);
 
     // Activity 60
     const act60 = new Activity({
-      title: 'Explore the Natural History Museum',
+      name: 'Explore the Natural History Museum',
       length: 3
     });
     activities.push(act60);
 
     // Activity 61
     const act61 = new Activity({
-      title: 'Visit the Tate Modern',
+      name: 'Visit the Tate Modern',
       length: 2
     });
     activities.push(act61);
 
     // Activity 62
     const act62 = new Activity({
-      title: 'Take a Thames River Cruise',
+      name: 'Take a Thames River Cruise',
       length: 1
     });
     activities.push(act62);
 
     // Activity 63
     const act63 = new Activity({
-      title: 'Enjoy a West End Theatre Show',
+      name: 'Enjoy a West End Theatre Show',
       length: 3
     });
     activities.push(act63);
 
     // Activity 64
     const act64 = new Activity({
-      title: 'Visit the Royal Observatory in Greenwich',
+      name: 'Visit the Royal Observatory in Greenwich',
       length: 2
     });
     activities.push(act64);

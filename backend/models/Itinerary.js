@@ -43,8 +43,6 @@ const itinerarySchema = new Schema(
             required: true,
         },
         author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-        
-
         days: [{type: Schema.Types.ObjectId, ref: 'Day'}]
     },
     { timestamps: true }

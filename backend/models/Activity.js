@@ -19,7 +19,7 @@ const activitySchema = new Schema(
         user_ratings_total:{
             type: Number
         },
-        place_id: { type: String, required: true},
+        place_id: { type: String },
         imageUrl: { type: String },
     },
     { timestamps: true }
