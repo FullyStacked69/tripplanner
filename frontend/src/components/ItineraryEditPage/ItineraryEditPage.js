@@ -11,6 +11,7 @@ import './NestedComponents.css'
 import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
+import {setItObj as setItRedux } from '../../store/itineraries';
 
 import northernLightsImg from './assets/northern-lights.jpeg';
 import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
@@ -33,14 +34,13 @@ const ItineraryEditPage = () => {
     
     const [markersPositions, setMarkersPositions] = useState([]);
     
-    const [itObj, setItObj] = useState(null)
+    const {itObj} = useSelector(state => state.itineraries)
     const [days, setDays] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     
     const {searchObj} = useSelector(state => state)
     
     const {itineraryId} = useParams()
-    // const itObj = useSelector(state => state.itineraries[itineraryId])
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -64,6 +64,11 @@ const ItineraryEditPage = () => {
         });
     };
 
+    const setItObj = itinerary => {
+        console.log(itinerary, 'achoo')
+        dispatch(setItRedux(itinerary))
+    }
+
     useEffect(() =>{
         if(itineraryId !== 'new'){
             let it = async () => {
@@ -75,19 +80,48 @@ const ItineraryEditPage = () => {
         } else if (itineraryId === 'new'){
             if(searchObj){
                 let days = []
-                if(searchObj.startDate && searchObj.endDate){
-                    const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
-
-                    days = dateRange.map(date => ({
-                        date,
-                        activities: [],
-                    }));
-
-                } 
-                setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
+                if(itObj.days && itObj.days.length > 1){
+                    if(searchObj.startDate && searchObj.endDate){
+                        const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
+                        days = dateRange.map(date => ({
+                            date,
+                            activities: [],
+                        }));
+                        days = days.map((day, idx)=>{
+                            return itObj.days[idx]
+                        })
+                        setItObj({...searchObj, locationName: searchObj.location, days: days})
+                    } 
+                } else {
+                    if(searchObj.startDate && searchObj.endDate){
+                        const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
+                        days = dateRange.map(date => ({
+                            date,
+                            activities: [],
+                        }));
+                        setItObj({...searchObj, locationName: searchObj.location, days: days})
+                    } 
+                }
             }
         }
     },[itineraryId])
+
+
+    const deleteDay = (idx,e) => {
+        e.preventDefault();
+        const dupDay = [...days];
+        // const dupMarker = [...markersPositions]
+        const slicedDays = dupDay.slice(0, idx).concat(dupDay.slice(idx+1))
+        // const slicedMarker = dupMarker.slice(0, idx).concat(dupMarker.slice(idx+1))
+
+
+        // setInfo({})
+        // setMarkersPositions(slicedMarker);
+        // setActivities(slicedAcc);
+        setItObj({...itObj, days: slicedDays})
+        
+    
+    }
     
     const splashLat = itObj?.lat
     const splashLng = itObj?.lng
@@ -147,7 +181,7 @@ const ItineraryEditPage = () => {
         }
     }, [markersPositions, map]);
 
-    // console.log(itObj)
+    // console.log("check",itObj)
 
     const formateDate = (date) => {
         if(date){
@@ -229,9 +263,13 @@ const ItineraryEditPage = () => {
                             <a>Collapse All</a>
                         </div>
                         <div id='itineary-days-container'>
-                            {itObj && itObj.days.map((day, index) => (
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                            {itObj.days && itObj.days.map((day, index) => (
+                                <>
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} />
+                                {/* <button>Remove this Day </button> */}
+                                </>
                                 ))}
+                            
                         </div>
                             <button>Save</button>
                     </div>

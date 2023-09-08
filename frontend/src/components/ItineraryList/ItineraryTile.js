@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setItObj } from '../../store/itineraries';
 
 export default function ItineraryTile({itinerary}) {
+    const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState();
     const [isLiked, setIsLiked] = useState(false);
@@ -17,6 +20,10 @@ export default function ItineraryTile({itinerary}) {
         setIsLiked(!isLiked);
     };
 
+    const handleUse = (itinerary) => {
+        console.log(itinerary)
+        dispatch(setItObj(itinerary))
+    }
 
     return (
         <div className='main-itinerary-container'>
@@ -59,7 +66,7 @@ export default function ItineraryTile({itinerary}) {
                                     <h3>Day {index + 1}</h3>
                                     <p>
                                         {day.activities &&
-                                            day.activities.map(activity => activity.title).join(', ')}
+                                            day.activities.map(activity => activity.title).join(' ')}
                                     </p>
                                     <p>Accommodation: {day.accommodation}</p>
                                 </div>
@@ -78,7 +85,7 @@ export default function ItineraryTile({itinerary}) {
                                 </svg>
                                 {fakeLikes} Likes
                             </button>
-                            <Link to={`/itineraries/${itinerary._id}/plan`}>Use this itinerary</Link>
+                            <Link onMouseDown={()=>handleUse(itinerary)} to={`/itineraries/new/plan`}>Use this itinerary</Link>
                         </div>
                     </div>
                 </div>

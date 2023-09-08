@@ -1,15 +1,14 @@
-
-
 import jwtFetch from './jwt';
 
 const RECEIVE_ITINERARIES = "itineraries/RECEIVE_ITINERARIES";
 const RECEIVE_ITINERARY = "itineraries/RECEIVE_ITINERARY";
-
+export const SET_IT_OBJ = 'itineraries/SET_IT_OBJ'
 
 const receiveItineraries = itineraries => ({
     type: RECEIVE_ITINERARIES,
     itineraries
 });
+
 const receiveItinerary = itinerary => ({
     type: RECEIVE_ITINERARY,
     itinerary
@@ -37,17 +36,34 @@ export const fetchItinerary = itineraryId => async dispatch => {
     }
 }
 
-const itinerariesReducer = (state = {}, action) => {
+export const setItObj = itinerary => ({
+    type: SET_IT_OBJ,
+    itinerary
+}
+)
+const itinerariesReducer = (state = {
+    all: {},
+    itObj: {}
+}, action) => {
+
+    let nextState;
+
     switch (action.type) {
         case RECEIVE_ITINERARY:
-            return {...state, [action.itinerary._id]: action.itinerary}
+            return {...state, all: {...state.all, [action.itinerary._id]: action.itinerary}}
         case RECEIVE_ITINERARIES:
-            // debugger
-            const nextState = {...state};
+            nextState = {
+                all: {},
+                itObj: {}
+            };
             action.itineraries.forEach( itinerary => {
-                nextState[itinerary._id] = itinerary
+                nextState.all[itinerary._id] = itinerary
             })
             return nextState;
+        case SET_IT_OBJ:
+            nextState = {...state};
+            nextState.itObj = action.itinerary
+            return nextState
         default:
             return state;
     }

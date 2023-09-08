@@ -19,14 +19,6 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
 
-    useEffect(()=>{
-        if(day) setActivities(day.activities)
-    },[day])
-
-    useEffect(()=>{
-        
-    },[activities])
-
     return (
         <div className='day-container' id={id}>
             <div className='item'>
@@ -71,6 +63,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                     </div>
                 </div>
             </div>
+            
         </div>
     
     )

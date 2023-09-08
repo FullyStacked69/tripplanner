@@ -10,9 +10,9 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     const searchObjRedux = useSelector(state => state.searchObj)
     const {searching} = searchObjRedux
 
-    useEffect(()=>{
-        dispatch(setSearchObjRedux({searching: false}))
-    },[])
+    // useEffect(()=>{
+    //     dispatch(setSearchObjRedux({searching: false}))
+    // },[])
 
     const [searchObj, setSearchObj] = useState({
         location: propLocation || '',
@@ -34,12 +34,10 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
-                dispatch(setSearchObjRedux(searchObj))
             } else if (searchObj.startDate){
                 setSearchErrors({...searchErrors, year: 'Please enter an end date'})
             } else if (!searchObj.startDate && !searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
-                dispatch(setSearchObjRedux(searchObj))
             }
         } else {
             setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
@@ -121,6 +119,10 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
             picker.destroy();
         };
     }, []);
+
+    useEffect(()=> {
+        dispatch(setSearchObjRedux(searchObj))
+    }, [searchObj])
     
     return(
         <div id="splash-search">
