@@ -5,7 +5,7 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ id, day, index, map, setMarkersPositions, markersPositions, setCenter}) {
+export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter}) {
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState()
 ;    const sampleActivities = [
@@ -21,9 +21,11 @@ export function DayContainer({ id, day, index, map, setMarkersPositions, markers
 
     useEffect(()=>{
         if(day) setActivities(day.activities)
-    },[])
+    },[day])
 
-    console.log(activities)
+    useEffect(()=>{
+        
+    },[activities])
 
     return (
         <div className='day-container' id={id}>
@@ -49,7 +51,7 @@ export function DayContainer({ id, day, index, map, setMarkersPositions, markers
                         <input placeholder='You dont have a place to stay yet!'></input>
                         {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/> */}
 
-                        <ActivityContainer info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
+                        <ActivityContainer dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
                         {/* <input placeholder='Add activities for your trip here'></input> */}
                         <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
                         {/* <button> + </button> */}

@@ -3,10 +3,16 @@
 import jwtFetch from './jwt';
 
 const RECEIVE_ITINERARIES = "itineraries/RECEIVE_ITINERARIES";
+const RECEIVE_ITINERARY = "itineraries/RECEIVE_ITINERARY";
+
 
 const receiveItineraries = itineraries => ({
     type: RECEIVE_ITINERARIES,
     itineraries
+});
+const receiveItinerary = itinerary => ({
+    type: RECEIVE_ITINERARY,
+    itinerary
 });
 
 export const fetchItineraries = location => async dispatch => {
@@ -22,16 +28,26 @@ export const fetchItineraries = location => async dispatch => {
 export const fetchItinerary = itineraryId => async dispatch => {
     try{
         const res = await fetch(`/api/itineraries?itineraryId=${itineraryId}`)
-        return await res.json()
+        const itinerary = await res.json();
+        console.log(itinerary)
+        await dispatch(receiveItinerary(itinerary));
+        return itinerary;
     } catch (err){
         console.error('Error fetching itinerary', err)
     }
 }
 
-const itinerariesReducer = (state = [], action) => {
+const itinerariesReducer = (state = {}, action) => {
     switch (action.type) {
+        case RECEIVE_ITINERARY:
+            return {...state, [action.itinerary._id]: action.itinerary}
         case RECEIVE_ITINERARIES:
-            return action.itineraries;
+            // debugger
+            const nextState = {...state};
+            action.itineraries.forEach( itinerary => {
+                nextState[itinerary._id] = itinerary
+            })
+            return nextState;
         default:
             return state;
     }

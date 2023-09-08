@@ -36,10 +36,11 @@ const ItineraryEditPage = () => {
     const [itObj, setItObj] = useState(null)
     const [days, setDays] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    
     const {searchObj} = useSelector(state => state)
-
+    
     const {itineraryId} = useParams()
+    // const itObj = useSelector(state => state.itineraries[itineraryId])
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -146,7 +147,7 @@ const ItineraryEditPage = () => {
         }
     }, [markersPositions, map]);
 
-    console.log(searchObj.startDate)
+    // console.log(itObj)
 
     const formateDate = (date) => {
         if(date){
@@ -229,7 +230,7 @@ const ItineraryEditPage = () => {
                         </div>
                         <div id='itineary-days-container'>
                             {itObj && itObj.days.map((day, index) => (
-                                <DayContainer id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
                                 ))}
                         </div>
                             <button>Save</button>

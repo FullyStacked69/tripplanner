@@ -33,7 +33,7 @@ export default function ItineraryList({ searchObj }) {
                     <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
-                {itineraries.length > 0 ? (
+                {Object.values(itineraries).length > 0 ? (
                     <>
                         <div className="sort-container">
                             <select onChange={(e) => handleSort(e.target.value)}>
@@ -44,7 +44,7 @@ export default function ItineraryList({ searchObj }) {
                             </select>
                         </div>
                         <ul>
-                            {itineraries.map(itinerary => (
+                            {Object.values(itineraries).map(itinerary => (
                                 <ItineraryTile key={itinerary._id} itinerary={itinerary} />
                             ))}
                         </ul>

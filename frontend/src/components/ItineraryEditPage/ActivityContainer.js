@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import Search from '../Search/Search';
 // import { useState } from 'react';
-export function ActivityContainer({info, setInfo, setMarkersPositions, markersPositions,activities, setActivities}) {
+export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions,activities, setActivities}) {
 
     const clear = (idx,e) => {
         e.preventDefault();
@@ -28,12 +28,16 @@ export function ActivityContainer({info, setInfo, setMarkersPositions, markersPo
                 imageUrl: info?.photos?.[0].getUrl()
             }])
         }
-        console.log(info)
     }
 
     useEffect(() => {
         addActivityInfo();
     },[info])
+    
+    useEffect(()=>{
+        setItObj(prev => ({...prev, activities: activities }))
+        console.log(activities)
+    },[activities])
 
     return (
         <div className='activity-container'>
