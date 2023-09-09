@@ -65,7 +65,7 @@ const ItineraryEditPage = () => {
     };
 
     const setItObj = itinerary => {
-        console.log(itinerary, 'achoo')
+        // console.log(itinerary, 'achoo')
         dispatch(setItRedux(itinerary))
     }
 

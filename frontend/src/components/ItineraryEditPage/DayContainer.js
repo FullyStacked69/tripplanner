@@ -32,7 +32,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                     >
                     <div className='day-detail-container'>
                         <h3>Day {index + 1}</h3>         
-                        <h5>{activities.length} places</h5>
+                        <h5>{itObj.days[index]?.activities.length} places</h5>
                     </div>
 
                     <span className='arrow-icon'>{isOpen ? '\u25b2' : '\u25bc'}</span>
@@ -63,7 +63,6 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                     </div>
                 </div>
             </div>
-            
         </div>
     
     )
