@@ -121,7 +121,6 @@ const ItineraryEditPage = () => {
         // setActivities(slicedAcc);
         setItObj({...itObj, days: slicedDays})
         
-    
     }
     
     const splashLat = itObj?.lat
@@ -293,7 +292,7 @@ const ItineraryEditPage = () => {
                             {itObj.days && itObj.days.map((day, index) => (
                                 <>
                                 <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} />
-                                {/* <button>Remove this Day </button> */}
+                                {/* <button onClick={(e) => deleteDay(index, e)}>Remove this Day </button> */}
                                 </>
                                 ))}
                             
