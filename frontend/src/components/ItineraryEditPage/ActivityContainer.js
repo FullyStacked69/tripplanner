@@ -11,6 +11,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                 formatted_phone_number: info.formatted_phone_number,
                 place_id: info.place_id,
                 rating: info.rating,
+                // comments: comments,
                 user_ratings_total: info.user_ratings_total,
                 imageUrl: info?.photos?.[0].getUrl()
             }])
@@ -92,6 +93,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                             <p>{activity?.formatted_address}</p>
                             <p>{activity?.formatted_phone_number}</p>
                             {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
+                            <input placeholder='comments' ></input>
                             {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete </button>}
                         </form>
                 </div>

@@ -36,6 +36,41 @@ export const fetchItinerary = itineraryId => async dispatch => {
     }
 }
 
+
+export const createItinerary = data => async dispatch => {
+    try{
+        const res = await jwtFetch(`/api/itineraries/`, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
+        const itineary = await res.json();
+        dispatch(receiveItinerary(itineary))
+       
+    } catch (err){
+        console.error('Error fetching itinerary', err)
+    }
+}
+
+export const updateItinerary = itineraryData => async dispatch => {
+    try{
+        const res = await jwtFetch(`/api/itineraries/${itineraryData.itineraryId}`, {
+            method: "PATCH",
+            body: JSON.stringify(itineraryData)
+        });
+
+        if(!res.ok) {
+            throw new Error(`cannot update itinerary. Status code : ${res.status}`)
+        }
+
+
+        const itineary = await res.json();
+        dispatch(receiveItinerary(itineary))
+       
+    } catch (err){
+        console.error('Error fetching itinerary', err)
+    }
+}
+
 export const setItObj = itinerary => ({
     type: SET_IT_OBJ,
     itinerary

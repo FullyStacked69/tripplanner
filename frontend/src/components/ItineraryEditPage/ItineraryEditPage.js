@@ -10,7 +10,7 @@ import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
 import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchItinerary } from '../../store/itineraries';
+import { createItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
 import {setItObj as setItRedux } from '../../store/itineraries';
 
 import northernLightsImg from './assets/northern-lights.jpeg';
@@ -204,6 +204,30 @@ const ItineraryEditPage = () => {
         return datesArray
     }
     
+    const handleSave = async (e) => {
+        e.preventDefault();
+        if (useParams === 'new') {
+            try {
+                await dispatch(createItinerary(itObj));
+                console.log("Itinerary has been saved")
+            } catch (error) {
+                console.error("Error saving itinerary:", error);
+            }
+
+        } else {
+            try {
+                await dispatch(updateItinerary(itObj));
+                console.log("Itinerary has been updated")
+            } catch (error) {
+                console.error("Error saving itinerary:", error);
+            }
+
+        }
+    }
+
+
+
+    
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
     if(!searchObj.location) return <Redirect to="/"/>
@@ -271,7 +295,7 @@ const ItineraryEditPage = () => {
                                 ))}
                             
                         </div>
-                            <button>Save</button>
+                            <button onClick={handleSave}>Save</button>
                     </div>
                 </div>
             </div>
