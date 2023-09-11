@@ -36,7 +36,6 @@ export const fetchItinerary = itineraryId => async dispatch => {
     }
 }
 
-
 export const createItinerary = data => async dispatch => {
     try{
         const res = await jwtFetch(`/api/itineraries/`, {
@@ -47,7 +46,7 @@ export const createItinerary = data => async dispatch => {
         dispatch(receiveItinerary(itineary))
        
     } catch (err){
-        console.error('Error fetching itinerary', err)
+        console.error('Error creating itinerary', err)
     }
 }
 

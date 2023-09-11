@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Itinerary = mongoose.model('Itinerary');
 const Day = mongoose.model('Day');
+const Activity = mongoose.model('Activity')
 
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
@@ -93,15 +94,52 @@ router.get('/user/:userId', async (req, res, next) => {
     }
   });
 
-  router.post('/', requireUser, validateItineraryInput, async (req, res, next) => {
+  router.post('/', async (req, res, next) => {
     try {
+
+      const newDays = req.body.days
+      let days = []
+
+      for(let i = 0; i < newDays.length; i++){
+        
+        const newDayActs = newDays[i].activities
+        let activities = []
+        
+        for(let j = 0; j < newDayActs.length; j++){
+          const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
+          const newAct = new Activity({
+            name,
+            formatted_address,
+            formatted_phone_number,
+            rating,
+            user_ratings_total,
+            place_id,
+            imageUrl
+          })
+          activities.push(newAct)
+        }
+         
+        const newDay = new Day({
+          accommodation: newDays[i].accommodation,
+          activities
+        })
+        days.push(newDay)
+        
+      }
+
+      const {title, length,  lng, lat, startDate, locationName, countryCode, locationType } = req.body
+      
       const newItiniterary = new Itinerary({
-        title: req.body.title,
-        length: req.body.length,
-        partOf: req.body.partOf,
-        author: req.user._id,
-        lng: req.body.lng,
-        lat: req.body.lat
+        title,
+        length,
+        author: req.body.user._id,
+        lng,
+        lat,
+        startDate,
+        locationName,
+        locationType,
+        countryCode,
+        days
       });
   
       let itinerary = await newItiniterary.save();
@@ -113,14 +151,41 @@ router.get('/user/:userId', async (req, res, next) => {
     }
   });
 
-  router.patch('/:itineraryId', async (req, res, next) => {
-    try{
-      const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, req.body.update)
-      return res.json(it)
-    } catch(err){
-      next(err)
-    }
-  })
+  // router.patch('/:itineraryId', async (req, res, next) => {
+  //   try{
+  //     const { title, startDate } = req.body.update
+  //     const oldDays = req.body.update.days
+  //     const length = oldDays.length
+
+  //     let days = []
+      
+  //     for(let i = 0; i < length; i++){
+        
+  //       const oldActs = oldDays[i].activities
+  //       const actLen = oldActs.length
+
+  //       let activities = []
+        
+  //       for (let j = 0; j < actLen; j++){
+
+  //         const oldAct = oldActs[j]
+  //         const activity = new Activity({name:  })
+          
+  //       }
+        
+  //     }
+      
+  //     const patch = {
+  //       startDate,
+  //       title,
+  //       length
+  //     }
+  //     const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, patch)
+  //     return res.json(it)
+  //   } catch(err){
+  //     next(err)
+  //   }
+  // })
 
   router.delete('/:itineraryId', async (req, res, next) => {
     try{
@@ -129,6 +194,6 @@ router.get('/user/:userId', async (req, res, next) => {
     }catch(err){
       next(err)
     }
-  } )
+  })
 
 module.exports = router;
