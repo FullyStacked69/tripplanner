@@ -108,7 +108,7 @@ router.get('/user/:userId', async (req, res, next) => {
         for(let j = 0; j < newDayActs.length; j++){
           if(newDayActs[j]){
             const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
-            const newAct = new Activity({
+            const newAct = await new Activity({
               name,
               formatted_address,
               formatted_phone_number,
@@ -116,20 +116,20 @@ router.get('/user/:userId', async (req, res, next) => {
               user_ratings_total,
               place_id,
               imageUrl
-            })
-            activities.push(newAct)
+            }).save()
+            activities.push(newAct._id)
           }
         }
          
-        const newDay = new Day({
+        const newDay = await new Day({
           accommodation: newDays[i].accommodation,
           activities
-        })
-        days.push(newDay)
+        }).save()
+        days.push(newDay._id)
         
       }
-
-      const {title, length,  lng, lat, startDate, locationName, countryCode, locationType } = req.body
+      
+      const {title, length,  lng, lat, startDate, locationName } = req.body
       
       const newItiniterary = new Itinerary({
         title,
@@ -139,8 +139,6 @@ router.get('/user/:userId', async (req, res, next) => {
         lat,
         startDate,
         locationName,
-        locationType,
-        countryCode,
         days
       });
   

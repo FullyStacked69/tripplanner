@@ -91,7 +91,7 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
-                        setItObj({...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
                     } 
                 } else {
                     if(searchObj.startDate && searchObj.endDate){
@@ -100,7 +100,7 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
-                        setItObj({...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
                     } 
                 }
             }
@@ -182,7 +182,7 @@ const ItineraryEditPage = () => {
         }
     }, [markersPositions, map]);
 
-    // console.log("check",itObj)
+    console.log("check",itObj)
 
     const formateDate = (date) => {
         if(date){
@@ -209,10 +209,13 @@ const ItineraryEditPage = () => {
         e.preventDefault();
         if (itineraryId === 'new') {
             try {
-                await dispatch(createItinerary({
+                let newItiniterary = {
                     ...itObj,
+                    length: itObj.days.length,
                     user 
-                }));
+                }
+                console.log(newItiniterary)
+                await dispatch(createItinerary(newItiniterary));
                 console.log("Itinerary has been saved")
             } catch (error) {
                 console.error("Error saving itinerary:", error);

@@ -24,8 +24,6 @@ export default function ItineraryList({ searchObj }) {
         dispatch(fetchItineraries(location));
     }, [dispatch, location]);
 
-    // if(itineraries){console.log(Object.values(itineraries))}
-
     return(
         <div id='list-page-content-container'>
             <div className="itinerary-list-component">
