@@ -33,6 +33,14 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     })
     
     function handleSearch(){
+        // Check if the location exists in the list of found locations.
+        const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
+    
+        if(!locationExists){
+            setSearchErrors(prev => ({...prev, location: 'Location not found'}));
+            return; // Stop the function from proceeding further
+        }
+    
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
@@ -46,7 +54,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         } else {
             setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
         }
-    }
+    }    
 
     const handleInputChange = async e => {
         await setSearchObj(prev => ({...prev, location: e.target.value}))
@@ -71,12 +79,18 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
 
     function LocoOpt(loco){       
         return(
-            <div onMouseDown={() => setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)})} className='loco-opt'>
+            <div 
+                onMouseDown={() => {
+                    setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)});
+                    setSearchErrors(prev => ({...prev, location: ''})); // Reset the location error
+                }} 
+                className='loco-opt'
+            >
                 <h3>{loco.name}, {loco.country || loco.code}</h3>
                 {(loco.country && <h3>City</h3>) || <h3>Country</h3>}
             </div>
         )
-    }
+    }    
 
     function getCurrentISODate() {
         const today = new Date();
