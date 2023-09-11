@@ -21,7 +21,6 @@ export default function ItineraryTile({itinerary}) {
     };
 
     const handleUse = (itinerary) => {
-        console.log(itinerary)
         dispatch(setItObj(itinerary))
     }
 

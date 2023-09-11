@@ -11,24 +11,8 @@ const itinerarySchema = new Schema(
             type: Number,
             required: true,
         },
-        locationType: {
-            type: String,
-            required: true,
-        },
-        countryCode: {
-            type: String,
-            required: true,
-        },
         locationName: {
             type: String,
-            required: true,
-        },
-        lng: {
-            type: Number,
-            required: true,
-        },
-        lat: {
-            type: Number,
             required: true,
         },
         fakeLikes: {
