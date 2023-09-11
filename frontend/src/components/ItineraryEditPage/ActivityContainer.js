@@ -17,13 +17,19 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
             }])
         }
     }
+    const isEmptyObject = (obj) => {
+        return Object.keys(obj).length === 0 && obj.constructor === Object;
+    }
     
     useEffect(() => {
-        addActivityInfo();
-    },[info])
-    
-    useEffect(()=>{
+        if (!isEmptyObject(info)) {
+            addActivityInfo();
+        }
+    }, [info]);
+
+    useEffect(() => {
         let obj = {...itObj, days: [...itObj.days]};
+
         if (!obj.days[dayIdx]) {
             obj.days[dayIdx] = {};
         }
@@ -31,14 +37,10 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         if (!obj.days[dayIdx].activities) {
             obj.days[dayIdx].activities = [];
         }
-    
-    
-        obj.days[dayIdx] = {...obj.days[dayIdx], activities: [...obj.days[dayIdx].activities, activities[activities.length - 1]]}
-      
+
+        obj.days[dayIdx].activities = activities; // Assign the entire activities array
         setItObj(obj);
-     
-    },[activities])
-    
+    }, [activities]);
     // console.log('CHECK', markersPositions)    
     
     

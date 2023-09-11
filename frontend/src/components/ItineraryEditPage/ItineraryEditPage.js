@@ -213,7 +213,7 @@ const ItineraryEditPage = () => {
                     ...itObj,
                     user 
                 }));
-                console.log("Itinerary has been saved")
+                console.log("Itinerary has been saved", {...itObj})
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
