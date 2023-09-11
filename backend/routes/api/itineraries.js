@@ -106,17 +106,19 @@ router.get('/user/:userId', async (req, res, next) => {
         let activities = []
         
         for(let j = 0; j < newDayActs.length; j++){
-          const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
-          const newAct = new Activity({
-            name,
-            formatted_address,
-            formatted_phone_number,
-            rating,
-            user_ratings_total,
-            place_id,
-            imageUrl
-          })
-          activities.push(newAct)
+          if(newDayActs[j]){
+            const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
+            const newAct = new Activity({
+              name,
+              formatted_address,
+              formatted_phone_number,
+              rating,
+              user_ratings_total,
+              place_id,
+              imageUrl
+            })
+            activities.push(newAct)
+          }
         }
          
         const newDay = new Day({

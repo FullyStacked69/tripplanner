@@ -35,6 +35,7 @@ const ItineraryEditPage = () => {
     const [markersPositions, setMarkersPositions] = useState([]);
     
     const {itObj} = useSelector(state => state.itineraries)
+    const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     
@@ -206,9 +207,12 @@ const ItineraryEditPage = () => {
     
     const handleSave = async (e) => {
         e.preventDefault();
-        if (useParams === 'new') {
+        if (itineraryId === 'new') {
             try {
-                await dispatch(createItinerary(itObj));
+                await dispatch(createItinerary({
+                    ...itObj,
+                    user 
+                }));
                 console.log("Itinerary has been saved")
             } catch (error) {
                 console.error("Error saving itinerary:", error);

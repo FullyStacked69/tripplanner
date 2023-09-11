@@ -42,8 +42,8 @@ export const createItinerary = data => async dispatch => {
             method: "POST",
             body: JSON.stringify(data)
         });
-        const itineary = await res.json();
-        dispatch(receiveItinerary(itineary))
+        const itinerary = await res.json();
+        dispatch(receiveItinerary(itinerary))
        
     } catch (err){
         console.error('Error creating itinerary', err)
