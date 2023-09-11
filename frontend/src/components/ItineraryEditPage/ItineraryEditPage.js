@@ -217,7 +217,6 @@ const ItineraryEditPage = () => {
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
-
         } else {
             try {
                 await dispatch(updateItinerary(itObj));
