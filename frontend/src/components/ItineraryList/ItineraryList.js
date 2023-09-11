@@ -15,7 +15,11 @@ export default function ItineraryList({ searchObj }) {
 
     const handleSort = (criteria) => {
         if (criteria === "likes") {
-            const sorted = [...itineraries].sort((a, b) => b.fakeLikes - a.fakeLikes);
+            const sorted = [...itineraries].sort((a, b) => {
+                const aValue = (typeof a.fakeLikes === "number") ? a.fakeLikes : 0;
+                const bValue = (typeof b.fakeLikes === "number") ? b.fakeLikes : 0;
+                return bValue - aValue;
+            });
             setSortedItineraries(sorted);
         }
         if (criteria === "author") {
@@ -49,7 +53,6 @@ export default function ItineraryList({ searchObj }) {
                         <div className="sort-container">
                             <select onChange={(e) => handleSort(e.target.value)}>
                                 <option value="likes">Likes</option>
-                                <option value="views">Views</option>
                                 <option value="author">Author</option>
                                 <option value="tripLength">Trip Length</option>
                             </select>
