@@ -33,7 +33,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     })
     
     function handleSearch(){
-        // Check if the location exists in the list of found locations.
         const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
     
         if(!locationExists){
@@ -149,25 +148,29 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     value={searchObj.location} 
                     onChange={e=> handleInputChange(e)} 
                     type="text"/>
-            <div className={searchBarFocus ? 'loco-opt-holder' : 'loco-opt-holder loco-opt-holder-no-border'}>
-                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                <div className={searchBarFocus ? 'loco-opt-holder' : 'loco-opt-holder loco-opt-holder-no-border'}>
+                    {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                </div>
+                {!isMainPage && searchErrors.location && 
+                <div className='search-errors'>{searchErrors.location}</div>}
             </div>
-            </div>
-            {/* <input id="datepicker"/> */}
             <div id="splash-search-date-range">
-            <input 
-                placeholder={propStartDate ? formatDate(propStartDate) : "Start date"}
-                id="trip-start" 
-            />
-            <input 
-                placeholder={propEndDate ? formatDate(propEndDate) : "End date"}
-                id="trip-end" 
-            />
+                <input 
+                    placeholder={propStartDate ? formatDate(propStartDate) : "Start date"}
+                    id="trip-start" 
+                />
+                <input 
+                    placeholder={propEndDate ? formatDate(propEndDate) : "End date"}
+                    id="trip-end" 
+                />
+                {!isMainPage && searchErrors.year && 
+                <div className='search-errors'>{searchErrors.year}</div>}
             </div>
-            <div className='search-errors'>
-                {searchErrors.location && <div>{searchErrors.location}</div>}
-                {searchErrors.year && <div>{searchErrors.year}</div>}
-            </div>
+            {isMainPage && 
+                <div className='search-errors'>
+                    {searchErrors.location && <div>{searchErrors.location}</div>}
+                    {searchErrors.year && <div>{searchErrors.year}</div>}
+                </div>}
             <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
         </div>
     )
