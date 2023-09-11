@@ -4,11 +4,13 @@ import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
 import './ItinerarySearch'
 
-export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate }) {
+export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
     const {searching} = searchObjRedux
+
+    const buttonText = isMainPage ? "Start Planning" : "Search";
 
     useEffect(()=>{
         dispatch(setSearchObjRedux({searching: false}))
@@ -152,7 +154,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                 {searchErrors.location && <div>{searchErrors.location}</div>}
                 {searchErrors.year && <div>{searchErrors.year}</div>}
             </div>
-            <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
+            <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
         </div>
     )
 }

@@ -32,7 +32,7 @@ function MainPage() {
                             <h1>Travel with confidence, not guesswork.</h1>
                             <h3>Craft, refine, and navigate your adventures using real itineraries from fellow travelers</h3>
                         </div>
-                        <ItinerarySearch/>
+                        <ItinerarySearch isMainPage={true} />
                     </div>
                 </div>
             </div>
