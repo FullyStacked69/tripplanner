@@ -22,6 +22,12 @@ const itinerarySchema = new Schema(
             type: Date, 
             required: true,
         },
+        lng: {
+            type: Number
+        },
+        lat: {
+            type: Number
+        },
         author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 
         days: [{type: Schema.Types.ObjectId, ref: 'Day'}],
