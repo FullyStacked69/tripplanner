@@ -64,7 +64,9 @@ const insertSeeds = async () => {
     const activities = []
 
     const act1 = new Activity({
-      name: 'Golden Circle Tour',
+      name: 'Safari Quads ATV & Buggy Operator Iceland',
+      lat: 64.1366114390312,
+      lng: -21.734277847725043
     });
     activities.push(act1);
 
