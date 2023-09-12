@@ -70,7 +70,7 @@ export default function ItineraryTile({itinerary}) {
                                         <h3>Day {index + 1}</h3>
                                         <p>
                                             {day.activities &&
-                                                day.activities.map(activity => activity.title).join(', ')}
+                                                day.activities.map(activity => activity.name).join(', ')}
                                         </p>
                                         <p>Accommodation: {day.accommodation}</p>
                                     </div>
