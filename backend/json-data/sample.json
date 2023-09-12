@@ -1,0 +1,27 @@
+{
+    "locationName":"New Zealand",
+    "locationType":"Country",
+    "countryCode":"NZ",
+    "title":"tester",
+    "length":1,
+    "user": {"_id":"64fa4da68fec4aaf3a0a9212"},
+    "lng":1,
+    "lat":1,
+    "startDate":"2012-04-23T18:25:43.511Z",
+    "days":[
+        {
+            "accommodation":"Deez",
+            "activities":[
+                {
+                    "name":"hello world",
+                    "formatted_address":"123 hello world",
+                    "formatted_phone_number":"123-456-7890",
+                    "rating":1,
+                    "user_ratings_total":1,
+                    "place_id":"12345",
+                    "imageUrl":"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=636&h=424"
+                }
+            ]
+        }
+    ]
+}

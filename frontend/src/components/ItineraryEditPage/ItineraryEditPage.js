@@ -8,9 +8,10 @@ import MarkerInfoWindow from '../Maps/MarkerInfoWindow';
 import './Maps.css'
 import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchItinerary } from '../../store/itineraries';
+import { createItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
+import {setItObj as setItRedux } from '../../store/itineraries';
 
 import northernLightsImg from './assets/northern-lights.jpeg';
 import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
@@ -33,12 +34,13 @@ const ItineraryEditPage = () => {
     
     const [markersPositions, setMarkersPositions] = useState([]);
     
-    const [itObj, setItObj] = useState(null)
+    const {itObj} = useSelector(state => state.itineraries)
+    const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    
     const {searchObj} = useSelector(state => state)
-
+    
     const {itineraryId} = useParams()
 
     const toggleDropdown = () => {
@@ -63,19 +65,64 @@ const ItineraryEditPage = () => {
         });
     };
 
+    const setItObj = itinerary => {
+        // console.log(itinerary, 'achoo')
+        dispatch(setItRedux(itinerary))
+    }
+
     useEffect(() =>{
         if(itineraryId !== 'new'){
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
-                setItObj(() => res)
+                setItObj(res)
                 setDays(() => res.days)
             }
             it()
         } else if (itineraryId === 'new'){
-            let days = []
-            setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
+            if(searchObj){
+                let days = []
+                if(itObj.days && itObj.days.length > 1){
+                    if(searchObj.startDate && searchObj.endDate){
+                        const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
+                        days = dateRange.map(date => ({
+                            date,
+                            activities: [],
+                        }));
+                        days = days.map((day, idx)=>{
+                            return itObj.days[idx]
+                        })
+                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
+                    } 
+                } else {
+                    if(searchObj.startDate && searchObj.endDate){
+                        const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
+                        days = dateRange.map(date => ({
+                            date,
+                            activities: [],
+                        }));
+                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
+                    } 
+                }
+            }
         }
     },[itineraryId])
+
+
+    const deleteDay = (idx,e) => {
+        e.preventDefault();
+        const dupDay = [...days];
+        // const dupMarker = [...markersPositions]
+        const slicedDays = dupDay.slice(0, idx).concat(dupDay.slice(idx+1))
+        // const slicedMarker = dupMarker.slice(0, idx).concat(dupMarker.slice(idx+1))
+
+
+        // setInfo({})
+        // setMarkersPositions(slicedMarker);
+        // setActivities(slicedAcc);
+        setItObj({...itObj, days: slicedDays})
+        
+    
+    }
     
     const splashLat = itObj?.lat
     const splashLng = itObj?.lng
@@ -134,12 +181,60 @@ const ItineraryEditPage = () => {
 
         }
     }, [markersPositions, map]);
+
+    const formateDate = (date) => {
+        if(date){
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');  // Months are 0-based in JS
+        const day = String(date.getDate()).padStart(2, '0');
     
+        return `${year}/${month}/${day}`;
+        }
+    }
+
+    const datesBetween = (startDate, endDate) => {
+        const datesArray = [];
+        let currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            datesArray.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        return datesArray
+    }
     
-    
+    const handleSave = async (e) => {
+        e.preventDefault();
+        if (itineraryId === 'new') {
+            try {
+                let newItiniterary = {
+                    ...itObj,
+                    length: itObj.days.length,
+                    user 
+                }
+                console.log(newItiniterary)
+                await dispatch(createItinerary(newItiniterary));
+                console.log("Itinerary has been saved")
+            } catch (error) {
+                console.error("Error saving itinerary:", error);
+            }
+        } else {
+            try {
+                await dispatch(updateItinerary(itObj));
+                console.log("Itinerary has been updated")
+            } catch (error) {
+                console.error("Error saving itinerary:", error);
+            }
+
+        }
+    }
+
+
+
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
+    if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
     
     return ( 
         <div className='page-content-container'>
@@ -166,7 +261,7 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
                             <h1>{itObj.title}</h1>
-                            <div>9/9 - 9/16</div>
+                            <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
                         </div>
                         <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
@@ -186,7 +281,7 @@ const ItineraryEditPage = () => {
                             <div id='popular-activities-container'>
                                 {pop_activities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={activity} />
-                                ))}
+                                    ))}
                             </div>
                         </div>
                     </div>
@@ -196,10 +291,15 @@ const ItineraryEditPage = () => {
                             <a>Collapse All</a>
                         </div>
                         <div id='itineary-days-container'>
-                            {itObj && itObj.days.map((day, index) => (
-                                <DayContainer id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} />
+                            {itObj.days && itObj.days.map((day, index) => (
+                                <>
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} />
+                                {/* <button>Remove this Day </button> */}
+                                </>
                                 ))}
+                            
                         </div>
+                            <button onClick={handleSave}>Save</button>
                     </div>
                 </div>
             </div>

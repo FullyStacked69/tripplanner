@@ -64,357 +64,458 @@ const insertSeeds = async () => {
     const activities = []
 
     const act1 = new Activity({
+
       name: 'Safari Quads ATV & Buggy Operator Iceland',
       lat: 64.1366114390312,
       lng: -21.734277847725043
+
     });
     activities.push(act1);
 
     const act2 = new Activity({
       name: 'Blue Lagoon',
+
       lat: 64.128288,
       lng: -21.827774
+
     });
     activities.push(act2);
 
     const act3 = new Activity({
+
       name: 'Reykjavik Sightseeing',
       lat: 64.13443106229444,
       lng: -21.91916458067354
+
     });
     activities.push(act3);
 
     const act4 = new Activity({
+
       name: 'Glaciers and waterfalls',
       lat: 64.19008519033784,
       lng: -21.839727981024378
+
     });
     activities.push(act4);
 
     const act5 = new Activity({
+
       name: 'Caves of Hella',
       lat: 63.90658366959228,
       lng: -20.376301317880845
+
     });
     activities.push(act5);
 
     const act6 = new Activity({
+
       name: 'Elding Whale Watching',
       lat: 64.20918504799032, 
       lng: -21.95440367413761
+
     });
     activities.push(act6);
 
     const act7 = new Activity({
+
       name: 'Hot Springs',
       lat: 64.013717511211,
       lng: -21.18322054274239
+
     });
     activities.push(act7);
 
     const act8 = new Activity({
+
       name: 'Kerið',
       lat: 64.08685999528122,
       lng: -20.864929418735038
+
     });
     activities.push(act8);
 
     const act9 = new Activity({
+
       name: 'Katla Ice Cave',
       lat: 63.610221367965956,
       lng: -18.868951206864445
+
     });
     activities.push(act9);
 
     const act10 = new Activity({
+
       name: 'Tröll Expeditions Crystal Blue Ice Cave',
       lat: 64.21143730587931,
       lng: -16.01813626331551
+
     });
     activities.push(act10);
 
     const act11 = new Activity({
+
       name: 'Víkurfjara black sand beach',
       lat: 63.46072741307987,
       lng: -19.001838234868238
+
     });
     activities.push(act11);
     
     const act12 = new Activity({
+
       name: 'Aurora Cabins Höfn Iceland',
       lat: 64.48036916597164,
       lng: -15.014822516253794
+
     });
     activities.push(act12);
 
     const act13 = new Activity({
+
       name: 'Fáskrúðsfjörður',
       lat: 64.94804633330382,
       lng: -13.862774587655506
+
     });
     activities.push(act13);
 
     const act14 = new Activity({
+
       name: 'Svartifoss',
       lat: 64.21810789742759,
       lng: -16.826658713042253
+
     });
     activities.push(act14);
 
     const act15 = new Activity({
+
       name: 'Gljufrafoss',
       lat: 63.67778222042846,
       lng: -19.947505672890117
+
     });
     activities.push(act15);
 
     const act16 = new Activity({
+
       name: 'Reykjavík Art Museum Kjarvalsstaðir',
       lat: 64.1447205888434,
       lng: -21.914481683237195
+
     });
     activities.push(act16);
 
     const act17 = new Activity({
+
       name: 'Austurvöllur',
       lat: 64.14931889509741,
       lng: -21.939739454264675
+
 
     });
     activities.push(act17);
 
     const act18 = new Activity({
+
       name: 'Grábrók',
       lat: 64.89479978179192,
       lng: -21.502061338456897
+
     });
     activities.push(act18);
 
     const act19 = new Activity({
+
       name: 'Vatnajökull National Park',
       lat: 64.95555643850561,
       lng: -17.080392723990844
+
     });
     activities.push(act19);
 
     const act20 = new Activity({
+
       name: 'Kolugljúfur Canyon',
       lat: 65.5937066895629,
       lng: -20.561056506361854
+
     });
     activities.push(act20);
 
     const act21 = new Activity({
+
       name: 'Gýgjarfoss waterfall',
       lat: 64.90047210503278,
       lng: - 19.183399247536926
+
     });
     activities.push(act21);
 
     const act22 = new Activity({
+
       name: 'Þingvellir',
       lat: 64.36335392212345,
       lng: -20.727854716684746
+
     });
     activities.push(act22);
 
     const act23 = new Activity({
+
       name: 'Skyrland',
       lat: 63.98301249336951,
       lng: -20.980513974200697
+
     });
     activities.push(act23);
 
     const act24 = new Activity({
+
       name: 'Raufarhólshellir',
       lat: 63.97513057633901,
       lng: -21.384358172260587
+
     });
     activities.push(act24);
 
     const act25 = new Activity({
+
       name: 'Árbær Open Air Museum',
       lat: 64.12909539882304,
       lng: -21.741643405715724
+
     });
     activities.push(act25);
 
     const act26 = new Activity({
+
       name: 'Langistígur',
       lat: 64.28973184037633,
       lng: -21.122496772603704
+
     });
     activities.push(act26);
 
     const act27 = new Activity({
+
       name: 'Brúarárfoss',
       lat: 64.29413783945911,
       lng: -20.538645806645576
+
     });
     activities.push(act27);
 
     const act28 = new Activity({
+
       name: 'Zipline Akureyri',
       lat: 65.68901173490445,
       lng: -18.126004812470704
+
     });
     activities.push(act28);
 
     const act29 = new Activity({
+
       name: 'Stuðlagil Walk Inside Canyon',
       lat: 65.2855391074864,
       lng: -15.289674962802106
+
     });
     activities.push(act29);
 
     const act30 = new Activity({
+
       name: 'Tófufoss',
       lat: 65.11956577789365,
       lng: -14.93111475958036
+
     });
     activities.push(act30);
 
     const act31 = new Activity({
+
       name: 'Kirkjufoss',
       lat: 64.95323632058312,
       lng: -15.343181314935618
+
     });
     activities.push(act31);
 
     const act32 = new Activity({
+
       name: 'Stútur crater',
       lat: 64.05506194594984,
       lng: -19.037988736786644
+
     });
     activities.push(act32);
 
     const act33 = new Activity({
+
       name: 'Fossabrekkur',
       lat: 64.09672015249595,
       lng: -19.750057686423208
+
     });
     activities.push(act33);
 
     const act34 = new Activity({
+
       name: 'Caves of Hella',
       lat: 63.850263162986295,
       lng: -20.41409138361503
+
     });
     activities.push(act34);
 
     const act35 = new Activity({
+
       name: 'Lava Show',
       lat: 64.15833701929431,
       lng: -21.9422585366455
+
     });
     activities.push(act35);
 
     const act36 = new Activity({
+
       name: 'Seltjörn',
       lat: 64.15952008281398,
       lng: -22.01709755951638
+
     });
     activities.push(act36);
 
     const act37 = new Activity({
+
       name: 'Tokyo Tower',
       lat: 35.65874607174958,
       lng: 139.7454758204727
+
     });
     activities.push(act37);
 
     const act38 = new Activity({
+
       name: 'Shibuya Scramble Crossing',
       lat: 35.65963885295896,
       lng: 139.70059179127364
+
     });
     activities.push(act38);
 
     const act39 = new Activity({
+
       name: 'Asakusa Temple',
       lat: 35.715122503902634,
       lng: 139.79738721976452
+
     });
     activities.push(act39);
 
     const act40 = new Activity({
+
       name: 'Tsukiji Outer Market',
       lat: 35.66574024795559, 
       lng: 139.77007357146186
+
     });
     activities.push(act40);
 
     const act41 = new Activity({
+
       name: 'Sakura Street (Shibuya)',
       lat: 35.657652109693245,
       lng: 139.70104324103866
+
     });
     activities.push(act41);
 
     const act42 = new Activity({
+
       name: 'Ryogoku Kokugikan National Sumo Arena',
       lat: 35.70036405613505,
       lng: 139.79474387455903
+
     });
     activities.push(act42);
 
     const act43 = new Activity({
+
       name: 'Akihabara Electronics',
       lat: 35.70314813344853,
       lng: 139.77170885690882
+
     });
     activities.push(act43);
 
     const act44 = new Activity({
+
       name: 'Ginza Pedestrian Paradise',
       lat: 35.67141961733058,
       lng: 139.76398527326768
+
     });
     activities.push(act44);
 
     const act45 = new Activity({
+
       name: 'Meiji Shrine',
       lat: 35.6765631356979,
       lng: 139.69932590483052
+
     });
     activities.push(act45);
 
     const act46 = new Activity({
+
       name: 'Ueno Park',
       lat: 35.714895022474835,
       lng: 139.7734419328915
+
     });
     activities.push(act46);
 
     const act47 = new Activity({
+
       name: 'Santa Barbara Castle',
       lat: 38.349165367357934,
       lng: -0.4780503514452701
+
     });
     activities.push(act47);
 
     const act48 = new Activity({
+
       name: 'Explanada de España',
       lat: 38.34352342394694,
       lng: -0.48327031045883895
+
     });
     activities.push(act48);
 
     const act49 = new Activity({
+
       name: 'Postiguet Beach',
       lat: 38.3464339707937,
       lng: -0.47609407641177753
+
     });
     activities.push(act49);
 
     const act50 = new Activity({
+
       name: 'Santa Maria Basilic',
       lat: 38.34624301631397,
       lng: -0.4793210081084064
+
     });
     activities.push(act50);
 
     const act51 = new Activity({
+
       name: 'San Nicolas Cathedral',
       lat: 38.345686635548766,
       lng: -0.4826369659088519
@@ -423,103 +524,129 @@ const insertSeeds = async () => {
     activities.push(act51);
 
     const act52 = new Activity({
+
       name: 'Ereta Park',
       lat: 38.34805950267509,
       lng: -0.4799380539185773
+
     });
     activities.push(act52);
 
     const act53 = new Activity({
+
       name: 'Mercado Central',
       lat: 38.35347031491778,
       lng: -0.4697695899176873
+
     });
     activities.push(act53);
 
     const act54 = new Activity({
+
       name: 'Museo Arqueológico de Alicante MARQ',
       lat: 38.35365283313212,
       lng: -0.47641443963329216
+
     });
     activities.push(act54);
 
     // Activity 55
     const act55 = new Activity({
+
       name: 'The British Museum',
       lat: 51.51950669723901,
       lng: -0.1265167102771911
+
     });
     activities.push(act55);
 
     // Activity 56
     const act56 = new Activity({
+
       name: 'The Tower of London',
       lat: 51.508285963207484,
       lng: -0.07596001962516134
+
     });
     activities.push(act56);
 
     // Activity 57
     const act57 = new Activity({
+
       name: 'London Eye',
       lat: 51.50329319002855,
       lng: -0.11918659849697137
+
     });
     activities.push(act57);
 
     // Activity 58
     const act58 = new Activity({
+
       name: 'Buckingham Palace',
       lat: 51.50150419535673,
       lng: -0.14188999261391402
+
     });
     activities.push(act58);
 
     // Activity 59
     const act59 = new Activity({
+
       name: 'Hyde Park',
       lat: 51.50739502040792,
       lng: -0.1656766488527621
+
     });
     activities.push(act59);
 
     // Activity 60
     const act60 = new Activity({
+
       name: 'Natural History Museum',
       lat: 51.496855204526184,
       lng: -0.17614188550624404
+
     });
     activities.push(act60);
 
     // Activity 61
     const act61 = new Activity({
+
       name: 'Tate Modern',
       lat: 51.50772211925287,
       lng: -0.09929201994840796
+
     });
     activities.push(act61);
 
     // Activity 62
     const act62 = new Activity({
+
       name: 'hames River Sightseeing',
       lat: 51.50215406872328,
       lng: -0.12311447173720533
+
     });
     activities.push(act62);
 
     // Activity 63
     const act63 = new Activity({
+
       name: 'Prince Edward Theatre',
       lat: 51.51475014925888,
       lng: -0.13056059140526913
+
     });
     activities.push(act63);
 
     // Activity 64
     const act64 = new Activity({
+
       name: 'Royal Observatory in Greenwich',
       lat: 51.477019999560426,
       lng: -0.0004894621816889371
+
     });
     activities.push(act64);
 
