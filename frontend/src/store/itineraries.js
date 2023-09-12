@@ -52,9 +52,9 @@ export const createItinerary = data => async dispatch => {
 
 export const updateItinerary = itineraryData => async dispatch => {
     try{
-        const res = await jwtFetch(`/api/itineraries/${itineraryData.itineraryId}`, {
+        const res = await jwtFetch(`/api/itineraries/${itineraryData._id}`, {
             method: "PATCH",
-            body: JSON.stringify(itineraryData)
+            body: JSON.stringify({update: itineraryData})
         });
 
         if(!res.ok) {
@@ -62,8 +62,8 @@ export const updateItinerary = itineraryData => async dispatch => {
         }
 
 
-        const itineary = await res.json();
-        dispatch(receiveItinerary(itineary))
+        const itinerary = await res.json();
+        dispatch(receiveItinerary(itinerary))
        
     } catch (err){
         console.error('Error fetching itinerary', err)

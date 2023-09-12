@@ -74,7 +74,7 @@ const ItineraryEditPage = () => {
         if(itineraryId !== 'new'){
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
-                setItObj(() => res)
+                setItObj(res)
                 setDays(() => res.days)
             }
             it()
@@ -185,8 +185,6 @@ const ItineraryEditPage = () => {
         }
     }, [markersPositions, map]);
 
-    console.log("check",itObj)
-
     const formateDate = (date) => {
         if(date){
         const year = date.getFullYear();
@@ -239,7 +237,7 @@ const ItineraryEditPage = () => {
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
-    if(!searchObj.location) return <Redirect to="/"/>
+    if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
     
     return ( 
         <div className='page-content-container'>
