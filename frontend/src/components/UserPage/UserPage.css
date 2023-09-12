@@ -39,6 +39,12 @@
 .trip-container {
     margin-right: 32px;
     width: 200px;
+    cursor: pointer;
+}
+
+.trip-container:hover {
+    margin-right: 32px;
+    width: 200px;
 }
 
 .trip-img-container img {
