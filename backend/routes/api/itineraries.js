@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Itinerary = mongoose.model('Itinerary');
 const Day = mongoose.model('Day');
 const Activity = mongoose.model('Activity')
+const User = mongoose.model('User')
 
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
@@ -57,143 +58,149 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
 router.get('/user/:userId', async (req, res, next) => {
-    let user;
-    try {
-      user = await User.findById(req.params.userId);
-    } catch(err) {
-      const error = new Error('User not found');
-      error.statusCode = 404;
-      error.errors = { message: "No user found with that id" };
-      return next(error);
-    }
-    try {
-      const itineraries = await Itinerary.find({ author: user._id })
-                                .sort({ createdAt: -1 })
-                                .populate("author", "_id username");
-      return res.json(itineraries);
-    }
-    catch(err) {
-      return res.json([]);
-    }
-  })
-  
-  router.get('/:id', async (req, res, next) => {
-    try {
-      const itinerary = await Itinerary.findById(req.params.id)
-                               .populate("author", "_id username");
-      return res.json(itinerary);
-    }
-    catch(err) {
-      const error = new Error('Itinerary not found');
-      error.statusCode = 404;
-      error.errors = { message: "No Itinerary found with that id" };
-      return next(error);
-    }
-  });
 
-  router.post('/', async (req, res, next) => {
-    try {
+  try {
+    const itineraries = await Itinerary.find({ author: req.params.userId })
+                                        .sort({ createdAt: -1 })
+                                        .populate();
+    return res.json(itineraries);
+  }
+  catch(err) {
+    return res.json([]);
+  }
+})
 
-      const newDays = req.body.days
-      let days = []
+router.get('/:id', async (req, res, next) => {
+  try {
+    const itinerary = await Itinerary.findById(req.params.id)
+                              .populate("author", "_id username");
+    return res.json(itinerary);
+  }
+  catch(err) {
+    const error = new Error('Itinerary not found');
+    error.statusCode = 404;
+    error.errors = { message: "No Itinerary found with that id" };
+    return next(error);
+  }
+});
 
-      for(let i = 0; i < newDays.length; i++){
-        
-        const newDayActs = newDays[i].activities
-        let activities = []
-        
-        for(let j = 0; j < newDayActs.length; j++){
-          if(newDayActs[j]){
-            const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
-            const newAct = await new Activity({
-              name,
-              formatted_address,
-              formatted_phone_number,
-              rating,
-              user_ratings_total,
-              place_id,
-              imageUrl
-            }).save()
-            activities.push(newAct._id)
-          }
+router.post('/', async (req, res, next) => {
+  try {
+
+    const newDays = req.body.days
+    let days = []
+
+    for(let i = 0; i < newDays.length; i++){
+      
+      const newDayActs = newDays[i].activities
+      let activities = []
+      
+      for(let j = 0; j < newDayActs.length; j++){
+        if(newDayActs[j]){
+          const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
+          const newAct = await new Activity({
+            name,
+            formatted_address,
+            formatted_phone_number,
+            rating,
+            user_ratings_total,
+            place_id,
+            imageUrl
+          }).save()
+          activities.push(newAct._id)
         }
-         
-        const newDay = await new Day({
-          accommodation: newDays[i].accommodation,
-          activities
-        }).save()
-        days.push(newDay._id)
+      }
         
+      const newDay = await new Day({
+        activities
+      }).save()
+      days.push(newDay._id)
+      
+    }
+    
+    const {title, length, startDate, locationName } = req.body
+    
+    const newItiniterary = new Itinerary({
+      title,
+      length,
+      author: req.body.user._id,
+      startDate,
+      locationName,
+      days
+    });
+
+    let itinerary = await newItiniterary.save();
+    itinerary = await itinerary.populate();
+    return res.json(itinerary);
+  }
+  catch(err) {
+    next(err);
+  }
+});
+
+router.patch('/:itineraryId', async (req, res, next) => {
+  try{
+
+    const { title, startDate } = req.body.update
+    const upDays = req.body.update.days
+    const length = upDays.length
+
+    let days = []
+    
+    for(let i = 0; i < length; i++){
+      
+      const upDay = upDays[i]
+      const upActs = upDay.activities
+      const actLen = upActs.length
+
+      let activities = []
+      
+      for (let j = 0; j < actLen; j++){
+
+        const upAct = upActs[j]
+        let activity;
+        if(upAct._id){
+          activity = await Activity.findByIdAndUpdate(upAct._id, upAct)
+        } else {
+          activity = await new Activity(upAct).save()
+        }
+        activities.push(activity._id)
+      }
+
+      let day = {
+        activities
       }
       
-      const {title, length,  lng, lat, startDate, locationName } = req.body
-      
-      const newItiniterary = new Itinerary({
-        title,
-        length,
-        author: req.body.user._id,
-        lng,
-        lat,
-        startDate,
-        locationName,
-        days
-      });
-  
-      let itinerary = await newItiniterary.save();
-      itinerary = await itinerary.populate('author', '_id username');
-      return res.json(itinerary);
+      if(upDay._id){
+        day = await Day.findByIdAndUpdate(upDay._id, day)
+      }else{
+        day = await new Day(day).save()
+      }
+      days.push(day._id)   
     }
-    catch(err) {
-      next(err);
+    
+    const patch = {
+      startDate,
+      title,
+      length,
+      days
     }
-  });
 
-  // router.patch('/:itineraryId', async (req, res, next) => {
-  //   try{
-  //     const { title, startDate } = req.body.update
-  //     const oldDays = req.body.update.days
-  //     const length = oldDays.length
+    const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, patch)
+    return res.json(it)
+  } catch(err){
+    next(err)
+  }
+})
 
-  //     let days = []
-      
-  //     for(let i = 0; i < length; i++){
-        
-  //       const oldActs = oldDays[i].activities
-  //       const actLen = oldActs.length
-
-  //       let activities = []
-        
-  //       for (let j = 0; j < actLen; j++){
-
-  //         const oldAct = oldActs[j]
-  //         const activity = new Activity({name:  })
-          
-  //       }
-        
-  //     }
-      
-  //     const patch = {
-  //       startDate,
-  //       title,
-  //       length
-  //     }
-  //     const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, patch)
-  //     return res.json(it)
-  //   } catch(err){
-  //     next(err)
-  //   }
-  // })
-
-  router.delete('/:itineraryId', async (req, res, next) => {
-    try{
-      const it = await Itinerary.findByIdAndDelete(req.params.itineraryId)
-      return res.json(it)
-    }catch(err){
-      next(err)
-    }
-  })
+router.delete('/:itineraryId', async (req, res, next) => {
+  try{
+    const it = await Itinerary.findByIdAndDelete(req.params.itineraryId)
+    return res.json(it)
+  }catch(err){
+    next(err)
+  }
+})
 
 module.exports = router;
