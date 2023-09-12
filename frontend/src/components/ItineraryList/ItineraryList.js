@@ -16,7 +16,7 @@ export default function ItineraryList({ searchObj }) {
 
     const handleSort = (criteria) => {
         if (criteria === "likes") {
-            const sorted = [...itineraries].sort((a, b) => {
+            const sorted = [...Object.values(itineraries.all)].sort((a, b) => {
                 const aValue = (typeof a.fakeLikes === "number") ? a.fakeLikes : 0;
                 const bValue = (typeof b.fakeLikes === "number") ? b.fakeLikes : 0;
                 return bValue - aValue;
@@ -24,11 +24,11 @@ export default function ItineraryList({ searchObj }) {
             setSortedItineraries(sorted);
         }
         if (criteria === "author") {
-            const sorted = [...itineraries].sort((a, b) => a.author.username.localeCompare(b.author.username));
+            const sorted = [...Object.values(itineraries.all)].sort((a, b) => a.author.username.localeCompare(b.author.username));
             setSortedItineraries(sorted);
         }
         if (criteria === "tripLength") {
-            const sorted = [...itineraries].sort((a, b) => b.length - a.length);
+            const sorted = [...Object.values(itineraries.all)].sort((a, b) => b.length - a.length);
             setSortedItineraries(sorted);
         }
     };     
@@ -38,8 +38,8 @@ export default function ItineraryList({ searchObj }) {
     }, [dispatch, location]);
 
     useEffect(() => {
-        setSortedItineraries(itineraries);
-    }, [itineraries]);    
+        setSortedItineraries(Object.values(itineraries.all));
+    }, [itineraries]);
 
     return(
         <div id='list-page-content-container'>
@@ -49,7 +49,7 @@ export default function ItineraryList({ searchObj }) {
                     <h2>Browse itineraries from fellow travelers</h2>
                     <h4> or <Link to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
-                {Object.values(itineraries).length > 0 ? (
+                {sortedItineraries.length > 0 ? (
                     <>
                         <div className="sort-container">
                             <select onChange={(e) => handleSort(e.target.value)}>

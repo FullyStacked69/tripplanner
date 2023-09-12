@@ -6,9 +6,9 @@ import { setItObj } from '../../store/itineraries';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import { useSelector } from 'react-redux';
+import { setSearchObjRedux } from '../../store/searchObj';
 
-
-export default function ItineraryTile({itinerary}) {
+export default function ItineraryTile({itinerary}){
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState();
@@ -96,13 +96,14 @@ export default function ItineraryTile({itinerary}) {
                             </button>
                             <Link onMouseDown={()=>handleUse(itinerary)} to={`/itineraries/new/plan`}>Use this itinerary</Link>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <Modal open={showLoginModal} onClose={() => setShowLoginModal(false)}>
                 <LoginForm />
             </Modal>
+        </div>
         </>
     );
 }
