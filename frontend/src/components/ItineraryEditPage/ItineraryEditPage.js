@@ -226,6 +226,8 @@ const ItineraryEditPage = () => {
     if(!itObj) return null
     if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
 
+    console.log(itObj)
+
     return ( 
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
