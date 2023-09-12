@@ -4,11 +4,13 @@ import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
 import './ItinerarySearch'
 
-export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate }) {
+export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
     const {searching} = searchObjRedux
+
+    const buttonText = isMainPage ? "Start Planning" : "Search";
 
     useEffect(()=>{
         dispatch(setSearchObjRedux({searching: false}))
@@ -31,6 +33,13 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     })
     
     function handleSearch(){
+        const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
+    
+        if(!locationExists){
+            setSearchErrors(prev => ({...prev, location: 'Location not found'}));
+            return; // Stop the function from proceeding further
+        }
+    
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
@@ -44,7 +53,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         } else {
             setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
         }
-    }
+    }    
 
     const handleInputChange = async e => {
         await setSearchObj(prev => ({...prev, location: e.target.value}))
@@ -69,12 +78,18 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
 
     function LocoOpt(loco){       
         return(
-            <div onMouseDown={() => setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)})} className='loco-opt'>
+            <div 
+                onMouseDown={() => {
+                    setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)});
+                    setSearchErrors(prev => ({...prev, location: ''})); // Reset the location error
+                }} 
+                className='loco-opt'
+            >
                 <h3>{loco.name}, {loco.country || loco.code}</h3>
                 {(loco.country && <h3>City</h3>) || <h3>Country</h3>}
             </div>
         )
-    }
+    }    
 
     function getCurrentISODate() {
         const today = new Date();
@@ -133,26 +148,30 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     value={searchObj.location} 
                     onChange={e=> handleInputChange(e)} 
                     type="text"/>
-            <div className={searchBarFocus ? 'loco-opt-holder' : 'loco-opt-holder loco-opt-holder-no-border'}>
-                {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                <div className={searchBarFocus ? 'loco-opt-holder' : 'loco-opt-holder loco-opt-holder-no-border'}>
+                    {(searchBarFocus && foundLocos) && foundLocos.map(loco => LocoOpt(loco))}
+                </div>
+                {!isMainPage && searchErrors.location && 
+                <div className='search-errors'>{searchErrors.location}</div>}
             </div>
-            </div>
-            {/* <input id="datepicker"/> */}
             <div id="splash-search-date-range">
-            <input 
-                placeholder={propStartDate ? formatDate(propStartDate) : "Start date"}
-                id="trip-start" 
-            />
-            <input 
-                placeholder={propEndDate ? formatDate(propEndDate) : "End date"}
-                id="trip-end" 
-            />
+                <input 
+                    placeholder={propStartDate ? formatDate(propStartDate) : "Start date"}
+                    id="trip-start" 
+                />
+                <input 
+                    placeholder={propEndDate ? formatDate(propEndDate) : "End date"}
+                    id="trip-end" 
+                />
+                {!isMainPage && searchErrors.year && 
+                <div className='search-errors'>{searchErrors.year}</div>}
             </div>
-            <div className='search-errors'>
-                {searchErrors.location && <div>{searchErrors.location}</div>}
-                {searchErrors.year && <div>{searchErrors.year}</div>}
-            </div>
-            <button onClick={()=>handleSearch()} className="myButton small-button">Start Planning</button>
+            {isMainPage && 
+                <div className='search-errors'>
+                    {searchErrors.location && <div>{searchErrors.location}</div>}
+                    {searchErrors.year && <div>{searchErrors.year}</div>}
+                </div>}
+            <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
         </div>
     )
 }
