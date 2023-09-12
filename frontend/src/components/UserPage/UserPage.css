@@ -32,6 +32,10 @@
     display: flex;
 }
 
+.trips-container a {
+    text-decoration: none;
+}
+
 .trips-container ul {
     display: flex;
 }
@@ -40,11 +44,6 @@
     margin-right: 32px;
     width: 200px;
     cursor: pointer;
-}
-
-.trip-container:hover {
-    margin-right: 32px;
-    width: 200px;
 }
 
 .trip-img-container img {
