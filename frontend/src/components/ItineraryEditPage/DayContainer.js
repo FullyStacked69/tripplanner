@@ -40,7 +40,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
 
                 <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='content-container'>
-                        <input placeholder='You dont have a place to stay yet!'></input>
+                        {/* <input placeholder='You dont have a place to stay yet!'></input> */}
                         {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/> */}
 
                         <ActivityContainer dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
