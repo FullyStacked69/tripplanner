@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Autocomplete, } from '@react-google-maps/api';
 
 
-const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
+const Search = ({index, itObj, setItObj, map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
 
     
     // const [position, setPosition] = useState(/** @type google.maps.Map */(null))
@@ -17,6 +17,9 @@ const Search = ({map, setMarkersPositions, markersPositions, setCenter, setInfo,
     const destinationRef = useRef();
     const originAutocompleteRef = useRef();
     const destinationAutocompleteRef = useRef();
+
+
+    
 
     const onOriginPlaceChanged = () => {
         const place = originAutocompleteRef.current.getPlace();

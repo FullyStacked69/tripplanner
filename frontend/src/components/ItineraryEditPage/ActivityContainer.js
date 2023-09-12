@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 // import { useState } from 'react';
 export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
+    console.log('info', info)
+
     const addActivityInfo = () => {
         if (info.name) {
             const newActivity = {
@@ -12,7 +14,8 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                 place_id: info.place_id,
                 rating: info.rating,
                 user_ratings_total: info.user_ratings_total,
-                imageUrl: info?.photos?.[0].getUrl()
+                imageUrl: info?.photos?.[0].getUrl(),
+                geometry: { lat: info.geometry.location.lat(), lng: info.geometry.location.lng() }
             };
 
             // Update local activities state
@@ -25,25 +28,29 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         }
     }
 
+
+
+    
     useEffect(() => {
         addActivityInfo();
     }, [info]);
-
+    
     const clear = (idx, e) => {
         e.preventDefault();
-
+        
         // Logic for removing an activity
         let obj = { ...itObj, days: [...itObj.days] };
         obj.days[dayIdx].activities = obj.days[dayIdx].activities.filter((_, activityIdx) => activityIdx !== idx);
-
+        
         setItObj(obj);
-
+        
         // Logic for removing a marker
         let updatedMarkers = [...markersPositions];
         updatedMarkers.splice(idx, 1);
         setMarkersPositions(updatedMarkers);
     }
-
+    console.log('activity', info)
+    
     return (
         <div className='activity-container'>
             {(itObj.days[dayIdx]?.activities || []).map((activity, idx) => (

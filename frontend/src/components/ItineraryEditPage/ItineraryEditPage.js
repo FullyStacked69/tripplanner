@@ -66,7 +66,7 @@ const ItineraryEditPage = () => {
     };
 
     const setItObj = itinerary => {
-        // console.log(itinerary, 'achoo')
+        console.log(itinerary, 'achoo')
         dispatch(setItRedux(itinerary))
     }
 
@@ -106,6 +106,9 @@ const ItineraryEditPage = () => {
             }
         }
     },[itineraryId])
+
+    // console.log('marks', itObj.days[0].activities)
+    console.log('marks', itObj.days)
 
 
     const deleteDay = (idx,e) => {
@@ -262,7 +265,9 @@ const ItineraryEditPage = () => {
                 <div id='itinerary-section-content'>
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
-                            <h1>{itObj.title}</h1>
+                            <h1 id='title'>
+                                <input type='text' value={itObj.title} onChange={e => setItObj(prev => ({...prev, title: e.target.value}))} ></input>
+                            </h1>
                             <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
                         </div>
                         <div id='itinerary-tld-bttns'>
@@ -313,6 +318,20 @@ const ItineraryEditPage = () => {
             mapContainerClassName="map-container"
             >
                 {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
+
+                {/* {Object.keys(itObj).map(dayKey => 
+                    day.activities.map(activity => (
+                        // This assumes you have a way to get lat and lng for each activity.
+                        // If you have a `geometry.location` property, replace the lat and lng below
+                        <Marker
+                            key={activity._id}
+                            position={{ lat: activity.geometry.location.lat(), lng: activity.geometry.location.lng()}}
+                            title={activity.name}
+                        />
+                    ))
+                )} */}
+
+
             </GoogleMap>
             </div>
         </div>
