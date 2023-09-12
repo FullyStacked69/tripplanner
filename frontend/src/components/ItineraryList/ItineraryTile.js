@@ -36,6 +36,8 @@ export default function ItineraryTile({itinerary}){
         dispatch(setItObj(itinerary))
     }
 
+    if(!itinerary.author) return null
+
     return (
         <>
             <div className='main-itinerary-container'>

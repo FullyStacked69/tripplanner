@@ -19,7 +19,7 @@ function UserPage () {
 
     if(itineraries.length > 0){
         userTrips = itineraries.filter(itinerary => {
-            return itinerary.author._id === userId
+            if ( itinerary.author) return itinerary.author._id === userId
         });
     }
 
