@@ -11,25 +11,26 @@ import './NestedComponents.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
+import axios from 'axios';
 
-import northernLightsImg from './assets/northern-lights.jpeg';
-import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
-import diamondBeachImg from './assets/diamond_beach.webp'
-import blueLagoonImg from './assets/blue-lagoon.jpeg';
-import iceClimbingImg from './assets/ice-climbing.avif';
-import fjadrargljufurImg from './assets/fjad.webp'
+// import northernLightsImg from './assets/northern-lights.jpeg';
+// import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
+// import diamondBeachImg from './assets/diamond_beach.webp'
+// import blueLagoonImg from './assets/blue-lagoon.jpeg';
+// import iceClimbingImg from './assets/ice-climbing.avif';
+// import fjadrargljufurImg from './assets/fjad.webp'
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
       
-    const pop_activities = [
-        {name: "Northern Lights", url: northernLightsImg},
-        {name: "Seljalandsfoss", url: seljalandsfossImg},
-        {name: "Ice Climbing", url: iceClimbingImg},
-        {name: "Diamond Beach", url: diamondBeachImg},
-        {name: "Blue Lagoon", url: blueLagoonImg},
-        {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
-    ]
+    // const pop_activities = [
+    //     // {name: "Northern Lights", url: northernLightsImg},
+    //     // {name: "Seljalandsfoss", url: seljalandsfossImg},
+    //     // {name: "Ice Climbing", url: iceClimbingImg},
+    //     // {name: "Diamond Beach", url: diamondBeachImg},
+    //     // {name: "Blue Lagoon", url: blueLagoonImg},
+    //     // {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
+    // ]
     
     const [markersPositions, setMarkersPositions] = useState([]);
     
@@ -40,6 +41,8 @@ const ItineraryEditPage = () => {
     const {searchObj} = useSelector(state => state)
 
     const {itineraryId} = useParams()
+
+    const [googleActivities, setGoogleActivities] = useState([]);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -76,6 +79,20 @@ const ItineraryEditPage = () => {
             setItObj(()=> ({...searchObj, locationName: searchObj.location, days: days}))
         }
     },[itineraryId])
+
+    useEffect(() => {
+        if (itObj?.lat && itObj?.lng) {
+            // Fetch data from your backend which gets data from Google API
+            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}`)
+                .then(response => {
+                    setGoogleActivities(response.data.results || []);
+                })
+                .catch(error => {
+                    console.error("Error fetching top activities:", error);
+                });
+        }
+    }, [itObj?.lat, itObj?.lng]);
+    
     
     const splashLat = itObj?.lat
     const splashLng = itObj?.lng
@@ -184,8 +201,11 @@ const ItineraryEditPage = () => {
                             <h2>Top locations for {itObj.locationName}</h2> 
                             
                             <div id='popular-activities-container'>
-                                {pop_activities.map((activity, idx) => (
-                                    <ExploreActivitiesTile key={idx} activity={activity} />
+                                {googleActivities.map((activity, idx) => (
+                                    <ExploreActivitiesTile key={idx} activity={{
+                                        name: activity.name,
+                                        url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : 'fallback_image_url_here'
+                                    }} />
                                 ))}
                             </div>
                         </div>
