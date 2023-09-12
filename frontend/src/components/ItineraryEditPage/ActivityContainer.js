@@ -11,6 +11,8 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                 formatted_phone_number: info.formatted_phone_number,
                 place_id: info.place_id,
                 rating: info.rating,
+                lat: info.geometry.location.lat(),
+                lng: info.geometry.location.lng(),
                 // comments: comments,
                 user_ratings_total: info.user_ratings_total,
                 imageUrl: info?.photos?.[0].getUrl()
