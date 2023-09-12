@@ -72,7 +72,7 @@ export default function ItineraryTile({itinerary}) {
                                             {day.activities &&
                                                 day.activities.map(activity => activity.title).join(', ')}
                                         </p>
-                                        <p>Accommodation: {day.accommodation}</p>
+                                        {/* <p>Accommodation: {day.accommodation}</p> */}
                                     </div>
                                 ))}
                             <div className='last-buttons'>
