@@ -13,24 +13,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchItinerary } from '../../store/itineraries';
 import axios from 'axios';
 
-// import northernLightsImg from './assets/northern-lights.jpeg';
-// import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
-// import diamondBeachImg from './assets/diamond_beach.webp'
-// import blueLagoonImg from './assets/blue-lagoon.jpeg';
-// import iceClimbingImg from './assets/ice-climbing.avif';
-// import fjadrargljufurImg from './assets/fjad.webp'
+import missingImg from './assets/placeholder-image.jpeg';
+
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-      
-    // const pop_activities = [
-    //     // {name: "Northern Lights", url: northernLightsImg},
-    //     // {name: "Seljalandsfoss", url: seljalandsfossImg},
-    //     // {name: "Ice Climbing", url: iceClimbingImg},
-    //     // {name: "Diamond Beach", url: diamondBeachImg},
-    //     // {name: "Blue Lagoon", url: blueLagoonImg},
-    //     // {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
-    // ]
     
     const [markersPositions, setMarkersPositions] = useState([]);
     
@@ -85,6 +72,7 @@ const ItineraryEditPage = () => {
             // Fetch data from your backend which gets data from Google API
             axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}`)
                 .then(response => {
+                    console.error("fetched top activities:");
                     setGoogleActivities(response.data.results || []);
                 })
                 .catch(error => {
@@ -204,7 +192,7 @@ const ItineraryEditPage = () => {
                                 {googleActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
                                         name: activity.name,
-                                        url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : 'fallback_image_url_here'
+                                        url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : missingImg
                                     }} />
                                 ))}
                             </div>
