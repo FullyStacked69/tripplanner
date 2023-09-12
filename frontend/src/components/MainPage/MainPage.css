@@ -70,6 +70,7 @@
 }
 
 #splash-header h3 {
+    line-height: 24px;
     margin: 32px;
     font-weight: 300;
 }
@@ -83,7 +84,7 @@
 #loco-search-holder input {
     width: 20vw;
     min-width: 200px;
-    height: 6vh;
+    height: 35px;
     max-height: 40px;
     border-radius: 10px;
     border: 1px solid #E7E7E7;
@@ -96,7 +97,7 @@
 #splash-search-date-range input:first-child {
     width: 10vw;
     min-width: 100px;
-    height: 6vh;
+    height: 35px;
     max-height: 40px;
     border-radius: 10px 0 0 10px;
     border: 1px solid #E7E7E7;
@@ -108,7 +109,7 @@
 #splash-search-date-range input:last-child {
     width: 10vw;
     min-width: 100px;
-    height: 6vh;
+    height: 35px;
     max-height: 40px;
     border-radius: 0 10px 10px 0;
     border: 1px solid #E7E7E7;

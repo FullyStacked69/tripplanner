@@ -106,7 +106,7 @@ router.post('/', async (req, res, next) => {
       
       for(let j = 0; j < newDayActs.length; j++){
         if(newDayActs[j]){
-          const {name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
+          const {lat, lng, name, formatted_address, formatted_phone_number, rating, user_ratings_total, place_id, imageUrl} = newDayActs[j]
           const newAct = await new Activity({
             name,
             formatted_address,
@@ -114,7 +114,9 @@ router.post('/', async (req, res, next) => {
             rating,
             user_ratings_total,
             place_id,
-            imageUrl
+            imageUrl,
+            lat,
+            lng
           }).save()
           activities.push(newAct._id)
         }
@@ -127,7 +129,7 @@ router.post('/', async (req, res, next) => {
       
     }
     
-    const {title, length, startDate, locationName } = req.body
+    const { title, length, startDate, locationName, lat, lng } = req.body
     
     const newItiniterary = new Itinerary({
       title,
@@ -135,7 +137,9 @@ router.post('/', async (req, res, next) => {
       author: req.body.user._id,
       startDate,
       locationName,
-      days
+      days,
+      lat,
+      lng
     });
 
     let itinerary = await newItiniterary.save();
@@ -143,7 +147,7 @@ router.post('/', async (req, res, next) => {
                                   path: 'days', 
                                   populate: {path: 'activities'}
                                 })
-                                .populate('author', '_id username');
+                                
     return res.json(itinerary);
   }
   catch(err) {
@@ -154,7 +158,7 @@ router.post('/', async (req, res, next) => {
 router.patch('/:itineraryId', async (req, res, next) => {
   try{
 
-    const { title, startDate } = req.body.update
+    const { title, startDate, lat, lng } = req.body.update
     const upDays = req.body.update.days
     const length = upDays.length
 
@@ -172,7 +176,7 @@ router.patch('/:itineraryId', async (req, res, next) => {
 
         const upAct = upActs[j]
         let activity;
-        if(upAct._id){
+        if(upAct && upAct._id){
           activity = await Activity.findByIdAndUpdate(upAct._id, upAct)
         } else {
           activity = await new Activity(upAct).save()
@@ -196,7 +200,9 @@ router.patch('/:itineraryId', async (req, res, next) => {
       startDate,
       title,
       length,
-      days
+      days,
+      lat,
+      lng
     }
 
     const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, patch)

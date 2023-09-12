@@ -66,7 +66,6 @@ const ItineraryEditPage = () => {
     };
 
     const setItObj = itinerary => {
-        // console.log(itinerary, 'achoo')
         dispatch(setItRedux(itinerary))
     }
 
@@ -91,7 +90,7 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
-                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days})
                     } 
                 } else {
                     if(searchObj.startDate && searchObj.endDate){
@@ -100,12 +99,15 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
-                        setItObj({title: itObj.title, ...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days})
                     } 
                 }
             }
         }
-    },[itineraryId])
+    }, [itineraryId])
+
+    // console.log('marks', itObj.days[0].activities)
+    // console.log('marks', itObj.days)
 
     // console.log('marks', itObj.days[0].activities)
     // console.log('marks', itObj.days)
@@ -114,17 +116,9 @@ const ItineraryEditPage = () => {
     const deleteDay = (idx,e) => {
         e.preventDefault();
         const dupDay = [...days];
-        // const dupMarker = [...markersPositions]
         const slicedDays = dupDay.slice(0, idx).concat(dupDay.slice(idx+1))
-        // const slicedMarker = dupMarker.slice(0, idx).concat(dupMarker.slice(idx+1))
 
-
-        // setInfo({})
-        // setMarkersPositions(slicedMarker);
-        // setActivities(slicedAcc);
         setItObj({...itObj, days: slicedDays})
-        
-    
     }
     
     const splashLat = itObj?.lat
@@ -201,11 +195,11 @@ const ItineraryEditPage = () => {
 
     const formateDate = (date) => {
         if(date){
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');  // Months are 0-based in JS
-        const day = String(date.getDate()).padStart(2, '0');
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');  // Months are 0-based in JS
+            const day = String(date.getDate()).padStart(2, '0');
     
-        return `${year}/${month}/${day}`;
+            return `${year}/${month}/${day}`;
         }
     }
 
@@ -229,7 +223,7 @@ const ItineraryEditPage = () => {
                     length: itObj.days.length,
                     user 
                 }
-                // console.log(newItiniterary)
+                console.log(newItiniterary)
                 await dispatch(createItinerary(newItiniterary));
                 console.log("Itinerary has been saved")
             } catch (error) {
@@ -252,7 +246,7 @@ const ItineraryEditPage = () => {
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
     if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
-    
+
     return ( 
         <div className='page-content-container'>
             <div id='itinerary-section-container'>

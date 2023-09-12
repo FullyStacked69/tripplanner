@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const daySchema = new Schema(
     {
-        activities: [{ type: Schema.Types.ObjectId, ref: 'Activity' }]
+
+        activities: [{ type: Schema.Types.ObjectId, ref: 'Activity' }], 
+
     },
     { timestamps: true }
 );
