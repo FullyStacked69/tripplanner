@@ -63,7 +63,11 @@ router.get('/user/:userId', async (req, res, next) => {
   try {
     const itineraries = await Itinerary.find({ author: req.params.userId })
                                         .sort({ createdAt: -1 })
-                                        .populate();
+                                        .populate({
+                                          path: 'days', 
+                                          populate: {path: 'activities'}
+                                        })
+                                        .populate('author', '_id username');
     return res.json(itineraries);
   }
   catch(err) {
@@ -74,7 +78,11 @@ router.get('/user/:userId', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const itinerary = await Itinerary.findById(req.params.id)
-                              .populate("author", "_id username");
+                                      .populate({
+                                        path: 'days', 
+                                        populate: {path: 'activities'}
+                                      })
+                                      .populate('author', '_id username');
     return res.json(itinerary);
   }
   catch(err) {
@@ -131,7 +139,11 @@ router.post('/', async (req, res, next) => {
     });
 
     let itinerary = await newItiniterary.save();
-    itinerary = await itinerary.populate();
+    itinerary = await itinerary.populate({
+                                  path: 'days', 
+                                  populate: {path: 'activities'}
+                                })
+                                .populate('author', '_id username');
     return res.json(itinerary);
   }
   catch(err) {
@@ -188,7 +200,7 @@ router.patch('/:itineraryId', async (req, res, next) => {
     }
 
     const it = await Itinerary.findByIdAndUpdate(req.params.itineraryId, patch)
-    return res.json(it)
+    return res.json(await Itinerary.findById(req.params.itineraryId))
   } catch(err){
     next(err)
   }
