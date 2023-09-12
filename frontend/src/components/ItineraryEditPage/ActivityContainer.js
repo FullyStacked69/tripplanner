@@ -31,38 +31,29 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
 
         if (!obj.days[dayIdx].activities) {
             obj.days[dayIdx].activities = [];
-        }
-    
+        }    
     
         obj.days[dayIdx] = {...obj.days[dayIdx], activities: [...obj.days[dayIdx].activities, activities[activities.length - 1]]}
+        if(!obj.days[dayIdx].activities[activities.length - 1]) obj.days[dayIdx].activities.pop()
       
         setItObj(obj);
      
     },[activities])
-    
-    // console.log('CHECK', markersPositions)    
-    
     
     const clear = (idx,e) => {
         e.preventDefault();
         const dupAct = [...itObj.days[dayIdx].activities];
         const slicedAcc = dupAct.slice(0, idx).concat(dupAct.slice(idx+1))
         let slicedMarker;
-        // console.log("obj", itObj.days[dayIdx].activities) // undefined
-        
+
         const dupMarker = [...markersPositions]
         
         if (dupAct.length === markersPositions.length ) {
             slicedMarker = dupMarker.slice(0, idx).concat(dupMarker.slice(idx+1))
-            // return slicedMarker
         } else {
             const markerIdx =  idx - (dupAct.length - dupMarker.length)
             slicedMarker = dupMarker.slice(0, markerIdx).concat(dupMarker.slice(markerIdx+1))
-            // return slicedMarker
         }
-
-
-        // console.log("CHECK",slicedMarker)
 
         let obj = { ...itObj, days: [...itObj.days] };
         if (!obj.days[dayIdx]) {
@@ -83,13 +74,11 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
 
     return (
         <div className='activity-container'>
-            {/* {console.log(itObj.days[dayIdx])} */}
             {(itObj.days[dayIdx]?.activities || []).map((activity, idx) => (
                 <div key={idx}>
                 {<h4>{idx+1}</h4>}
                 { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} />}
                     <div className='activity-description'>{activity?.name ?  "" : "Activity Info"}</div>
-                    {/* <img src={activity?.photos?.[0].getUrl({maxWidth:140, maxHeight:80})}   /> */}
                         <form>
                             <h3>{activity?.name}</h3>
                             <p>{activity?.formatted_address}</p>
@@ -101,11 +90,6 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                 </div>
 
             ))}
-            
         </div>
-            
-        // <>
-        //     TEST
-        // </>
     );
 }

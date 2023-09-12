@@ -24,11 +24,20 @@ export const fetchItineraries = location => async dispatch => {
     }
 };
 
+export const fetchUserItineraries = userId => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/itineraries/user/${userId}`);
+        const itineraries = await res.json();
+        dispatch(receiveItineraries(itineraries));
+    } catch (err) {
+        console.error('Error fetching itineraries:', err);
+    }
+}
+
 export const fetchItinerary = itineraryId => async dispatch => {
     try{
         const res = await fetch(`/api/itineraries?itineraryId=${itineraryId}`)
         const itinerary = await res.json();
-        console.log(itinerary)
         await dispatch(receiveItinerary(itinerary));
         return itinerary;
     } catch (err){

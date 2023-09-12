@@ -1,11 +1,27 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './UserPage.css';
 import TripTile from './TripTile';
+import { useEffect } from 'react';
+import { fetchItineraries, fetchUserItineraries } from '../../store/itineraries';
+import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function UserPage () {
-    const user = useSelector(state => state.session.user);
-    const itineraries = useSelector(state => Object.values(state.itineraries));
-    const userTrips = itineraries.filter(itinerary => itinerary.author._id === user._id);
+
+    const dispatch = useDispatch()
+    
+    const {user} = useSelector(state => state.session);
+
+    const {userId} = useParams()
+    
+    const itineraries = useSelector(state => Object.values(state.itineraries.all));
+
+    let userTrips = [];
+
+    if(itineraries.length > 0){
+        userTrips = itineraries.filter(itinerary => {
+            return itinerary.author._id === userId
+        });
+    }
 
     const currentDate = new Date();
 
@@ -21,13 +37,15 @@ function UserPage () {
         return endDate < currentDate;
     });
 
+    useEffect(()=>{
+        dispatch(fetchUserItineraries(userId))
+    },[])
+
+    if(!user || (user._id !== userId)) return <Redirect to={'/'}/>
+
     return (
         <div id='user-page-container'>
             <div id='user-page-content-container'>
-                <div id='user-page-headers'>
-                    <h2>Hi, {user.username}!</h2>
-                    <p>View your upcoming or past trips on this page</p>
-                </div>
                 <div id='upcoming-trips-section-container'>
                     <h3>Current or upcoming trips</h3>
                     <div className="trips-container">
