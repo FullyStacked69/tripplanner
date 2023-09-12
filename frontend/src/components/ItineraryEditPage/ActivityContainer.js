@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 // import { useState } from 'react';
 export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
-    console.log('info', info)
+    // console.log('info', info)
 
     const addActivityInfo = () => {
         if (info.name) {
@@ -15,7 +15,8 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                 rating: info.rating,
                 user_ratings_total: info.user_ratings_total,
                 imageUrl: info?.photos?.[0].getUrl(),
-                geometry: { lat: info.geometry.location.lat(), lng: info.geometry.location.lng() }
+                lat: info.geometry.location.lat(), 
+                lng: info.geometry.location.lng() 
             };
 
             // Update local activities state
@@ -49,7 +50,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         updatedMarkers.splice(idx, 1);
         setMarkersPositions(updatedMarkers);
     }
-    console.log('activity', info)
+    // console.log('activity', info)
     
     return (
         <div className='activity-container'>

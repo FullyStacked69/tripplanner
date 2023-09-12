@@ -29,6 +29,7 @@ const Search = ({index, itObj, setItObj, map, setMarkersPositions, markersPositi
             map.setZoom(10);
             // const newPosition = { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() };
             setMarkersPositions([...markersPositions, place]);
+            console.log('MarkerPos', markersPositions)
             setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
             setInfo(place);
             setInputValue("");

@@ -66,7 +66,7 @@ const ItineraryEditPage = () => {
     };
 
     const setItObj = itinerary => {
-        console.log(itinerary, 'achoo')
+        // console.log(itinerary, 'achoo')
         dispatch(setItRedux(itinerary))
     }
 
@@ -108,7 +108,7 @@ const ItineraryEditPage = () => {
     },[itineraryId])
 
     // console.log('marks', itObj.days[0].activities)
-    console.log('marks', itObj.days)
+    // console.log('marks', itObj.days)
 
 
     const deleteDay = (idx,e) => {
@@ -135,6 +135,20 @@ const ItineraryEditPage = () => {
     };
 
     const [center, setCenter] = useState(splashPos)
+
+    const places = itObj?.days?.reduce((acc, day) => {
+        return acc.concat(day.activities.map(activity => ({
+            name: activity?.name,
+            address: activity?.formatted_address,
+            rating: activity?.rating,
+            lat: activity?.lat,
+            lng: activity?.lng
+        })));
+    }, []);
+
+    console.log(places)
+
+    
 
         
     const {isLoaded} = useJsApiLoader({
@@ -215,7 +229,7 @@ const ItineraryEditPage = () => {
                     length: itObj.days.length,
                     user 
                 }
-                console.log(newItiniterary)
+                // console.log(newItiniterary)
                 await dispatch(createItinerary(newItiniterary));
                 console.log("Itinerary has been saved")
             } catch (error) {
@@ -317,6 +331,10 @@ const ItineraryEditPage = () => {
             >
                 {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
 
+                {places?.length > 1 && places?.map(place => (
+                    <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
+                ))}
+
                 {/* {Object.keys(itObj).map(dayKey => 
                     day.activities.map(activity => (
                         // This assumes you have a way to get lat and lng for each activity.
@@ -328,6 +346,11 @@ const ItineraryEditPage = () => {
                         />
                     ))
                 )} */}
+
+            {/* "_id": "6500af4058bdaf0ffde3691a",
+            "name": "The British Museum",
+            "lng": -0.1265167102771911,
+            "lat": 51.51950669723901, */}
 
 
             </GoogleMap>
