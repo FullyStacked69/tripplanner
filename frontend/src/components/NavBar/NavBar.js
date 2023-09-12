@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import SignupForm from '../SessionForms/SignupForm';
@@ -13,6 +13,7 @@ function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const dropdownRef = useRef(null);
   
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -22,6 +23,20 @@ function NavBar () {
       e.preventDefault();
       dispatch(logout());
   }
+
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
+        if (showDropdown && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+            setShowDropdown(false);
+        }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+        document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [showDropdown]);
 
   const getLinks = () => {
     if (loggedIn) {
@@ -34,10 +49,10 @@ function NavBar () {
             {user.username}
           </button>
           {showDropdown && (
-            <div className="dropdown-menu">
-              <Link to={`/users/${user._id}`}>User Profile</Link>
-              <a onClick={logoutUser}>Logout</a>
-            </div>
+            <div className="dropdown-menu" ref={dropdownRef}>
+                <Link to={`/users/${user._id}`}>User Profile</Link>
+                <a onClick={logoutUser}>Logout</a>
+            </div>        
           )}
         </div>
       );

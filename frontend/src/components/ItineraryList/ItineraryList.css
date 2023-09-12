@@ -150,6 +150,7 @@
     display: flex;
     margin: 0;
     padding: 8px 12px 6px;
+    height: 35px;
 }
 
 .sort-container {
@@ -168,12 +169,14 @@
 
 .itinerary-content-container a {
     /* background: #457B9D; */
+    display: flex;
     padding: 6px 12px;
-    border-radius: 10px;
+    border-radius: 25px;
     text-decoration: none;
     color: #457B9D;
     border: 1px solid #457B9D;
-    margin: 16px auto;
+    height: 30px;
+    align-items: center;
 }
 
 .itinerary-content-container a:hover {
@@ -184,23 +187,39 @@
 
 .last-buttons{
     display: flex;
-    height: 70px;
+    justify-content: space-between;
+}
 
+.last-buttons button {
+    display: flex;
+    border: 1px solid #457B9D;
+    color: #457B9D;
+    height: 38px;
+    padding: 21px 10px;
+    /* padding: 6px 12px; */
+    font-size: 16px;
+    align-items: center;
+}
+
+.last-buttons button:hover {
+    border: none;
+    background: #457B9D;
+    color: white;
+    box-shadow: none;
+}
+
+.last-buttons svg {
+    margin-right: 4px; /* Adjust this value as needed */
 }
 
 .like-button {
     background-color: #fff;
-    /* Set the default background color */
-    color: #000;
-    /* Set the default text color */
-    /* Add other styles as needed */
+    border: none;
 }
 
 /* Styles for the like button when it's liked */
 .like-button.liked {
     background-color: lightgreen;
-    /* Change the background color when liked */
     color: #fff;
-    /* Change the text color when liked */
-    /* Add other styles as needed */
+    border: none;
 }

@@ -32,6 +32,10 @@
     display: flex;
 }
 
+.trips-container a {
+    text-decoration: none;
+}
+
 .trips-container ul {
     display: flex;
 }
@@ -39,6 +43,7 @@
 .trip-container {
     margin-right: 32px;
     width: 200px;
+    cursor: pointer;
 }
 
 .trip-img-container img {

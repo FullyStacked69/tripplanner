@@ -4,16 +4,22 @@ import TripTile from './TripTile';
 
 function UserPage () {
     const user = useSelector(state => state.session.user);
-    const upcomingTrips = [
-        {title: "Trip to Italy", date: "Sep 9-Sep 18, 2023"},
-        {title: "Adventure Lover's New Zealand Trip", date: "Jan 18-Jan 28, 2024"},
-    ]
+    const itineraries = useSelector(state => Object.values(state.itineraries));
+    const userTrips = itineraries.filter(itinerary => itinerary.author._id === user._id);
 
-    const pastTrips = [
-        {title: "Ultimate Japan Food Tour", date: "Mar 31-April 18, 2023"},
-        {title: "Backpacking Patagonia", date: "Sep 14-Sep 28, 2019"},
-        {title: "Island hopping in the Philippines", date: "Jan 18-Jan 28, 2018"},
-    ]
+    const currentDate = new Date();
+
+    const upcomingTrips = userTrips.filter(trip => {
+        const endDate = new Date(trip.startDate);
+        endDate.setDate(endDate.getDate() + trip.length - 1);
+        return endDate >= currentDate;
+    });
+
+    const pastTrips = userTrips.filter(trip => {
+        const endDate = new Date(trip.startDate);
+        endDate.setDate(endDate.getDate() + trip.length - 1);
+        return endDate < currentDate;
+    });
 
     return (
         <div id='user-page-container'>
@@ -25,17 +31,14 @@ function UserPage () {
                 <div id='upcoming-trips-section-container'>
                     <h3>Current or upcoming trips</h3>
                     <div className="trips-container">
-                        
                         {upcomingTrips.length > 0 ? (
-                            <>
-                                <ul>
-                                    {upcomingTrips.map(trip => (
-                                        <TripTile key={trip._id} trip={trip} />
-                                    ))}
-                                </ul>
-                            </>
+                            <ul>
+                                {upcomingTrips.map(trip => (
+                                    <TripTile key={trip._id} trip={trip} />
+                                ))}
+                            </ul>
                         ) : (
-                            <p>{`No upcoming trips found!`}</p>
+                            <p>{`No trips found!`}</p>
                         )}
                     </div>
                 </div>

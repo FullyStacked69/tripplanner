@@ -4,6 +4,10 @@
     margin: 0 auto;
 } */
 
+body {
+    background: #F1FAEE;
+}
+
 h1 {
     font-size: 32px;
     font-weight: 600;

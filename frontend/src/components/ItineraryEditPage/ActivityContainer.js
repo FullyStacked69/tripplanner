@@ -28,6 +28,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
             obj.days[dayIdx] = {};
         }
 
+
         if (!obj.days[dayIdx].activities) {
             obj.days[dayIdx].activities = [];
         }
@@ -79,6 +80,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         setMarkersPositions(slicedMarker);
         
     }
+
     return (
         <div className='activity-container'>
             {/* {console.log(itObj.days[dayIdx])} */}
