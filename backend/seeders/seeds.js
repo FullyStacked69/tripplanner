@@ -812,6 +812,78 @@ const insertSeeds = async () => {
     });
     activities.push(act99);
 
+    // Activities in Paris
+    // Activity 100
+    const act100 = new Activity({
+      name: 'Eiffel Tower',
+      lat: 48.858844,
+      lng: 2.294351
+    });
+    activities.push(act100);
+
+    // Activity 101
+    const act101 = new Activity({
+      name: 'Louvre Museum',
+      lat: 48.860611,
+      lng: 2.337644
+    });
+    activities.push(act101);
+
+    // Activity 102
+    const act102 = new Activity({
+      name: 'Notre-Dame Cathedral',
+      lat: 48.855708,
+      lng: 2.351452
+    });
+    activities.push(act102);
+
+    // Activity 103
+    const act103 = new Activity({
+      name: 'Montmartre and the Basilica of the Sacré-Cœur',
+      lat: 48.886845,
+      lng: 2.343206
+    });
+    activities.push(act103);
+
+    // Activity 104
+    const act104 = new Activity({
+      name: 'Arc de Triomphe',
+      lat: 48.873822,
+      lng: 2.295048
+    });
+    activities.push(act104);
+
+    // Activity 105
+    const act105 = new Activity({
+      name: 'Seine River Cruise',
+      lat: 48.860933,
+      lng: 2.323461
+    });
+    activities.push(act105);
+
+    // Activity 106
+    const act106 = new Activity({
+      name: 'Musée d\'Orsay',
+      lat: 48.859961,
+      lng: 2.326561
+    });
+    activities.push(act106);
+
+    // Activity 107
+    const act107 = new Activity({
+      name: 'Palace of Versailles',
+      lat: 48.8049,
+      lng: 2.1204
+    });
+    activities.push(act107);
+
+    // Activity 108
+    const act108 = new Activity({
+      name: 'Pantheon',
+      lat: 48.8462,
+      lng: 2.3467
+    });
+    activities.push(act108);
 
 
     const createdActivities = await Activity.insertMany(activities);
@@ -1161,6 +1233,30 @@ const insertSeeds = async () => {
     });
     days.push(d43);
 
+    // Day 44
+    const day44Activities = [act100.id, act101.id, act102.id];
+    const d44 = new Day({
+      accommodation: 'Your Paris Hotel 1',
+      activities: day44Activities
+    });
+    days.push(d44);
+
+    // Day 45
+    const day45Activities = [act103.id, act104.id, act105.id];
+    const d45 = new Day({
+      accommodation: 'Your Paris Hotel 2',
+      activities: day45Activities
+    });
+    days.push(d45);
+
+    // Day 46
+    const day46Activities = [act106.id, act107.id, act108.id];
+    const d46 = new Day({
+      accommodation: 'Your Paris Hotel 3',
+      activities: day46Activities
+    });
+    days.push(d46);
+
 
     const createdDays = await Day.insertMany(days);
 
@@ -1214,7 +1310,7 @@ const insertSeeds = async () => {
       length: 7,
       fakeLikes: 25,
       fakeViews: 451,
-      author: u4.id,
+      author: u1.id,
       days: itinerary3Days,
       startDate: new Date('2022-03-10'), 
     });
@@ -1250,7 +1346,7 @@ const insertSeeds = async () => {
       length: 3,
       fakeLikes: 49,
       fakeViews: 130,
-      author: u2.id,
+      author: u1.id,
       days: itinerary5Days,
       startDate: new Date('2022-05-15'), 
     });
@@ -1327,6 +1423,24 @@ const insertSeeds = async () => {
       startDate: new Date('2022-10-01'),
     });
     itineraries.push(itinerary9);
+
+    // Itinerary 10: Discovering Paris (3 days)
+    const itineraryParisDays = [d44.id, d45.id, d46.id];
+    const itinerary10 = new Itinerary({
+      title: 'Discovering Paris: A 3-Day Adventure',
+      locationName: 'Paris',
+      locationType: 'City',
+      countryCode: 'FR',
+      lng: 2.3522,
+      lat: 48.8566,
+      length: 3,
+      fakeLikes: 723,
+      fakeViews: 1895,
+      author: u1.id,
+      days: itineraryParisDays,
+      startDate: new Date('2022-11-15'),
+    });
+    itineraries.push(itinerary10);
 
 
 
