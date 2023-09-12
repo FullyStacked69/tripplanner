@@ -143,7 +143,7 @@ router.post('/', async (req, res, next) => {
                                   path: 'days', 
                                   populate: {path: 'activities'}
                                 })
-                                .populate('author', '_id username');
+                                
     return res.json(itinerary);
   }
   catch(err) {
@@ -172,7 +172,7 @@ router.patch('/:itineraryId', async (req, res, next) => {
 
         const upAct = upActs[j]
         let activity;
-        if(upAct._id){
+        if(upAct && upAct._id){
           activity = await Activity.findByIdAndUpdate(upAct._id, upAct)
         } else {
           activity = await new Activity(upAct).save()
