@@ -142,7 +142,7 @@ const ItineraryEditPage = () => {
         })));
     }, []);
 
-    console.log(places)
+    // console.log(places)
 
     
 
@@ -223,7 +223,7 @@ const ItineraryEditPage = () => {
             try {
                 let newItiniterary = {
                     ...itObj,
-                    length: itObj.days.length,
+                    length: itObj?.days.length,
                     user 
                 }
                 console.log(newItiniterary)
