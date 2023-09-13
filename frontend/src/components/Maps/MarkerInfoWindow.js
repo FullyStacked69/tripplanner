@@ -10,7 +10,7 @@ const MarkerInfoWindow = ({position,idx, place}) => {
         <>
 
             <Marker key={idx} position={position}  onClick={() => setIsOpen(true)}/>
-            { isOpen &&  <InfoWindow  position={{lat:position.lat + 0.01, lng:position.lng }} onCloseClick={() => setIsOpen(false)}>
+            { isOpen &&  <InfoWindow  position={{lat:position.lat, lng:position.lng }} onCloseClick={() => setIsOpen(false)}>
                 <div>
                     <h3>{place.name}</h3>
                     <p>{place.formatted_address}</p>

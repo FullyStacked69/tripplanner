@@ -11,40 +11,29 @@ const itinerarySchema = new Schema(
             type: Number,
             required: true,
         },
-        locationType: {
-            type: String,
-            required: true,
-        },
-        countryCode: {
-            type: String,
-            required: true,
-        },
         locationName: {
             type: String,
-            required: true,
-        },
-        lng: {
-            type: Number,
-            required: true,
-        },
-        lat: {
-            type: Number,
             required: true,
         },
         fakeLikes: {
             type: Number,
         },
-        fakeViews: {
-            type: Number,
-        },
-
         startDate: {
             type: Date, 
             required: true,
         },
+        lng: {
+            type: Number
+        },
+        lat: {
+            type: Number
+        },
         author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 
-        days: [{type: Schema.Types.ObjectId, ref: 'Day'}]
+        days: [{type: Schema.Types.ObjectId, ref: 'Day'}],
+
+        likes: [{ type: Schema.Types.ObjectId, ref: 'Like' }]
+
     },
     { timestamps: true }
 );
