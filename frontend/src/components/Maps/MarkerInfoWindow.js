@@ -37,7 +37,7 @@ const MarkerInfoWindow = ({position, place}) => {
                     <InfoWindow onCloseClick={() => setIsOpen(false)}>
                         <div>
                             <h3>{place?.name}</h3>
-                            <p>{place?.formatted_address}</p>
+                            <p>{place?.address}</p>
                             <p>{place?.formatted_phone_number}</p>
                             {place?.rating && <p>Rating: {place?.rating}</p>}
                         </div>
