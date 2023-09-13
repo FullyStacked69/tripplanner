@@ -34,6 +34,8 @@ const ItineraryEditPage = () => {
 
     const [deleted, setDeleted] = useState(false);
 
+    const [category, setCategory] = useState("tourist_attraction");
+
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
     };
@@ -100,7 +102,7 @@ const ItineraryEditPage = () => {
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
             // Fetch data from your backend which gets data from Google API
-            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}`)
+            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
                 .then(response => {
                     console.error("fetched top activities:");
                     setGoogleActivities(response.data.results || []);
@@ -109,7 +111,7 @@ const ItineraryEditPage = () => {
                     console.error("Error fetching top activities:", error);
                 });
         }
-    }, [itObj?.lat, itObj?.lng]);
+    }, [itObj?.lat, itObj?.lng, category]); 
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
@@ -279,6 +281,12 @@ const ItineraryEditPage = () => {
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
                             <h2>Top activities for {itObj.locationName}</h2> 
+                            <select value={category} onChange={e => setCategory(e.target.value)}>
+                                <option value="tourist_attraction">Tourist Attractions</option>
+                                <option value="restaurant">Restaurants</option>
+                                <option value="museum">Museums</option>
+                                <option value="park">Parks</option>
+                            </select>
                             <div id='popular-activities-container'>
                                 {googleActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
