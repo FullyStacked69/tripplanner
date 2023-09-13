@@ -103,13 +103,13 @@ const ItineraryEditPage = () => {
         if (itObj?.lat && itObj?.lng) {
             // Fetch data from your backend which gets data from Google API
             axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
-                .then(response => {
-                    console.error("fetched top activities:");
-                    setGoogleActivities(response.data.results || []);
-                })
-                .catch(error => {
-                    console.error("Error fetching top activities:", error);
-                });
+            .then(response => {
+                const sortedActivities = (response.data.results || []).sort((a, b) => b.rating - a.rating);  // Manual sort because 'rankby' parameter sort isn't accurate
+                setGoogleActivities(sortedActivities);
+            })
+            .catch(error => {
+                console.error("Error fetching top activities:", error);
+            });
         }
     }, [itObj?.lat, itObj?.lng, category]); 
 
@@ -286,6 +286,7 @@ const ItineraryEditPage = () => {
                                 <option value="restaurant">Restaurants</option>
                                 <option value="museum">Museums</option>
                                 <option value="park">Parks</option>
+                                <option value="lodging">Accommodations</option>
                             </select>
                             <div id='popular-activities-container'>
                                 {googleActivities.map((activity, idx) => (
