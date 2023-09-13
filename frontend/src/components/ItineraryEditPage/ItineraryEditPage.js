@@ -122,10 +122,16 @@ const ItineraryEditPage = () => {
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
-        const dupDay = [...days];
-        const slicedDays = dupDay.slice(0, idx).concat(dupDay.slice(idx+1))
+        let updatedItObj = { ...itObj, days: [...itObj.days] };
 
-        setItObj({...itObj, days: slicedDays})
+        // Remove the day using splice method
+        updatedItObj.days.splice(idx, 1);
+
+        console.log(idx)
+        console.log('deleteday',updatedItObj)
+    
+        // Update the itinerary object
+        setItObj(updatedItObj);
     }
     
     const splashLat = itObj?.lat
@@ -138,7 +144,7 @@ const ItineraryEditPage = () => {
     const [center, setCenter] = useState(splashPos)
 
     const places = itObj?.days?.reduce((acc, day) => {
-        return acc.concat(day.activities.map(activity => ({
+        return acc.concat(day?.activities?.map(activity => ({
             name: activity?.name,
             address: activity?.formatted_address,
             phone: activity?.formatted_phone_number,
@@ -147,9 +153,9 @@ const ItineraryEditPage = () => {
             lat: activity?.lat,
             lng: activity?.lng
         })));
-    }, []);
+    }, []).filter(Boolean);
 
-    // console.log(places)
+    console.log(places)
 
     
 
@@ -201,7 +207,7 @@ const ItineraryEditPage = () => {
             console.log("markcer center")
 
         }
-    }, [map]);
+    }, [map, itObj]);
 
     const formateDate = (date) => {
         if(date){
@@ -340,7 +346,7 @@ const ItineraryEditPage = () => {
                         <div id='itineary-days-container'>
                             {itObj.days && itObj.days.map((day, index) => (
                                 <>
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} />
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay}/>
                                 {/* <button>Remove this Day </button> */}
                                 </>
                                 ))}
@@ -366,22 +372,7 @@ const ItineraryEditPage = () => {
                     <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
                 ))}
 
-                {/* {Object.keys(itObj).map(dayKey => 
-                    day.activities.map(activity => (
-                        // This assumes you have a way to get lat and lng for each activity.
-                        // If you have a `geometry.location` property, replace the lat and lng below
-                        <Marker
-                            key={activity._id}
-                            position={{ lat: activity.geometry.location.lat(), lng: activity.geometry.location.lng()}}
-                            title={activity.name}
-                        />
-                    ))
-                )} */}
-
-            {/* "_id": "6500af4058bdaf0ffde3691a",
-            "name": "The British Museum",
-            "lng": -0.1265167102771911,
-            "lat": 51.51950669723901, */}
+ 
 
 
             </GoogleMap>
