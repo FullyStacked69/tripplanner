@@ -18,6 +18,11 @@ const itinerarySchema = new Schema(
         fakeLikes: {
             type: Number,
         },
+
+        fakeViews: {
+            type: Boolean,
+        },
+
         startDate: {
             type: Date, 
             required: true,
