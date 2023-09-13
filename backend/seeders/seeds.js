@@ -1014,6 +1014,220 @@ const insertSeeds = async () => {
     });
     activities.push(act108);
 
+    // Activities in Florence
+    // Activity 109
+    const act109 = new Activity({
+      name: 'Uffizi Gallery',
+      lat: 43.7678,
+      lng: 11.2569
+    });
+    activities.push(act109);
+
+    // Activity 110
+    const act110 = new Activity({
+      name: 'Florence Cathedral (Duomo)',
+      lat: 43.7734,
+      lng: 11.2558
+    });
+    activities.push(act110);
+
+    // Activity 111
+    const act111 = new Activity({
+      name: 'Ponte Vecchio',
+      lat: 43.7673,
+      lng: 11.2531
+    });
+    activities.push(act111);
+
+    // Activity 112
+    const act112 = new Activity({
+      name: 'Galleria dell\'Accademia',
+      lat: 43.7774,
+      lng: 11.2578
+    });
+    activities.push(act112);
+
+    // Activities in Siena
+    // Activity 113
+    const act113 = new Activity({
+      name: 'Siena Cathedral (Duomo di Siena)',
+      lat: 43.3171,
+      lng: 11.3320
+    });
+    activities.push(act113);
+
+    // Activity 114
+    const act114 = new Activity({
+      name: 'Piazza del Campo',
+      lat: 43.3183,
+      lng: 11.3314
+    });
+    activities.push(act114);
+
+    // Activities in San Gimignano
+    // Activity 115
+    const act115 = new Activity({
+      name: 'San Gimignano Towers',
+      lat: 43.4676,
+      lng: 11.0434
+    });
+    activities.push(act115);
+
+    // Activity 116
+    const act116 = new Activity({
+      name: 'Piazza della Cisterna',
+      lat: 43.4687,
+      lng: 11.0417
+    });
+    activities.push(act116);
+
+    // Activities in Lucca
+    // Activity 117
+    const act117 = new Activity({
+      name: 'Lucca City Walls',
+      lat: 43.8396,
+      lng: 10.5026
+    });
+    activities.push(act117);
+
+    // Activity 118
+    const act118 = new Activity({
+      name: 'Piazza dell\'Anfiteatro',
+      lat: 43.8424,
+      lng: 10.5030
+    });
+    activities.push(act118);
+
+    // Activities in Pisa
+    // Activity 119
+    const act119 = new Activity({
+      name: 'Leaning Tower of Pisa',
+      lat: 43.7231,
+      lng: 10.3964
+    });
+    activities.push(act119);
+
+    // Activity 120
+    const act120 = new Activity({
+      name: 'Pisa Cathedral (Duomo di Pisa)',
+      lat: 43.7230,
+      lng: 10.3967
+    });
+    activities.push(act120);
+
+    // Activities in Volterra
+    // Activity 121
+    const act121 = new Activity({
+      name: 'Volterra Etruscan Walls',
+      lat: 43.4040,
+      lng: 10.8598
+    });
+    activities.push(act121);
+
+    // Activity 122
+    const act122 = new Activity({
+      name: 'Volterra Roman Theater',
+      lat: 43.4022,
+      lng: 10.8629
+    });
+    activities.push(act122);
+
+    // Activities in Lazio
+    // Activity 123
+    const act123 = new Activity({
+      name: 'Colosseum',
+      lat: 41.8902,
+      lng: 12.4922
+    });
+    activities.push(act123);
+
+    // Activity 124
+    const act124 = new Activity({
+      name: 'Roman Forum',
+      lat: 41.8925,
+      lng: 12.4853
+    });
+    activities.push(act124);
+
+    // Activity 125
+    const act125 = new Activity({
+      name: 'Trevi Fountain',
+      lat: 41.9019,
+      lng: 12.4886
+    });
+    activities.push(act125);
+
+    // Activity 126
+    const act126 = new Activity({
+      name: 'Vatican Museums',
+      lat: 41.9061,
+      lng: 12.4536
+    });
+    activities.push(act126);
+
+    // Activity 127
+    const act127 = new Activity({
+      name: 'Sistine Chapel',
+      lat: 41.9022,
+      lng: 12.4548
+    });
+    activities.push(act127);
+
+    // Activity 128
+    const act128 = new Activity({
+      name: 'St. Peter\'s Basilica',
+      lat: 41.9022,
+      lng: 12.4537
+    });
+    activities.push(act128);
+
+    // Activity 129
+    const act129 = new Activity({
+      name: 'Castel Sant\'Angelo',
+      lat: 41.9031,
+      lng: 12.4669
+    });
+    activities.push(act129);
+
+    // Activity 130
+    const act130 = new Activity({
+      name: 'Pantheon',
+      lat: 41.8986,
+      lng: 12.4768
+    });
+    activities.push(act130);
+
+    // Activity 131
+    const act131 = new Activity({
+      name: 'Villa Borghese Gardens',
+      lat: 41.9122,
+      lng: 12.4889
+    });
+    activities.push(act131);
+
+    // Activity 132
+    const act132 = new Activity({
+      name: 'Palatine Hill',
+      lat: 41.8885,
+      lng: 12.4883
+    });
+    activities.push(act132);
+
+    // Activity 133
+    const act133 = new Activity({
+      name: 'Capitoline Hill',
+      lat: 41.8931,
+      lng: 12.4821
+    });
+    activities.push(act133);
+
+    // Activity 134
+    const act134 = new Activity({
+      name: 'Villa d\'Este',
+      lat: 41.9103,
+      lng: 12.7979
+    });
+    activities.push(act134);
 
     const createdActivities = await Activity.insertMany(activities);
 
@@ -1386,6 +1600,83 @@ const insertSeeds = async () => {
     });
     days.push(d46);
 
+    // Day 47
+    const day47Activities = [act109.id, act110.id, act111.id];
+    const d47 = new Day({
+      activities: day47Activities
+    });
+    days.push(d47);
+
+    // Day 48
+    const day48Activities = [act112.id, act113.id];
+    const d48 = new Day({
+      activities: day48Activities
+    });
+    days.push(d48);
+
+    // Day 49
+    const day49Activities = [act114.id, act115.id, act116.id];
+    const d49 = new Day({
+      activities: day49Activities
+    });
+    days.push(d49);
+
+    // Day 50
+    const day50Activities = [act117.id, act118.id];
+    const d50 = new Day({
+      activities: day50Activities
+    });
+    days.push(d50);
+
+    // Day 51
+    const day51Activities = [act119.id, act120.id];
+    const d51 = new Day({
+      activities: day51Activities
+    });
+    days.push(d51);
+
+    // Day 52
+    const day52Activities = [act121.id, act122.id];
+    const d52 = new Day({
+      activities: day52Activities
+    });
+    days.push(d52);
+
+    // Day 53
+    const day53Activities = [act123.id, act124.id, act125.id];
+    const d53 = new Day({
+      activities: day53Activities
+    });
+    days.push(d53);
+
+    // Day 54
+    const day54Activities = [act126.id, act127.id];
+    const d54 = new Day({
+      activities: day54Activities
+    });
+    days.push(d54);
+
+    // Day 55
+    const day55Activities = [act128.id, act129.id, act130.id];
+    const d55 = new Day({
+      activities: day55Activities
+    });
+    days.push(d55);
+
+    // Day 56
+    const day56Activities = [act131.id, act132.id];
+    const d56 = new Day({
+      activities: day56Activities
+    });
+    days.push(d56);
+
+    // Day 57
+    const day57Activities = [act133.id, act134.id];
+    const d57 = new Day({
+      activities: day57Activities
+    });
+    days.push(d57);
+
 
     const createdDays = await Day.insertMany(days);
 
@@ -1502,7 +1793,7 @@ const insertSeeds = async () => {
     // Itinerary 7: Exploring New York (4 days)
     const itineraryNewYorkDays = [d31.id, d32.id, d33.id, d34.id, d35.id];
     const itinerary7 = new Itinerary({
-      title: 'Exploring New York: A 4-Day Adventure',
+      title: '4 days in the Big Apple',
       locationName: 'New York',
       locationType: 'City',
       countryCode: 'US',
@@ -1520,7 +1811,7 @@ const insertSeeds = async () => {
     // Itinerary 8: Exploring Berlin (2 days)
     const itineraryBerlinDays = [d36.id, d37.id];
     const itinerary8 = new Itinerary({
-      title: 'Exploring Berlin: A 2-Day Adventure',
+      title: 'Weekend in Berlin',
       locationName: 'Berlin',
       locationType: 'City',
       countryCode: 'DE',
@@ -1539,8 +1830,8 @@ const insertSeeds = async () => {
     const itinerarySicilyDays = [d38.id, d39.id, d40.id, d41.id, d42.id, d43.id];
     const itinerary9 = new Itinerary({
       title: 'Best Trip Ever in Sicily',
-      locationName: 'Sicily',
-      locationType: 'Region',
+      locationName: 'Italy',
+      locationType: 'Country',
       countryCode: 'IT',
       lng: 14.0154,
       lat: 37.5994,
@@ -1556,7 +1847,7 @@ const insertSeeds = async () => {
     // Itinerary 10: Discovering Paris (3 days)
     const itineraryParisDays = [d44.id, d45.id, d46.id];
     const itinerary10 = new Itinerary({
-      title: 'Discovering Paris: A 3-Day Adventure',
+      title: 'Quick scape to Paris',
       locationName: 'Paris',
       locationType: 'City',
       countryCode: 'FR',
@@ -1571,6 +1862,41 @@ const insertSeeds = async () => {
     });
     itineraries.push(itinerary10);
 
+    // Itinerary 11: Exploring Italy (6 days)
+    const itineraryItalyDays = [d47.id, d48.id, d49.id, d50.id, d51.id, d52.id];
+    const itinerary11 = new Itinerary({
+      title: 'Road trip around Tuscany',
+      locationName: 'Italy',
+      locationType: 'Country',
+      countryCode: 'IT',
+      lng: 12.4964,
+      lat: 41.9028,
+      length: 6,
+      fakeLikes: 971,
+      fakeViews: 2458,
+      author: u2.id,
+      days: itineraryItalyDays,
+      startDate: new Date('2022-12-01'),
+    });
+    itineraries.push(itinerary11);
+
+    // Itinerary 12: Exploring Lazio, Italy (5 days)
+    const itineraryLazioDays = [d53.id, d54.id, d55.id, d56.id, d57.id];
+    const itinerary12 = new Itinerary({
+      title: 'Rome, the eternal city',
+      locationName: 'Italy',
+      locationType: 'Country',
+      countryCode: 'IT',
+      lng: 12.4964,
+      lat: 41.9028,
+      length: 5,
+      fakeLikes: 810,
+      fakeViews: 1987,
+      author: u1.id,
+      days: itineraryLazioDays,
+      startDate: new Date('2023-01-10'),
+    });
+    itineraries.push(itinerary12);
 
 
     const createdItineraries = await Itinerary.insertMany(itineraries);
