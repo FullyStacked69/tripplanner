@@ -227,7 +227,6 @@ const ItineraryEditPage = () => {
         e.preventDefault()
         const res = await dispatch(deleteItinerary(itineraryId))
         if(res._id) setDeleted(true)
-        console.log(res)
     }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
@@ -237,7 +236,16 @@ const ItineraryEditPage = () => {
     console.log(itObj)
 
     if(deleted) return <Redirect to='/'/>
+
+    let lastDate;
+    let dateObj;
     
+    if(!searchObj.startDate){
+        dateObj = new Date(itObj.startDate)
+        lastDate = new Date( dateObj )
+        lastDate.setDate(itObj.length + dateObj.getDate() - 1)
+    }
+
     return ( 
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
@@ -263,7 +271,8 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
                             <h1>{itObj.title}</h1>
-                            <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
+                            {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
+                            {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
                         </div>
                         <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
