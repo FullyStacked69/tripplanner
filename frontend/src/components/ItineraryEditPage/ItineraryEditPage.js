@@ -188,12 +188,12 @@ const ItineraryEditPage = () => {
     const formateDate = (date) => {
         if(date){
             const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');  // Months are 0-based in JS
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const month = monthNames[date.getMonth()];
             const day = String(date.getDate()).padStart(2, '0');
-    
-            return `${year}/${month}/${day}`;
+            return `${day} ${month} ${year}`;
         }
-    }
+    }    
 
     const datesBetween = (startDate, endDate) => {
         const datesArray = [];
@@ -278,24 +278,24 @@ const ItineraryEditPage = () => {
                 <div id='itinerary-section-content'>
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
-                            <h1><input onChange={(e)=>setItObj({...itObj, title: e.target.value})} value={itObj.title}></input></h1>
+                            <textarea onChange={(e)=>setItObj({...itObj, title: e.target.value})} value={itObj.title}></textarea>
+                        </div>
+                        <div id='itinerary-tld-bttm'>
                             {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
                             {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
-                        </div>
-                        <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
                             <div></div>
-                            <div id='members-container'>
+                            {/* <div id='members-container'>
                                 <div id='member-icon'>E</div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16"> <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/> </svg>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
-                            <h2>Top activities for {itObj.locationName}</h2> 
+                            <h2>Top places for {itObj.locationName}</h2> 
                             <select value={category} onChange={e => setCategory(e.target.value)}>
                                 <option value="tourist_attraction">Tourist Attractions</option>
                                 <option value="restaurant">Restaurants</option>

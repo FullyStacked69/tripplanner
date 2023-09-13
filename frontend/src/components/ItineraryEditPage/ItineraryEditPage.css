@@ -65,7 +65,18 @@
     align-items: center;
 }
 
-#itinerary-tld-bttns {
+#title-date-container textarea {
+    border: none;
+    width: 100%;
+    font-weight: 600;
+    font-size: 32px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;          /* Hide scrollbar */
+    resize: none;              /* Disable manual resize */
+    overflow-y: hidden;        /* Prevent vertical scrollbar */
+}
+
+#itinerary-tld-bttm {
     display: flex;
     margin-top: 16px;
     justify-content: space-between;
