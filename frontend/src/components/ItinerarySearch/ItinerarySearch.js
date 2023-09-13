@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
 import './ItinerarySearch'
+import { setItObj } from "../../store/itineraries"
 
 export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
     
     const searchObjRedux = useSelector(state => state.searchObj)
+    const {itObj} = useSelector(state => state)
     const {searching} = searchObjRedux
 
 

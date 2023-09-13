@@ -35,6 +35,8 @@ const ItineraryEditPage = () => {
 
     const [deleted, setDeleted] = useState(false);
 
+    const [category, setCategory] = useState("tourist_attraction");
+
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
     };
@@ -98,10 +100,16 @@ const ItineraryEditPage = () => {
         }
     },[itineraryId])
 
+    useEffect(()=>{
+        if(itineraryId === 'new' && !itObj.title){
+            setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
+        }
+    }, [itObj])
+
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
             // Fetch data from your backend which gets data from Google API
-            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}`)
+            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
                 .then(response => {
                     console.error("fetched top activities:");
                     setGoogleActivities(response.data.results || []);
@@ -110,13 +118,7 @@ const ItineraryEditPage = () => {
                     console.error("Error fetching top activities:", error);
                 });
         }
-    }, [itObj?.lat, itObj?.lng]);
-    // console.log('marks', itObj.days[0].activities)
-    // console.log('marks', itObj.days)
-
-    // console.log('marks', itObj.days[0].activities)
-    // console.log('marks', itObj.days)
-
+    }, [itObj?.lat, itObj?.lng, category]); 
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
@@ -253,7 +255,6 @@ const ItineraryEditPage = () => {
         e.preventDefault()
         const res = await dispatch(deleteItinerary(itineraryId))
         if(res._id) setDeleted(true)
-        console.log(res)
     }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
@@ -263,7 +264,16 @@ const ItineraryEditPage = () => {
     console.log(itObj)
 
     if(deleted) return <Redirect to='/'/>
+
+    let lastDate;
+    let dateObj;
     
+    if(!searchObj.startDate){
+        dateObj = new Date(itObj.startDate)
+        lastDate = new Date( dateObj )
+        lastDate.setDate(itObj.length + dateObj.getDate() - 1)
+    }
+
     return ( 
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
@@ -288,10 +298,9 @@ const ItineraryEditPage = () => {
                 <div id='itinerary-section-content'>
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
-                            <h1 id='title'>
-                                <input type='text' value={itObj.title} onChange={e => setItObj(prev => ({...prev, title: e.target.value}))} ></input>
-                            </h1>
-                            <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
+                            <h1><input onChange={(e)=>setItObj({...itObj, title: e.target.value})} value={itObj.title}></input></h1>
+                            {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
+                            {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
                         </div>
                         <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
@@ -307,6 +316,12 @@ const ItineraryEditPage = () => {
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
                             <h2>Top activities for {itObj.locationName}</h2> 
+                            <select value={category} onChange={e => setCategory(e.target.value)}>
+                                <option value="tourist_attraction">Tourist Attractions</option>
+                                <option value="restaurant">Restaurants</option>
+                                <option value="museum">Museums</option>
+                                <option value="park">Parks</option>
+                            </select>
                             <div id='popular-activities-container'>
                                 {googleActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
