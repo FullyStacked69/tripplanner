@@ -270,8 +270,7 @@ const ItineraryEditPage = () => {
                     </div>
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
-                            <h2>Top locations for {itObj.locationName}</h2> 
-                            
+                            <h2>Top activities for {itObj.locationName}</h2> 
                             <div id='popular-activities-container'>
                                 {googleActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
