@@ -5,6 +5,7 @@ const Itinerary = mongoose.model('Itinerary');
 const Day = mongoose.model('Day');
 const Activity = mongoose.model('Activity')
 const User = mongoose.model('User')
+const Like = mongoose.model('Like');
 
 const validateItineraryInput = require('../../validations/itineraries');
 const { requireUser } = require('../../config/passport');
@@ -212,6 +213,74 @@ router.patch('/:itineraryId', async (req, res, next) => {
   }
 })
 
+
+//add like 
+router.post('/:itineraryId/like', requireUser, async (req, res, next) => {
+  try {
+    const itinerary = await Itinerary.findById(req.params.itineraryId);
+    
+    if (!itinerary) {
+      return res.status(404).json({ error: 'Itinerary not found' });
+    }
+
+    const userId = req.user._id;
+
+    // Check if the user already liked the itinerary
+    const existingLike = await Like.findOne({ user: userId, itinerary: itinerary._id });
+    
+    if (existingLike) {
+      return res.status(400).json({ error: 'User already liked this itinerary' });
+    }
+    
+    // User has not liked it before, so add a like
+    const newLike = new Like({ user: userId });
+    await newLike.save();
+    
+    // Add the Like object ID to the itinerary's likes array
+    itinerary.likes.push(newLike._id);
+    await itinerary.save();
+    
+    // Return the updated itinerary with likes
+    const updatedItinerary = await Itinerary.findById(req.params.itineraryId).populate('likes');
+    return res.json(updatedItinerary);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/:itineraryId/like', requireUser, async (req, res, next) => {
+  try {
+    const itinerary = await Itinerary.findById(req.params.itineraryId);
+
+    if (!itinerary) {
+      return res.status(404).json({ error: 'Itinerary not found' });
+    }
+
+    
+
+    // Find all likes for this itinerary
+    const likesToRemove = await Like.find({ itinerary: itinerary._id });
+
+    if (likesToRemove.length === 0) {
+      return res.status(400).json({ error: 'User has not liked this itinerary' });
+    }
+
+    // Remove all likes found
+    for (const like of likesToRemove) {
+      await like.remove();
+      itinerary.likes.pull(like._id);
+    }
+
+    await itinerary.save();
+
+    // Return the updated itinerary with likes
+    const updatedItinerary = await Itinerary.findById(req.params.itineraryId).populate('likes');
+    return res.json(updatedItinerary);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.delete('/:itineraryId', async (req, res, next) => {
   try{
     const it = await Itinerary.findByIdAndDelete(req.params.itineraryId)
@@ -220,5 +289,26 @@ router.delete('/:itineraryId', async (req, res, next) => {
     next(err)
   }
 })
+
+// Patch route to toggle fakeViews
+router.patch('/:itineraryId/fakeviews', async (req, res, next) => {
+  try {
+    const itinerary = await Itinerary.findById(req.params.itineraryId);
+
+    if (!itinerary) {
+      return res.status(404).json({ error: 'Itinerary not found' });
+    }
+
+    // Toggle the fakeViews field
+    itinerary.fakeViews = !itinerary.fakeViews;
+
+    await itinerary.save();
+
+    // Return the updated itinerary with fakeViews
+    return res.json(itinerary);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

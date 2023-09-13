@@ -6,31 +6,35 @@ import { setItObj } from '../../store/itineraries';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import { useSelector } from 'react-redux';
-import { setSearchObjRedux } from '../../store/searchObj';
+import { toggleFakeViewsAsync } from '../../store/itineraries';
 
 export default function ItineraryTile({itinerary}){
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
     const [hovered, setHovered] = useState();
-    const [isLiked, setIsLiked] = useState(false);
+    
+    const [isLiked, setIsLiked] = useState(itinerary.fakeViews);
     const [fakeLikes, setFakeLikes] = useState(itinerary.fakeLikes);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const loggedIn = useSelector(state => !!state.session.user);
 
-    const handleLikeClick = () => {
+    const handleLikeClick = async () => {
         if (!loggedIn) {
             setShowLoginModal(true);
             return;
         }
-    
-        if (isLiked) {
-            setFakeLikes(fakeLikes - 1);
-        } else {
-            setFakeLikes(fakeLikes + 1);
-        }
-        // Toggle liked state
-        setIsLiked(!isLiked);
-    };    
+        dispatch(toggleFakeViewsAsync(itinerary._id));
+        
+
+            // Update fakeLikes in the state (if needed)
+            if (isLiked) {
+                setFakeLikes(fakeLikes - 1);
+            } else {
+                setFakeLikes(fakeLikes + 1);
+            }
+            setIsLiked(!isLiked)
+        
+    };   
 
     const handleUse = (itinerary) => {
         dispatch(setItObj(itinerary))
@@ -78,9 +82,9 @@ export default function ItineraryTile({itinerary}){
                                     <h3>Day {index + 1}</h3>
                                     <p>
                                         {day.activities &&
-                                            day.activities.map(activity => activity.title).join(' ')}
+                                            day.activities.map(activity => activity.name).join(', ')}
                                     </p>
-                                    <p>Accommodation: {day.accommodation}</p>
+                                    {/* <p>Accommodation: {day.accommodation}</p> */}
                                 </div>
                             ))}
                         <div className='last-buttons'>
