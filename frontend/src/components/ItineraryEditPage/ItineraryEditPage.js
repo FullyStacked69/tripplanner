@@ -99,6 +99,12 @@ const ItineraryEditPage = () => {
         }
     },[itineraryId])
 
+    useEffect(()=>{
+        if(itineraryId === 'new' && !itObj.title){
+            setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
+        }
+    }, [itObj])
+
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
             // Fetch data from your backend which gets data from Google API
@@ -272,7 +278,7 @@ const ItineraryEditPage = () => {
                 <div id='itinerary-section-content'>
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
-                            <h1>{itObj.title}</h1>
+                            <h1><input onChange={(e)=>setItObj({...itObj, title: e.target.value})} value={itObj.title}></input></h1>
                             {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
                             {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
                         </div>
