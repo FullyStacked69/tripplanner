@@ -10,7 +10,6 @@ import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
 import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchItinerary } from '../../store/itineraries';
 import axios from 'axios';
 import missingImg from './assets/placeholder-image.jpeg';
 import { createItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
