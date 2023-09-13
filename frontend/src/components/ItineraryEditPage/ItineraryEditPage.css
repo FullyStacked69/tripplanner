@@ -157,3 +157,13 @@
     display: flex;
     flex-direction: column;
 }
+
+.comment-holder {
+    position: relative;
+}
+
+.remove-comment-button {
+    position: absolute;
+    right: 5%;
+    top: calc(50% - 14px);
+}

@@ -80,6 +80,7 @@ export const updateItinerary = itineraryData => async dispatch => {
     }
 }
 
+
 // Thunk action to toggle fakeViews (like/unlike)
 export const toggleFakeViewsAsync = (itineraryId) => async (dispatch) => {
     try {
@@ -91,6 +92,18 @@ export const toggleFakeViewsAsync = (itineraryId) => async (dispatch) => {
         console.error('Error toggling fakeViews:', err);
     }
 };
+
+
+export const deleteItinerary = itineraryId => async dispatch => {
+    try{
+        const res = await jwtFetch(`/api/itineraries/${itineraryId}`, {
+            method: 'DELETE'
+        })
+        return await res.json()
+    }catch(err){
+        console.error('Error deleting itinerary', err)
+    }
+}
 
 
 export const setItObj = itinerary => ({

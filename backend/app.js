@@ -22,6 +22,7 @@ const csrfRouter = require('./routes/api/csrf');
 
 const itinerariesRouter = require('./routes/api/itineraries')
 const locationsRouter = require('./routes/api/locations')
+const placesRouter = require('./routes/api/places'); 
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
 app.use('/api/itineraries', itinerariesRouter);
 app.use('/api/locations', locationsRouter);
+app.use('/api/places', placesRouter); 
 
 // Serve static React build files statically in production
 if (isProduction) {

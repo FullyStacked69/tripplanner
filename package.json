@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/elliotkuok/tripplanner/issues"
   },
-  "homepage": "https://github.com/elliotkuok/tripplanner#readme"
+  "homepage": "https://github.com/elliotkuok/tripplanner#readme",
+  "proxy": "http://localhost:5000"
 }

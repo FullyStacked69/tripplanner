@@ -10,27 +10,14 @@ import { ExploreActivitiesTile } from './ExploreActivitiesTile';
 import './NestedComponents.css'
 import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
-import { createItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
+import axios from 'axios';
+import missingImg from './assets/placeholder-image.jpeg';
+import { createItinerary, deleteItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
 import {setItObj as setItRedux } from '../../store/itineraries';
 
-import northernLightsImg from './assets/northern-lights.jpeg';
-import seljalandsfossImg from './assets/seljalandsfoss.jpeg';
-import diamondBeachImg from './assets/diamond_beach.webp'
-import blueLagoonImg from './assets/blue-lagoon.jpeg';
-import iceClimbingImg from './assets/ice-climbing.avif';
-import fjadrargljufurImg from './assets/fjad.webp'
 
 const ItineraryEditPage = () => {
     const dispatch = useDispatch()
-      
-    const pop_activities = [
-        {name: "Northern Lights", url: northernLightsImg},
-        {name: "Seljalandsfoss", url: seljalandsfossImg},
-        {name: "Ice Climbing", url: iceClimbingImg},
-        {name: "Diamond Beach", url: diamondBeachImg},
-        {name: "Blue Lagoon", url: blueLagoonImg},
-        {name: "Fjaðrárgljúfur", url: fjadrargljufurImg},
-    ]
     
     const [markersPositions, setMarkersPositions] = useState([]);
     
@@ -42,6 +29,12 @@ const ItineraryEditPage = () => {
     const {searchObj} = useSelector(state => state)
     
     const {itineraryId} = useParams()
+
+    const [googleActivities, setGoogleActivities] = useState([]);
+
+    const [deleted, setDeleted] = useState(false);
+
+    const [category, setCategory] = useState("tourist_attraction");
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -104,8 +97,21 @@ const ItineraryEditPage = () => {
                 }
             }
         }
-    }, [itineraryId])
+    },[itineraryId])
 
+    useEffect(() => {
+        if (itObj?.lat && itObj?.lng) {
+            // Fetch data from your backend which gets data from Google API
+            axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
+                .then(response => {
+                    console.error("fetched top activities:");
+                    setGoogleActivities(response.data.results || []);
+                })
+                .catch(error => {
+                    console.error("Error fetching top activities:", error);
+                });
+        }
+    }, [itObj?.lat, itObj?.lng, category]); 
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
@@ -219,14 +225,28 @@ const ItineraryEditPage = () => {
         }
     }
 
-
-
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        const res = await dispatch(deleteItinerary(itineraryId))
+        if(res._id) setDeleted(true)
+    }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
     if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
 
     console.log(itObj)
+
+    if(deleted) return <Redirect to='/'/>
+
+    let lastDate;
+    let dateObj;
+    
+    if(!searchObj.startDate){
+        dateObj = new Date(itObj.startDate)
+        lastDate = new Date( dateObj )
+        lastDate.setDate(itObj.length + dateObj.getDate() - 1)
+    }
 
     return ( 
         <div className='page-content-container'>
@@ -253,7 +273,8 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-tld'>
                         <div id='title-date-container'>
                             <h1>{itObj.title}</h1>
-                            <div>{formateDate(searchObj.startDate)} - {formateDate(searchObj.endDate)} </div>
+                            {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
+                            {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
                         </div>
                         <div id='itinerary-tld-bttns'>
                             {/* <button>Share</button> */}
@@ -268,12 +289,20 @@ const ItineraryEditPage = () => {
                     </div>
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
-                            <h2>Top locations for {itObj.locationName}</h2> 
-                            
+                            <h2>Top activities for {itObj.locationName}</h2> 
+                            <select value={category} onChange={e => setCategory(e.target.value)}>
+                                <option value="tourist_attraction">Tourist Attractions</option>
+                                <option value="restaurant">Restaurants</option>
+                                <option value="museum">Museums</option>
+                                <option value="park">Parks</option>
+                            </select>
                             <div id='popular-activities-container'>
-                                {pop_activities.map((activity, idx) => (
-                                    <ExploreActivitiesTile key={idx} activity={activity} />
-                                    ))}
+                                {googleActivities.map((activity, idx) => (
+                                    <ExploreActivitiesTile key={idx} activity={{
+                                        name: activity.name,
+                                        url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : missingImg
+                                    }} />
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -291,7 +320,10 @@ const ItineraryEditPage = () => {
                                 ))}
                             
                         </div>
+                        <div>
                             <button onClick={handleSave}>Save</button>
+                            {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
+                        </div>
                     </div>
                 </div>
             </div>
