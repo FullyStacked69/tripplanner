@@ -80,6 +80,17 @@ export const updateItinerary = itineraryData => async dispatch => {
     }
 }
 
+export const deleteItinerary = itineraryId => async dispatch => {
+    try{
+        const res = await jwtFetch(`/api/itineraries/${itineraryId}`, {
+            method: 'DELETE'
+        })
+        return await res.json()
+    }catch(err){
+        console.error('Error deleting itinerary', err)
+    }
+}
+
 export const setItObj = itinerary => ({
     type: SET_IT_OBJ,
     itinerary

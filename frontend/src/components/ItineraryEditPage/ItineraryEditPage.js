@@ -12,7 +12,7 @@ import { Redirect, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import missingImg from './assets/placeholder-image.jpeg';
-import { createItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
+import { createItinerary, deleteItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
 import {setItObj as setItRedux } from '../../store/itineraries';
 
 
@@ -31,6 +31,8 @@ const ItineraryEditPage = () => {
     const {itineraryId} = useParams()
 
     const [googleActivities, setGoogleActivities] = useState([]);
+
+    const [deleted, setDeleted] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -245,8 +247,12 @@ const ItineraryEditPage = () => {
         }
     }
 
-
-
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        const res = await dispatch(deleteItinerary(itineraryId))
+        if(res._id) setDeleted(true)
+        console.log(res)
+    }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
@@ -254,6 +260,8 @@ const ItineraryEditPage = () => {
 
     console.log(itObj)
 
+    if(deleted) return <Redirect to='/'/>
+    
     return ( 
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
@@ -296,8 +304,7 @@ const ItineraryEditPage = () => {
                     </div>
                     <div id='popular-activities-section'>
                         <div id='activity-list'>
-                            <h2>Top locations for {itObj.locationName}</h2> 
-                            
+                            <h2>Top activities for {itObj.locationName}</h2> 
                             <div id='popular-activities-container'>
                                 {googleActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
@@ -322,7 +329,10 @@ const ItineraryEditPage = () => {
                                 ))}
                             
                         </div>
+                        <div>
                             <button onClick={handleSave}>Save</button>
+                            {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
+                        </div>
                     </div>
                 </div>
             </div>
