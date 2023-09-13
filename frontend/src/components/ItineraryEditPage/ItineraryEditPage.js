@@ -162,7 +162,7 @@ const ItineraryEditPage = () => {
     
     useEffect(() => {
         // If there are no markers, geocode the location
-        if (map && !places.length && itObj?.locationName) {
+        if (map && !places?.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
                 if (status === window.google.maps.GeocoderStatus.OK) {
@@ -171,10 +171,10 @@ const ItineraryEditPage = () => {
             });
         } 
         // else {map?.setZoom(10)}
-    }, [itObj?.locationName, map, places.length]);
+    }, [itObj?.locationName, map, places?.length]);
     
     useEffect(() => {
-        if (map && places.length > 0) {
+        if (map && places?.length > 0) {
             let bounds = new window.google.maps.LatLngBounds();
             places.forEach(place => {
                 bounds.extend(new window.google.maps.LatLng(place.lat, place.lng));
@@ -188,12 +188,13 @@ const ItineraryEditPage = () => {
                 lngSum += place.lng;
             });
             setCenter({
-                lat: latSum / places.length,
-                lng: lngSum / places.length
+                lat: latSum / places?.length,
+                lng: lngSum / places?.length
             });
+            console.log("markcer center")
 
         }
-    }, [markersPositions, map]);
+    }, [map]);
 
     const formateDate = (date) => {
         if(date){

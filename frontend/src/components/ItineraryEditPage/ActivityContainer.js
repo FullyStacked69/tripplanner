@@ -29,11 +29,10 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         }
     }
 
-
-
     
     useEffect(() => {
         addActivityInfo();
+        console.log("add activity info")
     }, [info]);
     
     const clear = (idx, e) => {
