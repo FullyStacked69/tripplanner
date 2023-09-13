@@ -158,6 +158,16 @@
     flex-direction: column;
 }
 
+.comment-holder {
+    position: relative;
+}
+
+.remove-comment-button {
+    position: absolute;
+    right: 5%;
+    top: calc(50% - 14px);
+}
+
 .title-date-container h1{
     width: 100%;
     height: 100%;

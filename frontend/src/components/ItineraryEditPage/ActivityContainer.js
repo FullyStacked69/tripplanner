@@ -50,6 +50,15 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         setMarkersPositions(updatedMarkers);
     }
     // console.log('activity', info)
+
+    function setComment(day, act, comment, e){
+        if(e){
+            e.preventDefault()
+        }
+        let newItObj = {...itObj}
+        newItObj.days[day].activities[act].comment = comment
+        setItObj(newItObj)
+    }
     
     return (
         <div className='activity-container'>
@@ -58,14 +67,17 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
                     <h4>{idx+1}</h4>
                     { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} />}
                     <div className='activity-description'>{activity?.name ?  "" : "Activity Info"}</div>
-                    <form>
-                        <h3>{activity?.name}</h3>
-                        <p>{activity?.formatted_address}</p>
-                        <p>{activity?.formatted_phone_number}</p>
-                        {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
-                        {/* <input placeholder='comments'  ></input> */}
-                        {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete </button>}
-                    </form>
+                        <form>
+                            <h3>{activity?.name}</h3>
+                            <p>{activity?.formatted_address}</p>
+                            <p>{activity?.formatted_phone_number}</p>
+                            {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
+                            <div className='comment-holder'>
+                                <input placeholder='comments' value={itObj.days[dayIdx].activities[idx].comment} onChange={(e)=>setComment(dayIdx, idx, e.target.value)} />
+                                {itObj.days[dayIdx].activities[idx].comment && <button className='remove-comment-button' onClick={(e)=> setComment(dayIdx, idx, "", e)}>X</button>}
+                            </div>
+                            {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete </button>}
+                        </form>
                 </div>
             ))}
         </div>
