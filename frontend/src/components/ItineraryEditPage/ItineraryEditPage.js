@@ -20,7 +20,8 @@ const ItineraryEditPage = () => {
     const dispatch = useDispatch()
     
     const [markersPositions, setMarkersPositions] = useState([]);
-    
+    const [redirectTo, setRedirectTo] = useState('');
+
     const {itObj} = useSelector(state => state.itineraries)
     const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
@@ -121,10 +122,16 @@ const ItineraryEditPage = () => {
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
-        const dupDay = [...days];
-        const slicedDays = dupDay.slice(0, idx).concat(dupDay.slice(idx+1))
+        let updatedItObj = { ...itObj, days: [...itObj.days] };
 
-        setItObj({...itObj, days: slicedDays})
+        // Remove the day using splice method
+        updatedItObj.days.splice(idx, 1);
+
+        console.log(idx)
+        console.log('deleteday',updatedItObj)
+    
+        // Update the itinerary object
+        setItObj(updatedItObj);
     }
     
     const splashLat = itObj?.lat
@@ -135,6 +142,22 @@ const ItineraryEditPage = () => {
     };
 
     const [center, setCenter] = useState(splashPos)
+
+    const places = itObj?.days?.reduce((acc, day) => {
+        return acc.concat(day?.activities?.map(activity => ({
+            name: activity?.name,
+            address: activity?.formatted_address,
+            phone: activity?.formatted_phone_number,
+            rating: activity?.rating,
+            user_ratings_total: activity?.user_ratings_total,
+            lat: activity?.lat,
+            lng: activity?.lng
+        })));
+    }, []).filter(Boolean);
+
+    console.log(places)
+
+    
 
         
     const {isLoaded} = useJsApiLoader({
@@ -152,7 +175,7 @@ const ItineraryEditPage = () => {
     
     useEffect(() => {
         // If there are no markers, geocode the location
-        if (map && !markersPositions.length && itObj?.locationName) {
+        if (map && !places?.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
                 if (status === window.google.maps.GeocoderStatus.OK) {
@@ -161,29 +184,30 @@ const ItineraryEditPage = () => {
             });
         } 
         // else {map?.setZoom(10)}
-    }, [itObj?.locationName, map, markersPositions.length]);
+    }, [itObj?.locationName, map, places?.length]);
     
     useEffect(() => {
-        if (map && markersPositions.length > 0) {
+        if (map && places?.length > 0) {
             let bounds = new window.google.maps.LatLngBounds();
-            markersPositions.forEach(place => {
-                bounds.extend(new window.google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
+            places.forEach(place => {
+                bounds.extend(new window.google.maps.LatLng(place.lat, place.lng));
             });
             map.fitBounds(bounds);
 
             let latSum = 0;
             let lngSum = 0;
-            markersPositions.forEach(place => {
-                latSum += place.geometry.location.lat();
-                lngSum += place.geometry.location.lng();
+            places.forEach(place => {
+                latSum += place.lat;
+                lngSum += place.lng;
             });
             setCenter({
-                lat: latSum / markersPositions.length,
-                lng: lngSum / markersPositions.length
+                lat: latSum / places?.length,
+                lng: lngSum / places?.length
             });
+            console.log("markcer center")
 
         }
-    }, [markersPositions, map]);
+    }, [map, itObj]);
 
     const formateDate = (date) => {
         if(date){
@@ -212,11 +236,13 @@ const ItineraryEditPage = () => {
             try {
                 let newItiniterary = {
                     ...itObj,
-                    length: itObj.days.length,
+                    length: itObj?.days.length,
                     user 
                 }
+                console.log(newItiniterary)
                 await dispatch(createItinerary(newItiniterary));
                 console.log("Itinerary has been saved")
+                // setRedirectTo(``)
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
@@ -268,7 +294,7 @@ const ItineraryEditPage = () => {
                         </div>
                         {isDropdownOpen && (
                             <ul className="days-dropdown">
-                                {days.map((day, index) => (
+                                {itObj.days.map((day, index) => (
                                     <li key={index} onClick={() => handleDayClick(index)}>Day {index + 1}</li>
                                 ))}
                             </ul>
@@ -285,10 +311,11 @@ const ItineraryEditPage = () => {
                             {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
                             {/* <button>Share</button> */}
                             <div></div>
+
                             {/* <div id='members-container'>
                                 <div id='member-icon'>E</div>
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16"> <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/> </svg>
+                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16"> <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/> </svg> */}
                                 </div>
                             </div> */}
                         </div>
@@ -321,7 +348,7 @@ const ItineraryEditPage = () => {
                         <div id='itineary-days-container'>
                             {itObj.days && itObj.days.map((day, index) => (
                                 <>
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} />
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay}/>
                                 {/* <button>Remove this Day </button> */}
                                 </>
                                 ))}
@@ -341,7 +368,15 @@ const ItineraryEditPage = () => {
             center={center}
             mapContainerClassName="map-container"
             >
-                {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
+                {/* {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)} */}
+
+                {places?.length > 0 && places?.map(place => (
+                    <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
+                ))}
+
+ 
+
+
             </GoogleMap>
             </div>
         </div>
