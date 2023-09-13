@@ -134,7 +134,9 @@ const ItineraryEditPage = () => {
         return acc.concat(day.activities.map(activity => ({
             name: activity?.name,
             address: activity?.formatted_address,
+            phone: activity?.formatted_phone_number,
             rating: activity?.rating,
+            user_ratings_total: activity?.user_ratings_total,
             lat: activity?.lat,
             lng: activity?.lng
         })));
@@ -160,7 +162,7 @@ const ItineraryEditPage = () => {
     
     useEffect(() => {
         // If there are no markers, geocode the location
-        if (map && !markersPositions.length && itObj?.locationName) {
+        if (map && !places.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
                 if (status === window.google.maps.GeocoderStatus.OK) {
@@ -169,25 +171,25 @@ const ItineraryEditPage = () => {
             });
         } 
         // else {map?.setZoom(10)}
-    }, [itObj?.locationName, map, markersPositions.length]);
+    }, [itObj?.locationName, map, places.length]);
     
     useEffect(() => {
-        if (map && markersPositions.length > 0) {
+        if (map && places.length > 0) {
             let bounds = new window.google.maps.LatLngBounds();
-            markersPositions.forEach(place => {
-                bounds.extend(new window.google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
+            places.forEach(place => {
+                bounds.extend(new window.google.maps.LatLng(place.lat, place.lng));
             });
             map.fitBounds(bounds);
 
             let latSum = 0;
             let lngSum = 0;
-            markersPositions.forEach(place => {
-                latSum += place.geometry.location.lat();
-                lngSum += place.geometry.location.lng();
+            places.forEach(place => {
+                latSum += place.lat;
+                lngSum += place.lng;
             });
             setCenter({
-                lat: latSum / markersPositions.length,
-                lng: lngSum / markersPositions.length
+                lat: latSum / places.length,
+                lng: lngSum / places.length
             });
 
         }
@@ -323,9 +325,9 @@ const ItineraryEditPage = () => {
             center={center}
             mapContainerClassName="map-container"
             >
-                {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)}
+                {/* {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)} */}
 
-                {places?.length > 1 && places?.map(place => (
+                {places?.length > 0 && places?.map(place => (
                     <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
                 ))}
 
