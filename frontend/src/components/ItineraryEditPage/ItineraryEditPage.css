@@ -139,6 +139,10 @@
     color: #E7E7E7;
     cursor: not-allowed;
 }
+
+.pagination-controls span {
+    color: #1D3557;
+}
 /* top places section end*/
 
 #itinerary-container {
