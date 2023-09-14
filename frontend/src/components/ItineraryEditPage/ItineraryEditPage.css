@@ -102,11 +102,28 @@
     background: #457B9D;
     color: white;
 }
+
+#activity-list {
+    position: relative; /* makes this div the reference for any absolute positioned child */
+}
+
+#activity-list select {
+    position: absolute;
+    top: 0px; /* adjust as necessary */
+    right: 10px; /* distance from the right edge */
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    color: #1D3557;
+    padding: 4px;
+    cursor: pointer;
+}
+
 /* top places section */
 .pagination-controls {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 8px;
 }
 
 .pagination-controls button {

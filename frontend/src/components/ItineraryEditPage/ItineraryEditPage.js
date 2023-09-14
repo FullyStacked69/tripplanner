@@ -153,7 +153,7 @@ const ItineraryEditPage = () => {
             // Fetch data from your backend which gets data from Google API
             axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
             .then(response => {
-                const sortedActivities = (response.data.results || []).sort((a, b) => b.rating - a.rating);  // Manual sort because 'rankby' parameter sort isn't accurate
+                const sortedActivities = (response.data.results || []).sort((a, b) => b.rating - a.rating).slice(0, 18); // Manual sort because 'rankby' parameter sort isn't accurate
                 setGoogleActivities(sortedActivities);
             })
             .catch(error => {
