@@ -48,11 +48,9 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         if(searchObj.location){
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
-            } else if (searchObj.startDate){
-                setSearchErrors({...searchErrors, year: 'Please enter an end date'})
-            } else if (!searchObj.startDate && !searchObj.endDate){
-                setSearchObj(prev => ({...prev, searching: true}))
-            }
+            } else {
+                setSearchErrors({...searchErrors, year: 'Please enter a date range'})
+            } 
         } else {
             setSearchErrors({...searchErrors, location: 'Please enter a valid location'})
         }
