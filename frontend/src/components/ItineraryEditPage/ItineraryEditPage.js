@@ -381,9 +381,9 @@ const ItineraryEditPage = () => {
                                 ))}
                             </div>
                             <div className="pagination-controls">
-                                <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                                <button onClick={prevPage} disabled={currentPage === 1}>&#9664;</button>
                                 <span>Page {currentPage}</span>
-                                <button onClick={nextPage} disabled={currentPage * itemsPerPage >= googleActivities.length}>Next</button>
+                                <button onClick={nextPage} disabled={currentPage * itemsPerPage >= googleActivities.length}>&#9654;</button>
                             </div>
                         </div>
                     </div>

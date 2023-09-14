@@ -102,6 +102,23 @@
     background: #457B9D;
     color: white;
 }
+/* top places section */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-controls button {
+    background: none;
+    color: #457B9D
+}
+
+.pagination-controls button:hover {
+    box-shadow: none;
+}
+
+/* top places section end*/
 
 #itinerary-container {
     padding: 32px;
