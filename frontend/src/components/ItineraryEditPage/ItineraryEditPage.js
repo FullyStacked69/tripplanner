@@ -239,10 +239,10 @@ const ItineraryEditPage = () => {
                     length: itObj?.days.length,
                     user 
                 }
-                console.log(newItiniterary)
+                // console.log(newItiniterary)
                 await dispatch(createItinerary(newItiniterary));
                 console.log("Itinerary has been saved")
-                // setRedirectTo(``)
+                setRedirectTo(`/itineraties/${newItiniterary._id}/plan`)
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
@@ -280,7 +280,11 @@ const ItineraryEditPage = () => {
         lastDate.setDate(itObj.length + dateObj.getDate() - 1)
     }
 
-    return ( 
+    return (
+        
+        
+        redirectTo ? <Redirect to={redirectTo} /> :
+         
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
                 <div id='sidebar-container'>
@@ -380,6 +384,8 @@ const ItineraryEditPage = () => {
             </GoogleMap>
             </div>
         </div>
+
+    
     )
 }    
 

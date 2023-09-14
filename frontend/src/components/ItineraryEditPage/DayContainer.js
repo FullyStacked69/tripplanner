@@ -18,7 +18,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
     
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
-    console.log('day',index)
+    // console.log('day',index)
 
 
 
