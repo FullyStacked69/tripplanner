@@ -585,7 +585,12 @@ const insertSeeds = async () => {
 
       name: 'Buckingham Palace',
       lat: 51.50150419535673,
-      lng: -0.14188999261391402
+      lng: -0.14188999261391402,
+      formatted_address: "London SW1A 1AA, UK",
+      formatted_phone_number: "0303 123 7300",
+      imageUrl:"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi3fk2ZBcNDhI9aKwOGoFU2b2K9nn6VyS1AWkhwXE8I0lxxFRP4Kt6U0Isg41ya1sZeAQCXBJo8SPVfLg0mk5QDktcjH0-aaMqKR_Bz4M-_sL4Th9Y-QJB-4hWt8uCq7Lv-UEfgJLfm-x75u6v6TqTB5BQjIYuSHiR4Wn7fbht6Gxvd&3u12000&5m1&2e1&callback=none&key=AIzaSyDCs-6zIIKmkGBfRzARM0qgDq2UM8W7TcQ&token=102427",
+      place_id: "ChIJtV5bzSAFdkgRpwLZFPWrJgo",
+      rating: "4.5"
 
     });
     activities.push(act58);
@@ -623,7 +628,7 @@ const insertSeeds = async () => {
     // Activity 62
     const act62 = new Activity({
 
-      name: 'hames River Sightseeing',
+      name: 'Thames River Sightseeing',
       lat: 51.50215406872328,
       lng: -0.12311447173720533
 
@@ -783,7 +788,13 @@ const insertSeeds = async () => {
     const act81 = new Activity({
       name: 'Taormina Ancient Theater',
       lat: 37.8521,
-      lng: 15.2887
+      lng: 15.2887,
+      formatted_address: "Via Teatro Greco, 1, 98039 Taormina ME, Italy",
+      formatted_phone_number:  "0942 23220",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj5-rbOgBo76uSXBNmk0xRNdBxyDIfGg-hXkA7-arbB6CA6G2LuKxVvA64X0OfndArJ2UhYL8bxbJYblyKKgOhHQzwGtQd-d8Wfvgvi2ptK5Il7pGSZ4fv0MWDRDx6G10bBUPl_TnjukAClzp3tKDsrNmB7tgVzXcvznNg3KBKPxl7U&3u4624&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=9981",
+      place_id: "ChIJXWSAM58RFBMRNoKQddHr3QE",
+      rating: 4.6,
+      user_ratings_total: 30037
     });
     activities.push(act81);
 
@@ -791,7 +802,13 @@ const insertSeeds = async () => {
     const act82 = new Activity({
       name: 'Isola Bella',
       lat: 37.8423,
-      lng: 15.2766
+      lng: 15.2766,
+      formatted_address: "Isola Bella, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg7pTnWjgjvousv-w0wHBbOUW6XE3q4h82Ri_j5XIKQ-VS5n9Fiy1zPD5c1k1ud6-e6npKszQkaozn8XgFPfbTO8UKjhl7zfA8AsD4PYlmulyojtIQxTRxSBtM7pP9Ocdf42FApH6O2uPCB6FzfQ5wqPq-5yjrckYTI4Fq7u977JQfP&3u1362&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=13636",
+      place_id: "ChIJC6DJT5sRFBMR-W66zNDOmvA",
+      rating: 4.5,
+      user_ratings_total: 1647,
     });
     activities.push(act82);
 
@@ -800,7 +817,13 @@ const insertSeeds = async () => {
     const act83 = new Activity({
       name: 'Mount Etna',
       lat: 37.7510,
-      lng: 14.9934
+      lng: 14.9934,
+      formatted_address: "Mt Etna, 95031 Adrano, Metropolitan city of Catania, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhlUjPSqfYtBPKhfmS2k7XW2gBj4Gjq7a3NDKbt4rfDr2GBiIwzcxjsDvv3UqtfmthMiFO688F4IAxcx7h4s_qoV4QX7wvKU2CzVAhdvJXNG0lysCI-KFpvPKSEooEv7fj0g8mZ_lRD1iytM8vKG8rRnNWC3Dwr4hl9-mNaPUP_3iM&3u1280&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=85673",
+      place_id:  "ChIJ66CnFDeqFhMRcCrFpSoECx0",
+      rating: 4.7,
+      user_ratings_total: 4953,
     });
     activities.push(act83);
 
@@ -808,16 +831,28 @@ const insertSeeds = async () => {
     const act84 = new Activity({
       name: 'Catania Cathedral',
       lat: 37.5027,
-      lng: 15.0870
+      lng: 15.0870,
+      formatted_address: "Piazza del Duomo, 95100 Catania CT, Italy",
+      formatted_phone_number:  "339 485 9942",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjLUwgZUHlSppYsOMWTvvrRRzaCC0ZnMzK5AX4NKnM7tIdk9s8EN4utFROboo4HVLqhsBc2uzsjr-R3yi9fwp9Q-KPpTHJb5pDLfmCeaqcir94Kh8ami2Hpqav6mTwzFNzRX1ZTOVT56K3h3svSCPZzKwPw8W-iI2yY4dpGFzh8kT9a&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=110506",
+      place_id: "ChIJP0UjWi7jExMRJytI986aC6g",
+      rating: 4.7,
+      user_ratings_total: 6613
     });
     activities.push(act84);
 
     // Activities in Siracusa
     // Activity 85
     const act85 = new Activity({
-      name: 'Ortigia Island',
+      name: 'Island of Ortigia',
       lat: 37.0656,
-      lng: 15.2937
+      lng: 15.2937,
+      formatted_address: "Island of Ortigia, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjjA1uw-aMRpfpuivuNmzi4mcE1aq-0OAxddqI4BNHaloZWYdpir8E1by9u4GbHHehDQcAarJmuJwRS5cBnqbLiLnI_d3DNPGo5Lub1m4ypWAS9k8efk0nb6hxoc-PKfGRfjHsPC6mCRHUoVnqBkmNT5Yx0-ihgQ7QMa6_ihzmD2K2d&3u1024&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=117094",
+      place_id: "ChIJT0_-TxrMExMRWvRZDC70lEk",
+      rating: 4.8,
+      user_ratings_total: 5689,
     });
     activities.push(act85);
 
@@ -825,7 +860,13 @@ const insertSeeds = async () => {
     const act86 = new Activity({
       name: 'Greek Theater of Syracuse',
       lat: 37.0756,
-      lng: 15.2813
+      lng: 15.2813,
+      formatted_address: "Via Luigi Bernabò Brea, 96100 Siracusa SR, Italy",
+      formatted_phone_number: "0931 489511",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj3Yg3dVJM2V1phwF9HnoZqcpem18uUTLujtx4eT_shQ4Qo0daewVW1aO6yOOEsyRYeQsJLPu4f8eBxZfEbILsqbKpIpTSPze2o1MSS5oKWIBU-iH7Z_jcoinlKta0FVF8C2kYMeV0q5sfZsUxv15iqvDLmPRoE4RfGxVjRXJ_xa4xz&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=17378",
+      place_id: "ChIJ2c87UoTOExMRovFOoplBnLk",
+      rating:  4.6,
+      user_ratings_total:  7998
     });
     activities.push(act86);
 
@@ -833,7 +874,13 @@ const insertSeeds = async () => {
     const act87 = new Activity({
       name: 'Archaeological Park of Neapolis',
       lat: 37.0807,
-      lng: 15.2709
+      lng: 15.2709,
+      formatted_address:  "Via del Teatro Greco, 96100 Siracusa SR, Italy",
+      formatted_phone_number: "0931 489511",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjZ6tc1zEXeFdinSwHnS6hHlsqPmx4lW4ehCZUo6z1ToWw-mf2elTa6o7m6Bmpk6wSQJ0z9e8F9eplkM2x5aL40fwy-wH5Vk6YisTWOyOU7V9_osTEbnYIHeQQjqUCYrFyte5P8R7veJw-xFMFooc-9IN20D_OhiDKmAPG62FFe7suA&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=89726",
+      place_id:  "ChIJNxOoH4XOExMRhHybAmkE3UQ",
+      rating: 4.3,
+      user_ratings_total: 17932
     });
     activities.push(act87);
 
@@ -842,7 +889,13 @@ const insertSeeds = async () => {
     const act88 = new Activity({
       name: 'Noto Cathedral',
       lat: 36.8910,
-      lng: 15.0710
+      lng: 15.0710,
+      formatted_address: "Piazza del Municipio, 96017 Noto SR, Italy",
+      formatted_phone_number :"0931 835286",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjd8-AC8iuYPEXHnH6bidllPnXXpWITPThPUC8XXuzXjH1rJwk2nKJe7QUP0bZUFBpcEEFZTHJ0Tv3xAsERujAyHZej-EOWKJBQOeJ27fqMBT21QjBHS3XCACf-92x7YrbXKLrEhThUxVpWfPcQs29ZafEPFQp6xjrRfHxt9yqRYoJr&3u4000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=39412",
+      place_id: "ChIJkcQ3964pEhMRwjKdylpBk4c",
+      rating: 4.7,
+      user_ratings_total: 7740
     });
     activities.push(act88);
 
@@ -851,7 +904,13 @@ const insertSeeds = async () => {
     const act89 = new Activity({
       name: 'Modica Chocolate Museum',
       lat: 36.8582,
-      lng: 14.7601
+      lng: 14.7601,
+      formatted_address: "Corso Umberto I, 149, 97015 Modica RG, Italy",
+      formatted_phone_number: "347 461 2771",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg2Tu1ckEyNWAPDwHCyagtiz134MClJ4G7fhabVAwclUQn182AGXQvkGHLA3L_qoJRSE1NrDdxMY6Tvl422nMyxOBKfbFbUB7rzKs5j3P52M7m4eqZXeiUwY5OERuAgqdSlLsMIAPvZ_CadQKFZKV-_XgeUEWFjiRBmJVzEc9DGoEAL&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=102123",
+      place_id: "ChIJ8WXC0cmQERMRRunK7gmQ2UY",
+      rating: 3.5,
+      user_ratings_total: 443
     });
     activities.push(act89);
 
@@ -860,7 +919,13 @@ const insertSeeds = async () => {
     const act90 = new Activity({
       name: 'Ragusa Ibla',
       lat: 36.9297,
-      lng: 14.7224
+      lng: 14.7224,
+      formatted_address: "Via Giardino, 5, 97100 Ragusa RG, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjkYay5dYbnl9DcNeZnXWCb8vku8M9AEq-1_GrmZYvKVTHzDhGyjGtNZRwqHIirjr-8VP8ovIC5TRypnBTo4j0Nxy6fsoAyaiO776zwPH98yYWNAVKEwYlTRMCQO4JWoqhk2Fub5dX2-4U5GcoK8tNRZJZClt1HuQM3N9fX8D1EZkwM&3u5805&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=40785",
+      place_id: "ChIJIQVeWKeZERMRVVp4jdZm8YE",
+      rating: 4.8,
+      user_ratings_total: 802
     });
     activities.push(act90);
 
@@ -869,7 +934,13 @@ const insertSeeds = async () => {
     const act91 = new Activity({
       name: 'Valley of the Temples',
       lat: 37.2859,
-      lng: 13.5883
+      lng: 13.5883,
+      formatted_address: "92100 Agrigento, AG, Italy",
+      formatted_phone_number: "0922 183 9996",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjEVRRunKlc7M7YmyZDjUDMkoKjrsyEGAyEBXAEWqFsrswl59LTJJuZ0Gu2_zy6H3w7w2tXjIGtITFK6Sy-pDuXzBVFonxvMmIyEDwaWsFvX9OBSJJoEVO3TgKz08fXC8NRiWEUcMIzqW-jsVqap_fIHmb-OgmcF5d4uW-T2_llIzCu&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=65824",
+      place_id: "ChIJt6XuxTOCEBMRnrwHMdW4k_Y",
+      rating: 4.7,
+      user_ratings_total: 45793
     });
     activities.push(act91);
 
@@ -877,7 +948,13 @@ const insertSeeds = async () => {
     const act92 = new Activity({
       name: 'Scala dei Turchi',
       lat: 37.2971,
-      lng: 13.3893
+      lng: 13.3893,
+      formatted_address: "Stair of the Turks, 92010 Realmonte, AG, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg_72jBzgt14de3T8QpS7us-vloVuosBHX2WeiV6hTD1Jra57dn1EAaDq6iRwtPDd_l-sNSqnE8xCZkDbc8aAczHBiyGLVj2YFp7xRhj3hTJc_mzdsufYkadWnQr5kMQH5456YuUPaS5MHksnIRNL4qPigV8WLog-P3yYCeSSwTr_hd&3u1385&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=4161",
+      place_id: "ChIJcdpBykp5GhMRLgLTCaHpkMM",
+      rating: 4.5,
+      user_ratings_total: 4266,
     });
     activities.push(act92);
 
@@ -886,7 +963,13 @@ const insertSeeds = async () => {
     const act93 = new Activity({
       name: 'Monreale Cathedral',
       lat: 38.0820,
-      lng: 13.2918
+      lng: 13.2918,
+      formatted_address: "Piazza Guglielmo II, 1, 90046 Monreale PA, Italy",
+      formatted_phone_number: "091 640 4413",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziHn21-EENboWqZng148ap0u2spTUfzDmzsAuX1hvMDLNZ0yppg64kb6HmVYDApVD5vxRom0UpsJV9dghSjQnYrBBVJorwP_DM3uD51OcsjZ6uRt-FpuWR7aaIQtUodahV7xvBTDvzqYNeMhN7ccgYQl-yVTRi10o9HGN_Pf6ZOnfuF&3u3712&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=63148",
+      lace_id: "ChIJkzHupj_uGRMRguQLH5DlPgM",
+      rating: 4.8,
+      user_ratings_total: 21543
     });
     activities.push(act93);
 
@@ -895,7 +978,13 @@ const insertSeeds = async () => {
     const act94 = new Activity({
       name: 'Palermo Cathedral',
       lat: 38.1157,
-      lng: 13.3619
+      lng: 13.3619,
+      formatted_address: "Via Vittorio Emanuele, 490, 90134 Palermo PA, Italy",
+      formatted_phone_number:  "091 334373",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhtMlH09RMaa08atoNmWjQgZRJQukgMfg6SbZbHbTIJX2oKhNXyAT-c5KHq-liRhX4sM5o-SlyX33aXhvih32i3Dt6bWgeAmdUFXsPsd9gD6wYEFQwHH-SW5EiXpk0P8rBFyjg87pSMHppG-BGTP3cDLqrLYyvgZNj9CXhNJFpV8hzE&3u3000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=11843",
+      place_id: "ChIJySXqmGHvGRMRancw-ZBf2ow",
+      rating: 4.7,
+      user_ratings_total: 35515
     });
     activities.push(act94);
 
@@ -903,7 +992,13 @@ const insertSeeds = async () => {
     const act95 = new Activity({
       name: 'Palazzo dei Normanni',
       lat: 38.1151,
-      lng: 13.3611
+      lng: 13.3611,
+      formatted_address: "Piazza del Parlamento, 1, 90129 Palermo PA, Italy",
+      formatted_phone_number: "091 705 5611",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziuH0aYulBZdF91rCD5OQBPOy_w5PYLlt5t8SfyRAQnQsh27yDqijg6f1NNOFCtCzqqUNRJ51S4Iu1-06DBoM7CBVv2BypqNfnruqTAl5ii8sO9DFKraGFhQdFHxNaKDZUTlmYerRjh2VV2xoUKpap2fz86tOzUSwZ_gXv0ZwMqhQZT&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=127616",
+      place_id: "ChIJRT-UYGTvGRMRxSv7Jhaj7HE",
+      rating: 4.5,
+      user_ratings_total: 19524
     });
     activities.push(act95);
 
@@ -911,7 +1006,13 @@ const insertSeeds = async () => {
     const act96 = new Activity({
       name: 'Mondello Beach',
       lat: 38.2062,
-      lng: 13.3300
+      lng: 13.3300,
+      formatted_address:  "Mondello Beach, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjh8-rf_q5QBKUCFXfpCkcMl7NGbXWncYZ7wVlkJi3BPpMYG8zKg_aRCoKBGcNVK6TjOD7YtKcYbKh63of_92cSoE4vjvjXUKLpVWtfAVQv-XFaP9v0SlMQasIEcFs7am-5sMM7nugLXidEFRjJkEPNSlXWxFUMC-ysvfhyUHCEOzcC&3u6000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=90501",
+      place_id: "ChIJmR0M1EDoGRMRRUuwA7kLmZI",
+      rating: 4.1,
+      user_ratings_total: 3977
     });
     activities.push(act96);
 
@@ -919,7 +1020,13 @@ const insertSeeds = async () => {
     const act97 = new Activity({
       name: 'Capuchin Catacombs of Palermo',
       lat: 38.1152,
-      lng: 13.3587
+      lng: 13.3587,
+      formatted_address: "Piazza Cappuccini, 1, 90129 Palermo PA, Italy",
+      formatted_phone_number: "091 652 7389",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhLrnMfJpKDrFPrJDaWE6u3mVLYxtpsCpucBEOKdglAfSWxQ73RLpGbI00ZlcIwedeUCuFy75dxsdEQJ5NPq5ycJik65AtfnS8S6CL9M5VqarjEj9yFODRLXYhKm3CDxqRqC9XL15pQQqtxAf6UbcSEp32NfOA2n-hqRrhX8Xb6udLt&3u1289&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=99720",
+      place_id:  "ChIJAbBCq2XvGRMRdn8cRrtvzUc",
+      rating: 4.3,
+      user_ratings_total: 10239
     });
     activities.push(act97);
 
@@ -928,7 +1035,13 @@ const insertSeeds = async () => {
     const act98 = new Activity({
       name: 'Cefalù Cathedral',
       lat: 38.0344,
-      lng: 14.0228
+      lng: 14.0228,
+      formatted_address:  "Piazza del Duomo, 90015 Cefalù PA, Italy",
+      formatted_phone_number: "350 008 1587",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgdPBj6n_3Gz0uV4F9GCeplmKdMNejnz3QasMgXbiCMo87t0sjTNLyHobk7iqBDGOOW9isSvfX191N1M64lRg_z4pRwxWQrigM1RNC-MiK1pRH4tykW9Fc1KgQQ1w9lnZAM_YQs4eegD7Tg34L4vm5XHx_k1nRItI1SNoHXD4nAKZgd&3u3060&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=44340",
+      place_id: "ChIJa0OFxOk7FxMRLo4qlyTPcO8",
+      rating: 4.6,
+      user_ratings_total: 10079,
     });
     activities.push(act98);
 
@@ -937,7 +1050,13 @@ const insertSeeds = async () => {
     const act99 = new Activity({
       name: 'Sicilia Outlet Village',
       lat: 337.5730974107189, 
-      lng: 14.480539265564628
+      lng: 14.480539265564628,
+      formatted_address: "A19, 94011 Agira EN, Italy",
+      formatted_phone_number: "0935 950040",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg-YtIfH8EXj7_9EYcH33ztxgtI6t8ChRnQb7f4cIXje9qsNY6wIGwAdHGcayiw4xYXu85itKxFHdDqLJCxKWAGYR7lCEz95MvSnABwjAFHz_z4KuBrJg2mKnnN1UPJbwvymzMzhRNJwb_QOwbuw5t6_dJaKfLEVNsqupok8zKwD-sl&3u4160&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=123197",
+      place_id: "ChIJx9D3iLM6ERMRdYfqBuDv50E",
+      rating: 4.4,
+      user_ratings_total: 21882,
     });
     activities.push(act99);
 
@@ -946,7 +1065,13 @@ const insertSeeds = async () => {
     const act100 = new Activity({
       name: 'Eiffel Tower',
       lat: 48.858844,
-      lng: 2.294351
+      lng: 2.294351,
+      formatted_address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris, France",
+    formatted_phone_number: undefined,
+    imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziYsQZGLWQSLKA8P01otMJY-LzpDMO4G5g1ZrUQBBPV894ngCqRVkekFcqg94vkIvVhfdRkrI4WeAn2FKXU9Gwyy7UYovGd0f5dzt6MaVKBRaTr_mtzAWNDO6w2I4BBlLDkiH_-8xg_BvK5s5JGhsDoiy1oiSreJ6EWv4OtsZt6sxWw&3u3024&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=81443",
+    place_id: "ChIJLU7jZClu5kcR4PcOOO6p3I0",
+    rating: 4.6,
+    user_ratings_total: 370101
     });
     activities.push(act100);
 
@@ -954,7 +1079,13 @@ const insertSeeds = async () => {
     const act101 = new Activity({
       name: 'Louvre Museum',
       lat: 48.860611,
-      lng: 2.337644
+      lng: 2.337644,
+      formatted_address: "75001 Paris, France",
+      formatted_phone_number: "01 40 20 53 17",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh6GmIzGdKpVwIdxQo9A-2s2oZmEcXxAeUX7ORb-mnmQsbCvj7A49gQk-iyp5Vtei6ONIxyXDM-X_qWHDQRvFmkwq67CpXfIQPELAPE2E1KPO66EOfmaygRE0RKfayGS5LPUSmht2w3WdzTP0jEgGr3ccbz9pxHP5KISZ-6rb_OCY9_&3u797&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=44255",
+      place_id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
+      rating: 4.7,
+      user_ratings_total: 292539
     });
     activities.push(act101);
 
@@ -962,7 +1093,13 @@ const insertSeeds = async () => {
     const act102 = new Activity({
       name: 'Notre-Dame Cathedral',
       lat: 48.855708,
-      lng: 2.351452
+      lng: 2.351452,
+      formatted_address: "Notre Dame, Paris, France",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhZ8zklVDDp-0m3ocRKT3_J7x4j4P-AfCxtKfS4mbv48bhn7VaKzOgm2ASzYNuKpDq4iNZpGgLOVT9mrRzMKM6mxbW2w7ScffQEFn6VcvGuktDLor4qdoLx2TqkkprXbsWkwsKUTr1bjIuFXJTrk0RLlveL8eDQjI78Rn4b1vIcN_-V&3u3928&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=29244",
+      place_id: "ChIJr0jUneNx5kcRQ_b6LMiOXek",
+      rating: 4.8,
+      user_ratings_total: 8769
     });
     activities.push(act102);
 
@@ -970,7 +1107,13 @@ const insertSeeds = async () => {
     const act103 = new Activity({
       name: 'Montmartre and the Basilica of the Sacré-Cœur',
       lat: 48.886845,
-      lng: 2.343206
+      lng: 2.343206,
+      formatted_address: "Sacré-Cœur Basilica, 35 Rue du Chevalier de la Barre, 75018 Paris, France",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgbTdMhBVtRLzfK-mt8ADoG2i2AfNEV_V998A8uw2d-0U8zPmIDQM6AFg69V3ft54Rp_IkF5VqTSmwsxJwCFhav1rjHcGebTzPumAUcIsR4de28-Fq_3gw67Vmd_OMLWct6sgLt9p9gsHHxvyhoZsdlLbKELgll1RwbIKE-cMfMUC4L&3u6000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=2849",
+      lace_id: "ChIJg8vfy1xu5kcRA1tGDNGsgHA",
+      rating: 4.7,
+      user_ratings_total: 6789
     });
     activities.push(act103);
 
@@ -978,7 +1121,13 @@ const insertSeeds = async () => {
     const act104 = new Activity({
       name: 'Arc de Triomphe',
       lat: 48.873822,
-      lng: 2.295048
+      lng: 2.295048,
+      formatted_address: "Pl. Charles de Gaulle, 75008 Paris, France",
+      formatted_phone_number:  "01 55 37 73 77",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi0cqf1rMIXrgUovjC11MnwxeFaZlocFLeMnYg0qDRxBsy-wuEkAPMUbAj2hmpXk-Y6ZO130QXm2ABmomHeuU7NJ7jBSpir5cZSkvVAia0iHYmXPH__pMZSp-P_jUrH5i03YZ537NRZ-9TnKRDUafhtop1PLblc6w6nHJndaUrQ5XS8&3u9000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=93928",
+      place_id:  "ChIJjx37cOxv5kcRPWQuEW5ntdk",
+      rating: 4.7,
+      user_ratings_total: 223985
     });
     activities.push(act104);
 
@@ -986,7 +1135,13 @@ const insertSeeds = async () => {
     const act105 = new Activity({
       name: 'Seine River Cruise',
       lat: 48.860933,
-      lng: 2.323461
+      lng: 2.323461,
+      formatted_address: "Seine, France",
+      formatted_phone_number: undefined,
+      imageUrl : "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziPvJj9OrO71IgtoQsoeR3p_zHNONpGJLuwYPzOQA828_zwvu-0qAw57VABAW_otamzCrrfigE69egjOnkSJXyedjaLJSf9cOjobbT-tRGQCwilDJjYF-g8FVlhLD0qPuoBkufc3436wB-6BQGOPCFlZ2FFemM8N4tYMCji1pa6zR_r&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=52645",
+      place_id: "ChIJx12c9iK37UcRYa1Leh4sgUo",
+      rating: 4.5,
+      user_ratings_total: 2910
     });
     activities.push(act105);
 
@@ -994,7 +1149,13 @@ const insertSeeds = async () => {
     const act106 = new Activity({
       name: 'Musée d\'Orsay',
       lat: 48.859961,
-      lng: 2.326561
+      lng: 2.326561,
+      formatted_address: "1 Rue de la Légion d'Honneur, 75007 Paris, France",
+      formatted_phone_number: "01 40 49 48 14",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg169ei9SYGuff8VlNaIi6fhjYZEiaHGwPhBcq-9ZHqAcHYq3KyovaxLMewAMZ6foF5Jt5KxnsnQmBG0-gKlTjyuIXRvlGxNXn2jRUNuT9qxukOxRsFb4kUJAO2tK4En8EJDIjjOBgeMOibxdFEuofX2KaZ3XOykyG-3XgFY1Dji298&3u6048&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=82759",
+      place_id: "ChIJG5Qwtitu5kcR2CNEsYy9cdA",
+      rating: 4.7,
+      user_ratings_total: 82576
     });
     activities.push(act106);
 
@@ -1002,7 +1163,13 @@ const insertSeeds = async () => {
     const act107 = new Activity({
       name: 'Palace of Versailles',
       lat: 48.8049,
-      lng: 2.1204
+      lng: 2.1204,
+      formatted_address: "Place d'Armes, 78000 Versailles, France",
+      formatted_phone_number: "01 30 83 78 00",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi-ZVZnHG6IC7gVVPy3FzZzjW6nwY7k929onQOz0jiJWV8G0T63ojIGicg4WTCEL7nHYFftgRAY47gFfSZE8kmw1CK6flsrlLyXrPKsMgcB6QHOHs0RRvSDD_tpD3C1C17Nt7f9DLM3o0WMBmt6xh230R72KFESA17J5rHbeXYqOjpk&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=53815",
+      place_id: "ChIJdUyx15R95kcRj85ZX8H8OAU",
+      rating: 4.6,
+      user_ratings_total: 135035
     });
     activities.push(act107);
 
@@ -1010,7 +1177,13 @@ const insertSeeds = async () => {
     const act108 = new Activity({
       name: 'Pantheon',
       lat: 48.8462,
-      lng: 2.3467
+      lng: 2.3467,
+      formatted_address: "Pl. du Panthéon, 75005 Paris, France",
+      formatted_phone_number: "01 44 32 18 00",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgavesNhYJHTX4Y_cP0GetEudIva-mFI7P6Ua4Wgg0trP9E-9eczONYJh9t9Hv27ie38TctCiNE-2Z2f_HnxNdaXV8z8B20sE5K4mjai0V-S2AHx57GnIYM2EfX_VzozLyCqwxs9jNQy_HNZAQnNsB_I5qpQmQBluqkjMLq6cOPnz94&3u9280&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=22627",
+      place_id: "ChIJc8mX0udx5kcRWKcjTwDr5QA",
+      rating: 4.6,
+      user_ratings_total: 50704
     });
     activities.push(act108);
 
@@ -1019,15 +1192,27 @@ const insertSeeds = async () => {
     const act109 = new Activity({
       name: 'Uffizi Gallery',
       lat: 43.7678,
-      lng: 11.2569
+      lng: 11.2569,
+      formatted_address: "Piazzale degli Uffizi, 6, 50122 Firenze FI, Italy",
+      formatted_phone_number: "055 294883",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj3eYLAV40ifks8wLl_5z1kZH8er9H3BCcfQAqAw6tzozNAMoBT2yKwrgNfG3BRmRbtwGWqnwnYZmOpw58qGi1vidV8rO13W8-4Qkbwy6mbjaMd1GG4E6O53tS36qrR8_B3SQZgIL9mGIa8K0hdX1d-GurZtlVvEZ6mLPuw5df9Jl-S&3u828&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=63555",
+      place_id: "ChIJgZDFjQBUKhMRzcTwm8i33s0",  
+      rating: 4.7
+
     });
     activities.push(act109);
 
     // Activity 110
     const act110 = new Activity({
-      name: 'Florence Cathedral (Duomo)',
+      name: 'Cathedral of Santa Maria del Fiore',
       lat: 43.7734,
-      lng: 11.2558
+      lng: 11.2558,
+      formatted_address: "Cattedrale di Santa Maria del Fiore, Piazza del Duomo, 11, 50122 Firenze FI, Italy",
+      formatted_phone_number:  undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjQWKS1h2WT2YefvLZKqyo-LQYoWmoO4AmIz0aAS8X12TxN4MhT3lCBrnd2UeD211wGRZCi8aoCbRifc_Iqzz8KlurCEHfau_w65vJbXCjLeVecA1D9PavjulGVbem6W9S2telo1xK546jOygeo9lXewfUzJcG1ukiO-_Ftw0Q_lHRL&3u3648&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=77858",
+      place_id:  "ChIJHT2PyANUKhMR3HvodTCGwkE",
+      rating: 4.8
+
     });
     activities.push(act110);
 
@@ -1035,15 +1220,27 @@ const insertSeeds = async () => {
     const act111 = new Activity({
       name: 'Ponte Vecchio',
       lat: 43.7673,
-      lng: 11.2531
+      lng: 11.2531,
+      formatted_address:  "Ponte Vecchio, 50125 Firenze FI, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjHjozzb0euWCIc5W9F9xuYKDO0PCociloOAS_3bN4kwwxH-WzPsXmmIvqlN1a0DiGSJPuu74sLA5bg_XPR0nosVUqCh4NbGLT1DGITEH4F5h8sq1zWxtdlYLlIeU8p7XJ5KXaRUe5ykT0_JiBEhNz-gfdtWx6bGQnRHtIkEsmKp7ET&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=126246",
+      place_id:  "ChIJZ7bcoqpWKhMR6ALnMOgKMUA",
+      rating: 4.7,
+      user_ratings_total: 127349
     });
     activities.push(act111);
 
     // Activity 112
     const act112 = new Activity({
-      name: 'Galleria dell\'Accademia',
+      name: 'Accademia Gallery',
       lat: 43.7774,
-      lng: 11.2578
+      lng: 11.2578,
+      formatted_address: "Via Ricasoli, 58/60, 50129 Firenze FI, Italy",
+      formatted_phone_number: "055 098 7100",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgQzLjwYGaePVEf0Et__9PAsMT3jVBtpTVavVdoO-ZwGWEZbcdvGGzV_RG0jdlvvNQtLFmN5k-JmZsqgG4mpped9orFaABerVVS70eeZjJDuQPZzDfoF5a6ANC4TscvApqpKxfNCjbcTG2U-8b2PMg2kKARHp2RKKAX6UCupfh94f8u&3u9000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=42065",
+      place_id: "ChIJJ7mRvIxVKhMRx6JB-q73TG0",
+      rating: 4.6,
+      user_ratings_total: 39268
     });
     activities.push(act112);
 
@@ -1052,7 +1249,13 @@ const insertSeeds = async () => {
     const act113 = new Activity({
       name: 'Siena Cathedral (Duomo di Siena)',
       lat: 43.3171,
-      lng: 11.3320
+      lng: 11.3320,
+      formatted_address:  "Piazza del Duomo, 8, 53100 Siena SI, Italy",
+      formatted_phone_number:  "0577 286300",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhSjFIjNTG1Z-rw2QaGxMA3VE6y5efter6pctHqKW7pBPP5pbURE8kvoKGG7OCf3tG204_HRSrhUbrrbQ6x1w19Rn36njfJ0wKYQcw6HmBboHeFhdrpI3Fm-1RasCKXTCocEA0RTJKWSP1wti7onOlcdFymNNXIoKWAulcKA5XDoeAm&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=22724",
+      place_id:  "ChIJw6OmtLssKhMRRd5_XIUZ_VE",
+      rating: 4.8,
+      user_ratings_total: 23417
     });
     activities.push(act113);
 
@@ -1060,16 +1263,29 @@ const insertSeeds = async () => {
     const act114 = new Activity({
       name: 'Piazza del Campo',
       lat: 43.3183,
-      lng: 11.3314
+      lng: 11.3314,
+      formatted_address:  "Il Campo, 53100 Siena SI, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgY7w0gPxTZ503Csu32G3vwwNYIizpbUOpHqTh2jFK9RPN0H9qxhrv1nwOlLtGGjbKHN7Imv9yDr9DW2wQyNTebnCZ5J3zhe8Ymmx9HVD6FBNl0gWz2nmtNGD7mfPnw6n_jOzhQ2S9ppbIix8_1AEItyxOqj05UrpW88uaI9Xi9e5c5&3u12032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=79179",
+      place_id: "ChIJE5VD8bksKhMRWgKSMTA5q0Y",
+      rating: 4.8,
+      user_ratings_total: 69301
+
     });
     activities.push(act114);
 
     // Activities in San Gimignano
     // Activity 115
     const act115 = new Activity({
-      name: 'San Gimignano Towers',
+      name: 'Tower and Casa Campatelli',
       lat: 43.4676,
-      lng: 11.0434
+      lng: 11.0434,
+      formatted_address: "Via S. Giovanni, 15, 53037 San Gimignano SI, Italy",
+      formatted_phone_number: "0577 941419",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh4JHBKrWU4btaiH_cjk8DffCYSD6aMsk-ynsutmQ4eOw5Sgof2U9vNZb3PUGpDhkPU-kTebVCkVBEICepylPAebwQZ3jrndXXeG8JT_K9-TgDWB6NY-Gl3wsx3464l9YaLb3unX5e8KxDIBM65qMdmWtQP95K-pndYcHD59cBeIWeJ&3u1200&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=5853",
+      place_id:  "ChIJ0XqMSz88KhMRTYXNcAw77O8",
+      rating: 4.6,
+      user_ratings_total: 683
     });
     activities.push(act115);
 
@@ -1077,7 +1293,14 @@ const insertSeeds = async () => {
     const act116 = new Activity({
       name: 'Piazza della Cisterna',
       lat: 43.4687,
-      lng: 11.0417
+      lng: 11.0417,
+      formatted_address: "Piazza Della Cisterna, 20, 53037 San Gimignano SI, Italy",
+      formatted_phone_number: "0577 940008",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zihwNaa9vY8mYUyu1EOE-ex0LPKuLkR2G0pzKjf-f3CyXUJ0erQHBUdjA7t8ABG5KXEqInpVbqkUcmLzL8WcYWEa5uWyvyEGhQEWU_8BNBVNNhWsvKkIjP_aYav3U6C6-_WsD8HY8-B6ZpYNEGeG8dWSXveFXUMXgwStGC2LBwRIwyx&3u3840&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=68973",
+      place_id:  "ChIJ9fHLOz88KhMR8c1zkVOoatE",
+      rating: 4.8,
+      user_ratings_total: 1041
+
     });
     activities.push(act116);
 
@@ -1086,7 +1309,13 @@ const insertSeeds = async () => {
     const act117 = new Activity({
       name: 'Lucca City Walls',
       lat: 43.8396,
-      lng: 10.5026
+      lng: 10.5026,
+      formatted_address: "Porta san Donato, Via delle Mura Urbane, 55100 Lucca LU, Italy",
+      formatted_phone_number: "0583 2213",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi9xx7BVxmLzhK0ZVkWJwTW1weycKIZyW86HvhVZqCooZ9TZwOhLHaLuh8o41q106ZRNy2yyK0hTjtb8mBFGFSbgUreuYXv5lK6nEkqFgNSZvVjQHi0UTrCduDskMSZis98SYBOYTNcFpdvSKJHwdYRGb0PMXEwtj_6tQwudEof6J0c&3u2048&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=111191",
+      place_id:  "ChIJJXXwzfWD1RIRmbnybFc_1Ck",
+      rating: 4.8,
+      user_ratings_total: 4927
     });
     activities.push(act117);
 
@@ -1094,7 +1323,13 @@ const insertSeeds = async () => {
     const act118 = new Activity({
       name: 'Piazza dell\'Anfiteatro',
       lat: 43.8424,
-      lng: 10.5030
+      lng: 10.5030,
+      formatted_address:  "Piazza dell'Anfiteatro, 55100 Lucca LU, Italy",
+      formatted_phone_number:  "0583 4422",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhYOmqWKD1glyGso2tOg0OkUB5IvZfI-r75sh3jBeuONMYmHRk72ZFBmF9NozdmmUFj8km4rJXIsWqSZ9TARCEM9kgvL4eyBx8I21qBIDHX6iScB7ZVwtA_S0Sv6BAhYRg008ZlLipixNp6sliuLUyH0C-ruLw0XYwC3dlneytrTHxl&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=83138",
+      place_id: "ChIJe_EYx4yD1RIRGO8BkOj2GkQ",
+      rating: 4.6,
+      user_ratings_total: 26469
     });
     activities.push(act118);
 
@@ -1103,7 +1338,13 @@ const insertSeeds = async () => {
     const act119 = new Activity({
       name: 'Leaning Tower of Pisa',
       lat: 43.7231,
-      lng: 10.3964
+      lng: 10.3964,
+      formatted_address: "Piazza del Duomo, 56126 Pisa PI, Italy",
+      formatted_phone_number: "050 835011",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjdD7w-6E0aXKRrLXWKmlkEaPiFuUDpAMktHcdutPcIPRv21iAMSeyrFzEQF0l-BdkbYIGGm-4LFrGocVVblH3NcB9WG1pHt6pK-9Esdue8QV_hwqaqY3PYSHTBRNNCet0C3EbmVQS0UK_Jd967aGGYoO_M19xThIO9mpg3F32Jnd2g&3u12032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=64908",
+      place_id: "ChIJzYhOxKaR1RIRA_xU1bGp7DI",
+      rating: 4.7,
+      user_ratings_total: 137170,
     });
     activities.push(act119);
 
@@ -1111,16 +1352,29 @@ const insertSeeds = async () => {
     const act120 = new Activity({
       name: 'Pisa Cathedral (Duomo di Pisa)',
       lat: 43.7230,
-      lng: 10.3967
+      lng: 10.3967,
+      formatted_address:  "Piazza del Duomo, 56126 Pisa PI, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziOQSEQKYdB-r3pme0bBtaMNUAuKxvWQna_NqUUIeDjzibsCcSWgPE5RgBqM2RglO_na_WYs-wUwdX6ZSUuRmIEP3GQ9y_OqGjgOo5NymGSf1DOEjqj-9y-cbxkZLXWGhObQkFU9yUCtLKz9fCKs6KiUfCBQBRvC096FnHZ0saOB6cX&3u5184&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=10482",
+      place_id: "ChIJP6viXqeR1RIR4YESbSqoNks",
+      rating: 4.8,
+      user_ratings_total: 9909
+
     });
     activities.push(act120);
 
     // Activities in Volterra
     // Activity 121
     const act121 = new Activity({
-      name: 'Volterra Etruscan Walls',
+      name: 'Volterra Etruscan Graves',
       lat: 43.4040,
-      lng: 10.8598
+      lng: 10.8598,
+      formatted_address:  "Strada Comunale di Santa Margherita, 56048 Volterra PI, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg7a9kk6DYcshckZA6oGwnTZrcB59I5tXPFfE9PR9zEKowgnPZXBcSpr6jHkFI54YwgQxsGtwKqJz1OkiD-gwCU3u0uhp9MeZr-JtXRTIlkCH7NGtlWyOfhiU1Nl3Yy46BJtMdkWz45tvo9gTIXyEXzs35-ugdbBOksD8QnyGYvz8ry&3u3024&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=115616",
+      place_id: "ChIJkdlmp20aKhMRB3F9rU_7iCs",
+      rating: 4.6,
+      user_ratings_total: 153
     });
     activities.push(act121);
 
@@ -1128,7 +1382,13 @@ const insertSeeds = async () => {
     const act122 = new Activity({
       name: 'Volterra Roman Theater',
       lat: 43.4022,
-      lng: 10.8629
+      lng: 10.8629,
+      formatted_address: "Piazza Caduti nei Lager Nazisti, 56048 Volterra PI, Italy",
+      formatted_phone_number:  "0588 87257",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgRDApBrRE8XPFsK6Z_5u7LVnYZlcYzTtBimDMq4KukCsKJ7OOfJ4JdxlxjtS0iK20pXu0fSEWYpBiTJagxl5FgSZpgEB5h9cfmmuUXCUUezgAOyHyOV-DtHu6ZU7-avmEq_JZ0IMpMzJS0PReJuq-SK4amkULxwNifoojazniXLcAj&3u4608&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=19473",
+      place_id: "ChIJb5HikEMaKhMRJ5Qj39dulAA",
+      rating: 4.4,
+      user_ratings_total: 3707
     });
     activities.push(act122);
 
@@ -1137,7 +1397,13 @@ const insertSeeds = async () => {
     const act123 = new Activity({
       name: 'Colosseum',
       lat: 41.8902,
-      lng: 12.4922
+      lng: 12.4922,
+      formatted_address: "Piazza del Colosseo, 1, 00184 Roma RM, Italy",
+      formatted_phone_number: "06 3996 7700",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi1CEV9dqatFCnoh9n05m06gUYaSuM3g9A3uFBXj62esOhJ1veobpH7g9_Qg-Bzv2qhETu_9Hsi0CVi0quohaIL4pCzt6JM3nSoXt1aJQWWZeGw1IPo8KfafezxHolP8xeuocqCK5yTdupNriO0hTKjsWB4P4t1LjDa3JQl16W1HYAg&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=93877",
+      place_id: "ChIJrRMgU7ZhLxMRxAOFkC7I8Sg",
+      rating: 4.7,
+      user_ratings_total: 366098
     });
     activities.push(act123);
 
@@ -1145,7 +1411,13 @@ const insertSeeds = async () => {
     const act124 = new Activity({
       name: 'Roman Forum',
       lat: 41.8925,
-      lng: 12.4853
+      lng: 12.4853,
+      formatted_address:  "Via della Salara Vecchia, 5/6, 00186 Roma RM, Italy",
+      formatted_phone_number:  "06 3996 7700",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhsla92cTESch3uBCWRvi3Jqk9VAtguJ8X55SEVSDAVWpwsWS_4PpICMZH-yKwe9Ub8WcgDZp_Dr8Xm6ZlRFb-MmH4mRWh3Qr9qf-4ecyhFFd2rEkfSalfnQVBYI71qNjyDg-juaF3u7w1mvBhm9rglYIHu0ahwrsyKwrJUFc3YmeIT&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=21605",
+      place_id: "ChIJ782pg7NhLxMR5n3swAdAkfo",
+      rating: 4.7,
+      user_ratings_total: 120903
     });
     activities.push(act124);
 
@@ -1153,7 +1425,13 @@ const insertSeeds = async () => {
     const act125 = new Activity({
       name: 'Trevi Fountain',
       lat: 41.9019,
-      lng: 12.4886
+      lng: 12.4886,
+      formatted_address:  "Piazza di Trevi, 00187 Roma RM, Italy",
+      formatted_phone_number:"06 0608",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgD2YycTDPyb8lreHzM1K0QXqCFGLnD4g5S2cVh_QnN85KzTvciAhAECnfFFyJFMZnx-Aym2pjhmoezue1ZN2MvAtSqV25SkK6rktDwubYl-tTi-VKo_rH6j7-U-Rs2Q0aiPnuVKiJT5zOS2mOUWPHrJaLsWITRcvVzj4Sqp_WCrD4D&3u3520&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=104793",
+      place_id: "ChIJ1UCDJ1NgLxMRtrsCzOHxdvY",
+      rating: 4.8,
+      user_ratings_total: 382723
     });
     activities.push(act125);
 
@@ -1161,7 +1439,13 @@ const insertSeeds = async () => {
     const act126 = new Activity({
       name: 'Vatican Museums',
       lat: 41.9061,
-      lng: 12.4536
+      lng: 12.4536,
+      formatted_address: "00120, Vatican City",
+      formatted_phone_number: "06 6988 4676",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhYYnxST4Zxb2GKBkVw5KJ8fNZPzynIbQcCT0JzATdkHh5LmWfiF72yg-HmsjwI4VbVh972er-g18Ncm6V0vtsVaKYh0xHIHpcyNYZzzGoVO1rqo6CoW-T2gRHWmT6JTW5RzS5vhbMA77g6kXsQ_gurKh6lEbxJ3-merd3Z1PLbLlz5&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=64385",
+      place_id: "ChIJKcGbg2NgLxMRthZkUqDs4M8",
+      rating: 4.6,
+      user_ratings_total: 157169
     });
     activities.push(act126);
 
@@ -1169,7 +1453,13 @@ const insertSeeds = async () => {
     const act127 = new Activity({
       name: 'Sistine Chapel',
       lat: 41.9022,
-      lng: 12.4548
+      lng: 12.4548,
+      formatted_address: "00120, Vatican City",
+      formatted_phone_number: "06 6988 4676",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziV6Z1QM5pJvYijy6BIAvOSFkUpQc81bLCPGyJ9uWLYKoFsAL6Ubvty0WfCGy71bXnNTp06KTcW-XQ_MoUgqIH-rfZyaGh3LczODTJ5BiNG7E1goyAfubvoov5pA-ZpYKqwU5Ry7S4mT2a5VrhsDrctH89Tdo7Mp1my1hL-WYDJljIx&3u768&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=111199",
+      place_id: "ChIJ268jxWVgLxMRIj61f4fIFqs",
+      rating: 4.7,
+      user_ratings_total: 69016
     });
     activities.push(act127);
 
@@ -1177,7 +1467,13 @@ const insertSeeds = async () => {
     const act128 = new Activity({
       name: 'St. Peter\'s Basilica',
       lat: 41.9022,
-      lng: 12.4537
+      lng: 12.4537,
+      formatted_address: "Piazza San Pietro, 00120 Città del Vaticano, Vatican City",
+      formatted_phone_number: "06 6982",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi9-X9AtvJuxLxKvbFHmJXNdcoIj2QuVoP3xBarCutXuX5-r2kNmhIAW3EJpZ45VO4w0Seaekp1TnKyu4V0NMUQl69C-yK1_yYOrJ4bjyW3IyiKREkYD2qzkpM7cwmNFnWR-1H3YjMoCj2surZdeACqNMpz3_9QD85edOCiLBVFwRSf&3u6240&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=7002",
+      place_id: "ChIJWZsUt2FgLxMRg1KHzXfwS3I",
+      rating: 4.8,
+      user_ratings_total: 137622,
     });
     activities.push(act128);
 
@@ -1185,7 +1481,14 @@ const insertSeeds = async () => {
     const act129 = new Activity({
       name: 'Castel Sant\'Angelo',
       lat: 41.9031,
-      lng: 12.4669
+      lng: 12.4669,
+      formatted_address: "Lungotevere Castello, 50, 00193 Roma RM, Italy",
+      formatted_phone_number: "06 681 9111",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgQ7tC7IVo1jEJFxtnI35Pw6mPpFXNXdo2oSXqv1oS4ifGA2Wrf9jYkp_r18cVZQmBpjOUT22ITOHF_ObBv0yt2MMGcf84A6bqSXpQdeUfVe8M3FmXYitcnqBrGYvZ03TG_8HEqeOXyJvty6dsslRqfruXcL17AloO21a0v5HkXl7L9&3u1024&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=13646",
+      place_id: "ChIJ0aTnEYeKJRMRiUF95xwRbDY",
+      rating: 4.7,
+      user_ratings_total: 80072
+
     });
     activities.push(act129);
 
@@ -1193,7 +1496,13 @@ const insertSeeds = async () => {
     const act130 = new Activity({
       name: 'Pantheon',
       lat: 41.8986,
-      lng: 12.4768
+      lng: 12.4768,
+      formatted_address: "Piazza della Rotonda, 00186 Roma RM, Italy",
+      formatted_phone_number: "06 6830 0230",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zilp4k2vYqksCSKuM0kw6QCMFD8ZNgHPxYIy6PSLHc0oDP3m2ipmgQpi3ilvsIQHotLiqtyg44N76GSxgkNC0t3mQ91jg298EXtQ1JpDPcvfSJIUZ75nMRBvI9r0gVlxVnMxpX83O7axsfk8fU6D0o10IBAwZfdyZMxQBowXHkbGVsI&3u1050&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=68086",
+      place_id:  "ChIJqUCGZ09gLxMRLM42IPpl0co",
+      rating: 4.8,
+      user_ratings_total: 211963
     });
     activities.push(act130);
 
@@ -1201,7 +1510,13 @@ const insertSeeds = async () => {
     const act131 = new Activity({
       name: 'Villa Borghese Gardens',
       lat: 41.9122,
-      lng: 12.4889
+      lng: 12.4889,
+      formatted_address:  "00197 Rome, Metropolitan City of Rome Capital, Italy",
+      formatted_phone_number: "06 0608",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi8lqjFWy_-ErYY9aRQ-kLQz4tu9ubHiFW18D9rKf0JR2WVDvyiL7NeMl6C_E8_guWQcnFvz4wpnPSSGrD-LkNDhSihm7reqSbc_vJefiUW-IuE75aojfKGsk1x9T2ddfpWCDZYzo6BVkN26AwTmUUWuyMDi6VV0NgSpQu7_emgMIee&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=103150",
+      place_id: "ChIJj1M8HQJhLxMRRI6D_z18Pes",
+      rating: 4.6,
+      user_ratings_total: 75950
     });
     activities.push(act131);
 
@@ -1209,7 +1524,13 @@ const insertSeeds = async () => {
     const act132 = new Activity({
       name: 'Palatine Hill',
       lat: 41.8885,
-      lng: 12.4883
+      lng: 12.4883,
+      formatted_address: "Palatine Hill, 00186 Rome, Metropolitan City of Rome Capital, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgiOLP8D5L2zqxxFET_OmnPhQIExBfs4qvn3otald4Q4ksxzrdV8MRyct-X4syJqI7q4hIHV60aoACZp43mww_qWNGFl3NaVU-qYfchDv2rRLEBht8ID6R5NUnUVTKtJyYNWsfkmgSz1ra0LsbSWmdj-pW6pNc1dXPABfGFaYbbqunK&3u4000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=18581",
+      place_id: "ChIJ8zdPo7VhLxMRwgAXwZzzm50",
+      rating: 4.7,
+      user_ratings_total:1805
     });
     activities.push(act132);
 
@@ -1217,15 +1538,27 @@ const insertSeeds = async () => {
     const act133 = new Activity({
       name: 'Capitoline Hill',
       lat: 41.8931,
-      lng: 12.4821
+      lng: 12.4821,
+      formatted_address: "Capitoline Hill, 00186 Rome, Metropolitan City of Rome Capital, Italy",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhVlraR80aPB8_GLfML29YWezcOL0dnrTgqH8PNgKrszc29G7Iq565EFG5MGq5WXi06cg4YQgYwwKhtPdtJbCG8wspOh59aFuxs0KVe0FnJmLrGhef07extySuSVqaB14S79eG_Qs4tDf2FSkSCqCDsHgwe6qUT67PrFzAIWsQ-vctA&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=47715",
+      place_id: "ChIJuwpUX0tgLxMRCXiwBMdFxQ8",
+      rating: 4.8,
+      user_ratings_total: 143
     });
     activities.push(act133);
 
     // Activity 134
     const act134 = new Activity({
       name: 'Villa d\'Este',
-      lat: 41.9103,
-      lng: 12.7979
+      lat: 41.9633123,
+      lng: 12.7958058,
+      formatted_address: "P.za Trento, 5, 00019 Tivoli RM, Italy",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziB6xvJpql-amxSghQf84gdTlCa1TRyQqVtvWatoHUqUdbfW3R0z3RAnf3o9lOdFJwu0dBI2MhXhMSsS5cOpUJ3qOM2Br6q96SXZoQARvzKGC4jDwnsdMDUvtCExLSvdTNfOCr7y50YX1lp8ZJEX-vDI0wgZlARwCHk4PJxRtGH92dK&3u12032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=74829",
+      place_id: "ChIJw-YlX3B4LxMRmeEzTuqQHr8",
+      rating: 4.7,
+      user_ratings_total: 27777
     });
     activities.push(act134);
 
