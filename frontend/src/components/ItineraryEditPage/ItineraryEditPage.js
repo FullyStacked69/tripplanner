@@ -88,6 +88,7 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
+                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id: undefined})
                     } 
                 } else {
@@ -97,6 +98,7 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
+                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id:undefined})
                     } 
                 }
@@ -108,7 +110,9 @@ const ItineraryEditPage = () => {
         if(itineraryId === 'new' && itObj.location && !itObj.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
-        dispatch(setSearchObjRedux({}))
+        if(itObj.lat){
+            dispatch(setSearchObjRedux({}))
+        }
     }, [itObj])
 
     useEffect(() => {
