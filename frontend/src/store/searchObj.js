@@ -10,7 +10,7 @@ export default function searchObj(state = {}, action){
 
     switch(action.type){
         case SET_SEARCH_OBJ:
-            return {...state, ...searchObj}
+            return {...searchObj}
         default:
             return state
     }

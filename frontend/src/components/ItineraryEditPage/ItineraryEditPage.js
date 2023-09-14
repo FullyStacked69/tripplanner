@@ -14,6 +14,11 @@ import axios from 'axios';
 import missingImg from './assets/placeholder-image.jpeg';
 import { createItinerary, deleteItinerary, fetchItinerary, updateItinerary } from '../../store/itineraries';
 import {setItObj as setItRedux } from '../../store/itineraries';
+import {setSearchObjRedux} from '../../store/searchObj';
+
+
+
+
 
 
 const ItineraryEditPage = () => {
@@ -103,6 +108,7 @@ const ItineraryEditPage = () => {
         if(itineraryId === 'new' && itObj.location && !itObj.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
+        dispatch(setSearchObjRedux({}))
     }, [itObj])
 
     useEffect(() => {
@@ -121,13 +127,13 @@ const ItineraryEditPage = () => {
 
     const deleteDay = (idx,e) => {
         e.preventDefault();
-        let updatedItObj = { ...itObj, days: [...itObj.days] };
+        let updatedItObj = { ...itObj, days: [...itObj.days], length: itObj.length - 1 };
 
         // Remove the day using splice method
         updatedItObj.days.splice(idx, 1);
 
-        console.log(idx)
-        console.log('deleteday',updatedItObj)
+        // console.log(idx)
+        // console.log('deleteday',updatedItObj)
     
         // Update the itinerary object
         setItObj(updatedItObj);
@@ -137,10 +143,14 @@ const ItineraryEditPage = () => {
     const addDay = () => {
         const newDay = {
             activities: [],
-            date: "",
-            createdAt: "",
-            updatedAt: ""
         }
+
+        setItObj({
+            ...itObj,
+            days: [...itObj.days, newDay],
+            length: itObj.length + 1,
+            
+        })
     }
     
     const splashLat = itObj?.lat
@@ -164,7 +174,7 @@ const ItineraryEditPage = () => {
         })));
     }, []).filter(Boolean);
 
-    console.log(places)
+    // console.log(places)
 
     
 
@@ -276,7 +286,7 @@ const ItineraryEditPage = () => {
     
     if (!isLoaded) {return (<div>Loading...</div>)}
     if(!itObj) return null
-    if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
+    if(itineraryId === 'new' && !itObj.locationName) return <Redirect to="/"/>
 
     console.log(itObj)
 
@@ -291,7 +301,8 @@ const ItineraryEditPage = () => {
     if(!searchObj.startDate){
         dateObj = new Date(itObj.startDate)
         lastDate = new Date( dateObj )
-        lastDate.setDate(itObj.length + dateObj.getDate() - 1)
+        lastDate.setDate(itObj?.days?.length + dateObj.getDate() - 1)
+        console.log('lastday',lastDate)
     }
 
     return (
@@ -372,6 +383,7 @@ const ItineraryEditPage = () => {
                         <div>
                             <button onClick={handleSave}>Save</button>
                             {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
+                            <button onClick={() => addDay()}> Add a Day</button>
                         </div>
                     </div>
                 </div>
