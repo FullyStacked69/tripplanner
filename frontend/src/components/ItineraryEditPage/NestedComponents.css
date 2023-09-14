@@ -6,15 +6,38 @@
 #popular-activities-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .popular-activity-container {
-    margin: 16px 23px 16px 0;
+    margin-top: 16px;
     width: 31%;
 }
 
-.popular-activity-container:nth-child(3n) {
-    margin-right: 0;
+@media (max-width: 1301px) {
+    .popular-activity-container {
+      width: 45%; /* This allows 2 in a row when the viewport is 1301px or narrower */
+    }
+    /* .popular-activity-container:nth-child(2n) {
+        margin-right: 0;
+    } */
+}
+
+@media (max-width: 1040px) {
+    .popular-activity-container {
+      width: 100%; /* This allows 2 in a row when the viewport is 1301px or narrower */
+      align-items: center;
+    }
+    #popular-activities-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.popular-activity-container img {
+    width: 210px;
+    height: 150px;
+    border-radius: 10px;
 }
 
 #activity-list {
@@ -23,6 +46,8 @@
 }
 
 .popular-activity-name {
+    width: 210px;
+    height: 32px;
     margin: 8px 0;
     text-align: center;
 }
