@@ -2,7 +2,7 @@ import './ItineraryList.css';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchItineraries } from '../../store/itineraries';
+import { fetchItineraries, setItObj } from '../../store/itineraries';
 import ItineraryTile from './ItineraryTile';
 import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
 
@@ -13,6 +13,8 @@ export default function ItineraryList({ searchObj }) {
 
     const itineraries = useSelector(state => state.itineraries);
     const [sortedItineraries, setSortedItineraries] = useState([])
+
+    const {itObj} = useSelector(state => state.itineraries)
 
     const handleSort = (criteria) => {
         if (criteria === "likes") {
@@ -47,7 +49,7 @@ export default function ItineraryList({ searchObj }) {
                 <ItinerarySearch location={location} startDate={startDate} endDate={endDate} isMainPage={false} />
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
-                    <h4> or <Link to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
+                    <h4> or <Link onMouseDown={()=>dispatch(setItObj({...itObj, lat: searchObj.lat, lng: searchObj.lng}))} to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
                 </div>
                 {sortedItineraries.length > 0 ? (
                     <>
