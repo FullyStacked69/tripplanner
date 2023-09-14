@@ -24,8 +24,8 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         country: '',
         startDate: propStartDate || '',
         endDate: propEndDate || '',
-        lat: null,
-        lng: null,
+        // lat: null,
+        // lng: null,
         searching: false
     });    
 
