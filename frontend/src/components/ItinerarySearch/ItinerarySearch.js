@@ -24,6 +24,8 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         country: '',
         startDate: propStartDate || '',
         endDate: propEndDate || '',
+        lat: null,
+        lng: null,
         searching: false
     });    
 
@@ -81,7 +83,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         return(
             <div 
                 onMouseDown={() => {
-                    setSearchObj({...searchObj, location: loco.name, country: (loco.country || loco.code)});
+                    setSearchObj({...searchObj, lat: loco.lat, lng: loco.lng, location: loco.name, country: (loco.country || loco.code)});
                     setSearchErrors(prev => ({...prev, location: ''})); // Reset the location error
                 }} 
                 className='loco-opt'

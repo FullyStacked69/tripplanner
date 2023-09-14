@@ -101,7 +101,7 @@ const ItineraryEditPage = () => {
     },[itineraryId])
 
     useEffect(()=>{
-        if(itineraryId === 'new' && !itObj.title){
+        if(itineraryId === 'new' && itObj.location && !itObj.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
     }, [itObj])
