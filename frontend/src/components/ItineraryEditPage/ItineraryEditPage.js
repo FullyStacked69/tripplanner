@@ -20,7 +20,6 @@ const ItineraryEditPage = () => {
     const dispatch = useDispatch()
     
     const [markersPositions, setMarkersPositions] = useState([]);
-    const [redirectTo, setRedirectTo] = useState('');
 
     const {itObj} = useSelector(state => state.itineraries)
     const { user } = useSelector(state => state.session)
@@ -84,7 +83,7 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
-                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id: undefined})
                     } 
                 } else {
                     if(searchObj.startDate && searchObj.endDate){
@@ -93,7 +92,7 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
-                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days})
+                        setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id:undefined})
                     } 
                 }
             }
@@ -132,6 +131,16 @@ const ItineraryEditPage = () => {
     
         // Update the itinerary object
         setItObj(updatedItObj);
+    }
+
+
+    const addDay = () => {
+        const newDay = {
+            activities: [],
+            date: "",
+            createdAt: "",
+            updatedAt: ""
+        }
     }
     
     const splashLat = itObj?.lat
@@ -240,9 +249,10 @@ const ItineraryEditPage = () => {
                     user 
                 }
                 // console.log(newItiniterary)
-                await dispatch(createItinerary(newItiniterary));
+                const res = await dispatch(createItinerary(newItiniterary));
+                setItObj(res)
                 console.log("Itinerary has been saved")
-                setRedirectTo(`/itineraties/${newItiniterary._id}/plan`)
+
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
@@ -257,6 +267,7 @@ const ItineraryEditPage = () => {
         }
     }
 
+
     const handleDelete = async (e) => {
         e.preventDefault()
         const res = await dispatch(deleteItinerary(itineraryId))
@@ -270,6 +281,9 @@ const ItineraryEditPage = () => {
     console.log(itObj)
 
     if(deleted) return <Redirect to='/'/>
+    if(itineraryId === 'new' && itObj._id) return <Redirect to ={`/itineraries/${itObj._id}/plan`}/>
+
+
 
     let lastDate;
     let dateObj;
@@ -281,10 +295,7 @@ const ItineraryEditPage = () => {
     }
 
     return (
-        
-        
-        redirectTo ? <Redirect to={redirectTo} /> :
-         
+             
         <div className='page-content-container'>
             <div id='itinerary-section-container'>
                 <div id='sidebar-container'>
