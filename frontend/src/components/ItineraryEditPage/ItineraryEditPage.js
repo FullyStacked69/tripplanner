@@ -37,6 +37,48 @@ const ItineraryEditPage = () => {
 
     const [category, setCategory] = useState("tourist_attraction");
 
+    // pagination code
+    const getItemsPerPage = () => {
+        const width = window.innerWidth;
+        
+        if (width <= 1040) {
+            return 3; // 3 items per page for <= 1040px
+        } else if (width <= 1301) {
+            return 6; // 6 items per page for <= 1301px
+        } else {
+            return 6; // default number of items per page
+        }
+    };    
+    
+    const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
+    const [currentPage, setCurrentPage] = useState(1);
+    const displayedActivities = googleActivities.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    
+    const nextPage = () => {
+        if (currentPage * itemsPerPage < googleActivities.length) {
+            setCurrentPage(prevPage => prevPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(prevPage => prevPage - 1);
+        }
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerPage(getItemsPerPage());
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);    
+    // pagination code end
+
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
     };
@@ -331,12 +373,17 @@ const ItineraryEditPage = () => {
                                 <option value="lodging">Accommodations</option>
                             </select>
                             <div id='popular-activities-container'>
-                                {googleActivities.map((activity, idx) => (
+                                {displayedActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
                                         name: activity.name,
                                         url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : missingImg
                                     }} />
                                 ))}
+                            </div>
+                            <div className="pagination-controls">
+                                <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                                <span>Page {currentPage}</span>
+                                <button onClick={nextPage} disabled={currentPage * itemsPerPage >= googleActivities.length}>Next</button>
                             </div>
                         </div>
                     </div>
