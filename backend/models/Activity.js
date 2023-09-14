@@ -15,7 +15,7 @@ const activitySchema = new Schema(
             type: String
         },
         rating: {
-            type: String
+            type: Number
         },
         user_ratings_total: {
             type: Number

@@ -392,7 +392,13 @@ const insertSeeds = async () => {
 
       name: 'Tokyo Tower',
       lat: 35.65874607174958,
-      lng: 139.7454758204727
+      lng: 139.7454758204727,
+      formatted_address:  "4-chōme-2-8 Shibakōen, Minato City, Tokyo 105-0011, Japan",
+      formatted_phone_number: "03-3433-5111",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi846XcpmOS46fvhAoc2hX0k8Q282ID5KXkgoGkGZkMPutwhCOfk6Kku7ZXdN2bli74NSMrV1Pn0ipixExgtxCa3nQMYbmEJ4j4TUZfsRsGZsAbFU-k_9IMZzClcNGdWz7HsnJJm3zMZzCzyVx3UOFmWDI2RHQk39a8fSPUpIZlFaRE&3u1079&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=71443",
+      place_id: "ChIJCewJkL2LGGAR3Qmk0vCTGkg",
+      rating: 4.4,
+      user_ratings_total: 65412
 
     });
     activities.push(act37);
@@ -401,16 +407,28 @@ const insertSeeds = async () => {
 
       name: 'Shibuya Scramble Crossing',
       lat: 35.65963885295896,
-      lng: 139.70059179127364
+      lng: 139.70059179127364,
+      formatted_address: "21 Udagawacho, Shibuya City, Tokyo 150-0042, Japan",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zigsyhIbQO9RXXi3e2EHaTGiEbf4w3Bx_c9asseN-a0U-KCF2T1Uw5nxDpIHQBl_n0CapYytYVuS_GMt3VQNXiLR2uRmLzKQ9eKHCy8MEi91IN-QxPELLKpgGGwS4yWdJKdhj2pDsnAmUvjzOLU9yyWdYZG0P_xB6W5xhFaAwXt0xEX&3u720&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=23827",
+      place_id: "ChIJK9EM68qLGGARacmu4KJj5SA",
+      rating: 4.5,
+      user_ratings_total : 2145
 
     });
     activities.push(act38);
 
     const act39 = new Activity({
 
-      name: 'Asakusa Temple',
+      name: 'Asakusa Temple (Sensō-ji)',
       lat: 35.715122503902634,
-      lng: 139.79738721976452
+      lng: 139.79738721976452,
+      formatted_address: "2-chōme-3-1 Asakusa, Taito City, Tokyo 111-0032, Japan",
+      formatted_phone_number: "03-3842-0181",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhWbsp_iqHt8i7cvL72vkwRJcV7kAAFTBPVGEzuvHaRfHU4S30WavTOgL3AlmfLphKxBFon3L5XoVY_5pmF2hyPrwJcu1tPY4cXMziX5hzP_LYBL64-4FiDq102KBUjyXHjHV6JYupjvo1aHbUDCQDg3-TWebsmDaKUr2d0tM7e4ncB&3u800&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=7",
+      place_id: "ChIJ8T1GpMGOGGARDYGSgpooDWw",
+      rating: 4.5,
+      user_ratings_total: 65915
 
     });
     activities.push(act39);
@@ -419,7 +437,13 @@ const insertSeeds = async () => {
 
       name: 'Tsukiji Outer Market',
       lat: 35.66574024795559, 
-      lng: 139.77007357146186
+      lng: 139.77007357146186,
+      formatted_address: "4-chōme-13-13 Tsukiji, Chuo City, Tokyo 104-0045, Japan",
+      formatted_phone_number: undefined,
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgwDspGZIQTgXBWPAHP9fxJv8y__-wxtVRn-_TCa3k7bMgSg87N75fu9vUY_nkPVWjcPyjlsuwwAP0iZEwp-10vIejfPktG5BmLDsbzCTxHXWEn3EF3Adnuh0jpPYwQ1ZGt3j4F6DOzbwyulc1bb--6GRfeRLFSYtptmPYEN2AsKuCg&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=60978",
+      place_id: "ChIJW2cLzSGLGGARXAKXv6EkbqI",
+      rating: 4.2,
+      user_ratings_total:45388
 
     });
     activities.push(act40);
@@ -428,7 +452,13 @@ const insertSeeds = async () => {
 
       name: 'Sakura Street (Shibuya)',
       lat: 35.657652109693245,
-      lng: 139.70104324103866
+      lng: 139.70104324103866,
+      formatted_address: "16-12 Sakuragaokachō, Shibuya City, Tokyo 150-0031, Japan",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjpgA_C6gFGuqjRYz5LXTr443bIAQUlGsuP3UohRuBqC4BcdY6dQgRkVLsXouFLdOEBgumSE2wbRjTGyrzARR8fiyYu4u6HnNaWH-LNWgz11i0309v5GVWoa8uCfGrbTszsED5LPAMExMPNKo30m7WjsAekStg16ECoIl-FMIXmlhhG&3u5839&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=89747",
+      place_id: "ChIJfUrHmT2LGGARHBT16UK7Fkw",
+      rating: 4.5,
+      user_ratings_total: 116
 
     });
     activities.push(act41);
@@ -437,7 +467,13 @@ const insertSeeds = async () => {
 
       name: 'Ryogoku Kokugikan National Sumo Arena',
       lat: 35.70036405613505,
-      lng: 139.79474387455903
+      lng: 139.79474387455903,
+      formatted_address: "1-chōme-3-28 Yokoami, Sumida City, Tokyo 130-0015, Japan",
+      formatted_phone_number: "03-3623-5111",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhKemM0sIBLE-eBdqc38NwcQWq1hYfrZJVGiz0dkzlhtKNpU0ZyxwX9KFym8tLskUQDe_UTfJI6LdQuPZaUX8WABJwqfwrSsW-rSTbyQ93KG67kQCB6j-5AsLq8GTRxjIRGGf2iqCY427P4JtQe437OVkbhj6gp_uGkjsNTcdwFXATj&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=77245",
+      place_id : "ChIJGeu4VDWJGGARdPoda8d8I3A",
+      rating: 4.3,
+      user_ratings_total: 7000
 
     });
     activities.push(act42);
@@ -446,7 +482,13 @@ const insertSeeds = async () => {
 
       name: 'Akihabara Electronics',
       lat: 35.70314813344853,
-      lng: 139.77170885690882
+      lng: 139.77170885690882,
+      formatted_address: "Akihabara, Taito City, Tokyo 110-0006, Japan",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhzor7ViEI7i1eDAOq7Bdv0HnpVLPKYyZKQqbH7dEfPQwd30p5hbokWBOwPE6hOIlqDvYQ3y98PmwVbmV8ml6qbqdRrAUCPrMZN48VepAyexPxitIrrxxvuiAK9CLPg11TRP2Pcd_RJV6KHAfbgB8zuplIQIEmBU8oMFnqwHGiwuwmW&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=113980",
+      place_id: "ChIJzdWdgh2MGGARh4kg2pVZL3c",
+      rating: 4.4,
+      user_ratings_total: 3455
 
     });
     activities.push(act43);
@@ -455,7 +497,13 @@ const insertSeeds = async () => {
 
       name: 'Ginza Pedestrian Paradise',
       lat: 35.67141961733058,
-      lng: 139.76398527326768
+      lng: 139.76398527326768,
+      formatted_address: "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 8-chōme−7, 中央通り",
+      formatted_phone_number: "03-3561-0919",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjPipiojA6IY_i4QetbOQOjrMbcugCGrmMWLsM5rLMfopxxRhT6ZsZdbedsRBwuRzrNt-EhXGkJ5-B4G3kemeaEMWaBbq5MNjR6wwPYZ5lTNjnb4C2pJxd67AsOINxr_IJBRQ5Ay01VYKbOwMHBVKnwtZngeNYnpk8egFBS-axWijZQ&3u3024&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=11336",
+      place_id: "ChIJcTA-aeaLGGARj3kIPKAI23M",
+      rating: 4.4,
+      user_ratings_total: 86
 
     });
     activities.push(act44);
@@ -464,7 +512,13 @@ const insertSeeds = async () => {
 
       name: 'Meiji Shrine',
       lat: 35.6765631356979,
-      lng: 139.69932590483052
+      lng: 139.69932590483052,
+      formatted_address: "1-1 Yoyogikamizonochō, Shibuya City, Tokyo 151-8557, Japan",
+      formatted_phone_number: "03-3379-5511",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhVz50XJc9QMuALbqOSPa6fS0_tymAY8p3qBAp81K2prS2DTzTXVOwzRqpRhmQm661tLNRSJrwXIdVV83Ikc6yCShBz5M6EtXjhZkQgP1K4JOQGxbsg-TgJF5WMOmgBw9mJv42EaAyb-idY6_Bc-E8PTTWBtNRta1uP11J8yVmKszIT&3u4000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=76308",
+      place_id: "ChIJ5SZMmreMGGARcz8QSTiJyo8",
+      rating: 4.6,
+      user_ratings_total: 32764
 
     });
     activities.push(act45);
@@ -473,7 +527,13 @@ const insertSeeds = async () => {
 
       name: 'Ueno Park',
       lat: 35.714895022474835,
-      lng: 139.7734419328915
+      lng: 139.7734419328915,
+      formatted_address: "4 Uenokoen, Taito City, Tokyo 110-0007, Japan",
+      formatted_phone_number: "03-3828-5644",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh8LEURn_rUvc_YT_f9MYEj9dbwCHZpIYi_8jUOI9QUVoIJmfgJQfzNKHjaYpmAWRR94jC43iX6HmSJWQazUpTWCQ1g_UHM0bYMj8_diTetdF_gTqGUpEZKo6SagaIVacpaYyNQa5sqkkQJ8RKvL6ehkk3wZaa7lbuyUpdap1TUA4ws&3u1440&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=123016",
+      place_id: "ChIJw2qQRZuOGGARWmROEiM2y7E",
+      rating: 4.3,
+      user_ratings_total: 26202
 
     });
     activities.push(act46);
@@ -482,7 +542,13 @@ const insertSeeds = async () => {
 
       name: 'Santa Barbara Castle',
       lat: 38.349165367357934,
-      lng: -0.4780503514452701
+      lng: -0.4780503514452701,
+      formatted_address: "03002 Alicante, Spain",
+      formatted_phone_number: "673 84 98 90",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhaB5l2ouFZuXYTiR2Z9FJJdPGZ7T-8kxgSL0Z97hR4GDVyrZU87GkGe8ECwfjtl_sNQG4L39Go_D34UvHooW6l-2_VlBC1LRlysm8qiJrxWHiK1Y6wnKZBm7iTQCZXlITTNF48SdECJGQNvhb4dCoBGzCf8Ja30CJnVn7FmDRYcaTX&3u4128&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=77405",
+      place_id:  "ChIJ57iIa6U3Yg0RCD4iSor1MEM",
+      rating: 4.7,
+      user_ratings_total: 34539
 
     });
     activities.push(act47);
@@ -491,7 +557,13 @@ const insertSeeds = async () => {
 
       name: 'Explanada de España',
       lat: 38.34352342394694,
-      lng: -0.48327031045883895
+      lng: -0.48327031045883895,
+      formatted_address: "Passeig Esplanada d'Espanya, Alacant, Alicante, Spain",
+formatted_phone_number: undefined,
+imageUrl: undefined,
+place_id:  "EjVQYXNzZWlnIEVzcGxhbmFkYSBkJ0VzcGFueWEsIEFsYWNhbnQsIEFsaWNhbnRlLCBTcGFpbiIuKiwKFAoSCceMrWGxN2INEUj1C76fUG2_EhQKEglLq5072jViDRHjgQuscqh9HQ",
+rating: undefined,
+user_ratings_total: undefined
 
     });
     activities.push(act48);
@@ -500,7 +572,13 @@ const insertSeeds = async () => {
 
       name: 'Postiguet Beach',
       lat: 38.3464339707937,
-      lng: -0.47609407641177753
+      lng: -0.47609407641177753,
+      formatted_address: "Playa del Postiguet, Spain",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh7ohxqhrRCk9VN-Shn6OrT158DofshLkZIfIe74OfKSgzfJrTVPi4Z32-jrnLu8Vs3NpES76i0roVtg145uIbxGnKk6LzNZniSXY7kMSVyxo-QPJ1o3HbJkWNwcXP4udoeK2kDgKtL6xXo56Pe3CAL7CYHPGbPBK8RbX5lIAiAA6Dm&3u856&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=91498",
+      place_id:  "ChIJMdE7SLo3Yg0RT4ecQtC5BVE",
+      rating: 4.3,
+      user_ratings_total: 2326
 
     });
     activities.push(act49);
@@ -509,7 +587,13 @@ const insertSeeds = async () => {
 
       name: 'Santa Maria Basilic',
       lat: 38.34624301631397,
-      lng: -0.4793210081084064
+      lng: -0.4793210081084064,
+      formatted_address: "Pl. Sta. María, 1, 03001 Alicante (Alacant), Alicante, Spain",
+      formatted_phone_number: "965 21 60 26",
+      imageUrl:   "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj3n9cpriXjRTeLdVgNccAAKi68Weadcng6qFGgXMumpcpbOTKl0Rb3g3rUbG_i8BjH-h4hlfuFPf5aKV1xpUoG0cHYbdm0w04fkSS1Y8ZjlBk3KVaVNsUobI_dmAmXtH_83L8sRfJfueLXY7qYSaWRR3JqTzg5Oiy6Iqpyv3vHVWyO&3u2581&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=11532",
+      place_id:  "ChIJa9njFbA3Yg0R3Fy9dU6CPy0",
+      rating: 4.5,
+      user_ratings_total: 1710
 
     });
     activities.push(act50);
@@ -518,7 +602,13 @@ const insertSeeds = async () => {
 
       name: 'San Nicolas Cathedral',
       lat: 38.345686635548766,
-      lng: -0.4826369659088519
+      lng: -0.4826369659088519,
+      formatted_address: "Plaza de, Pl. del Abad Penalva, 2, 03002 Alicante (Alacant), Alicante, Spain",
+      formatted_phone_number: "965 21 26 62",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgJfRc9Pq334eukBpnnNo82giPiSSLLInnvxkGslR4w1ZaG9d-4F5DOfvKBkbJ1L0fhCJKEpfVkzt79S8Up84mbEuANU_581-_A1hUfFAMUWuJ0ISxC1h8FqOSZOlfJaLDoGTn2H8QZo8X5tEGjNMPHSyiS8Ei_sa4ldqQHvl7EO-gZ&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=48871",
+      place_id: "ChIJXV4olrE3Yg0REtiQ7JAKazo",
+      rating: 4.5,
+      user_ratings_total: 3196
 
     });
     activities.push(act51);
@@ -527,7 +617,13 @@ const insertSeeds = async () => {
 
       name: 'Ereta Park',
       lat: 38.34805950267509,
-      lng: -0.4799380539185773
+      lng: -0.4799380539185773,
+      formatted_address: "Calle Remigio Sebastià, 17, 03002 Alacant, Alicante, Spain",
+      formatted_phone_number:"965 14 32 90",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgSMkBwGmPYaLwtvaR3xICe3FMpoN9aHZRzV2hBfjCXSwLVpZRH36VGPtHN8M1vI8TiATbPTvhLJKcCTca-Fy-zwVlSdGkB_kiaTNcumWkFtxTSwHvfMGz-fJ3ZN_w0hCwE0X_SLebZ4J2uKkmKRxFb6FH2aXE2Jqp7IVjxcDvDgRB0&3u5312&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=96482",
+      place_id: "ChIJ90O-z683Yg0RgflkgS_1Y_I",
+      rating: 4.5,
+      user_ratings_total: 1868
 
     });
     activities.push(act52);
@@ -536,7 +632,13 @@ const insertSeeds = async () => {
 
       name: 'Mercado Central',
       lat: 38.35347031491778,
-      lng: -0.4697695899176873
+      lng: -0.4697695899176873,
+      formatted_address: "Av. Alfonso El Sabio, nº 10, 03004 Alicante (Alacant), Alicante, Spain",
+      formatted_phone_number: "965 14 08 41",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhXV2-u3jnmqm4s6UWkvFRFm-zC-OUUZvkQkiFiDhLVQcMH3tq8vW31lB1hWg9XD_ii1tI3hKyrOaSBViDTX03D2Pk9ZZ66h2-yaMWsmsb86PwmIPnk0WBWNyBKhb9qqcMn4c5DUDu0-V3C5PnQA3THvC57dO2hGCPf2QOMsFtmmDq8&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=103866",
+      place_id: "ChIJga68cK03Yg0R9pyPDap5OUA",
+      rating: 4.5,
+      user_ratings_total:24244
 
     });
     activities.push(act53);
@@ -545,7 +647,13 @@ const insertSeeds = async () => {
 
       name: 'Museo Arqueológico de Alicante MARQ',
       lat: 38.35365283313212,
-      lng: -0.47641443963329216
+      lng: -0.47641443963329216,
+      formatted_address: "Pl. Dr. Gómez Ulla, S/N, 03013 Alacant, Alicante, Spain",
+      formatted_phone_number: "965 14 90 00",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgD9rUJqNuAJTLlPU0IDmqq4IylQgvgmpu-2HVegngfYnUTKB-AHlsVY5HFiDJc0zs4KIyprCgqfzbJNmcrvls41YVpnttsh1s0OMsTK8FlVqXZxu_vbV1dg60JgeTqHFmTtQmIFP8_ZTW15WonbVRKbhMlxXny1lgunRc61fn0XD9h&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=978",
+      place_id: "ChIJPcv3ZqY3Yg0RRBfMgwTapwk",
+      rating:4.6,
+      user_ratings_total: 8579
 
     });
     activities.push(act54);
@@ -555,8 +663,13 @@ const insertSeeds = async () => {
 
       name: 'The British Museum',
       lat: 51.51950669723901,
-      lng: -0.1265167102771911
-
+      lng: -0.1265167102771911,
+      formatted_address: "Great Russell St, London WC1B 3DG, UK",
+      formatted_phone_number: "020 7323 8299",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg_9_JqPQkiw-io3cSPbJYnDRLq_eQHqzLPfAqfVv7psYkqBi-6aTDgX5nEVgAtJoO_J-hh_9reYEipG7AtXkVyMuSzfL8IRj0sv9Js08iKPOAbEo-ZibKMPsdsnHgfgJ7fDhFwB2C5MVWRqu2fvww7zmcWttTvMNi1xnP1doxe8LIU&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=49022",
+      place_id: "ChIJB9OTMDIbdkgRp0JWbQGZsS8",
+      rating: 4.7,
+      user_ratings_total: 144191,
     });
     activities.push(act55);
 
@@ -565,8 +678,13 @@ const insertSeeds = async () => {
 
       name: 'The Tower of London',
       lat: 51.508285963207484,
-      lng: -0.07596001962516134
-
+      lng: -0.07596001962516134,
+      formatted_address: "London EC3N 4AB, UK",
+      formatted_phone_number: "0333 320 6000",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziRvCM97njQDTR_w5fMPEqKrPOyUwIulwpMeQe5bFJNUBYLGlkuu_swxr25UYtBkejzHNER7-czdA9nQdxJmUlSbpZvjZhKGb40eArNQgSQ-WmpuSQ8_mx19LFaja0GpJaffW-YANKj7elc8mqe6BKyGfw2qaasHFFJa59Q2JlS6RQw&3u640&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=15163",
+      place_id: "ChIJ3TgfM0kDdkgRZ2TV4d1Jv6g",
+      rating: 4.6,
+      user_ratings_total: 96537
     });
     activities.push(act56);
 
@@ -575,7 +693,13 @@ const insertSeeds = async () => {
 
       name: 'London Eye',
       lat: 51.50329319002855,
-      lng: -0.11918659849697137
+      lng: -0.11918659849697137,
+      formatted_address: "Riverside Building, County Hall, London SE1 7PB, UK",
+      formatted_phone_number:  "020 7967 8021",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zidVqBDQb3PUcva0Gq3-JGLDIAs8HetBEqhbD-QdDY1PH0gJ1jHDII3_hYce7zBZdZYGoNhS1HNc0MM_d7MEt-4zkxs7BZdtLsn8xRWwVuRocgATF6D3R-tb5VJI6JAA0QzafhkHhQnTgY4dS7HUGvG_krnA4D7vONax1TwC4AZWWyI&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=64413",
+      place_id: "ChIJc2nSALkEdkgRkuoJJBfzkUI",
+      rating: 4.5,
+      user_ratings_total: 162903
 
     });
     activities.push(act57);
@@ -590,7 +714,8 @@ const insertSeeds = async () => {
       formatted_phone_number: "0303 123 7300",
       imageUrl:"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi3fk2ZBcNDhI9aKwOGoFU2b2K9nn6VyS1AWkhwXE8I0lxxFRP4Kt6U0Isg41ya1sZeAQCXBJo8SPVfLg0mk5QDktcjH0-aaMqKR_Bz4M-_sL4Th9Y-QJB-4hWt8uCq7Lv-UEfgJLfm-x75u6v6TqTB5BQjIYuSHiR4Wn7fbht6Gxvd&3u12000&5m1&2e1&callback=none&key=AIzaSyDCs-6zIIKmkGBfRzARM0qgDq2UM8W7TcQ&token=102427",
       place_id: "ChIJtV5bzSAFdkgRpwLZFPWrJgo",
-      rating: "4.5"
+      rating: 4.5,
+      user_ratings_total: 142603
 
     });
     activities.push(act58);
@@ -600,7 +725,13 @@ const insertSeeds = async () => {
 
       name: 'Hyde Park',
       lat: 51.50739502040792,
-      lng: -0.1656766488527621
+      lng: -0.1656766488527621,
+      formatted_address: "London, UK",
+      formatted_phone_number:  "0300 061 2000",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhqqOxA1g8ilCds3T9POgA4fUM-1JEprIRi2f1QWuzHLfyDeglSuJn3HzVi0eWTGWBZoX26z-hCjLkfj2XLlznWVEY_PQCC5NWGm89udIssQzCu2wjG9bWc_UkEnN58Y1mlj37bKXVex0pSTjkYBhbQ0iPktSdGBsSn80n1ctfSgrOn&3u1944&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=2667",
+      place_id:  "ChIJhRoYKUkFdkgRDL20SU9sr9E",
+      rating: 4.7,
+      user_ratings_total: 122145
 
     });
     activities.push(act59);
@@ -610,7 +741,13 @@ const insertSeeds = async () => {
 
       name: 'Natural History Museum',
       lat: 51.496855204526184,
-      lng: -0.17614188550624404
+      lng: -0.17614188550624404,
+      formatted_address: "Cromwell Rd, South Kensington, London SW7 5BD, UK",
+      formatted_phone_number:  "020 7942 5000",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziekExoE_8rQmQNtlQLkCDqQqKVT5dZldX5-aTPmz2JJhwroi5opydsTK6lYT60sfQ88NDe54FLXlYAv19f5UCRtAYFm-4WA9405q5d0AGI3FYpPUVO1cFqoS6y1w-zUtaloBUl7tC6LtrElqqSajCnQm6D0lNei2aSMGOfsDnvTk6f&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=130761",
+      place_id: "ChIJPy8Y5kIFdkgRxGSXw4Xjt3s",
+      rating: 4.7,
+      user_ratings_total: 22887
 
     });
     activities.push(act60);
@@ -620,7 +757,13 @@ const insertSeeds = async () => {
 
       name: 'Tate Modern',
       lat: 51.50772211925287,
-      lng: -0.09929201994840796
+      lng: -0.09929201994840796,
+      formatted_address: "Bankside, London SE1 9TG, UK",
+      formatted_phone_number:  "020 7887 8888",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziTyQPMvHHlmNVQDLPLibmGb6YKzNLpuJc-yYkJTCO_3nnAf8HwfCzoApMf6PiFoe43kxeQdNc7u6wHn4b3-vK12vE7UMPTMazj2yEtX0tiPVy9JreOBBL2g5eGw65rpQg4oMz7zuS-Kg4ySwmomyg8fhU-wfnPJbIMKEuR-nL0n43C&3u2250&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=39131",
+      place_id:  "ChIJlRl2MakEdkgR55tr4CNv_B8",
+      rating: 4.5,
+      user_ratings_total: 69851
 
     });
     activities.push(act61);
@@ -630,7 +773,13 @@ const insertSeeds = async () => {
 
       name: 'Thames River Sightseeing',
       lat: 51.50215406872328,
-      lng: -0.12311447173720533
+      lng: -0.12311447173720533,
+      formatted_address: "Westminster Pier, Victoria Embankment, London SW1A 2JH, UK",
+      formatted_phone_number: "020 3778 0700",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhCeSKYW3nJwWRqpQFsy0zJng9-zQJ1r9JBZODvER5OuQnUf4k9-rF7ZGcey2zx6lurqm5hzO9Y6iu8fH_ctmggrMaSZ4_bM6zl10Tr3YE07fMsguQyApLkZTCFEjBY4ik1JjffsUsY3pmFja9LHq17GZwMYLQGLkHq4ZDN4eCXpbLH&3u4896&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=32714",
+      place_id: "ChIJWRQ7JoUCdkgRWTutHYUlZA8",
+      rating: 4.5,
+      user_ratings_total: 421
 
     });
     activities.push(act62);
@@ -640,8 +789,13 @@ const insertSeeds = async () => {
 
       name: 'Prince Edward Theatre',
       lat: 51.51475014925888,
-      lng: -0.13056059140526913
-
+      lng: -0.13056059140526913,
+      formatted_address: "Old Compton St, London W1D 4HS, UK",
+      formatted_phone_number: "0344 482 5151",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjolVhvRjvCmWgTKcNwEFAo6cn9gVUKHPniY1MBQBVcpTPa_eljjcFpZmmtdKiD8HDXrCgndWw2UkygaJ0BYCuZIPYxdFWtjfuLqfg9xAE7Q9k1TdsdDvX--IPfCi0UyfEodR6mbgA9DDPJw8GvlEenkHmYFHjDByE5hOJFbBLFZJMf&3u1586&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=29139",
+      place_id:  "ChIJa1mYwdIEdkgRftKU8KZcsx4",
+      rating: 4.7,
+      user_ratings_total: 9612
     });
     activities.push(act63);
 
@@ -650,7 +804,13 @@ const insertSeeds = async () => {
 
       name: 'Royal Observatory in Greenwich',
       lat: 51.477019999560426,
-      lng: -0.0004894621816889371
+      lng: -0.0004894621816889371,
+      formatted_address: "Blackheath Ave, London SE10 8XJ, UK",
+      formatted_phone_number:  "020 8312 6608",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj5ghd1HOsQotzFfsLra1o6b6JtoHcX9m7aJ-M5vD2fQQ79hBdgzD_yA6chzUXltoHx2dW4GKmtLGr9RUaq3Igx3h_HpPG-ReznPc6Y58c2KQItEPrsOHbpgseFJempKyAEDFkSXLp7HprGx38gNuuRJk0lY-CnIiB_YwMSd_Gx-0s&3u4096&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=118973",
+      place_id: "ChIJp9ypjCqo2EcRAoQcRV-yqzE",
+      rating: 4.5,
+      user_ratings_total: 16631
 
     });
     activities.push(act64);
@@ -659,7 +819,13 @@ const insertSeeds = async () => {
     const act65 = new Activity({
       name: 'Statue of Liberty',
       lat: 40.689247,
-      lng: -74.044502
+      lng: -74.044502,
+      formatted_address:  "New York, NY 10004",
+      formatted_phone_number: "(212) 363-3200",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg-pOehWxecU5cZSPuaSVBCk3m93s_9yD0Duv1BWNHuEjZdklZYlWGhp9dktqKDz7hjjM5B887WiIxE6CV6G6K9oFDxG-SAhDQqR2suOQ5VXBRpCVpstX4JMqdve_BftQEssWci-vojGWNmo78vR6rPxGVFWX_I_iGb_plUm6DvPx-_&3u12240&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=69017",
+      place_id: "ChIJPTacEpBQwokRKwIlDXelxkA",
+      rating: 4.7,
+      user_ratings_total: 95280
     });
     activities.push(act65);
 
@@ -667,7 +833,13 @@ const insertSeeds = async () => {
     const act66 = new Activity({
       name: 'Central Park',
       lat: 40.785091,
-      lng: -73.968285
+      lng: -73.968285,
+     formatted_address: "New York, NY",
+      formatted_phone_number: "(212) 310-6600",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg1hOK6mUZszsKOsx-GR-EI8Z1IQ_nTQIII54mHFUOuvL9LpggXjRUOl3n6qBWxWZHNzNqlLiACRJqfPKhMgwRF_CfNOK4FhKbiSFXsZUAZuGwE9Tyn01t9U6IwUEYpH5sYpDwX6uRryJueifv3HCt65CbJTvl74GrEZW3b5iT0Q1Fh&3u4032&5m1&2e1&callback=none&key=AIzaSyDCs-6zIIKmkGBfRzARM0qgDq2UM8W7TcQ&token=126324",
+      place_id:  "ChIJ4zGFAZpYwokRGUGph3Mf37k",
+      rating: "4.8",
+      user_ratings_total: 259680
     });
     activities.push(act66);
 
@@ -675,7 +847,13 @@ const insertSeeds = async () => {
     const act67 = new Activity({
       name: 'Empire State Building',
       lat: 40.748817,
-      lng: -73.985428
+      lng: -73.985428,
+      formatted_address: "20 W 34th St., New York, NY 10001",
+      formatted_phone_number:  "(212) 736-3100",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhfqIZ-DMQce3TRHMoE0-azcPAC9fCrJ4h2xJM8JO36WZSE3M_ySpbM1YgrmnS99L9GtDqNy6P_YaeVSmZ7hGIG0E5e8tqqlp4udDX7NOowUutom_MG3J1HZhTiMxffaVQMbcgRBcWgU9GrOLaD3mQOEHHRAI6nTn_-5dgrQmNzKE9p&3u828&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=101273",
+      place_id: "ChIJaXQRs6lZwokRY6EFpJnhNNE",
+      rating: 4.7,
+      user_ratings_total: 96636
     });
     activities.push(act67);
 
@@ -683,7 +861,13 @@ const insertSeeds = async () => {
     const act68 = new Activity({
       name: 'Times Square',
       lat: 40.758896,
-      lng: -73.985130
+      lng: -73.985130,
+      formatted_address: "Manhattan, NY 10036",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zggAjFN8h_1udeG7HcKS7OYwB9hN5jIMcbbsqlXepP2OMQNznRYwGidPRSSCEhUbtr-yLJLLMlgdIVbCSLwM5lZaY4XJjbI18rTTiVcdG3IQWRwwJkl9ms8A54iq_pgkVPW8k6KR8KE49UZWcVmqJcGsfkbXFXgxzm-ayuj0BKTewwi&3u2080&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=126877",
+      place_id: "ChIJmQJIxlVYwokRLgeuocVOGVU",
+      rating: 4.7,
+      user_ratings_total: 202488
     });
     activities.push(act68);
 
@@ -691,7 +875,13 @@ const insertSeeds = async () => {
     const act69 = new Activity({
       name: 'Metropolitan Museum of Art',
       lat: 40.779437,
-      lng: -73.963244
+      lng: -73.963244,
+      formatted_address: "1000 5th Ave, New York, NY 10028",
+      formatted_phone_number: "(212) 535-7710",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zil1zSZZtJ9VA8wS1q1N9BginhSzjDiTEcOwRxWV4NN9MUidciX4KroE68favZNm6ni8S5oIyNgXEwt3nyg97R9HQrKFyNnPlQABnB2UE0owFpUACUqNTyJjtWCYfD8kEwH9I44yR-JmO9LkSbL2E5p2897vJwEfwY7i7fp00FOqaE&3u716&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=46067",
+      place_id: "ChIJb8Jg9pZYwokR-qHGtvSkLzs",
+      rating: 4.8,
+      user_ratings_total: 77082
     });
     activities.push(act69);
 
@@ -699,7 +889,13 @@ const insertSeeds = async () => {
     const act70 = new Activity({
       name: 'Brooklyn Bridge',
       lat: 40.706086,
-      lng: -73.996864
+      lng: -73.996864,
+      formatted_address: "New York, NY 10038",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgOvuNgkyToT7UNra4zfjTuFXT3M2-yZ9FHS__-v_eKuJ--RhI4F-dySrztCxjIn7xhtaz3C_AqTq2a9xkyBNJRbp8pzZ0ryhgUH7P-rQ1eBC3XBwEer7cj94zXUsjxh-n8bBBlZDlapX9O8Sn1jNSzK82oe23oAXmeb3KReRYDYnnS&3u9000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=100949",
+      place_id: "ChIJK3vOQyNawokRXEa9errdJiU",
+      rating: 4.8,
+      user_ratings_total: 68513
     });
     activities.push(act70);
 
@@ -707,7 +903,13 @@ const insertSeeds = async () => {
     const act71 = new Activity({
       name: 'Museum of Modern Art (MoMA)',
       lat: 40.761436,
-      lng: -73.977621
+      lng: -73.977621,
+      formatted_address: "11 W 53rd St, New York, NY 10019",
+      formatted_phone_number: "(212) 708-9400",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi1apAKadPP7hV9m2aK3RUp2DJovN1cYzeUFzlYxjZdLH2kiaPqT8yeapjmX4wSv4AQE4tlvK3qXPf-1RNFxREodiI3IFTgPyEFr4aISxTWPi5i8Z5MiJgojr_q9mBHqA9MQdvd67B1OkJW2sSFHcSfT9mSNaBZ_nziaskjXDFxcTMY&3u6000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=13824",
+      place_id: "ChIJKxDbe_lYwokRVf__s8CPn-o",
+      rating: 4.6,
+      user_ratings_total: 47219
     });
     activities.push(act71);
 
@@ -715,7 +917,13 @@ const insertSeeds = async () => {
     const act72 = new Activity({
       name: 'One World Observatory',
       lat: 40.713353,
-      lng: -74.013031
+      lng: -74.013031,
+      formatted_address:  "117 West St, New York, NY 10007",
+      formatted_phone_number: "(844) 696-1776",
+      imageUrl:  "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhvZp5-zDmleQJ8XGPIAyJ9yeU66Mv9wl72nLe443fpdF5z7-bQjvoTNBlOzrkcQdVh84hVRutlUHRWcJuTVbHDX8pPiLod1Nw48LxkQYaEGG0nN3lTnaRl827q6yvv6JfAyjD_8ibIlCi3BkBMfwu55l6llPfQ3xlfTujKS2vOZxPP&3u4032&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=93435",
+      place_id:  "ChIJTWE_0BtawokRVJNGH5RS448",
+      rating: 4.7,
+      user_ratings_total: 18226
     });
     activities.push(act72);
 
@@ -723,7 +931,13 @@ const insertSeeds = async () => {
     const act73 = new Activity({
       name: 'Brooklyn Botanic Garden',
       lat: 40.668819,
-      lng: -73.965363
+      lng: -73.965363,
+      formatted_address: "Brooklyn, NY 11238",
+      formatted_phone_number:"(718) 623-7200",
+      imageUrl:"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgUEsuhXcnDZ7r3GCVPOBUnrt4-VgXV-QOWlWnXteRqtl4d3Xl89CQ1KV_1cHPZEcBhHvWNQFZKSi_Zang7kO0b-EoAmQkX9PIC_p8l_uIeQUDDmwa0R3GgphafaG-TfnBfpnLxI3xZmxfxebBmdUMNFBKGQSll_7w109L8bgdKm_2k&3u3072&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=60526",
+      place_id: "ChIJwYu_aA5bwokR2lxjW-QvQlc",
+      rating: 4.7,
+      user_ratings_total: 12003
     });
     activities.push(act73);
 
@@ -731,7 +945,13 @@ const insertSeeds = async () => {
     const act74 = new Activity({
       name: 'The High Line',
       lat: 40.747993,
-      lng: -74.004765
+      lng: -74.004765,
+      formatted_address: "New York, NY 10011",
+      formatted_phone_number: "(212) 500-6035",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zivvIJ-MAS4oodLYcuCiy6a3EbrvAyeRsUOB4Y0cyUV2DeEnkLE6qGYOhefaFwVr6EgL1VqNZ3X4hV-jv32eCB5aeQdFUVPgntf4j5a68IuvspsNfC0nCXb9GjOhD0QdG9NVUTSevZyJsmtSnDZCAgGIrVqHaqDhm3_VuyBnj4Cefk&3u4608&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=14996",
+      place_id: "ChIJ5bQPhMdZwokRkTwKhVxhP1g",
+      rating: 4.7,
+      user_ratings_total: 54837
     });
     activities.push(act74);
 
@@ -739,7 +959,13 @@ const insertSeeds = async () => {
     const act75 = new Activity({
       name: 'Brandenburg Gate',
       lat: 52.5163,
-      lng: 13.3777
+      lng: 13.3777,
+      formatted_address: "Pariser Platz, 10117 Berlin, Germany",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhcX32xqYk4Kb1np0ptjY6tGHVWfIpBRPeHK1Ip33v9hGYCP3w0FGrQwK1H54w6ntD4LSeLSY579hEpHXKORQoRFYvu0sib-2VOjnX7qKlvTmXsp4moDRzk76k91Xf62_bSdIZ9xElbGfoq8VVq9P20d3gkb7holSiTRylHra0Kc2yc&3u1080&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=60970",
+      place_id: "ChIJiQnyVcZRqEcRY0xnhE77uyY",
+      rating: 4.7,
+      user_ratings_total: 151690,
     });
     activities.push(act75);
 
@@ -747,7 +973,13 @@ const insertSeeds = async () => {
     const act76 = new Activity({
       name: 'Berlin Wall Memorial',
       lat: 52.5295,
-      lng: 13.3869
+      lng: 13.3869,
+      formatted_address: "Bernauer Str. 111, 13355 Berlin, Germany",
+      formatted_phone_number: "030 467986666",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjJX5usLxemagTYfHure8RLUneb6tMjhMcpE6CuW3u_0N-C2tNgUStm6VTWKyoQtEceF0J5qirTld92dXPg-aB7-7804IOAwVUyPlpfaFiUzJpGIoBe23RXoo195BXMwFWiVT8Qo_XiEqgW_VjbDM0yPDAgelAfzwICxGnXeojyZIbv&3u3464&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=31202",
+      place_id: "ChIJZ0KxF_JRqEcRrLHB-4r-U-o",
+      rating: 4.6,
+      user_ratings_total: 39119
     });
     activities.push(act76);
 
@@ -755,7 +987,13 @@ const insertSeeds = async () => {
     const act77 = new Activity({
       name: 'Museum Island',
       lat: 52.5161,
-      lng: 13.4011
+      lng: 13.4011,
+      formatted_address:  "Museum Island, Berlin, Germany",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh4O21UJkeK_t_cQggSOZJTYL2VD2oedusHdMfFp4vTt_hj4BzmmHie6WH2AtaVVjMnpgm4bytKcGA31vtzFw5PNhiycbQ0T0X2eSfH2L4238vLnnUVAmhJNOsuhz4Cv23UU7sH11uXZo7DD7il4jaasKwJeJWKfeF7d7kj5hs01Bwf&3u1284&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=121015",
+      place_id:  "ChIJx8qLPN9RqEcRB2gSnmw5bJM",
+      rating: 4.7,
+      user_ratings_total: 2732
     });
     activities.push(act77);
 
@@ -763,7 +1001,13 @@ const insertSeeds = async () => {
     const act78 = new Activity({
       name: 'Checkpoint Charlie',
       lat: 52.5074,
-      lng: 13.3904
+      lng: 13.3904,
+      formatted_address: "Friedrichstraße 43-45, 10117 Berlin, Germany",
+      formatted_phone_number: undefined,
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj32MvWtd_u_NV-0X9hibfwdaqTWbNBw1Us8aY-R5rDVRFQPqiONGxXdb45nS_9_1bTCm48xq9uMN0PN0DKD8nhVK5xhAAAIhMeSFm9xcpDiZD-xz-1-tZlT4-65dS4IhQauq2scysnC5MvCZ3JJzYj2noCJzwMjlD4AZlANZGXN6Vs&3u4000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=121173",
+      place_id: "ChIJzdgmXNFRqEcRyIl9R0IApSM",
+      rating: 4.1,
+      user_ratings_total: 78181
     });
     activities.push(act78);
 
@@ -771,7 +1015,13 @@ const insertSeeds = async () => {
     const act79 = new Activity({
       name: 'Berlin Cathedral',
       lat: 52.5192,
-      lng: 13.4026
+      lng: 13.4026,
+      formatted_address: "Am Lustgarten, 10178 Berlin, Germany",
+      formatted_phone_number: "030 20269136",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziCFQEBaiU2Ux9FiTLEtcDlXBas7GAf5zBnLyA21wxKAM5XPNaatvQWEEZSm3XLBJJVJmdNjO-XReGgxV9V_YpKgHbP4vWZqqfDlRAFavClakZuWeU1ymhuh3iBCw3V03i4YelsgfHLYOV2RkCyrPmZkvTV6Y4eCcQfeVYFrJANhPMD&3u12000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=21402",
+      place_id: "ChIJS9HC895RqEcR_IovsNVoDng",
+      rating: 4.6,
+      user_ratings_total: 33844
     });
     activities.push(act79);
 
@@ -779,7 +1029,13 @@ const insertSeeds = async () => {
     const act80 = new Activity({
       name: 'East Side Gallery',
       lat: 52.5052,
-      lng: 13.4397
+      lng: 13.4397,
+      formatted_address: "Mühlenstraße 3-100, 10243 Berlin, Germany",
+      formatted_phone_number: "030 2517159",
+      imageUrl: "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjq9341pQgfMWPIqNz6YpLHXSa6p3d2QFP4aBQtynozb-BorCU0BUetW6n4xXIrTCFPGToT-HhUgFSkc7_drX0BQDZP7aj0OdrHb4Lb28hfbCFyHz7W5bivw5GXXGLVpehKQQ-W0GvNDriJiuOWQiXbEUgbEMKFgvadXp_-a0JrQb-J&3u4000&5m1&2e1&callback=none&key=AIzaSyAXwXNB2uLtlbySGO20y9dIbDe80Nw7W0I&token=113553",
+      place_id: "ChIJS6_t9aZHqEcRGCiRSnvpm94",
+      rating: 4.6,
+      user_ratings_total: 50369
     });
     activities.push(act80);
 
@@ -2128,7 +2384,7 @@ const insertSeeds = async () => {
     const itineraryNewYorkDays = [d31.id, d32.id, d33.id, d34.id, d35.id];
     const itinerary7 = new Itinerary({
       title: '4 days in the Big Apple',
-      locationName: 'New York',
+      locationName: 'New York City',
       locationType: 'City',
       countryCode: 'US',
       lng: -74.006,
