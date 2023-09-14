@@ -135,6 +135,10 @@
     box-shadow: none;
 }
 
+.pagination-controls button:disabled {
+    color: #E7E7E7;
+    cursor: not-allowed;
+}
 /* top places section end*/
 
 #itinerary-container {
