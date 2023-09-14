@@ -63,10 +63,14 @@ const ItineraryEditPage = () => {
         dispatch(setItRedux(itinerary))
     }
 
+
+
+
     useEffect(() =>{
         if(itineraryId !== 'new'){
             let it = async () => {
                 const res = await dispatch(fetchItinerary(itineraryId))
+                // console.log('ueeeefff', res)
                 setItObj(res)
                 setDays(() => res.days)
             }
@@ -127,9 +131,8 @@ const ItineraryEditPage = () => {
         // Remove the day using splice method
         updatedItObj.days.splice(idx, 1);
 
-        console.log(idx)
-        console.log('deleteday',updatedItObj)
-    
+        // console.log(idx)
+        // console.log('deleteday',updatedItObj)
         // Update the itinerary object
         setItObj(updatedItObj);
     }
@@ -172,13 +175,16 @@ const ItineraryEditPage = () => {
     const onLoad = (location) => {
         setMap(location)
     }
-    
+  
     useEffect(() => {
         // If there are no markers, geocode the location
         if (map && !places?.length && itObj?.locationName) {
             let geocoder = new window.google.maps.Geocoder();
             geocoder.geocode({ 'address': itObj.locationName }, (results, status) => {
                 if (status === window.google.maps.GeocoderStatus.OK) {
+                    const lat = results[0].geometry.location.lat();
+                    const lng = results[0].geometry.location.lng();
+                    console.log('lat', lat, 'lng', lng)
                     map.fitBounds(results[0].geometry.viewport);
                 }
             });
@@ -267,7 +273,7 @@ const ItineraryEditPage = () => {
     if(!itObj) return null
     if(itineraryId === 'new' && !searchObj.location) return <Redirect to="/"/>
 
-    console.log(itObj)
+    // console.log(itObj)
 
     if(deleted) return <Redirect to='/'/>
 
