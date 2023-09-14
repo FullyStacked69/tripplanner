@@ -54,6 +54,7 @@ export const createItinerary = data => async dispatch => {
         });
         const itinerary = await res.json();
         dispatch(receiveItinerary(itinerary))
+        return itinerary
        
     } catch (err){
         console.error('Error creating itinerary', err)
