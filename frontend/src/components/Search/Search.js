@@ -5,16 +5,11 @@ import { Autocomplete, } from '@react-google-maps/api';
 const Search = ({index, itObj, setItObj, map, setMarkersPositions, markersPositions, setCenter, setInfo, setActivities}) => {
 
     const [locations, setLocations] = useState([{value: ''}]);
-    const [directionRes, setDirectionRes] = useState(null);
     const [inputValue, setInputValue] = useState("");
 
     const originRef = useRef();
-    const destinationRef = useRef();
     const originAutocompleteRef = useRef();
-    const destinationAutocompleteRef = useRef();
 
-
-    
 
     const onOriginPlaceChanged = () => {
         const place = originAutocompleteRef.current.getPlace();

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 
-function SignupForm () {
+function SignupForm ({closeSignup, openLogin}) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -105,6 +105,17 @@ function SignupForm () {
         value="Sign Up"
         disabled={!email || !username || !password || password !== password2}
       />
+      <p>
+          Already have an account? 
+          <span 
+              onClick={() => {
+                  closeSignup(); 
+                  openLogin();
+              }}
+          >
+              Log In
+          </span>
+      </p>
     </form>
   );
 }

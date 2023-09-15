@@ -39,6 +39,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     const [googleActivities, setGoogleActivities] = useState([]);
 
     const [deleted, setDeleted] = useState(false);
+    const [infoWin, setInfoWin] = useState(false);
 
     const [category, setCategory] = useState("tourist_attraction");
 
@@ -121,7 +122,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
         } else if (itineraryId === 'new'){
             if(searchObj){
                 let days = []
-                if(itObj.days && itObj.days.length > 1){
+                if(itObj?.days && itObj.days.length > 1){
                     if(searchObj.startDate && searchObj.endDate){
                         const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
                         days = dateRange.map(date => ({
@@ -148,13 +149,13 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     },[itineraryId])
 
     useEffect(()=>{
-        if(itineraryId === 'new' && itObj.location && !itObj.title){
+        if(itineraryId === 'new' && itObj?.location && !itObj?.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
-        if(itObj.lat){
+        if(itObj?.lat){
             dispatch(setSearchObjRedux({}))
         }
-    }, [itObj?.location])
+    }, [itObj?.location]) // need error handeling, 
 
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
@@ -173,6 +174,12 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     const deleteDay = (idx,e) => {
         e.preventDefault();
         let updatedItObj = { ...itObj, days: [...itObj.days], length: itObj.length - 1 };
+        
+        if (idx === 0 && updatedItObj.days.length > 1) {
+            const nextDayDate = new Date(updatedItObj.startDate);
+            nextDayDate.setDate(nextDayDate.getDate() + 1);
+            updatedItObj.startDate = nextDayDate.toISOString();
+        }
 
         // Remove the day using splice method
         updatedItObj.days.splice(idx, 1);
@@ -441,7 +448,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
             >
 
                 {places?.length > 0 && places?.map(place => (
-                    <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
+                    <MarkerInfoWindow infoWin={infoWin} setInfoWin={setInfoWin} place={place} position={{ lat: place?.lat, lng: place?.lng }} />
                 ))}
 
  

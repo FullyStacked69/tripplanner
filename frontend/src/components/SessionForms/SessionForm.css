@@ -14,12 +14,26 @@
     color: #1D3557;
 }
 
+.session-form p:last-child {
+    padding-top: 32px;
+}
+
 .session-form input {
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px;
     border: 1px solid #E7E7E7;
     height: 45px;
+}
+
+.session-form span{
+    margin-left: 8px;
+    cursor: pointer;
+    color: #457B9D;
+}
+
+.session-form span:hover{
+    text-decoration: underline;
 }
 
 .input-container {
