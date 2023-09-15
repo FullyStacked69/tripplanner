@@ -39,6 +39,7 @@ const ItineraryEditPage = () => {
     const [googleActivities, setGoogleActivities] = useState([]);
 
     const [deleted, setDeleted] = useState(false);
+    const [infoWin, setInfoWin] = useState(false);
 
     const [category, setCategory] = useState("tourist_attraction");
 
@@ -121,7 +122,7 @@ const ItineraryEditPage = () => {
         } else if (itineraryId === 'new'){
             if(searchObj){
                 let days = []
-                if(itObj.days && itObj.days.length > 1){
+                if(itObj?.days && itObj.days.length > 1){
                     if(searchObj.startDate && searchObj.endDate){
                         const dateRange = datesBetween(searchObj.startDate, searchObj.endDate); 
                         days = dateRange.map(date => ({
@@ -153,10 +154,10 @@ const ItineraryEditPage = () => {
         if(itineraryId === 'new' && itObj?.location && !itObj?.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
-        if(itObj.lat){
+        if(itObj?.lat){
             dispatch(setSearchObjRedux({}))
         }
-    }, [itObj])
+    }, [itObj?.location]) // need error handeling, 
 
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
@@ -221,7 +222,7 @@ const ItineraryEditPage = () => {
         })));
     }, []).filter(Boolean);
 
-    console.log(places)
+    // console.log(places)
 
     
 
@@ -335,7 +336,7 @@ const ItineraryEditPage = () => {
     if(!itObj) return null
     if(itineraryId === 'new' && !itObj.locationName) return <Redirect to="/"/>
 
-    console.log(itObj)
+    // console.log(itObj)
 
     if(deleted) return <Redirect to='/'/>
     if(itineraryId === 'new' && itObj._id) return <Redirect to ={`/itineraries/${itObj._id}/plan`}/>
@@ -349,7 +350,7 @@ const ItineraryEditPage = () => {
         dateObj = new Date(itObj.startDate)
         lastDate = new Date( dateObj )
         lastDate.setDate(itObj?.days?.length + dateObj.getDate() - 1)
-        console.log('lastday',lastDate)
+        // console.log('lastday',lastDate)
     }
 
     return (
@@ -450,7 +451,7 @@ const ItineraryEditPage = () => {
                 {/* {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)} */}
 
                 {places?.length > 0 && places?.map(place => (
-                    <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
+                    <MarkerInfoWindow infoWin={infoWin} setInfoWin={setInfoWin} place={place} position={{ lat: place?.lat, lng: place?.lng }} />
                 ))}
 
  

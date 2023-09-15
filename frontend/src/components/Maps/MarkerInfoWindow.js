@@ -1,10 +1,10 @@
 
 import {Marker, InfoWindow} from '@react-google-maps/api';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const MarkerInfoWindow = ({position, place}) => {
+const MarkerInfoWindow = ({position, place, infoWin, setInfoWin}) => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     return (    
         <>
@@ -16,10 +16,10 @@ const MarkerInfoWindow = ({position, place}) => {
                 {isOpen && 
                     <InfoWindow onCloseClick={() => setIsOpen(false)}>
                         <div>
-                            <h3>{place?.name}</h3>
-                            <p>{place?.address}</p>
-                            <p>{place?.formatted_phone_number}</p>
-                            {place?.rating && <p>Rating: {place?.rating}</p>}
+                            <h4>{place?.name}</h4>
+                            {/* <p>{place?.address}</p> */}
+                            {/* <p>{place?.formatted_phone_number}</p> */}
+                            {/* {place?.rating && <p>Rating: {place?.rating}({place?.user_ratings_total})</p>} */}
                         </div>
                     </InfoWindow>
                 }
