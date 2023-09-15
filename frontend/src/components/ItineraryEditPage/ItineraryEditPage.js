@@ -21,7 +21,7 @@ import {setSearchObjRedux} from '../../store/searchObj';
 
 
 
-const ItineraryEditPage = () => {
+const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     const dispatch = useDispatch()
     
     const [markersPositions, setMarkersPositions] = useState([]);
@@ -284,26 +284,30 @@ const ItineraryEditPage = () => {
     
     const handleSave = async (e) => {
         e.preventDefault();
-        if (itineraryId === 'new') {
-            try {
-                let newItiniterary = {
-                    ...itObj,
-                    length: itObj?.days.length,
-                    user 
+        if(user?._id){
+            if (itineraryId === 'new') {
+                try {
+                    let newItiniterary = {
+                        ...itObj,
+                        length: itObj?.days.length,
+                        user 
+                    }
+                    const res = await dispatch(createItinerary(newItiniterary));
+                    setItObj(res)
+    
+                } catch (error) {
+                    console.error("Error saving itinerary:", error);
                 }
-                const res = await dispatch(createItinerary(newItiniterary));
-                setItObj(res)
-
-            } catch (error) {
-                console.error("Error saving itinerary:", error);
+            } else {
+                try {
+                    await dispatch(updateItinerary(itObj));
+                } catch (error) {
+                    console.error("Error saving itinerary:", error);
+                }
+    
             }
-        } else {
-            try {
-                await dispatch(updateItinerary(itObj));
-            } catch (error) {
-                console.error("Error saving itinerary:", error);
-            }
-
+        }else{
+            setShowLoginModal(true);
         }
     }
 
