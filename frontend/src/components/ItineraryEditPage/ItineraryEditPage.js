@@ -174,7 +174,7 @@ const ItineraryEditPage = () => {
         })));
     }, []).filter(Boolean);
 
-    // console.log(places)
+    console.log(places)
 
     
 

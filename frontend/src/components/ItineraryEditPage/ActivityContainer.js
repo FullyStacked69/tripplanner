@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import Search from '../Search/Search';
 // import { useState } from 'react';
-export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
+export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIsOpen,info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
     // console.log('info', info)
 
@@ -32,7 +32,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
     
     useEffect(() => {
         addActivityInfo();
-        console.log("add activity info")
+        // console.log("add activity info")
     }, [info]);
     
     const clear = (idx, e) => {
@@ -59,16 +59,23 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
         newItObj.days[day].activities[act].comment = comment
         setItObj(newItObj)
     }
+
+    const handleInfoWin = (id) => {
+        setInfoIsOpen(id)
+    }
+
+    console.log('1', infoIsOpen)
     
     return (
         <div className='activity-container'>
             {(itObj.days[dayIdx]?.activities || []).map((activity, idx) => (
                 <div key={idx}>
                     <h4>{idx+1}</h4>
-                    { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} />}
+                    { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} onClick={() => setInfoIsOpen(activity.place_id)}/>}
                     <div className='activity-description'>{activity?.name ?  "" : "Activity Info"}</div>
                         <form>
                             <h3>{activity?.name}</h3>
+                            <h3>{activity?.place_id}</h3>
                             <p>{activity?.formatted_address}</p>
                             <p>{activity?.formatted_phone_number}</p>
                             {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
