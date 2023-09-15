@@ -8,16 +8,12 @@ import LoginForm from '../SessionForms/LoginForm';
 import SignupForm from '../SessionForms/SignupForm';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
 
-function NavBar () {
+function NavBar ({showLoginModal, setShowLoginModal, showSignupModal, setShowSignupModal, showDropdown, setShowDropdown}) {
   const location = useLocation();
   const loggedIn = useSelector(state => !!state.session.user);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const dropdownRef = useRef(null);
-  
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignupModal, setShowSignupModal] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   
   const logoutUser = e => {
       e.preventDefault();
