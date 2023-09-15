@@ -174,6 +174,12 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     const deleteDay = (idx,e) => {
         e.preventDefault();
         let updatedItObj = { ...itObj, days: [...itObj.days], length: itObj.length - 1 };
+        
+        if (idx === 0 && updatedItObj.days.length > 1) {
+            const nextDayDate = new Date(updatedItObj.startDate);
+            nextDayDate.setDate(nextDayDate.getDate() + 1);
+            updatedItObj.startDate = nextDayDate.toISOString();
+        }
 
         // Remove the day using splice method
         updatedItObj.days.splice(idx, 1);

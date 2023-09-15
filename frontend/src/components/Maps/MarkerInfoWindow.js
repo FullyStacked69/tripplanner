@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 
 const MarkerInfoWindow = ({position, place, infoWin, setInfoWin}) => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+
+    
 
     return (    
         <>
