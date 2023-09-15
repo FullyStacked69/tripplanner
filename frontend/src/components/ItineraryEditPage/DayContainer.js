@@ -45,7 +45,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                         <ActivityContainer dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
                         {/* <input placeholder='Add activities for your trip here'></input> */}
                         <Search index={index} itObj={itObj} setItObj={setItObj} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
-                        <button onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>
+                        <button className='remove-day-bttn' onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>
 
                         {/* <div> */}
                             

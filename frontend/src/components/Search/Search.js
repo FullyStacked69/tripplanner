@@ -101,7 +101,7 @@ const Search = ({index, itObj, setItObj, map, setMarkersPositions, markersPositi
                     onLoad={(ref) => originAutocompleteRef.current = ref}
                     onPlaceChanged={onOriginPlaceChanged}
                  >
-                <input type="text" placeholder="Add a place" ref={originRef} value={inputValue} onChange={e => setInputValue(e.target.value)} />
+                <input type="text" placeholder="Add an activity (tourist attractions, restaurants, accommodations, etc)" ref={originRef} value={inputValue} onChange={e => setInputValue(e.target.value)} />
                 </Autocomplete>
                 
                 {/* <Autocomplete 
