@@ -18,6 +18,11 @@ import UserPage from './components/UserPage/UserPage';
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  
   const dispatch = useDispatch();
 
   const searchObjRedux = useSelector(state => state.searchObj)
@@ -28,14 +33,26 @@ export default function App() {
 
   return loaded && (
     <div className='page-container'>
-      <NavBar />
+      <NavBar 
+        showDropdown={showDropdown} 
+        setShowDropdown={setShowDropdown} 
+        showLoginModal={showLoginModal} 
+        setShowLoginModal={setShowLoginModal}
+        showSignupModal={showSignupModal}
+        setShowSignupModal={setShowSignupModal}
+      />
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path='/itineraries'>
           <ItineraryList searchObj={searchObjRedux}/>
         </Route>
         <Route exact path="/itineraries/plan" component={ItinerariesEditPage} />
-        <Route exact path="/itineraries/:itineraryId/plan" component={ItinerariesEditPage} />
+        <Route exact path="/itineraries/:itineraryId/plan">
+          <ItinerariesEditPage
+            showLoginModal={showLoginModal} 
+            setShowLoginModal={setShowLoginModal}
+          />
+        </Route>
         <Route exact path="/users/:userId" component={UserPage} />
         <Route path="/*" component={NotFound}/>
       </Switch>
