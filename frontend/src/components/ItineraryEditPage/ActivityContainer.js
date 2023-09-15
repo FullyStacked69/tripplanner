@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-// import Search from '../Search/Search';
-// import { useState } from 'react';
-export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIsOpen,info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
-    // console.log('info', info)
+export function ActivityContainer({passed, owned, dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
     const addActivityInfo = () => {
         if (info.name) {
@@ -19,10 +16,8 @@ export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIs
                 lng: info.geometry.location.lng() 
             };
 
-            // Update local activities state
             setActivities(prevActivities => [...prevActivities, newActivity]);
 
-            // Update itObj
             let obj = { ...itObj, days: [...itObj.days] };
             obj.days[dayIdx] = { ...obj.days[dayIdx], activities: [...(obj.days[dayIdx]?.activities || []), newActivity] };
             setItObj(obj);
@@ -32,7 +27,6 @@ export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIs
     
     useEffect(() => {
         addActivityInfo();
-        // console.log("add activity info")
     }, [info]);
     
     const clear = (idx, e) => {
@@ -49,7 +43,6 @@ export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIs
         updatedMarkers.splice(idx, 1);
         setMarkersPositions(updatedMarkers);
     }
-    // console.log('activity', info)
 
     function setComment(day, act, comment, e){
         if(e){
@@ -85,16 +78,16 @@ export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIs
                                     <p>{activity?.formatted_address}</p>
                                     <p>{activity?.formatted_phone_number}</p>
                                     {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
-                                    {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete Activity</button>}
+                                    {!passed() && activity?.name && <button onClick={(e) => clear(idx, e)}> Delete Activity</button>}
                                 </div>
                         </div>
                         <div className='comment-holder'>
-                            <textarea 
+                            {owned() && <textarea 
                                 placeholder='Add any activity notes here' 
                                 onChange={(e) => handleTextareaChange(e, dayIdx, idx)} 
                                 style={{overflowY: 'hidden'}} 
                                 value={itObj.days[dayIdx].activities[idx].comment} 
-                            />
+                            />}
                             {itObj.days[dayIdx].activities[idx].comment && <button className='remove-comment-button' onClick={(e)=> setComment(dayIdx, idx, "", e)}>Clear note</button>}
                         </div>
                     </div>

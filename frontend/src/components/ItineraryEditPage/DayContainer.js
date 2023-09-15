@@ -5,7 +5,7 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay, allDaysOpen}) {
+export function DayContainer({passed, owned, itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay, allDaysOpen}) {
     const [isOpen, setIsOpen] = useState(allDaysOpen);
 
     const [hovered, setHovered] = useState();    
@@ -52,26 +52,11 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
 
                 <div className='content' style={{ display: isOpen ? 'block' : 'none' }}>
                     <div className='content-container'>
-                        {/* <input placeholder='You dont have a place to stay yet!'></input> */}
-                        {/* <Search map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/> */}
 
-                        <ActivityContainer dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
-                        {/* <input placeholder='Add activities for your trip here'></input> */}
+                        <ActivityContainer owned={owned} passed={passed} dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
                         <Search index={index} itObj={itObj} setItObj={setItObj} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
-                        <button className='remove-day-bttn' onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>
+                        {!passed() && <button className='remove-day-bttn' onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>}
 
-                        {/* <div> */}
-                            
-                            {/* <div id='recommendations-section'>
-                                // <h5>Recommended places close to your hotel or latest activity</h5>
-                                <div id='recommended-activities-container'> */}
-                                    {/* Should iterate through recommended activities and run the info through the RecommendedActivityTile component */}
-                                    {/* {sampleActivities.map((sampleActivity, index) => (
-                                        <RecommendedActivityTile  key={index} sampleActivity={sampleActivity} index={index} />
-                                    ))} */}
-                                {/* </div> */}
-                            {/* </div> */}
-                        {/* </div> */}
                     </div>
                 </div>
             </div>
