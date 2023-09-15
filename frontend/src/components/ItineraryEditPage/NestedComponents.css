@@ -136,8 +136,15 @@
 }
 
 .activity-description {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     margin-left: 16px;
+    justify-content: center;
+}
+
+.activity-description h3 {
+    font-size: 16px;
 }
 
 .activity-description p {
