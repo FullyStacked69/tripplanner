@@ -29,7 +29,8 @@ const ItineraryEditPage = () => {
     const {itObj} = useSelector(state => state.itineraries)
     const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
-    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [allDaysOpen, setAllDaysOpen] = useState(false);
     
     const {searchObj} = useSelector(state => state)
     
@@ -40,6 +41,48 @@ const ItineraryEditPage = () => {
     const [deleted, setDeleted] = useState(false);
 
     const [category, setCategory] = useState("tourist_attraction");
+
+    // pagination code
+    const getItemsPerPage = () => {
+        const width = window.innerWidth;
+        
+        if (width <= 1040) {
+            return 3; // 3 items per page for <= 1040px
+        } else if (width <= 1301) {
+            return 6; // 6 items per page for <= 1301px
+        } else {
+            return 6; // default number of items per page
+        }
+    };    
+    
+    const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
+    const [currentPage, setCurrentPage] = useState(1);
+    const displayedActivities = googleActivities.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    
+    const nextPage = () => {
+        if (currentPage * itemsPerPage < googleActivities.length) {
+            setCurrentPage(prevPage => prevPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(prevPage => prevPage - 1);
+        }
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerPage(getItemsPerPage());
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);    
+    // pagination code end
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prev => !prev);
@@ -88,6 +131,7 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
+                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id: undefined})
                     } 
                 } else {
@@ -97,6 +141,7 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
+                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id:undefined})
                     } 
                 }
@@ -108,7 +153,9 @@ const ItineraryEditPage = () => {
         if(itineraryId === 'new' && itObj?.location && !itObj?.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
-        dispatch(setSearchObjRedux({}))
+        if(itObj.lat){
+            dispatch(setSearchObjRedux({}))
+        }
     }, [itObj])
 
     useEffect(() => {
@@ -116,7 +163,7 @@ const ItineraryEditPage = () => {
             // Fetch data from your backend which gets data from Google API
             axios.get(`/api/places/activities/${itObj.lat},${itObj.lng}?type=${category}`)
             .then(response => {
-                const sortedActivities = (response.data.results || []).sort((a, b) => b.rating - a.rating);  // Manual sort because 'rankby' parameter sort isn't accurate
+                const sortedActivities = (response.data.results || []).sort((a, b) => b.rating - a.rating).slice(0, 18); // Manual sort because 'rankby' parameter sort isn't accurate
                 setGoogleActivities(sortedActivities);
             })
             .catch(error => {
@@ -357,24 +404,29 @@ const ItineraryEditPage = () => {
                                 <option value="lodging">Accommodations</option>
                             </select>
                             <div id='popular-activities-container'>
-                                {googleActivities.map((activity, idx) => (
+                                {displayedActivities.map((activity, idx) => (
                                     <ExploreActivitiesTile key={idx} activity={{
                                         name: activity.name,
                                         url: activity.photos?.[0]?.photo_reference ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${activity.photos[0].photo_reference}&key=${process.env.REACT_APP_MAPS_API_KEY}` : missingImg
                                     }} />
                                 ))}
                             </div>
+                            <div className="pagination-controls">
+                                <button onClick={prevPage} disabled={currentPage === 1}>&#9664;</button>
+                                <span>Page {currentPage}</span>
+                                <button onClick={nextPage} disabled={currentPage * itemsPerPage >= googleActivities.length}>&#9654;</button>
+                            </div>
                         </div>
                     </div>
                     <div id='itinerary-container'>
                         <div id='itinerary-header'>
                             <h2>Itinerary</h2>   
-                            <a>Collapse All</a>
+                            <a onClick={() => setAllDaysOpen(!allDaysOpen)}>{allDaysOpen ? 'Collapse All' : 'Expand All'}</a>
                         </div>
                         <div id='itineary-days-container'>
                             {itObj.days && itObj.days.map((day, index) => (
                                 <>
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay}/>
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay} allDaysOpen={allDaysOpen}/>
                                 {/* <button>Remove this Day </button> */}
                                 </>
                                 ))}

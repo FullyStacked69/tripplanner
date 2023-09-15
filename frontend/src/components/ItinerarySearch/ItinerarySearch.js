@@ -16,7 +16,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     const buttonText = isMainPage ? "Start Planning" : "Search";
 
     useEffect(()=>{
-        dispatch(setSearchObjRedux({searching: false}))
+        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
     },[])
 
     const [searchObj, setSearchObj] = useState({
@@ -81,6 +81,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         return(
             <div 
                 onMouseDown={() => {
+                    console.log(loco, 'here')
                     setSearchObj({...searchObj, lat: loco.lat, lng: loco.lng, location: loco.name, country: (loco.country || loco.code)});
                     setSearchErrors(prev => ({...prev, location: ''})); // Reset the location error
                 }} 
@@ -139,7 +140,9 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     }, []);
 
     useEffect(()=> {
-        dispatch(setSearchObjRedux(searchObj))
+        if(searchObj.lat){
+            dispatch(setSearchObjRedux(searchObj))
+        }
     }, [searchObj])
     
     return(

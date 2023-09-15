@@ -5,19 +5,18 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay}) {
-    const [isOpen, setIsOpen] = useState(false);
+export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay, allDaysOpen}) {
+    const [isOpen, setIsOpen] = useState(allDaysOpen);
+
     const [hovered, setHovered] = useState();    
-    const sampleActivities = [
-        { image: "", name: "Test name 1" },
-        { image: "", name: "Test name 2"  },
-        { image: "", name: "Test name 3"  },
-        { image: "", name: "Test name 4"  },
-        { image: "", name: "Test name 5"  },
-    ]
     
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
+
+
+    useEffect(() => {
+        setIsOpen(allDaysOpen);
+    }, [allDaysOpen]);
     
     const date = () => {
         let date = new Date(itObj.startDate)
@@ -59,7 +58,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                         <ActivityContainer dayIdx={index} itObj={itObj} setItObj={setItObj} info={info} setInfo={setInfo} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} activities={activities} setActivities={setActivities}/>
                         {/* <input placeholder='Add activities for your trip here'></input> */}
                         <Search index={index} itObj={itObj} setItObj={setItObj} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setInfo={setInfo} activities={activities} setActivities={setActivities}/>
-                        <button onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>
+                        <button className='remove-day-bttn' onClick={(e) => deleteDay(index, e)}> Remove Day {index + 1} </button>
 
                         {/* <div> */}
                             

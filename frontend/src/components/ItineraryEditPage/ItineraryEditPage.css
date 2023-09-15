@@ -103,6 +103,48 @@
     color: white;
 }
 
+#activity-list {
+    position: relative; /* makes this div the reference for any absolute positioned child */
+}
+
+#activity-list select {
+    position: absolute;
+    top: 0px; /* adjust as necessary */
+    right: 10px; /* distance from the right edge */
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    color: #1D3557;
+    padding: 4px;
+    cursor: pointer;
+}
+
+/* top places section */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.pagination-controls button {
+    background: none;
+    color: #457B9D
+}
+
+.pagination-controls button:hover {
+    box-shadow: none;
+}
+
+.pagination-controls button:disabled {
+    color: #E7E7E7;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    color: #1D3557;
+}
+/* top places section end*/
+
 #itinerary-container {
     padding: 32px;
 }
@@ -114,6 +156,12 @@
 
 #itinerary-header a {
     margin-top: auto;
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+
+#itinerary-header a:hover {
+    text-decoration: underline;
 }
 
 /* Itinerary List Styling */
@@ -164,21 +212,6 @@
     height: 100vh ;
     min-width: 400px;
     flex: 1;
-}
-
-.activity-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.comment-holder {
-    position: relative;
-}
-
-.remove-comment-button {
-    position: absolute;
-    right: 5%;
-    top: calc(50% - 14px);
 }
 
 .title-date-container h1{

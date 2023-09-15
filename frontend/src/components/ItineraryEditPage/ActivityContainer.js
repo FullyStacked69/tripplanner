@@ -60,31 +60,44 @@ export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIs
         setItObj(newItObj)
     }
 
-    const handleInfoWin = (id) => {
-        setInfoIsOpen(id)
-    }
-
-    console.log('1', infoIsOpen)
+    function handleTextareaChange(e, dayIdx, idx) {
+        e.target.style.height = 'auto';
+        e.target.style.height = e.target.scrollHeight + 'px';
+    
+        setComment(dayIdx, idx, e.target.value);
+    }     
     
     return (
-        <div className='activity-container'>
+        <div className='activities-container'>
             {(itObj.days[dayIdx]?.activities || []).map((activity, idx) => (
-                <div key={idx}>
-                    <h4>{idx+1}</h4>
-                    { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} onClick={() => setInfoIsOpen(activity.place_id)}/>}
-                    <div className='activity-description'>{activity?.name ?  "" : "Activity Info"}</div>
-                        <form>
-                            <h3>{activity?.name}</h3>
-                            <h3>{activity?.place_id}</h3>
-                            <p>{activity?.formatted_address}</p>
-                            <p>{activity?.formatted_phone_number}</p>
-                            {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
-                            <div className='comment-holder'>
-                                <input placeholder='comments' value={itObj.days[dayIdx].activities[idx].comment} onChange={(e)=>setComment(dayIdx, idx, e.target.value)} />
-                                {itObj.days[dayIdx].activities[idx].comment && <button className='remove-comment-button' onClick={(e)=> setComment(dayIdx, idx, "", e)}>X</button>}
+                <div key={idx} className='activity-container'>
+                    <div>
+                        <h4>{idx+1}</h4>
+                    </div>
+                    <div className='activity-content'>
+                        <div className='activity-google-data'>
+                            <div className='img-container'>
+                                { activity?.name && <img src={activity?.imageUrl}/>}
+
                             </div>
-                            {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete </button>}
-                        </form>
+                                <div className='activity-description'>
+                                    <h3>{activity?.name}</h3>
+                                    <p>{activity?.formatted_address}</p>
+                                    <p>{activity?.formatted_phone_number}</p>
+                                    {activity?.rating && <p>Rating: {activity?.rating}({activity?.user_ratings_total})</p>}
+                                    {activity?.name && <button onClick={(e) => clear(idx, e)}> Delete Activity</button>}
+                                </div>
+                        </div>
+                        <div className='comment-holder'>
+                            <textarea 
+                                placeholder='Add any activity notes here' 
+                                onChange={(e) => handleTextareaChange(e, dayIdx, idx)} 
+                                style={{overflowY: 'hidden'}} 
+                                value={itObj.days[dayIdx].activities[idx].comment} 
+                            />
+                            {itObj.days[dayIdx].activities[idx].comment && <button className='remove-comment-button' onClick={(e)=> setComment(dayIdx, idx, "", e)}>Clear note</button>}
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
