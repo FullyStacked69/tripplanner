@@ -68,7 +68,13 @@ const insertSeeds = async () => {
 
       name: 'Safari Quads ATV & Buggy Operator Iceland',
       lat: 64.1366114390312,
-      lng: -21.734277847725043
+      lng: -21.734277847725043,
+      formatted_address: "Lambhagavegur 19, 113 Reykjavík, Iceland",
+      formatted_phone_number: "821 1311",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhpyr9iLigfSrk9stXFZEEn1mq3BS_z_QXjatyVExuwJUiKV1X363Zgfats-ngqJLgFWTAJzK33ztR5cQjWyLMry8lfl0XxUhTR10-8TRUWEqHy3ZmxB0D9NigHH5awOgi44XxPUdGmQj_Occ66B03kyFH0vf4ZBEZKyBmViokwRRGs&3u2016&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=91287`,
+      place_id: "ChIJd425GvRz1kgRz_ZUK4TA5qk",
+      rating: 4.8,
+      user_ratings_total: 327
 
     });
     activities.push(act1);
@@ -77,7 +83,13 @@ const insertSeeds = async () => {
       name: 'Blue Lagoon',
 
       lat: 64.128288,
-      lng: -21.827774
+      lng: -21.827774,
+      formatted_address: "Blue Lagoon, 241, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziSSwC_Ct83xBL_cbKCVlmqCwHS-LwPsCiXCx31MBazoBorWGjlhsL0PjfqSNv7_Jkq6wpcdVNVJ8uaLXGGIJR87wDe07Sg-TH0PqLWp7gV1mQUL9SxcHCgmzM_JPFzw5nvgZoiNhZ9yb7CVyF7I62Z3ZW43L_VFRDVuBSsGvxHSWsH&3u1600&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=103358`,
+      place_id: "ChIJf4qXa3Yd1kgRlA_4HspV5cQ",
+      rating: 4.5,
+      user_ratings_total: 1843
 
     });
     activities.push(act2);
@@ -86,7 +98,13 @@ const insertSeeds = async () => {
 
       name: 'Reykjavik Sightseeing',
       lat: 64.13443106229444,
-      lng: -21.91916458067354
+      lng: -21.91916458067354,
+      formatted_address: "Skógarhlíð 10, 105 Reykjavík, Iceland",
+      formatted_phone_number: "497 5000",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj8BiLjdGnvCxg3yzrBP45nhdWd8oA0_SIfPh_SQ_fNXh93RrsZTpmiO_kqNU2YD7i5jbK6if3GOYrplPbTpjCjXVftWNMdfd-9I4z5mTdm3Ooqv8spC0hsxi0n6fjnoicHywmuOAtnDG9RNnzdu3YEDyESnKGYhag-1RqhHGn7p5Bp&3u6000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=109355`,
+      place_id: "ChIJPdb67yoL1kgR5NuIQ_Ri3bw",
+      rating: 4.1,
+      user_ratings_total: 234
 
     });
     activities.push(act3);
@@ -94,8 +112,14 @@ const insertSeeds = async () => {
     const act4 = new Activity({
 
       name: 'Glaciers and waterfalls',
-      lat: 64.19008519033784,
-      lng: -21.839727981024378
+      lat: 64.15690252083034, 
+      lng: -21.95115656165187,
+      formatted_address: "Fiskislóð 31, 101 Reykjavík, Iceland",
+      formatted_phone_number: "567 3000",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi-FCGnMAsLKR5IdGY0Q0axcWKPU71pLnu_SNvBI-IreA8Vg3z_e5nwrWIHXWfIqIP5LGsvr7lEQCWog0j6dZgT2Qrmcm8pTQxo1EBw14fVvgkP0j5f2nKo2ahWO4zlQfVmHskGuopYsxMg-aJkRguNKeKxh0l4DUd74LZiNDsG1U2I&3u3968&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=88534`,
+      place_id: "ChIJbXut6MkN1kgR3nyrKLgLrBY",
+      rating: 4.8,
+      user_ratings_total: 6
 
     });
     activities.push(act4);
@@ -104,7 +128,13 @@ const insertSeeds = async () => {
 
       name: 'Caves of Hella',
       lat: 63.90658366959228,
-      lng: -20.376301317880845
+      lng: -20.376301317880845,
+      formatted_address: "851 Hella, Iceland",
+      formatted_phone_number: "620 6100",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjZlL1xXhgvCfShgE7Zk0Ttt_hRrUyZbRDLXiVyptg86VEK1LCoOjNRj05n7RtrnI14Qmepj2Ei9nKhiZTpsQXg8Fb3MRv834iJovrzxZYtF3LR7dBaiJtRXeovnpViO183Q5dRsTZYlO8xXwod3mNHyt6p3pkNE0BSV4oYrskzBBwq&3u7952&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=71943`,
+      place_id: "ChIJWV_k51jl1kgR2lRFfK837Lg",
+      rating: 4.7,
+      user_ratings_total: 338
 
     });
     activities.push(act5);
@@ -113,7 +143,13 @@ const insertSeeds = async () => {
 
       name: 'Elding Whale Watching',
       lat: 64.20918504799032, 
-      lng: -21.95440367413761
+      lng: -21.95440367413761,
+      formatted_address: "Ægisgarður 5c, 101 Reykjavík, Iceland",
+      formatted_phone_number: "519 5000",
+      imageUrl:  `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhXZTvNAbbVxr1QsgAK1EW8kFEUPV57pT7tQSNYK6rXU8Gv-YAk4LsmPSWaq7kPUNY7AXDOJ1BB78WwyIPayfW7H40Wf8aJoZh7dhMhG2Sq39q1lqDkJ3kLhfeGOvv4C5kmvQaiSrPgU7XSIHt-8SmPHKAPFi8Q3fsona3cChZn_KN9&3u2048&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=70387`,
+      place_id: "ChIJp6N8PywL1kgR7n-BtFpE8L4",
+      rating: 4.4,
+      user_ratings_total: 1395
 
     });
     activities.push(act6);
@@ -122,16 +158,28 @@ const insertSeeds = async () => {
 
       name: 'Hot Springs',
       lat: 64.013717511211,
-      lng: -21.18322054274239
+      lng: -21.18322054274239,
+      formatted_address: "2R69+C7F, 816 Hveragerði, Iceland",
+formatted_phone_number: undefined,
+imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zii9J3olRoXpLj3KAXBqyDlwvJfMdPsW1BoIQgjJc08IX5on05Oyls4MeB_xbexzPjeldymwDrs18C-lCw0AeTU8O1hSL-tUqLsZjDiHbCuLD-8D32ecQf_gZ_Gd1FClTRrvIkwPNsrPeqKD91BVeMzq2TnID0G9jV_w4UkWnjNIt-r&3u4000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=49385`,
+place_id: "ChIJg6rq3Uxh1kgRAfQP55veX8I",
+rating: 4.8,
+user_ratings_total: 96
 
     });
     activities.push(act7);
 
     const act8 = new Activity({
 
-      name: 'Kerið',
+      name: 'Kerid Crater',
       lat: 64.08685999528122,
-      lng: -20.864929418735038
+      lng: -20.864929418735038,
+      formatted_address: "24R7+GW9, 805 Klausturholar, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgPRnoyGafDB2eciRBPqyvus4GCAs2XePC5ZL2CRONDhsOcGrDspbodg_4G4X06X52qtEq4uIeaPmK2FQzJgqIY2fJ2b2ZORZlqttetrWyHAgA4-18mmrHSIE262xDtqWVmZI0ID2-e-AnsJg3FKG42ZVsmx44GQGr9_h_zhykf5rI_&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=1515`,
+      place_id: "ChIJV_L2VbeL1kgRB9kuweBEWlE",
+      rating: 4.5,
+      user_ratings_total: 12458
 
     });
     activities.push(act8);
@@ -140,7 +188,13 @@ const insertSeeds = async () => {
 
       name: 'Katla Ice Cave',
       lat: 63.610221367965956,
-      lng: -18.868951206864445
+      lng: -18.868951206864445,
+      formatted_address: "871, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziwRHGmZgu9FkXIZymh4KZKJIBc8F3TwoqWKxjJx6VwkGRCig-yo1rm980tU-AcP7tL0BeFKYFGCMXNFTDPhktJRrHu6qo6I_ehTwkfjRd3G9Icf3HUUgkeVUwEoIZzO1mCJ3wWyBjX86Ov_Nb5xIa6xZv8nTW4U4L6oyrRwi6OrZCd&3u3024&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=112595`,
+      place_id: "ChIJry1JuzXL0EgR9yMTL0QVgZ8",
+      rating: 4.7,
+      user_ratings_total: 222
 
     });
     activities.push(act9);
@@ -149,7 +203,13 @@ const insertSeeds = async () => {
 
       name: 'Tröll Expeditions Crystal Blue Ice Cave',
       lat: 64.21143730587931,
-      lng: -16.01813626331551
+      lng: -16.01813626331551,
+      formatted_address:  "Glacier Lagoon, 781 Jökulsárlón, Iceland",
+      formatted_phone_number: "519 5544",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziVYeGoJTGeKP77YU-RuX301XdnfEbi68NInYiMLJ1fruSyuysBd6XCTkHEFhtNDtK9t80JiNRk7p93LGRCsZ1xYWIWcreiDici98XH85DEM6onROw0uhWiotvMRQshq37m8WPaGtEZv0OPzwRQrvIVQWVgUWzD3wca9H-HcMuk5qEO&3u2000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=38574`,
+      place_id: "ChIJtzlCKiXXz0gRfkWBOF6aEx8",
+      rating: 4.4,
+      user_ratings_total: 58
 
     });
     activities.push(act10);
@@ -158,7 +218,13 @@ const insertSeeds = async () => {
 
       name: 'Víkurfjara black sand beach',
       lat: 63.46072741307987,
-      lng: -19.001838234868238
+      lng: -19.001838234868238,
+      formatted_address: "CX7Q+PR4, Vik, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziEMCn9sLvEloPXSfIgEonaZAZhRrfwqRfO2cd0OnePKmWmVl5L1pnUkwtmq0-i2otleG7GWr-KiUlBApy9whMlaznvDfRDkPbQOMa2_b9D-bfztOwo5F5vroLSlM6xOFcIvWGHkrZfUMrRWs2HC7ApSoJZ9YbneSZ2imj0tKWB0IAe&3u3468&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=64720`,
+      place_id: "ChIJkfGf2zBK10gRmC1j9msDIDk",
+      rating: 4.8,
+      user_ratings_total: 1458
 
     });
     activities.push(act11);
@@ -167,7 +233,13 @@ const insertSeeds = async () => {
 
       name: 'Aurora Cabins Höfn Iceland',
       lat: 64.48036916597164,
-      lng: -15.014822516253794
+      lng: -15.014822516253794,
+      formatted_address: "Hafnavegur, 780 Höfn í Hornafirði, Iceland",
+      formatted_phone_number: "848 0760",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhVLmTjmt2xcdBfhsaSadd9uJvaDRX8YD4wKUuuZEBN-jfq998MiH7HQOmdXjZc2Un_6dlSUBHvdFfIogvnF_c0uv1odonEmV-aZsXsvWAWNQKLNTfGRcuZSyETiJerQhLh319G_wp0TdhR6akrgQjfZX1IOWh1xfhzF8suSpkbpzh-&3u5616&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=71021`,
+      place_id: "ChIJo1jie-Wtz0gRITvnUpfd7bg",
+      rating: 4.7,
+      user_ratings_total: 73
 
     });
     activities.push(act12);
@@ -176,7 +248,13 @@ const insertSeeds = async () => {
 
       name: 'Fáskrúðsfjörður',
       lat: 64.94804633330382,
-      lng: -13.862774587655506
+      lng: -13.862774587655506,
+      formatted_address: "Fáskrúðsfjörður, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgO5VqeBNKP1MlEnUm7S_oo0itYf-cnYLPE8_8GcuRWEgdhkqRjYAH0Iw_TtddZOtF7orKeRSzHUks2Kfh1L9ZqxauT5Fnf6eA5fdR6W0CEsrSBt7rUKj8H44CnokyDiOLfzPjK8OBxmvAY9khiP9YkdFh1z6s2qMeJqjhDuqRu3Koa&3u1068&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=85703`,
+      place_id: "ChIJf62XlZCzzkgRJRmAQZ419x0",
+      rating: undefined,
+      user_ratings_total: undefined
 
     });
     activities.push(act13);
@@ -185,7 +263,13 @@ const insertSeeds = async () => {
 
       name: 'Svartifoss',
       lat: 64.21810789742759,
-      lng: -16.826658713042253
+      lng: -16.826658713042253,
+      formatted_address: "785, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg7X1xEg4oxkVRqIs-6P8PkFSO5idBqMSWcU6FTA3u8xEIHq9jy6ZpLdQRKXqFRvUYKv1ZRAh-KbS1k5OxA9Jwcss9ZQGKtCfhY6yi_9gnp4qoVhjilb971fow41i8RqW8IqjdVC2AmVtVnMuVq60CZDVlF8Srzc6i_lvR3FkGuQQtb&3u12000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=12133`,
+      place_id: "ChIJV6KJ4M810EgR11NlQqEPJ-M",
+      rating: 4.7,
+      user_ratings_total: 3510
 
     });
     activities.push(act14);
@@ -194,7 +278,13 @@ const insertSeeds = async () => {
 
       name: 'Gljufrafoss',
       lat: 63.67778222042846,
-      lng: -19.947505672890117
+      lng: -19.947505672890117,
+      formatted_address: "Þórsmerkurvegur, 861, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhgJyFg_vrdhIba_3nYqHzSJWiGhLXJidDXwO6ompySiLorrFRRB5pA6AEwHzlvuwraVOL-X1hrczL7H0QHYx2DMFcggMcORzqypzSlapBgDIjTGOUZv6r_BbhoYsIvJSNj9LmD_CKVOBON1q-qvyv-fA91C7fgkV7c0hAmoabIM8DP&3u6000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=74550`,
+      place_id: "ChIJF7NTFbAe10gRLl8U7LZVapY",
+      rating: 4.8,
+      user_ratings_total: 3653
 
     });
     activities.push(act15);
@@ -203,7 +293,13 @@ const insertSeeds = async () => {
 
       name: 'Reykjavík Art Museum Kjarvalsstaðir',
       lat: 64.1447205888434,
-      lng: -21.914481683237195
+      lng: -21.914481683237195,
+      formatted_address: "Flókagata 24, 105 Reykjavík, Iceland",
+      formatted_phone_number: "411 6420",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zj76ha_NrFCMRpbeGdjBEfEInbh7E5T3Jm1IQU19YXhnmJsHT-3fhnai7Nrf-wTVc8C-IRULhKA9_6VqUHP6-DcXFYymsGDndfiAP5aJ2usG-O2l_ylxT_oqNnFBFBQIj0ZQBT8q4pGFbT4aixb4f2sjGxoStiKl3KBPMHGp8HAJs0&3u2048&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=120260`,
+      place_id: "ChIJ5yA1Acp01kgRzj7Wfubwodg",
+      rating: 4.4,
+      user_ratings_total: 349
 
     });
     activities.push(act16);
@@ -212,7 +308,13 @@ const insertSeeds = async () => {
 
       name: 'Austurvöllur',
       lat: 64.14931889509741,
-      lng: -21.939739454264675
+      lng: -21.939739454264675,
+      formatted_address: "Pósthússtræti 101, 101 Reykjavík, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgs-8vrJe3L88rW8JD7yp3V4a89TDr2R6XHIZVLOt7YDTbgF9JPTQ4g49Sm22vVK3WQ3BtGcW17aeATnTbLA2y3aGDAGty64cQX5ne6QArk_HajeA6ekzBlHyUrnqCSRYCHC4LABbCWI3Ri2Oamm0sFr3QdCeZ1SwrAVU3INqAbT32k&3u4000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=60623`,
+      place_id: "ChIJBe7xLooL1kgRvUoMo6rQZSs",
+      rating: 4.6,
+      user_ratings_total: 71
 
 
     });
@@ -222,7 +324,13 @@ const insertSeeds = async () => {
 
       name: 'Grábrók',
       lat: 64.89479978179192,
-      lng: -21.502061338456897
+      lng: -21.502061338456897,
+      formatted_address: "Grábrók, 311, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgfmCGQTxcZPCv1Vdqs_3Lgr07VfDkAWaLKTyMs7KRjrVPpKSe2IhwdMIda3ChiKMR2fXixriy4MAjXK0rk7EfCn0TU1wCHykgejhMx_Ad8yBUNhoFIlipTRTXowgAGlVIZmk3UGzjMUl--vcH2SpSG87uSRFoESNCF1c8mFPnBXWHP&3u4898&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=51878`,
+      place_id: "ChIJ-ZvTYfhL1EgRpc63zj6ROTo",
+      rating: 4.4,
+      user_ratings_total: 90
 
     });
     activities.push(act18);
@@ -231,7 +339,13 @@ const insertSeeds = async () => {
 
       name: 'Vatnajökull National Park',
       lat: 64.95555643850561,
-      lng: -17.080392723990844
+      lng: -17.080392723990844,
+      formatted_address: "Klapparstígur 25, 101 27, Iceland",
+      formatted_phone_number: "575 8400",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjuM8eMhTVPIgEOa2uDNfPvItdx21B4YO0gqZFbcJQc3aY6fU7QKx5Hp846lAnobia9AOPOKJ8kkcrudqwiOJWkq3txCNI_Ue2dUiXeooivdyVjJq7XHpUn_8mZ8baUb0FKhMBZxbkcX0lYUW9fheN3ejfhOstN1oSRDKoCmbwCx5EH&3u4000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=3350`,
+      place_id: "ChIJjTVUjOjb0UgRe0RrLdppmI0",
+      rating: 4.7,
+      user_ratings_total: 4857
 
     });
     activities.push(act19);
@@ -240,7 +354,13 @@ const insertSeeds = async () => {
 
       name: 'Kolugljúfur Canyon',
       lat: 65.5937066895629,
-      lng: -20.561056506361854
+      lng: -20.561056506361854,
+      formatted_address: "8CMH+9F4, 531 Víðidalstunga, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgZn-8zXOMFylRXXscsMiyCByDdBf6rY9zAI0n_Zha1wADMVWh0tOYf06beXM_teq70CcBBGYk0sR5gNeBEiKafuYpNbbSBeiOR4PqERHabAGSmWRTtFOIPc7Xie4MIqiJxGKFPns7Jp4M188GEedAECIW9fEh_XkYQdJm4GJCaKlzm&3u3024&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=67547`,
+      place_id: "ChIJSV7Nt8F900gRLkWlCIWvklg",
+      rating: 4.7,
+      user_ratings_total: 1170
 
     });
     activities.push(act20);
@@ -249,16 +369,28 @@ const insertSeeds = async () => {
 
       name: 'Gýgjarfoss waterfall',
       lat: 64.90047210503278,
-      lng: - 19.183399247536926
+      lng: - 19.183399247536926,
+      formatted_address: "F347, 806, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgSsMVs3EvNv79F_Ivq0S1-TvcHGu4dCIipmANmEIpFQ0IfivV_mLvAlAkLsBVnxmQUUXHpyT-DfabyzmvlCAobufVQRwOTn7dhXQSzV_1YF2Al_mRQRfYpXq4-3_TyuTxEq2fwZKHQ6DIUU6Pg-2qWJ4EDEeWbWG2rC54yE49qIPPP&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=62757`,
+      place_id: "ChIJga6p6qHm00gRjLJ8nZJjJ5U",
+      rating: 4.6,
+      user_ratings_total: 72
 
     });
     activities.push(act21);
 
     const act22 = new Activity({
 
-      name: 'Þingvellir',
+      name: 'Thingvellir National Park',
       lat: 64.36335392212345,
-      lng: -20.727854716684746
+      lng: -20.727854716684746,
+      formatted_address: "806 Selfoss, Iceland",
+      formatted_phone_number: "488 1800",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjC-LEnFBdUaTmkJv7cxjh-Brlc9ABpdBznNT_JKitZbDyf6WLNyAMgorOQNgSt-_JqHIC0Od3I0ahFfcFqlViySVOu4dIcdpXpdqMepqdtTuldTHusCIo3ZQqGma3n-1vaT_yPvWHogWqnmwvGoI_rYCTG0OHCky9gti62jmqawBKD&3u12000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=68722`,
+      place_id: "ChIJe2kT-x-B1kgR8mKSB4tsdWs",
+      rating: 4.7,
+      user_ratings_total: 19710
 
     });
     activities.push(act22);
@@ -267,7 +399,13 @@ const insertSeeds = async () => {
 
       name: 'Skyrland',
       lat: 63.98301249336951,
-      lng: -20.980513974200697
+      lng: -20.980513974200697,
+      formatted_address: "Eyravegur 1, 800 Selfoss, Iceland",
+      formatted_phone_number: "454 0800",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziIR2O4-cHjmJxkuEgOTRyEyDdntIMocQBsXe7teblXCHsCUUqHmKtC0-pMgEaFM_grWdSmt9yRKmO8yqQVswpRsclDdmEpxgpu8IAaghdXVg9P_iuWLduT5Ko6sNwC_EtwhldNUbdTDq4IZ2eLwo6LYvZbjiFofDHprlt1MT2Lzk1c&3u2000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=108058`,
+      place_id: "ChIJl2qzuyFz1kgR-3tsgCkykHk",
+      rating: 4.7,
+      user_ratings_total: 49
 
     });
     activities.push(act23);
@@ -276,7 +414,13 @@ const insertSeeds = async () => {
 
       name: 'Raufarhólshellir',
       lat: 63.97513057633901,
-      lng: -21.384358172260587
+      lng: -21.384358172260587,
+      formatted_address: "816, Iceland",
+      formatted_phone_number: "760 1000",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjj5TEUSXOfFulew9BoaXTafitI5An5GSJNeABEbcEAFlUqxKiipubmJ4ZDFqcm2OS7NqRMc7MuYL-dtUTYZ4I84UcVH_9KvBhT-oA8tnrjyq2HK73MADeakjdq3zyuAiCvsAE4WXQMr8Cn7nPTKmnujKXYtpUmqiZ7L0FPh5sj_iYK&3u4928&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=13045`,
+      place_id: "ChIJuZsNdWpo1kgReBsAgoXUz5M",
+      rating: 4.5,
+      user_ratings_total: 2386
 
     });
     activities.push(act24);
@@ -285,7 +429,13 @@ const insertSeeds = async () => {
 
       name: 'Árbær Open Air Museum',
       lat: 64.12909539882304,
-      lng: -21.741643405715724
+      lng: -21.741643405715724,
+      formatted_address:  "4, 110, Kistuhylur, 110 Reykjavík, Iceland",
+      formatted_phone_number: "411 6320",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjx4tMMY4qqU5lMpMN-fI7qDH7UsaJ7BpfWAGHYPrsX5zhElFK3Tiz3w1Mlb_5nAAVINN6Mu7rQyGZD79Q8ByXfIldh95Qhjmg1pehC1FCmGp54F9pcMMX5JLSjA6HQ_D6VKQWiWBjZjhH_JkYwLikCa410ZnnbsjiiuahXbVupb6qk&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=109026`,
+      place_id: "ChIJrU_8yntz1kgR5kiYKmovBJg",
+      rating: 4.6,
+      user_ratings_total: 828
 
     });
     activities.push(act25);
@@ -294,7 +444,13 @@ const insertSeeds = async () => {
 
       name: 'Langistígur',
       lat: 64.28973184037633,
-      lng: -21.122496772603704
+      lng: -21.122496772603704,
+      formatted_address: "Unnamed Road, 7VCR+F56, 806 Thingvellir, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjEXA-SDqgGN7U7tF6BRo6KpQtvJ3OUtZaPyfeuiXRrbAppbYHxHcTeY1l25ZsiXnwf7dlQqpRDWMTq_J_3imcUme4tWJTsAlI8OkxhgkHE3TaOue830gePBSLxh_FXYl-CvsBuqjaZnkPRjOXsxez77LB5F9a6jY2OIJYWNRph0OUg&3u3024&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=26576`,
+      place_id: "ChIJp_SDRQWB1kgRNBDV7MSSSR8",
+      rating: 4.7,
+      user_ratings_total: 129
 
     });
     activities.push(act26);
@@ -303,7 +459,13 @@ const insertSeeds = async () => {
 
       name: 'Brúarárfoss',
       lat: 64.29413783945911,
-      lng: -20.538645806645576
+      lng: -20.538645806645576,
+      formatted_address: "Hlauptunga, 806 Bláskógabyggð, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi828MCJw0eOlHeCXMy8EOSO4MRUza9icHpOHZs1k1eq2aK-2LGmBV2gbgvQ4ou_buA5kWZRTXVaafLHU1ICS5m6Sgh1zOAwmqEs3ozF72k5U_-Kng0atArIMa3j8KFd8sFf5kPzVF_79lbQfKaEsorJ4isv6kh8Tn5tYXdll0UWMoL&3u6000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=5880`,
+      place_id: "ChIJ6cRQKbSZ1kgRgcrK-RjqESY",
+      rating: 4.8,
+      user_ratings_total: 1700
 
     });
     activities.push(act27);
@@ -312,7 +474,13 @@ const insertSeeds = async () => {
 
       name: 'Zipline Akureyri',
       lat: 65.68901173490445,
-      lng: -18.126004812470704
+      lng: -18.126004812470704,
+      formatted_address: "Þingvallastræti 50, 600 Akureyri, Iceland",
+      formatted_phone_number: "497 1947",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh0DnT9cM5-yxwNHMr3_HAQmvkIvz9-469Go7KkEw1QDutmfKkHz6diAzjugsQ5tvWibrf-JKFIqXmqGkpkpi_VBCtaIScioP5KSH8pendQ8M0jWIGUDgPqLXNoIqPsZvPhwtgPhnJF5vPZVD9x_ohjnu5tiC4E81urq6KkoCpQcJmc&3u1600&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=2461`,
+      place_id: "ChIJ78eHFqKP0kgRcoK8bMEQcYA",
+      rating: 4.8,
+      user_ratings_total: 51
 
     });
     activities.push(act28);
@@ -321,7 +489,13 @@ const insertSeeds = async () => {
 
       name: 'Stuðlagil Walk Inside Canyon',
       lat: 65.2855391074864,
-      lng: -15.289674962802106
+      lng: -15.289674962802106,
+      formatted_address: "5M6Q+HP, 701 Eiriksstadhir, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg3cjQKmIehNqe6t4Q4_F-ijAv-6jOs_FJj0VZj5YtIsJ09XirvweTgbcx_LM1P2m48CWpIIUvGKn49fTt3RAfr9yHCAr6UIVUHd0MXq300kLGzxzfdAKYBhwOnZrZmmA5ap7SsxJdDsG70tQlSq6ZPYUqzZblSHh2fA4E94hCd9bwq&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=65631`,
+      place_id: "ChIJd7rLAfYpzEgR34_8axXpsF0",
+      rating: 4.8,
+      user_ratings_total: 83
 
     });
     activities.push(act29);
@@ -330,7 +504,13 @@ const insertSeeds = async () => {
 
       name: 'Tófufoss',
       lat: 65.11956577789365,
-      lng: -14.93111475958036
+      lng: -14.93111475958036,
+      formatted_address: "Fljótsdalsvegur, 701, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zje88TKiNTQxUogQq33GQqmputAHMr39JJZ3kP66n_ruM6cx2figYRA8cESoMbOf8HAn31IlrptAqNYX2wlDshnCpFh8Dh8ig1WgIi5wW6Ke-iAs2l5PcOmhu-ESEa8elXkTvXpeko7PN7XHJLcDBnhZmHKlJji_HAevK_naxFBCPpX&3u1024&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=10439`,
+      place_id: "ChIJtfygR-WdzkgROwtaHnRTkK4",
+      rating: 4.8,
+      user_ratings_total: 12
 
     });
     activities.push(act30);
@@ -339,7 +519,14 @@ const insertSeeds = async () => {
 
       name: 'Kirkjufoss',
       lat: 64.95323632058312,
-      lng: -15.343181314935618
+      lng: -15.343181314935618,
+      formatted_address: "701, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zh181nQ858_Ec-EShkKjKITpqx1WAq8w1STKk1O3JPNjhXA7Ezn9pqnUDnUlvjdeGv8VELF4AG3SqNwadWfr8QrpTmOtxRJ2pLXmaACogdL-SINSe2Am4dI0PI0Stkd7CBfqgYW-uCk5jMVtMkmjT7m2WoBrs12Dv92bi8883FNfaZp&3u8256&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=82130`,
+      place_id: "ChIJ17pfrrGJzkgRrE7D3TLJqbI",
+      rating: 4.6,
+      user_ratings_total: 11
+
 
     });
     activities.push(act31);
@@ -348,7 +535,13 @@ const insertSeeds = async () => {
 
       name: 'Stútur crater',
       lat: 64.05506194594984,
-      lng: -19.037988736786644
+      lng: -19.037988736786644,
+      formatted_address: "Fjallabaksleið Nyrðri, 851, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziXSWoq5WxvIqtgRMMQkU8TJXeX3dAYu24DAOwETJLcq-XzayTJC7aTDPccBh-LGe44YvEkJKbdR3WKMawdIoPRjnyYkmtkrfqC50an6etZBFt60-lXi2eUIWN4oHbjSbqE0hC8U8IcpXFQH7sKeN5yFxsFnALix-wJhNLn8rn93irn&3u3997&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=65515`,
+      place_id: "ChIJPYH5QgIv0UgRMs9l0eRmSL0",
+      rating: 4.7,
+      user_ratings_total: 25
 
     });
     activities.push(act32);
@@ -357,7 +550,13 @@ const insertSeeds = async () => {
 
       name: 'Fossabrekkur',
       lat: 64.09672015249595,
-      lng: -19.750057686423208
+      lng: -19.750057686423208,
+      formatted_address: "Fossabrekkur, 531, Iceland",
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zisoW15p1fLncoxCX2VSe6meV-3ciexvRt-9Dvq1jjVSgHUi8EUBGCyu_IZwobqmKb7GPPsgjXrFDcW95a38rql5M4w4mTQ3Ip5g9L9FnMu5cOMfcK-14Mduz3WJotnJQSGeJPnRtYOh4Eax4RK-fr4hWUKnhoB7WfJkrzeyJ2ULqZA&3u2048&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=41940`,
+      place_id: "ChIJy1lvgG-I00gRYTdrOlUV0BQ",
+      rating: 4,
+      user_ratings_total: 2
 
     });
     activities.push(act33);
@@ -366,7 +565,13 @@ const insertSeeds = async () => {
 
       name: 'Caves of Hella',
       lat: 63.850263162986295,
-      lng: -20.41409138361503
+      lng: -20.41409138361503,
+      formatted_address: "851 Hella, Iceland",
+      formatted_phone_number: "620 6100",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zilWMxAT8wyhKdiDLc35UDJS6aKzt7IYIt36IA8ZDK4HFZl_rbM7Efdy-TcqaF51e9iM3w-plxfqMDvr6wmkUdQdRJbnc2bJELVNul67rulIghMg7N60D74cI6PQmCNyBou0EKFDyQG_2QVxxZfFBMCeIDw13jvWFWvwvnDD3Ke5pXW&3u7952&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=110464`,
+      place_id: "ChIJWV_k51jl1kgR2lRFfK837Lg",
+      rating: 4.7,
+      user_ratings_total: 338
 
     });
     activities.push(act34);
@@ -375,7 +580,13 @@ const insertSeeds = async () => {
 
       name: 'Lava Show',
       lat: 64.15833701929431,
-      lng: -21.9422585366455
+      lng: -21.9422585366455,
+      formatted_address: "Fiskislóð 73, 101 Reykjavík, Iceland",
+      formatted_phone_number: "553 0005",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgHTtBe5DA7-UrDDNPPr2G206UoRP0jpXd-IU-d-mFsgDKwWVgrDfElBcmBeIr3SUWeUlhEnm9LNEfKahQs16Evh_UJvYmEYTIR1mDRKNHEYK1Fna0yBcull632oe4yAuXGj0hW7ktRVJGp8V4wSAFaFZOJDQX54NutHYJFZYKQiMbo&3u1920&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=111335`,
+      place_id: "ChIJLV7eGn111kgRTwZyYKAdtmk",
+      rating: 4.8,
+      user_ratings_total: 577
 
     });
     activities.push(act35);
@@ -384,7 +595,13 @@ const insertSeeds = async () => {
 
       name: 'Seltjörn',
       lat: 64.15952008281398,
-      lng: -22.01709755951638
+      lng: -22.01709755951638,
+      formatted_address: "5X5M+53F, 170 Seltjarnarnes, Iceland",
+      formatted_phone_number: "595 9100",
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi3oWVNJFLwy9XG67UsDXTaG8LB8_VRGHP0lvv9atAJ6oDN_5TBMj8lMGjUzpjgoycl4PieXvzPhThsE-IWFRYbnLjlQeSEkz1IqlWLnHohbCdAiNqeRc-srsQ8X6yTuhwOOcZYZT8p6oDXicBpDTR9MyCAcQ4VsRkLhS6BeNF-7AU3&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=103192`,
+      place_id: "ChIJabidq30L1kgRK7EgYiuod-0",
+      rating: 4.7,
+      user_ratings_total: 19
 
     });
     activities.push(act36);
