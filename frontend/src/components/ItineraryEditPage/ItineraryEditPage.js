@@ -29,7 +29,7 @@ const ItineraryEditPage = () => {
     const {itObj} = useSelector(state => state.itineraries)
     const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     
     const {searchObj} = useSelector(state => state)
     

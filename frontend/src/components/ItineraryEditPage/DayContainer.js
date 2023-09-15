@@ -26,17 +26,10 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0, hence the +1
         const year = date.getFullYear();
-
-
-
         return `${month}/${day}/${year}`;
     }
 
     const currentDate = date();
-
-
-
-
 
 
     return (
@@ -51,7 +44,7 @@ export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersP
                           onMouseLeave={() => setHovered(false)}
                     >
                     <div className='day-detail-container'>
-                        <h3>Day {index + 1}:  {currentDate} </h3>         
+                        <h3>Day {index + 1}:  { currentDate ? currentDate : ''} </h3>         
                         <h5>{itObj.days[index]?.activities.length} places</h5>
                     </div>
 
