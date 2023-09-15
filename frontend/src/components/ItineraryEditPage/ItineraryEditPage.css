@@ -156,6 +156,12 @@
 
 #itinerary-header a {
     margin-top: auto;
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+
+#itinerary-header a:hover {
+    text-decoration: underline;
 }
 
 /* Itinerary List Styling */
@@ -206,21 +212,6 @@
     height: 100vh ;
     min-width: 400px;
     flex: 1;
-}
-
-.activity-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.comment-holder {
-    position: relative;
-}
-
-.remove-comment-button {
-    position: absolute;
-    right: 5%;
-    top: calc(50% - 14px);
 }
 
 .title-date-container h1{
