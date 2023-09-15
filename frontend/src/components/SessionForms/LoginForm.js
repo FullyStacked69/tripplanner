@@ -4,7 +4,7 @@ import './SessionForm.css';
 
 import { login, clearSessionErrors } from '../../store/session';
 
-function LoginForm () {
+function LoginForm ({closeLogin, openSignup}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(state => state.errors.session);
@@ -56,6 +56,17 @@ function LoginForm () {
         value="Log In"
         disabled={!email || !password}
       />
+      <p>
+          Don't have an account? 
+          <span 
+              onClick={() => {
+                  closeLogin(); 
+                  openSignup();
+              }}
+          >
+              Sign Up
+          </span>
+      </p>
     </form>
   );
 }
