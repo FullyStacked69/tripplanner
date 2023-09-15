@@ -30,6 +30,7 @@ const ItineraryEditPage = () => {
     const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [allDaysOpen, setAllDaysOpen] = useState(false);
     
     const {searchObj} = useSelector(state => state)
     
@@ -420,12 +421,12 @@ const ItineraryEditPage = () => {
                     <div id='itinerary-container'>
                         <div id='itinerary-header'>
                             <h2>Itinerary</h2>   
-                            <a>Collapse All</a>
+                            <a onClick={() => setAllDaysOpen(!allDaysOpen)}>{allDaysOpen ? 'Collapse All' : 'Expand All'}</a>
                         </div>
                         <div id='itineary-days-container'>
                             {itObj.days && itObj.days.map((day, index) => (
                                 <>
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay}/>
+                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay} allDaysOpen={allDaysOpen}/>
                                 {/* <button>Remove this Day </button> */}
                                 </>
                                 ))}

@@ -156,6 +156,8 @@
 
 #itinerary-header a {
     margin-top: auto;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* Itinerary List Styling */

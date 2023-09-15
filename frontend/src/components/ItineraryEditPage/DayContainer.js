@@ -5,25 +5,18 @@ import { ActivityContainer } from './ActivityContainer';
 import Search from '../Search/Search';
 import { RecommendedActivityTile } from './RecommendedActivityTile';
 
-export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay}) {
-    const [isOpen, setIsOpen] = useState(false);
+export function DayContainer({ itObj, setItObj, id, day, index, map, setMarkersPositions, markersPositions, setCenter, deleteDay, allDaysOpen}) {
+    const [isOpen, setIsOpen] = useState(allDaysOpen);
+
     const [hovered, setHovered] = useState();    
-    const sampleActivities = [
-        { image: "", name: "Test name 1" },
-        { image: "", name: "Test name 2"  },
-        { image: "", name: "Test name 3"  },
-        { image: "", name: "Test name 4"  },
-        { image: "", name: "Test name 5"  },
-    ]
     
     const [info, setInfo] = useState({});
     const [activities, setActivities] = useState([]);
-    // console.log('day',index)
 
 
-
-
-
+    useEffect(() => {
+        setIsOpen(allDaysOpen);
+    }, [allDaysOpen]);
 
     return (
         <div className='day-container' id={id}>
