@@ -62,10 +62,16 @@ function NavBar ({showLoginModal, setShowLoginModal, showSignupModal, setShowSig
 
           {/* Modals */}
           <Modal open={showLoginModal} onClose={() => setShowLoginModal(false)}>
-            <LoginForm />
+            <LoginForm 
+                closeLogin={() => setShowLoginModal(false)} 
+                openSignup={() => setShowSignupModal(true)}
+            />
           </Modal>
           <Modal open={showSignupModal} onClose={() => setShowSignupModal(false)}>
-            <SignupForm />
+            <SignupForm 
+                closeSignup={() => setShowSignupModal(false)} 
+                openLogin={() => setShowLoginModal(true)}
+            />
           </Modal>
         </>
       );
