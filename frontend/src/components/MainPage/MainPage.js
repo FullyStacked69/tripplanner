@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ItineraryList from '../ItineraryList/ItineraryList';
 import './MainPage.css'
-import Markers from '../Maps/Markers';
 import { easepick } from '@easepick/bundle';
 import { RangePlugin } from '@easepick/range-plugin';
 import { LockPlugin } from '@easepick/lock-plugin';

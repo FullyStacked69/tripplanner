@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import Search from '../Search/Search';
 // import { useState } from 'react';
-export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
+export function ActivityContainer({dayIdx, itObj, setItObj,infoIsOpen, setInfoIsOpen,info, setInfo, setMarkersPositions, markersPositions, activities, setActivities}) {
 
     // console.log('info', info)
 
@@ -32,7 +32,7 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
     
     useEffect(() => {
         addActivityInfo();
-        console.log("add activity info")
+        // console.log("add activity info")
     }, [info]);
     
     const clear = (idx, e) => {
