@@ -105,7 +105,7 @@ const ItineraryEditPage = () => {
     },[itineraryId])
 
     useEffect(()=>{
-        if(itineraryId === 'new' && itObj.location && !itObj.title){
+        if(itineraryId === 'new' && itObj?.location && !itObj?.title){
             setItObj({...itObj, title: `Trip to ${itObj.locationName}`})
         }
         dispatch(setSearchObjRedux({}))

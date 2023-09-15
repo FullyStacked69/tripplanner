@@ -20,24 +20,50 @@ const Search = ({index, itObj, setItObj, map, setMarkersPositions, markersPositi
 
 
     
-
+    let currentMarker = null;
+    let currentInfoWindow = null;
     const onOriginPlaceChanged = () => {
         const place = originAutocompleteRef.current.getPlace();
+    
         if (place.geometry && place.geometry.location) {
-            // debugger
             map.panTo(place.geometry.location);
             map.setZoom(10);
-            // const newPosition = { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() };
+    
+            // Remove the current marker and info window if they exist
+            if (currentMarker) {
+                currentMarker.setMap(null);
+                currentInfoWindow.close();
+            }
+    
+            currentMarker = new window.google.maps.Marker({
+                position: { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() },
+                map: map,
+                icon: {
+                    path: window.google.maps.SymbolPath.CIRCLE,
+                    scale: 10,
+                    fillColor: "#FF0000",
+                    fillOpacity: 1.0,
+                    strokeColor: "#000000",
+                    strokeWeight: 2
+                }
+            });
+    
+            currentInfoWindow = new window.google.maps.InfoWindow({
+                content: "Information about the place"
+            });
+            
+            currentMarker.addListener('click', function() {
+                currentInfoWindow.open(map, currentMarker);
+            });
+    
             setMarkersPositions([...markersPositions, place]);
-            // console.log('MarkerPos', markersPositions)
             setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
             setInfo(place);
             setInputValue("");
-            // setActivities(place)
-
         }
     };
-
+    
+    
     // const onDestinationPlaceChanged = () => {
     //     const place = destinationAutocompleteRef.current.getPlace();
     //     if (place.geometry && place.geometry.location) {
