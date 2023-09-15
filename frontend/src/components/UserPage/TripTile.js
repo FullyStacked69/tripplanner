@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import missingImg from '../ItineraryEditPage/assets/placeholder-image.jpeg';
 
 export default function TripTile({trip}) {
 
@@ -12,6 +13,8 @@ export default function TripTile({trip}) {
     const formattedStartDate = formatDate(start);
     const formattedEndDate = formatDate(end);
 
+    const sampleImageUrl = trip.days && trip.days[0] && trip.days[0].activities && trip.days[0].activities[0] && trip.days[0].activities[0].imageUrl;
+
     function formatDate(dateObj) {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
@@ -21,7 +24,7 @@ export default function TripTile({trip}) {
         <Link to={`/itineraries/${_id}/plan`}>
             <div className='trip-container'>
                 <div className='trip-img-container'>
-                    <img></img>
+                <img src={sampleImageUrl || missingImg} alt="Trip Activity" />
                 </div>
                 <div className='trip-details'>
                     <h4>{trip.title}</h4>
