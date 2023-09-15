@@ -337,6 +337,28 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
         lastDate.setDate(itObj?.days?.length + dateObj.getDate() - 1)
     }
 
+    const passed = () => {
+        if(lastDate && (new Date() > lastDate)){
+            return true
+        }
+    }
+
+    const owned = () => {
+        if(itineraryId === 'new'){
+            return true
+        } else {
+            if(user?._id === itObj?.author?._id){
+                return true
+            } else if (!itObj?.author) {
+                return true
+            }
+        }
+    }
+
+    if(itineraryId !== 'new' && !owned()){
+        return <Redirect to={`/`}/>
+    }
+
     return (
              
         <div className='page-content-container'>
@@ -367,15 +389,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                         <div id='itinerary-tld-bttm'>
                             {lastDate && <div>{formateDate(dateObj)} - {formateDate(lastDate)} </div>}
                             {!lastDate && <div>{formateDate(new Date (searchObj.startDate))} - {formateDate(new Date (searchObj.endDate))} </div>}
-                            {/* <button>Share</button> */}
-                            <div></div>
-
-                            {/* <div id='members-container'>
-                                <div id='member-icon'>E</div>
-                                <div>
-                                    {<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16"> <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/> </svg> }
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                     <div id='popular-activities-section'>
@@ -409,18 +422,12 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                             <a onClick={() => setAllDaysOpen(!allDaysOpen)}>{allDaysOpen ? 'Collapse All' : 'Expand All'}</a>
                         </div>
                         <div id='itineary-days-container'>
-                            {itObj.days && itObj.days.map((day, index) => (
-                                <>
-                                <DayContainer itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay} allDaysOpen={allDaysOpen}/>
-                                {/* <button>Remove this Day </button> */}
-                                </>
-                                ))}
-                            
+                            {itObj.days && itObj.days.map((day, index) => <DayContainer owned={owned} passed={passed} itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay} allDaysOpen={allDaysOpen}/>)}    
                         </div>
                         <div>
                             <button onClick={handleSave}>Save</button>
                             {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
-                            <button onClick={() => addDay()}> Add a Day</button>
+                            {!passed() && <button onClick={() => addDay()}> Add a Day</button>}
                         </div>
                     </div>
                 </div>
@@ -432,7 +439,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
             center={center}
             mapContainerClassName="map-container"
             >
-                {/* {markersPositions.map((place, idx) => <MarkerInfoWindow key={idx} place={place} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />)} */}
 
                 {places?.length > 0 && places?.map(place => (
                     <MarkerInfoWindow  place={place} position={{ lat: place?.lat, lng: place?.lng }} />
