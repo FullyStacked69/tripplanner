@@ -130,7 +130,6 @@ const ItineraryEditPage = () => {
                         days = days.map((day, idx)=>{
                             return itObj.days[idx]
                         })
-                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id: undefined})
                     } 
                 } else {
@@ -140,7 +139,6 @@ const ItineraryEditPage = () => {
                             date,
                             activities: [],
                         }));
-                        console.log(searchObj)
                         setItObj({...itObj, ...searchObj, locationName: searchObj.location, days: days, _id:undefined})
                     } 
                 }
@@ -155,7 +153,7 @@ const ItineraryEditPage = () => {
         if(itObj.lat){
             dispatch(setSearchObjRedux({}))
         }
-    }, [itObj])
+    }, [itObj?.location])
 
     useEffect(() => {
         if (itObj?.lat && itObj?.lng) {
@@ -177,14 +175,10 @@ const ItineraryEditPage = () => {
 
         // Remove the day using splice method
         updatedItObj.days.splice(idx, 1);
-
-        // console.log(idx)
-        // console.log('deleteday',updatedItObj)
     
         // Update the itinerary object
         setItObj(updatedItObj);
     }
-
 
     const addDay = () => {
         const newDay = {
@@ -220,11 +214,6 @@ const ItineraryEditPage = () => {
         })));
     }, []).filter(Boolean);
 
-    // console.log(places)
-
-    
-
-        
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
         libraries: ['places'],
@@ -269,8 +258,6 @@ const ItineraryEditPage = () => {
                 lat: latSum / places?.length,
                 lng: lngSum / places?.length
             });
-            console.log("markcer center")
-
         }
     }, [map, itObj]);
 
@@ -304,10 +291,8 @@ const ItineraryEditPage = () => {
                     length: itObj?.days.length,
                     user 
                 }
-                // console.log(newItiniterary)
                 const res = await dispatch(createItinerary(newItiniterary));
                 setItObj(res)
-                console.log("Itinerary has been saved")
 
             } catch (error) {
                 console.error("Error saving itinerary:", error);
@@ -315,7 +300,6 @@ const ItineraryEditPage = () => {
         } else {
             try {
                 await dispatch(updateItinerary(itObj));
-                console.log("Itinerary has been updated")
             } catch (error) {
                 console.error("Error saving itinerary:", error);
             }
@@ -334,8 +318,6 @@ const ItineraryEditPage = () => {
     if(!itObj) return null
     if(itineraryId === 'new' && !itObj.locationName) return <Redirect to="/"/>
 
-    console.log(itObj)
-
     if(deleted) return <Redirect to='/'/>
     if(itineraryId === 'new' && itObj._id) return <Redirect to ={`/itineraries/${itObj._id}/plan`}/>
 
@@ -348,7 +330,6 @@ const ItineraryEditPage = () => {
         dateObj = new Date(itObj.startDate)
         lastDate = new Date( dateObj )
         lastDate.setDate(itObj?.days?.length + dateObj.getDate() - 1)
-        console.log('lastday',lastDate)
     }
 
     return (
