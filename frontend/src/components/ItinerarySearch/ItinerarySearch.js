@@ -83,6 +83,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     setSearchErrors(prev => ({...prev, location: ''})); // Reset the location error
                 }} 
                 className='loco-opt'
+                key={`${loco.name}-${loco.country || loco.code}`}
             >
                 <h3>{loco.name}, {loco.country || loco.code}</h3>
                 {(loco.country && <h3>City</h3>) || <h3>Country</h3>}
