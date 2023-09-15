@@ -214,11 +214,6 @@
     flex: 1;
 }
 
-.activity-container {
-    display: flex;
-    flex-direction: column;
-}
-
 .comment-holder {
     position: relative;
 }

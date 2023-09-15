@@ -61,9 +61,9 @@ export function ActivityContainer({dayIdx, itObj, setItObj, info, setInfo, setMa
     }
     
     return (
-        <div className='activity-container'>
+        <div className='activities-container'>
             {(itObj.days[dayIdx]?.activities || []).map((activity, idx) => (
-                <div key={idx}>
+                <div key={idx} className='activity-container'>
                     <h4>{idx+1}</h4>
                     { activity?.name && <img src={activity?.imageUrl} style={{ width: '200px', height: '125px' }} />}
                     <div className='activity-description'>{activity?.name ?  "" : "Activity Info"}</div>

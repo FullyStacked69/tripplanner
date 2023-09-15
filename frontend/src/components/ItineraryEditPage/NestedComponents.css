@@ -84,6 +84,11 @@
     background: #F1FAEE;
 }
 
+.activities-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .activity-container {
     display: flex;
 }
