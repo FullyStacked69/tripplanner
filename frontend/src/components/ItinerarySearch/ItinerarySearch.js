@@ -150,7 +150,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
         dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
             .then(itinerary => {
-                console.log(itinerary)
                 // Update the fetched itinerary with additional keys
                 const updatedItinerary = {
                     ...itinerary,

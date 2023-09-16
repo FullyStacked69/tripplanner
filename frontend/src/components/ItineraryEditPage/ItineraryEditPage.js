@@ -300,7 +300,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
             setMessage(prev => ({...prev, title: 'title cannot be blank'}))
             return;
         }
-        console.log(message.title)
         if(!itObj?.days.length) {
             setMessage(prev => ({...prev, days: 'itinerary need at least 1 day'}))
             return;
@@ -324,8 +323,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                     setItObj(res)
 
                     setMessage({...message, update: 'Itinerary has been saved'})
-                    // console.log('check',message)
-    
                 } catch (error) {
                     console.error("Error saving itinerary:", error);
                     setMessage({...message, update: `Error saving itinerary: ${error.message}`})
@@ -346,9 +343,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
 
         }
     }
-
-    console.log('message',message)
-
 
     const handleDelete = async (e) => {
         e.preventDefault()
