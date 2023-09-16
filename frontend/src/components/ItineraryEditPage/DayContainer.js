@@ -44,7 +44,7 @@ export function DayContainer({passed, owned, itObj, setItObj, id, day, index, ma
                     >
                     <div className='day-detail-container'>
                         <h3>Day {index + 1}:  { currentDate ? currentDate : ''} </h3>         
-                        <h5>{itObj.days[index]?.activities.length === 0 ? "" : itObj.days[index]?.activities.length + " Place(s)"}</h5>
+                        <h5>{(itObj.days[index]?.activities.length === 0 || itObj.days[index]?.activities.length === undefined)  ? "" : itObj?.days[index]?.activities?.length + " Place(s)"}</h5>
                     </div>
 
                     <span className='arrow-icon'>{isOpen ? '\u25b2' : '\u25bc'}</span>
