@@ -3,13 +3,16 @@ import { useDispatch, useSelector } from "react-redux"
 import { setSearchObjRedux } from "../../store/searchObj"
 import { LockPlugin, RangePlugin, easepick } from "@easepick/bundle"
 import './ItinerarySearch'
-import { setItObj } from "../../store/itineraries"
+import { fetchItineraryByTitle, setItObj, updateItinerary } from "../../store/itineraries"
+import { login } from '../../store/session';
+import { useHistory } from 'react-router-dom';
+
 
 export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
-    
+    const history = useHistory();
     const searchObjRedux = useSelector(state => state.searchObj)
-    const {itObj} = useSelector(state => state)
+    const itObj = useSelector(state => state.itineraries.itObj);
     const {searching} = searchObjRedux
 
 
@@ -142,6 +145,37 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
             dispatch(setSearchObjRedux(searchObj))
         }
     }, [searchObj])
+
+    const handleDemo = () => {
+        dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
+        dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
+            .then(itinerary => {
+                console.log(itinerary)
+                // Update the fetched itinerary with additional keys
+                const updatedItinerary = {
+                    ...itinerary,
+                    location: 'New York City',
+                    lat: '40.712776',
+                    lng: '-74.005974',
+                    searching: false,
+                    startDate: new Date('2024-02-26T00:00:00.000Z'),
+                    endDate: new Date('2024-02-29T00:00:00.000Z')
+                    // Add other properties as needed
+                };
+                // updatedItinerary.startDate = new Date('2024-02-26T00:00:00.000Z');
+                // updatedItinerary.endDate = new Date('2024-02-29T00:00:00.000Z');
+
+                // Dispatch the setItObj action to set the updated itinerary in the itineraries slice of the state
+                dispatch(setItObj(updatedItinerary));
+                
+                // Redirect to '/itineraries/new/plan' after updating itObj
+                history.push('/itineraries/new/plan');
+            })
+            .catch(err => {
+                console.error('Error fetching itinerary', err);
+            });
+
+    }
     
     return(
         <div id="splash-search">
@@ -178,6 +212,10 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     {searchErrors.year && <div>{searchErrors.year}</div>}
                 </div>}
             <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
+
+            {isMainPage && 
+                < button onClick={() => handleDemo()} className="demo-button">Demo User</button>
+            }
         </div>
     )
 }

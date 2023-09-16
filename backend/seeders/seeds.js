@@ -33,7 +33,7 @@ const insertSeeds = async () => {
     const users = [];
 
     const u1 = new User({
-      username: 'seed1',
+      username: 'Farivar',
       email: 'seed1@seed.com',
       hashedPassword: bcrypt.hashSync('password', 10)
     });
@@ -1054,7 +1054,7 @@ user_ratings_total: 96
       lng: -73.968285,
      formatted_address: "New York, NY",
       formatted_phone_number: "(212) 310-6600",
-      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zg1hOK6mUZszsKOsx-GR-EI8Z1IQ_nTQIII54mHFUOuvL9LpggXjRUOl3n6qBWxWZHNzNqlLiACRJqfPKhMgwRF_CfNOK4FhKbiSFXsZUAZuGwE9Tyn01t9U6IwUEYpH5sYpDwX6uRryJueifv3HCt65CbJTvl74GrEZW3b5iT0Q1Fh&3u4032&5m1&2e1&callback=none&key=AIzaSyDCs-6zIIKmkGBfRzARM0qgDq2UM8W7TcQ&token=126324`,
+      imageUrl: `"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83ziQ7VrR2h9WgjMSDL_ZM3uLYkq2jYQGVdtSWZzXcWFeFNgYvXRdGXigp3b17maOVuxKJOm2LbPcM-yycO31c9YDAdnZtjohlmeZjb28dPzmGQBJpi_UjnuAY7mmkSdzyy__iajLHx7phQsmnFZD6Z-SZacY8yoQu6aI26JHDOpn4jd8&3u4032&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=44013"`,
       place_id:  "ChIJ4zGFAZpYwokRGUGph3Mf37k",
       rating: "4.8",
       user_ratings_total: 259680
@@ -2036,6 +2036,119 @@ user_ratings_total: 96
     });
     activities.push(act134);
 
+    // Activity 135
+    const act135 = new Activity({
+      name: 'The Battery',
+      lat: 40.70293119999999,
+      lng: -74.0153603,
+      formatted_address: 'Battery Park City, New York, NY 10004',
+      formatted_phone_number: '(212) 344-3491',
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgCtEGaq9JZ6R2C-prFRp1Yh7FLaoZ4hRI5BH5SJNjF55G2YGymFVa4eGw13aogyvwEnCdzlS2eMkb8pp50U59l3vxVJ-SJdEt9-io-GsZ-uq2NdyQHyxqOLEipLU7ZRO4pgVBpiIIhQH0M2ZysK7bg2xoU7pkjs-mOMqtmO89ZpMhJ&3u4080&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=10396`,
+      place_id: 'ChIJraKL-BJawokREpxDmF5GcL4',
+      rating: 4.6,
+      user_ratings_total: 66758,
+    });
+    activities.push(act135);
+
+    // Activity 136
+    const act136 = new Activity({
+      name: '9/11 Memorial & Museum',
+      lat: 40.7115776,
+      lng: -74.0133362,
+      formatted_address: '180 Greenwich St, New York, NY 10007',
+      formatted_phone_number: '(212) 312-8800',
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zjVQ-qRJOBqHodIqkIRwJCcrgHNYfj5YRJe6qaLslJ_KZ22jTfrVv83pvPuF6zWMf1CCg0X3k_xaZ_jfc5JgrTn5z0HkVlacijKSvlSmGDb4IagIHaLkMrI-Jf4Jkxtp8CxFi32NDwaLval8qvutMvNyr-BS0ms4Np7GhLUinc30ePt&3u4000&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=9282`,
+      place_id: 'ChIJRcvoOxpawokR7R4dQMXMMPQ',
+      rating: 4.8,
+      user_ratings_total: 64445,
+    });
+    activities.push(act136);
+
+    // Activity 137
+    const act137 = new Activity({
+      name: 'Majestic Theatre',
+      lat: 40.7583598,
+      lng: -73.98807910000001,
+      formatted_address: '245 W 44th St, New York, NY 10036',
+      formatted_phone_number: '(212) 239-6200',
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zgKaQBiUfqE4E10wjrKlwaCyofGHE_Xo4T6yKas3i4X7lUIL2X0ikTs-3Rzra-8EftV30vpe7gtencJ5Vz2zcDZLfnnOQuwnK-JNG-UDdtrdWFHoqhSNSeYcpn-OYgGDdELsWF7YjYY5iCkuRp7YLAnZEks7fUcuIn_dzPNqn_uiHyw&3u1143&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=42718`,
+      place_id: 'ChIJhWqFh1RYwokR-DHQDzkMAag',
+      rating: 4.7,
+      user_ratings_total: 8188,
+    });
+    activities.push(act137);
+
+    // Activity 138
+    const act138 = new Activity({
+      name: 'Herald Square',
+      lat: 40.750247,
+      lng: -73.98770999999999,
+      formatted_address: 'Herald Square, New York, NY',
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zipwsMzOM8RtNoPa-eMBdW2k4xnpcG2eiFGPTqLFrui0JfNRKoUJicNeZ2YJApqbVnf4eBFXwFkvMVqCNx9v1LkcPiMMh6AmO_ZLTcfSo8HxL4vEg8qu0GLFa9jrQNQiLBo3EDyn1B6fk_vUnhquvy4yLQ1euOac6SYf8O3JM1_sLNk&3u3120&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=122256`,
+      place_id: 'ChIJqb7aXKlZwokRehdb0_eNb2s',
+      rating: undefined,
+      user_ratings_total: undefined,
+    });
+    activities.push(act138);
+
+    // Activity 139
+    const act139 = new Activity({
+      name: 'Grand Central Terminal',
+      lat: 40.752714,
+      lng: -73.97722689999999,
+      formatted_address: '89 E 42nd St, New York, NY 10017',
+      formatted_phone_number: '(212) 340-2583',
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zida0nMDOGXlG0n5i6D76hiHSKQkxgTYorqONTD-4pb_E3Pmenj2u6BL4EQ7m6sGFBpJV0e-VXMzaEGQOvOY458rqXUZxmmgXhMa-5YsIoVzgYZ4mDL4ZoXEvglm_rTb2D6tRzlsD05i9-UVTp1iI1vTB-5MlmSSM7WpzkczWPWosCZ&3u1280&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=87014`,
+      place_id: 'ChIJ-b2RmVlZwokRpb1pwEQjss0',
+      rating: 4.8,
+      user_ratings_total: 7272,
+    });
+    activities.push(act139);
+
+    // Activity 140
+    const act140 = new Activity({
+      name: 'New York Public Library - Stephen A. Schwarzman Building',
+      lat: 40.7531825,
+      lng: -73.9822533,
+      formatted_address: '476 5th Ave, New York, NY 10018',
+      formatted_phone_number: '(917) 275-6975',
+      imageUrl: `"https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zi8_1C-E25IcYK8bfKCAcNEJDFVxAft5f9gTPpTesU4d__9sSXJzVuHP0PiAPeFR9tFXBb1vevoTR4EDVZ1wIrKAWNk3kvYXoSALzqLgpohUZqkvSdgdgcybwwhrFLJPeGFtNzqnvRxdkPPSkm3LqC6SaPIFHkpo_9uPKQCNlKas_qU&3u2048&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=37556"`,
+      place_id: 'ChIJo5s6WYpYwokRiK7GRv6QBMc',
+      rating: 4.7,
+      user_ratings_total: 18515,
+    });
+    activities.push(act140);
+
+    // Activity 141
+    const act141 = new Activity({
+      name: 'Brooklyn Bridge Park',
+      lat: 40.7022422,
+      lng: -73.9958601,
+      formatted_address: 'Brooklyn, NY 11201',
+      formatted_phone_number: undefined,
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zhi1Nk4TuAhTnkSS2ha5KEWx-nlqLST2naOw7qguJEzZnFnjvvhMssc7OeNbdd6OIC3mUD-SPYJV8NZl4PNj2MAqSI295_6kTEoHxYjc38ZJbbjgIXgmD6UwdiW6S7iQWDJskUjvsucd9ZD7BgU88v1jaawP--3-vlCI2t_DAC30D59&3u4901&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=47953`,
+      place_id: 'ChIJjaFpo0ZawokRBcOFUZ13CaE',
+      rating: 4.8,
+      user_ratings_total: 37762,
+    });
+    activities.push(act141);
+
+    // Activity 142
+    const act142 = new Activity({
+      name: 'Brooklyn Museum',
+      lat: 40.6712062,
+      lng: -73.9636306,
+      formatted_address: '200 Eastern Pkwy, Brooklyn, NY 11238',
+      formatted_phone_number: '(718) 638-5000',
+      imageUrl: `https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATJ83zggOT852sLYvQZBRqTYqcttHf5iRFq6t0d9ILzLsXYWZwvp00luoyuZEtuNqtLT-HJAGxp_9_ztWdfePTsabM8mQBH2CTra8FX9ju2a3f1KFRiAWoTNHbl01lLPCE5iAJJ5pI-Btwd_xXq_k9DwKwzaXa3tSKV8iGpFlNABmPMn7tLd&3u1300&5m1&2e1&callback=none&key=${GOOGLE_MAPS_API_KEY}&token=122413`,
+      place_id: 'ChIJyTmcRApbwokR-oXJRqpVI8Y',
+      rating: 4.7,
+      user_ratings_total: 9217,
+    });
+    activities.push(act142);
+
+
     const createdActivities = await Activity.insertMany(activities);
 
     const days = [];
@@ -2280,7 +2393,7 @@ user_ratings_total: 96
     days.push(d30);
 
     // Day 31
-    const day31Activities = [act65.id, act66.id];
+    const day31Activities = [act65.id, act135.id, act136.id, act72.id];
     const d31 = new Day({
       accommodation: 'Your New York Hotel 1',
       activities: day31Activities
@@ -2288,7 +2401,7 @@ user_ratings_total: 96
     days.push(d31);
 
     // Day 32
-    const day32Activities = [act67.id, act68.id];
+    const day32Activities = [act69.id, act66.id, act71.id, act137.id];
     const d32 = new Day({
       accommodation: 'Your New York Hotel 1',
       activities: day32Activities
@@ -2296,7 +2409,7 @@ user_ratings_total: 96
     days.push(d32);
 
     // Day 33
-    const day33Activities = [act69.id, act70.id];
+    const day33Activities = [act67.id, act68.id, act139.id, act140.id];
     const d33 = new Day({
       accommodation: 'Your New York Hotel 2',
       activities: day33Activities
@@ -2304,7 +2417,7 @@ user_ratings_total: 96
     days.push(d33);
 
     // Day 34
-    const day34Activities = [act71.id, act72.id];
+    const day34Activities = [act70.id, act141.id, act142.id, act73.id];
     const d34 = new Day({
       accommodation: 'Your New York Hotel 2',
       activities: day34Activities
@@ -2312,12 +2425,12 @@ user_ratings_total: 96
     days.push(d34);
 
     // Day 35
-    const day35Activities = [act73.id, act74.id];
-    const d35 = new Day({
-      accommodation: 'Your New York Hotel 3',
-      activities: day35Activities
-    });
-    days.push(d35);
+    // const day35Activities = [act73.id, act74.id];
+    // const d35 = new Day({
+    //   accommodation: 'Your New York Hotel 3',
+    //   activities: day35Activities
+    // });
+    // days.push(d35);
 
     // Day 36
     const day36Activities = [act75.id, act76.id, act77.id];
@@ -2599,7 +2712,7 @@ user_ratings_total: 96
     itineraries.push(itinerary6);
 
     // Itinerary 7: Exploring New York (4 days)
-    const itineraryNewYorkDays = [d31.id, d32.id, d33.id, d34.id, d35.id];
+    const itineraryNewYorkDays = [d31.id, d32.id, d33.id, d34.id];
     const itinerary7 = new Itinerary({
       title: '4 days in the Big Apple',
       locationName: 'New York City',
@@ -2612,7 +2725,7 @@ user_ratings_total: 96
       fakeViews: false,
       author: u1.id,
       days: itineraryNewYorkDays,
-      startDate: new Date('2022-05-01'),
+      startDate: new Date('2024-05-01'),
     });
     itineraries.push(itinerary7);
 
