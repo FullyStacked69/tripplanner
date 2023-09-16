@@ -384,7 +384,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
         if(itineraryId === 'new'){
             return true
         } else {
-            if(user?._id === itObj?.author?._id){
+            if(user?._id === itObj?.author?._id || user?._id === itObj?.author){
                 return true
             } else if (!itObj?.author) {
                 return true
