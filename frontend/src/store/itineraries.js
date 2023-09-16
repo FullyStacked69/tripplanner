@@ -45,6 +45,19 @@ export const fetchItinerary = itineraryId => async dispatch => {
     }
 }
 
+export const fetchItineraryByTitle = title => async dispatch => {
+    try {
+        const encodedTitle = encodeURIComponent(title); // Encode the title
+        const res = await fetch(`/api/itineraries/title/${encodedTitle}`);
+        const itinerary = await res.json();
+        await dispatch(receiveItinerary(itinerary));
+        return itinerary;
+    } catch (err) {
+        console.error('Error fetching NY itinerary', err);
+    }
+};
+
+
 export const createItinerary = data => async dispatch => {
     try{
         const res = await jwtFetch(`/api/itineraries/`, {
