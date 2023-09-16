@@ -322,7 +322,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                     }
                     const res = await dispatch(createItinerary(newItiniterary));
                     setItObj(res)
-
                     setMessage({...message, update: 'Itinerary has been saved'})
                     // console.log('check',message)
     
@@ -347,7 +346,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
         }
     }
 
-    console.log('message',message)
+    // console.log('message',message)
 
 
     const handleDelete = async (e) => {
