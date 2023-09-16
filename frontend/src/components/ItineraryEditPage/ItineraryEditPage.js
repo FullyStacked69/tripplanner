@@ -29,19 +29,24 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
     const {itObj} = useSelector(state => state.itineraries)
     const { user } = useSelector(state => state.session)
     const [days, setDays] = useState([])
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     const [allDaysOpen, setAllDaysOpen] = useState(false);
     
     const {searchObj} = useSelector(state => state)
     
     const {itineraryId} = useParams()
-
+    
     const [googleActivities, setGoogleActivities] = useState([]);
-
+    
     const [deleted, setDeleted] = useState(false);
     const [infoWin, setInfoWin] = useState(false);
-
+    
     const [category, setCategory] = useState("tourist_attraction");
+    const [message, setMessage] = useState({
+        title:"", 
+        days: "",
+        update: "",
+    });
 
     // pagination code
     const getItemsPerPage = () => {
@@ -289,9 +294,24 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
         }
         return datesArray
     }
+
+    const errors = () => {
+        if(!itObj?.title) {
+            setMessage(prev => ({...prev, title: 'title cannot be blank'}))
+            return;
+        }
+        console.log(message.title)
+        if(!itObj?.days.length) {
+            setMessage(prev => ({...prev, days: 'itinerary need at least 1 day'}))
+            return;
+        }
+
+    }
+
     
     const handleSave = async (e) => {
         e.preventDefault();
+        errors()
         if(user?._id){
             if (itineraryId === 'new') {
                 try {
@@ -302,28 +322,38 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                     }
                     const res = await dispatch(createItinerary(newItiniterary));
                     setItObj(res)
+
+                    setMessage({...message, update: 'Itinerary has been saved'})
+                    // console.log('check',message)
     
                 } catch (error) {
                     console.error("Error saving itinerary:", error);
+                    setMessage({...message, update: `Error saving itinerary: ${error.message}`})
                 }
             } else {
                 try {
                     await dispatch(updateItinerary(itObj));
                 } catch (error) {
                     console.error("Error saving itinerary:", error);
+                    setMessage({...message, update: `Error saving itinerary: ${error.message}`})
                 }
     
             }
         }else{
             setShowLoginModal(true);
+            setMessage({...message, update: 'Itinerary has been saved'})
+        
+
         }
     }
+
+    console.log('message',message)
 
 
     const handleDelete = async (e) => {
         e.preventDefault()
         const res = await dispatch(deleteItinerary(itineraryId))
-        if(res._id) setDeleted(true)
+        if(res?._id) setDeleted(true)
     }
     
     if (!isLoaded) {return (<div>Loading...</div>)}
@@ -381,7 +411,7 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                         </div>
                         {isDropdownOpen && (
                             <ul className="days-dropdown">
-                                {itObj.days.map((day, index) => (
+                                {itObj?.days?.map((day, index) => (
                                     <li key={index} onClick={() => handleDayClick(index)}>Day {index + 1}</li>
                                 ))}
                             </ul>
@@ -436,6 +466,9 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                             {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
                             {!passed() && <button onClick={() => addDay()}> Add a Day</button>}
                         </div>
+                        <div className='message' >{ message.title }</div>
+                        <div className='message' >{ message.days }</div>
+                        <div className='message' >{ message.update }</div>      
                     </div>
                 </div>
             </div>
