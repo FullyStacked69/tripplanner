@@ -311,4 +311,26 @@ router.patch('/:itineraryId/fakeviews', async (req, res, next) => {
   }
 });
 
+router.get('/title/:title', async (req, res, next) => {
+  try {
+    const title = req.params.title;
+
+    // Assuming the title is unique for each itinerary
+    const itinerary = await Itinerary.findOne({ title: title })
+      .populate({
+        path: 'days',
+        populate: { path: 'activities' }
+      })
+      .populate('author', '_id username');
+
+    if (!itinerary) {
+      return res.status(404).json({ error: 'Itinerary not found' });
+    }
+
+    return res.json(itinerary);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

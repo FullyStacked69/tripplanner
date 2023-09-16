@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
 
 
+
 function MainPage() {
 
     const dispatch = useDispatch()
