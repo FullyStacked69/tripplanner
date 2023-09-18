@@ -45,6 +45,12 @@ h1, h2, h3, h4, h5, h6, p, div {
 
 a {
     color: #1D3557;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #E63946;
 }
 
 button {
