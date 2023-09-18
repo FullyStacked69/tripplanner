@@ -156,13 +156,35 @@
 
 #itinerary-header a {
     margin-top: auto;
-    cursor: pointer;
-    text-decoration: underline;
-    /* text-decoration: underline; */
 }
 
-#itinerary-header a:hover {
-    color: #E63946;
+#add-day-bttn button{
+    background: white;
+    color: #457B9D;
+    border: 1px solid #457B9D;
+    margin: 0 auto 16px;
+}
+
+#add-day-bttn button:hover{
+    background: #A8DADC;
+    color: white;
+    border: 1px solid #A8DADC;
+    margin: 0 auto 16px;
+}
+
+#add-day-bttn {
+    display: flex;
+    justify-content: center;
+}
+
+#save-delete-bttns-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+#save-delete-bttns-container button{
+    margin: 8px;
 }
 
 /* Itinerary List Styling */

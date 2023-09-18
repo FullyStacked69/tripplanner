@@ -97,7 +97,6 @@
 
 .activity-container {
     display: flex;
-    margin-top: 16px;
 }
 
 .activity-container h4{
@@ -116,7 +115,7 @@
     /* border: 1px solid red; */
 }
 
-.activity-google-data button{
+.content-container button{
     margin-top: 8px;
     background: #A8DADC;
     color: #1D3557;

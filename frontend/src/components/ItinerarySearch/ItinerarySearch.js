@@ -213,10 +213,11 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
             <div id="main-page-bttn-container">
                 <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
 
-                <p>or</p>
-
                 {isMainPage && 
+                <>
+                    <p>or</p>
                     < a onClick={() => handleDemo()} className="demo-button">Log in with our demo user</a>
+                </>
                 }
             </div>
         </div>

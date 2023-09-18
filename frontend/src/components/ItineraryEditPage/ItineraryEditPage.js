@@ -455,10 +455,12 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                         <div id='itineary-days-container'>
                             {itObj.days && itObj.days.map((day, index) => <DayContainer owned={owned} passed={passed} itObj={itObj} setItObj={setItObj} id={`day-${index}`} key={index} day={day} index={index} map={map} setMarkersPositions={setMarkersPositions} markersPositions={markersPositions} setCenter={setCenter} setDays={setDays} deleteDay={deleteDay} allDaysOpen={allDaysOpen}/>)}    
                         </div>
-                        <div>
-                            <button onClick={handleSave}>Save</button>
-                            {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete</button>}
-                            {!passed() && <button onClick={() => addDay()}> Add a Day</button>}
+                        <div id='add-day-bttn'>
+                            {!passed() && <button onClick={() => addDay()}> Add day</button>}
+                        </div>
+                        <div id='save-delete-bttns-container'>
+                            <button onClick={handleSave}>Save trip</button>
+                            {itineraryId !== 'new' && <button onClick={e => handleDelete(e)}>Delete trip</button>}
                         </div>
                         <div className='message' >{ message.title }</div>
                         <div className='message' >{ message.days }</div>
