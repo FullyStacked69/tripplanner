@@ -157,11 +157,12 @@
 #itinerary-header a {
     margin-top: auto;
     cursor: pointer;
+    text-decoration: underline;
     /* text-decoration: underline; */
 }
 
 #itinerary-header a:hover {
-    text-decoration: underline;
+    color: #E63946;
 }
 
 /* Itinerary List Styling */

@@ -210,11 +210,15 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     {searchErrors.location && <div>{searchErrors.location}</div>}
                     {searchErrors.year && <div>{searchErrors.year}</div>}
                 </div>}
-            <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
+            <div id="main-page-bttn-container">
+                <button onClick={()=>handleSearch()} className="myButton small-button">{buttonText}</button>
 
-            {isMainPage && 
-                < button onClick={() => handleDemo()} className="demo-button">Demo User</button>
-            }
+                <p>or</p>
+
+                {isMainPage && 
+                    < a onClick={() => handleDemo()} className="demo-button">Log in with our demo user</a>
+                }
+            </div>
         </div>
     )
 }

@@ -76,9 +76,29 @@
 }
 
 #splash-search button {
-    margin: 48px;
+    margin: 32px auto 16px;
     padding: 8px 24px;
     font-size: 16px;
+}
+
+
+#main-page-bttn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-page-bttn-container a {
+    margin: 16px auto 32px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#main-page-bttn-container a:hover {
+    color: #E63946;
+}
+
+#main-page-bttn-container p {
+    font-size: 14px;
 }
 
 #loco-search-holder input {
