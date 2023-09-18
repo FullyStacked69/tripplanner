@@ -97,6 +97,7 @@
 
 .activity-container {
     display: flex;
+    margin-top: 16px;
 }
 
 .activity-container h4{
@@ -164,6 +165,7 @@
 
 .comment-holder textarea {
     margin-top: 16px;
+    margin-bottom: 8px;
     width: 100%;
     border: 1px solid #E7E7E7;
     resize: none;
