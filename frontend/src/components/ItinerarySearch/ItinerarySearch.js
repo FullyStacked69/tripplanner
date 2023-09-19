@@ -62,6 +62,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         if(e.target.value){
             const res = await fetch(`/api/locations?location=${e.target.value}`)
             let data = await res.json()
+            let locoObj = {}
             setFoundLocos(data.sort((loco1, loco2)=>{
                 if(loco1.pop && loco2.pop){
                     return loco2.pop - loco1.pop
@@ -71,6 +72,19 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     return 1
                 } else {
                     return 0
+                }
+            }).splice(0, 1000).filter(loco => {
+                if(Object.keys(locoObj).includes(loco.name)){
+                    let code = loco.country || loco.code
+                    if(locoObj[loco.name].includes(code)){
+                        return false
+                    }else{
+                        locoObj[loco.name].push(code)
+                        return true
+                    }
+                }else{
+                    locoObj[loco.name] = [loco.code] || [loco.country]
+                    return true
                 }
             }).splice(0, 10))
         } else {
