@@ -44,9 +44,7 @@ export default function ItineraryList({ searchObj }) {
     useEffect(() => {
         setSortedItineraries(Object.values(itineraries.all));
     }, [itineraries]);
-
-    console.log(sortedItineraries)
-
+    
     return(
         <div id='list-page-content-container'>
             <div className="itinerary-list-component">
