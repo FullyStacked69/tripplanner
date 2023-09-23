@@ -27,7 +27,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         country: '',
         startDate: propStartDate || '',
         endDate: propEndDate || '',
-        searching: false
     });    
 
     const [foundLocos, setFoundLocos] = useState([])

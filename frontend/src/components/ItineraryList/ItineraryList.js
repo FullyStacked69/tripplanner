@@ -8,7 +8,7 @@ import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
 
 
 export default function ItineraryList({ searchObj }) {
-    const { startDate, endDate, location } = searchObj;
+    const { startDate, endDate, location, searching } = searchObj;
     const dispatch = useDispatch();
 
     const itineraries = useSelector(state => state.itineraries);
@@ -36,12 +36,16 @@ export default function ItineraryList({ searchObj }) {
     };     
     
     useEffect(() => {
-        dispatch(fetchItineraries(location));
-    }, [dispatch, location]);
+        if(searching){
+            dispatch(fetchItineraries(location));
+        }
+    }, [dispatch, searching, location]);
 
     useEffect(() => {
         setSortedItineraries(Object.values(itineraries.all));
     }, [itineraries]);
+
+    console.log(sortedItineraries)
 
     return(
         <div id='list-page-content-container'>
@@ -49,7 +53,7 @@ export default function ItineraryList({ searchObj }) {
                 <ItinerarySearch location={location} startDate={startDate} endDate={endDate} isMainPage={false} />
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
-                    <h4> or <Link onMouseDown={()=>dispatch(setItObj({...itObj, lat: searchObj.lat, lng: searchObj.lng}))} to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>
+                    {location && <h4> or <Link onMouseDown={()=>dispatch(setItObj({...itObj, lat: searchObj.lat, lng: searchObj.lng}))} to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>}
                 </div>
                 {sortedItineraries.length > 0 ? (
                     <>
@@ -69,8 +73,11 @@ export default function ItineraryList({ searchObj }) {
                         </ul>
                     </>
                 ) : (
-                    <p>{`No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
+                    <p>{searchObj.searching && `No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
                 )}
+                {!location && <p>Please Enter a Location Above</p>}
+                {(!startDate || !endDate) && <p>Please Enter your Travel Dates Above</p>}
+                {(location && startDate && endDate && !searchObj.searching ) && <p>Press the Search button above to find itineraries!</p>}
             </div>
         </div>   
     )
