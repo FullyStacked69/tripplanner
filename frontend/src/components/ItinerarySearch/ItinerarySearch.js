@@ -11,35 +11,30 @@ import { useHistory } from 'react-router-dom';
 export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
     const history = useHistory();
+
     const searchObjRedux = useSelector(state => state.searchObj)
     const itObj = useSelector(state => state.itineraries.itObj);
+
     const {searching} = searchObjRedux
-
-
     const buttonText = isMainPage ? "Start Planning" : "Search";
-
-    useEffect(()=>{
-        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
-    },[])
-
+    
+    const [foundLocos, setFoundLocos] = useState([])
+    const [searchBarFocus, setSearchBarFocus] = useState(false)
+    
     const [searchObj, setSearchObj] = useState({
         location: propLocation || '',
         country: '',
         startDate: propStartDate || '',
         endDate: propEndDate || '',
-        searching: false
-    });    
+    });
 
-    const [foundLocos, setFoundLocos] = useState([])
-    const [searchBarFocus, setSearchBarFocus] = useState(false)
-    
     const [searchErrors, setSearchErrors] = useState({
         year: '',
         location: ''
     })
-    
-    function handleSearch(){
-        const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
+
+    const handleSearch = () => {
+        const locationExists = foundLocos.some(loco => loco.name.toLowerCase() === searchObj.location.toLowerCase());
     
         if(!locationExists){
             setSearchErrors(prev => ({...prev, location: 'Location not found'}));
@@ -47,6 +42,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         }
     
         if(searchObj.location){
+
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
             } else {
@@ -58,7 +54,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     }    
 
     const handleInputChange = async e => {
-        await setSearchObj(prev => ({...prev, location: e.target.value}))
+        setSearchObj(prev => ({...prev, location: e.target.value}))
         if(e.target.value){
             const res = await fetch(`/api/locations?location=${e.target.value}`)
             let data = await res.json()
@@ -87,8 +83,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     return true
                 }
             }).splice(0, 10))
-        } else {
-            setFoundLocos([])
         }
     }
 
@@ -121,6 +115,36 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         return `${day} ${month} ${year}`;
     }
     
+    const handleDemo = () => {
+        dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
+        dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
+            .then(itinerary => {
+                // Update the fetched itinerary with additional keys
+                const updatedItinerary = {
+                    ...itinerary,
+                    location: 'New York City',
+                    lat: '40.712776',
+                    lng: '-74.005974',
+                    searching: false,
+                    startDate: new Date('2024-02-26T00:00:00.000Z'),
+                    endDate: new Date('2024-02-29T00:00:00.000Z')
+                    // Add other properties as needed
+                };
+                // updatedItinerary.startDate = new Date('2024-02-26T00:00:00.000Z');
+                // updatedItinerary.endDate = new Date('2024-02-29T00:00:00.000Z');
+
+                // Dispatch the setItObj action to set the updated itinerary in the itineraries slice of the state
+                dispatch(setItObj(updatedItinerary));
+                
+                // Redirect to '/itineraries/new/plan' after updating itObj
+                history.push('/itineraries/new/plan');
+            })
+            .catch(err => {
+                console.error('Error fetching itinerary', err);
+            });
+
+    }
+
     useEffect(() => {
         const minDateToday = getCurrentISODate();
         const picker = new easepick.create({
@@ -155,40 +179,19 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     }, []);
 
     useEffect(()=> {
-        if(searchObj.lat){
+        if(searchObj?.searching){
             dispatch(setSearchObjRedux(searchObj))
+            setSearchObj(prev => ({...prev, searching: false}))
         }
-    }, [searchObj])
+    }, [searchObj?.searching])
 
-    const handleDemo = () => {
-        dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
-        dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
-            .then(itinerary => {
-                // Update the fetched itinerary with additional keys
-                const updatedItinerary = {
-                    ...itinerary,
-                    location: 'New York City',
-                    lat: '40.712776',
-                    lng: '-74.005974',
-                    searching: false,
-                    startDate: new Date('2024-02-26T00:00:00.000Z'),
-                    endDate: new Date('2024-02-29T00:00:00.000Z')
-                    // Add other properties as needed
-                };
-                // updatedItinerary.startDate = new Date('2024-02-26T00:00:00.000Z');
-                // updatedItinerary.endDate = new Date('2024-02-29T00:00:00.000Z');
-
-                // Dispatch the setItObj action to set the updated itinerary in the itineraries slice of the state
-                dispatch(setItObj(updatedItinerary));
-                
-                // Redirect to '/itineraries/new/plan' after updating itObj
-                history.push('/itineraries/new/plan');
-            })
-            .catch(err => {
-                console.error('Error fetching itinerary', err);
-            });
-
-    }
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
+    },[])
+    
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
+    },[searchObj?.location])
     
     return(
         <div id="splash-search">
