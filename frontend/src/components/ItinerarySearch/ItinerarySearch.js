@@ -34,7 +34,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     })
 
     const handleSearch = () => {
-        const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
+        const locationExists = foundLocos.some(loco => loco.name.toLowerCase() === searchObj.location.toLowerCase());
     
         if(!locationExists){
             setSearchErrors(prev => ({...prev, location: 'Location not found'}));
@@ -42,6 +42,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         }
     
         if(searchObj.location){
+
             if(searchObj.startDate && searchObj.endDate){
                 setSearchObj(prev => ({...prev, searching: true}))
             } else {
@@ -53,7 +54,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     }    
 
     const handleInputChange = async e => {
-        await setSearchObj(prev => ({...prev, location: e.target.value}))
+        setSearchObj(prev => ({...prev, location: e.target.value}))
         if(e.target.value){
             const res = await fetch(`/api/locations?location=${e.target.value}`)
             let data = await res.json()
@@ -178,10 +179,11 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     }, []);
 
     useEffect(()=> {
-        if(searchObj.lat){
+        if(searchObj?.searching){
             dispatch(setSearchObjRedux(searchObj))
+            setSearchObj(prev => ({...prev, searching: false}))
         }
-    }, [searchObj])
+    }, [searchObj?.searching])
 
     useEffect(()=>{
         dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
