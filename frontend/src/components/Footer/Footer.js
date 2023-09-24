@@ -21,6 +21,7 @@ function Footer () {
                     <div className='team-member-container'>
                         <h5>Luis Laffitte</h5>
                         {/* <a href="https://elliotkuok.com" target="_blank">Portfolio</a> */}
+                        <a href='https://luislaffitte.netlify.app/' target="_blank">Portfolio</a>
                         <a href="https://github.com/Wizzerrd" target="_blank">Github</a>
                         <a href="https://www.linkedin.com/in/luis-laffitte-276238286/" target="_blank">LinkedIn</a>
                     </div>

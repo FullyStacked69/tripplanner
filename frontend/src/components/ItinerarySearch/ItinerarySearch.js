@@ -15,7 +15,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     const itObj = useSelector(state => state.itineraries.itObj);
     const {searching} = searchObjRedux
 
-
     const buttonText = isMainPage ? "Start Planning" : "Search";
 
     useEffect(()=>{
@@ -27,7 +26,7 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         country: '',
         startDate: propStartDate || '',
         endDate: propEndDate || '',
-    });    
+    });
 
     const [foundLocos, setFoundLocos] = useState([])
     const [searchBarFocus, setSearchBarFocus] = useState(false)

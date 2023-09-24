@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { fetchItineraries, setItObj } from '../../store/itineraries';
 import ItineraryTile from './ItineraryTile';
 import ItinerarySearch from '../ItinerarySearch/ItinerarySearch';
+import { setSearchObjRedux } from '../../store/searchObj';
 
 
 export default function ItineraryList({ searchObj }) {
@@ -36,7 +37,7 @@ export default function ItineraryList({ searchObj }) {
     };     
     
     useEffect(() => {
-        if(searching){
+        if(searching && location){
             dispatch(fetchItineraries(location));
         }
     }, [dispatch, searching, location]);
@@ -44,14 +45,14 @@ export default function ItineraryList({ searchObj }) {
     useEffect(() => {
         setSortedItineraries(Object.values(itineraries.all));
     }, [itineraries]);
-    
+
     return(
         <div id='list-page-content-container'>
             <div className="itinerary-list-component">
                 <ItinerarySearch location={location} startDate={startDate} endDate={endDate} isMainPage={false} />
                 <div id='itinerary-list-headers'>
                     <h2>Browse itineraries from fellow travelers</h2>
-                    {location && <h4> or <Link onMouseDown={()=>dispatch(setItObj({...itObj, lat: searchObj.lat, lng: searchObj.lng}))} to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>}
+                    {searching && <h4> or <Link onMouseDown={()=>dispatch(setItObj({...itObj, lat: searchObj.lat, lng: searchObj.lng}))} to='/itineraries/new/plan'>create an itinerary from scratch here</Link></h4>}
                 </div>
                 {sortedItineraries.length > 0 ? (
                     <>
@@ -73,8 +74,8 @@ export default function ItineraryList({ searchObj }) {
                 ) : (
                     <p>{searchObj.searching && `No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
                 )}
-                {!location && <p>Please Enter a Location Above</p>}
-                {(!startDate || !endDate) && <p>Please Enter your Travel Dates Above</p>}
+                {(!searching && !location) && <p>Please Enter a Location Above</p>}
+                {(!startDate) && <p>Please Enter your Travel Dates Above</p>}
                 {(location && startDate && endDate && !searchObj.searching ) && <p>Press the Search button above to find itineraries!</p>}
             </div>
         </div>   
