@@ -82,8 +82,6 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
                     return true
                 }
             }).splice(0, 10))
-        } else {
-            setFoundLocos([])
         }
     }
 
@@ -116,6 +114,36 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         return `${day} ${month} ${year}`;
     }
     
+    const handleDemo = () => {
+        dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
+        dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
+            .then(itinerary => {
+                // Update the fetched itinerary with additional keys
+                const updatedItinerary = {
+                    ...itinerary,
+                    location: 'New York City',
+                    lat: '40.712776',
+                    lng: '-74.005974',
+                    searching: false,
+                    startDate: new Date('2024-02-26T00:00:00.000Z'),
+                    endDate: new Date('2024-02-29T00:00:00.000Z')
+                    // Add other properties as needed
+                };
+                // updatedItinerary.startDate = new Date('2024-02-26T00:00:00.000Z');
+                // updatedItinerary.endDate = new Date('2024-02-29T00:00:00.000Z');
+
+                // Dispatch the setItObj action to set the updated itinerary in the itineraries slice of the state
+                dispatch(setItObj(updatedItinerary));
+                
+                // Redirect to '/itineraries/new/plan' after updating itObj
+                history.push('/itineraries/new/plan');
+            })
+            .catch(err => {
+                console.error('Error fetching itinerary', err);
+            });
+
+    }
+
     useEffect(() => {
         const minDateToday = getCurrentISODate();
         const picker = new easepick.create({
@@ -158,36 +186,10 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
     useEffect(()=>{
         dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
     },[])
-
-    const handleDemo = () => {
-        dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
-        dispatch(fetchItineraryByTitle("4 days in the Big Apple"))
-            .then(itinerary => {
-                // Update the fetched itinerary with additional keys
-                const updatedItinerary = {
-                    ...itinerary,
-                    location: 'New York City',
-                    lat: '40.712776',
-                    lng: '-74.005974',
-                    searching: false,
-                    startDate: new Date('2024-02-26T00:00:00.000Z'),
-                    endDate: new Date('2024-02-29T00:00:00.000Z')
-                    // Add other properties as needed
-                };
-                // updatedItinerary.startDate = new Date('2024-02-26T00:00:00.000Z');
-                // updatedItinerary.endDate = new Date('2024-02-29T00:00:00.000Z');
-
-                // Dispatch the setItObj action to set the updated itinerary in the itineraries slice of the state
-                dispatch(setItObj(updatedItinerary));
-                
-                // Redirect to '/itineraries/new/plan' after updating itObj
-                history.push('/itineraries/new/plan');
-            })
-            .catch(err => {
-                console.error('Error fetching itinerary', err);
-            });
-
-    }
+    
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
+    },[searchObj?.location])
     
     return(
         <div id="splash-search">

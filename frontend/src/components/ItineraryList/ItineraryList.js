@@ -37,10 +37,10 @@ export default function ItineraryList({ searchObj }) {
     };     
     
     useEffect(() => {
-        if(searching && location){
+        if(searching){
             dispatch(fetchItineraries(location));
         }
-    }, [dispatch, searching, location]);
+    }, [dispatch, searching]);
 
     useEffect(() => {
         setSortedItineraries(Object.values(itineraries.all));
@@ -72,7 +72,7 @@ export default function ItineraryList({ searchObj }) {
                         </ul>
                     </>
                 ) : (
-                    <p>{searchObj.searching && `No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
+                    <p>{(searchObj.searching && location) && `No itineraries for ${location} found! You can be the first person to share an itinerary for it!`}</p>
                 )}
                 {(!searching && !location) && <p>Please Enter a Location Above</p>}
                 {(!startDate) && <p>Please Enter your Travel Dates Above</p>}
