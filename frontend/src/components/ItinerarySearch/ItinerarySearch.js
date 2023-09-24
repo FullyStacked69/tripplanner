@@ -11,16 +11,16 @@ import { useHistory } from 'react-router-dom';
 export default function ItinerarySearch({ location: propLocation, startDate: propStartDate, endDate: propEndDate, isMainPage }) {
     const dispatch = useDispatch()
     const history = useHistory();
+
     const searchObjRedux = useSelector(state => state.searchObj)
     const itObj = useSelector(state => state.itineraries.itObj);
+
     const {searching} = searchObjRedux
-
     const buttonText = isMainPage ? "Start Planning" : "Search";
-
-    useEffect(()=>{
-        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
-    },[])
-
+    
+    const [foundLocos, setFoundLocos] = useState([])
+    const [searchBarFocus, setSearchBarFocus] = useState(false)
+    
     const [searchObj, setSearchObj] = useState({
         location: propLocation || '',
         country: '',
@@ -28,15 +28,12 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
         endDate: propEndDate || '',
     });
 
-    const [foundLocos, setFoundLocos] = useState([])
-    const [searchBarFocus, setSearchBarFocus] = useState(false)
-    
     const [searchErrors, setSearchErrors] = useState({
         year: '',
         location: ''
     })
-    
-    function handleSearch(){
+
+    const handleSearch = () => {
         const locationExists = foundLocos.some(loco => loco.name === searchObj.location);
     
         if(!locationExists){
@@ -157,6 +154,10 @@ export default function ItinerarySearch({ location: propLocation, startDate: pro
             dispatch(setSearchObjRedux(searchObj))
         }
     }, [searchObj])
+
+    useEffect(()=>{
+        dispatch(setSearchObjRedux({...searchObjRedux, searching: false}))
+    },[])
 
     const handleDemo = () => {
         dispatch(login({ email: 'seed1@seed.com', password: 'password' }));
