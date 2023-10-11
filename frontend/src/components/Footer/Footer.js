@@ -8,7 +8,7 @@ function Footer () {
                 <div id='team-members'>
                     <div className='team-member-container'>
                         <h5>Shali Peng</h5>
-                        {/* <a href="https://elliotkuok.com" target="_blank">Portfolio</a> */}
+                        <a href="https://dingodang1113.github.io/" target="_blank">Portfolio</a>
                         <a href="https://github.com/DingoDang1113" target="_blank">Github</a>
                         <a href="https://www.linkedin.com/in/shalipeng/" target="_blank">LinkedIn</a>
                     </div>
