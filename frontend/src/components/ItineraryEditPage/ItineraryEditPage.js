@@ -321,7 +321,6 @@ const ItineraryEditPage = ({showLoginModal, setShowLoginModal}) => {
                     }
                     const res = await dispatch(createItinerary(newItiniterary));
                     setItObj(res)
-
                     setMessage({...message, update: 'Itinerary has been saved'})
                 } catch (error) {
                     console.error("Error saving itinerary:", error);
